@@ -1,18 +1,85 @@
 aid: plansource
 name: PlanSource
-description: 'PlanSource is a company surfaced via the API Evangelist harvest backlog (source: insurance-benefits-admin)
-  and added to the network as a stub for full-pipeline profiling.'
+description: PlanSource is a benefits administration and employee-benefits engagement platform used by employers,
+  brokers, carriers and HR/payroll partners to run enrollment, eligibility, billing and benefits communication.
+  Its public developer surface is the PlanSource Benefits Administration API (Admin API v2), a RESTful HTTPS API
+  of 80 operations across 62 paths covering employee (subscriber) demographics, dependents, beneficiaries, coverages
+  and stacked coverage lines, payroll deductions with lookup codes and pre-tax/post-tax/employer/imputed amounts,
+  Evidence of Insurability decisions and form completions, ACA offer and enrollee reporting data, administrator
+  accounts, and organization portal page content. It is designed to replace fixed-schedule EDI files with near real-time
+  sync between an HCM/payroll system of record and PlanSource. Authentication is OAuth 2.0 client credentials (scope
+  admin_api_v2) or a legacy AuthenticationString + Signature header pair, with OpenID Connect and SAML 2.0 available
+  for end-user single sign-on. The API is documented on a ReadMe developer portal that publishes llms.txt, an agent-skills
+  manifest and an OAuth-gated MCP server, and PlanSource maintains a SafeBase trust center listing SOC 2 Type 2,
+  ISO/IEC 27001:2022, HIPAA, CCPA and 23 NYCRR 500.
 url: https://raw.githubusercontent.com/api-evangelist/plansource/refs/heads/main/apis.yml
+image: https://plansource.com/wp-content/uploads/2026/01/ps_social-share-img.webp
 x-type: company
 x-source: harvest:insurance-benefits-admin
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-06'
 modified: '2026-08-06'
 tags:
-- Company
-apis: []
+- Employee Benefits
+- Benefits Administration
+- Insurance
+- Human Resources
+- Payroll
+- Health Insurance
+- Enrollment
+- HR Technology
+- Evidence of Insurability
+- ACA Reporting
+- Eligibility
+- Single Sign-On
+apis:
+- name: PlanSource Benefits Administration API
+  description: The PlanSource Admin API v2 - a collection of categorized RESTful endpoints that let partners, brokers,
+    organizations and carriers get, create and update employees (subscribers), dependents, beneficiaries, coverages,
+    stacked coverage lines, payroll deductions, Evidence of Insurability decisions, ACA offers and enrollees, administrators
+    and organization page content, removing the need for fixed-schedule EDI files.
+  humanURL: https://developer.plansource.com/v2.0/reference
+  baseURL: https://api.plansource.com/admin/v2
+  version: 2.0.0
+  tags:
+  - Benefits Administration
+  - Employee Benefits
+  - Payroll
+  - Insurance
+  - Enrollment
+  properties:
+  - type: OpenAPI
+    url: openapi/plansource-admin-api-openapi-original.json
+  - type: Overlay
+    url: overlays/plansource-admin-api-overlay.yaml
+  - type: Examples
+    url: examples/plansource-examples.yml
+  - type: Authentication
+    url: authentication/plansource-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plansource-scopes.yml
+  - type: ErrorCatalog
+    url: errors/plansource-problem-types.yml
+  - type: Conventions
+    url: conventions/plansource-conventions.yml
+  - type: DataModel
+    url: data-model/plansource-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/plansource-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/plansource-sandbox.yml
+  - type: Conformance
+    url: conformance/plansource-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/plansource-agentic-access.yml
+  - type: ToolCrosswalk
+    url: mcp/plansource-tool-crosswalk.yml
+  - type: Postman
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+  - type: APIReference
+    url: https://developer.plansource.com/v2.0/reference
+  - type: Documentation
+    url: https://developer.plansource.com/docs/plansource-administrative-api
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -21,3 +88,62 @@ maintainers:
 common:
 - type: Website
   url: https://plansource.com/
+- type: DeveloperPortal
+  url: https://developer.plansource.com/
+- type: Documentation
+  url: https://developer.plansource.com/docs/plansource-administrative-api
+- type: APIReference
+  url: https://developer.plansource.com/v2.0/reference
+- type: GettingStarted
+  url: https://developer.plansource.com/docs/utilize-postman
+- type: Postman
+  url: https://www.getpostman.com/collections/93f063e64815e4122102
+- type: Support
+  url: https://developer.plansource.com/docs/contact-support
+- type: Blog
+  url: https://plansource.com/blog/
+- type: Login
+  url: https://benefits.plansource.com/
+- type: TermsOfService
+  url: https://plansource.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://plansource.com/privacy/
+- type: TrustCenter
+  url: security/plansource-trust-center.yml
+- type: Compliance
+  url: https://trust.plansource.com/
+- type: LLMsTxt
+  url: llms/plansource-llms.txt
+- type: WellKnown
+  url: well-known/plansource-well-known.yml
+- type: MCPServer
+  url: mcp/plansource-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DomainSecurity
+  url: security/plansource-domain-security.yml
+- type: Authentication
+  url: authentication/plansource-authentication.yml
+- type: OAuthScopes
+  url: scopes/plansource-scopes.yml
+- type: Conformance
+  url: conformance/plansource-conformance.yml
+- type: Lifecycle
+  url: lifecycle/plansource-lifecycle.yml
+- type: Sandbox
+  url: sandbox/plansource-sandbox.yml
+- type: Conventions
+  url: conventions/plansource-conventions.yml
+- type: ErrorCatalog
+  url: errors/plansource-problem-types.yml
+- type: DataModel
+  url: data-model/plansource-data-model.yml
+- type: Examples
+  url: examples/plansource-examples.yml
+- type: AgenticAccess
+  url: agentic-access/plansource-agentic-access.yml
+x-enrichment:
+  date: '2026-08-06'
+  status: enriched
+  artifacts_added: 27
+  pass: local-v1

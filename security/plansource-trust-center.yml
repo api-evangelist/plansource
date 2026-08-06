@@ -1,0 +1,40 @@
+generated: '2026-08-06'
+method: searched
+probe: true
+source: https://trust.plansource.com/
+url: https://trust.plansource.com/
+platform: SafeBase by Drata
+certifications:
+- SOC 2 Type 2
+- ISO/IEC 27001:2022
+- HIPAA
+- CCPA
+- 23 NYCRR 500
+documents:
+- SOC 2 Report
+- HIPAA Report
+- NYS Cybersecurity Report
+- Pentest Report
+- Application Penetration Testing
+- Software Development Lifecycle
+- Subprocessors
+- Insurance
+- Code of Ethics
+- Privacy Policy
+access: Reports are gated behind a request/NDA flow typical of SafeBase; the certification list and document
+  index are public.
+vulnerability_disclosure: null
+vulnerability_disclosure_note: The trust center publishes no responsible-disclosure or bug-bounty policy,
+  and no security.txt exists on any PlanSource host. A researcher has no published channel.
+status_page: null
+evidence:
+- source: https://trust.plansource.com/
+  http_status: 200
+  fetched: '2026-08-06'
+  keywords:
+  - soc 2 type 2
+  - iso/iec 27001:2022
+  - hipaa
+  - ccpa
+  - 23 nycrr 500
+  - trust center

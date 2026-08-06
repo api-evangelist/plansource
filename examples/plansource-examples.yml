@@ -1,0 +1,2305 @@
+generated: '2026-08-06'
+method: derived
+source: openapi/plansource-admin-api-openapi-original.json
+summary:
+  total_examples: 459
+  operations_total: 80
+  operations_with_response_example: 79
+  note: Examples are carried inline in the provider's own OpenAPI (response `examples` maps). This artifact
+    indexes them; the payloads live verbatim in the spec.
+examples:
+- operation: POST /subscriber
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/post/responses/200/content/application/json/examples/response
+- operation: POST /subscriber
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/post/responses/400/content/application/json/examples/response
+- operation: POST /subscriber
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/post/responses/401/content/application/json/examples/response
+- operation: POST /subscriber
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/post/responses/403/content/application/json/examples/response
+- operation: POST /subscriber
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/post/responses/404/content/application/json/examples/response
+- operation: POST /subscriber
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/post/responses/500/content/application/json/examples/response
+- operation: GET /subscriber/meta
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/meta/get/responses/200/content/application/json/examples/response
+- operation: GET /subscriber/meta
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/meta/get/responses/401/content/application/json/examples/response
+- operation: GET /subscriber/meta
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/meta/get/responses/403/content/application/json/examples/response
+- operation: GET /subscriber/meta
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/meta/get/responses/404/content/application/json/examples/response
+- operation: GET /subscriber/meta
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/meta/get/responses/500/content/application/json/examples/response
+- operation: GET /subscriber/{id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/get/responses/200/content/application/json/examples/response
+- operation: GET /subscriber/{id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/get/responses/401/content/application/json/examples/response
+- operation: GET /subscriber/{id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/get/responses/403/content/application/json/examples/response
+- operation: GET /subscriber/{id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/get/responses/404/content/application/json/examples/response
+- operation: GET /subscriber/{id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/get/responses/500/content/application/json/examples/response
+- operation: PUT /subscriber/{id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/put/responses/200/content/application/json/examples/response
+- operation: PUT /subscriber/{id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/put/responses/400/content/application/json/examples/response
+- operation: PUT /subscriber/{id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/put/responses/401/content/application/json/examples/response
+- operation: PUT /subscriber/{id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/put/responses/403/content/application/json/examples/response
+- operation: PUT /subscriber/{id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/put/responses/404/content/application/json/examples/response
+- operation: PUT /subscriber/{id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/put/responses/500/content/application/json/examples/response
+- operation: PUT /subscriber/{id}/terminate
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/terminate/put/responses/200/content/application/json/examples/response
+- operation: PUT /subscriber/{id}/terminate
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/terminate/put/responses/400/content/application/json/examples/response
+- operation: PUT /subscriber/{id}/terminate
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/terminate/put/responses/401/content/application/json/examples/response
+- operation: PUT /subscriber/{id}/terminate
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/terminate/put/responses/403/content/application/json/examples/response
+- operation: PUT /subscriber/{id}/terminate
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/terminate/put/responses/404/content/application/json/examples/response
+- operation: PUT /subscriber/{id}/terminate
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/terminate/put/responses/500/content/application/json/examples/response
+- operation: PUT /subscriber/{id}/rehire
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/rehire/put/responses/200/content/application/json/examples/response
+- operation: PUT /subscriber/{id}/rehire
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/rehire/put/responses/400/content/application/json/examples/response
+- operation: PUT /subscriber/{id}/rehire
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/rehire/put/responses/401/content/application/json/examples/response
+- operation: PUT /subscriber/{id}/rehire
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/rehire/put/responses/403/content/application/json/examples/response
+- operation: PUT /subscriber/{id}/rehire
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/rehire/put/responses/404/content/application/json/examples/response
+- operation: PUT /subscriber/{id}/rehire
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{id}/rehire/put/responses/500/content/application/json/examples/response
+- operation: POST /subscriber/{subscriber_id}/dependent
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/post/responses/200/content/application/json/examples/response
+- operation: POST /subscriber/{subscriber_id}/dependent
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/post/responses/400/content/application/json/examples/response
+- operation: POST /subscriber/{subscriber_id}/dependent
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/post/responses/401/content/application/json/examples/response
+- operation: POST /subscriber/{subscriber_id}/dependent
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/post/responses/403/content/application/json/examples/response
+- operation: POST /subscriber/{subscriber_id}/dependent
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/post/responses/404/content/application/json/examples/response
+- operation: POST /subscriber/{subscriber_id}/dependent
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/post/responses/500/content/application/json/examples/response
+- operation: GET /dependent/meta
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//dependent/meta/get/responses/200/content/application/json/examples/response
+- operation: GET /dependent/meta
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//dependent/meta/get/responses/400/content/application/json/examples/response
+- operation: GET /dependent/meta
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//dependent/meta/get/responses/401/content/application/json/examples/response
+- operation: GET /dependent/meta
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//dependent/meta/get/responses/403/content/application/json/examples/response
+- operation: GET /dependent/meta
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//dependent/meta/get/responses/404/content/application/json/examples/response
+- operation: GET /dependent/meta
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//dependent/meta/get/responses/500/content/application/json/examples/response
+- operation: GET /subscriber/{subscriber_id}/dependent/{id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/get/responses/200/content/application/json/examples/response
+- operation: GET /subscriber/{subscriber_id}/dependent/{id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/get/responses/400/content/application/json/examples/response
+- operation: GET /subscriber/{subscriber_id}/dependent/{id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/get/responses/401/content/application/json/examples/response
+- operation: GET /subscriber/{subscriber_id}/dependent/{id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/get/responses/403/content/application/json/examples/response
+- operation: GET /subscriber/{subscriber_id}/dependent/{id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/get/responses/404/content/application/json/examples/response
+- operation: GET /subscriber/{subscriber_id}/dependent/{id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/get/responses/500/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/put/responses/200/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/put/responses/400/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/put/responses/401/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/put/responses/403/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/put/responses/404/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/put/responses/500/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}/deactivate
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/deactivate/put/responses/200/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}/deactivate
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/deactivate/put/responses/400/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}/deactivate
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/deactivate/put/responses/401/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}/deactivate
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/deactivate/put/responses/403/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}/deactivate
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/deactivate/put/responses/404/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}/deactivate
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/deactivate/put/responses/500/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}/reactivate
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/reactivate/put/responses/200/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}/reactivate
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/reactivate/put/responses/400/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}/reactivate
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/reactivate/put/responses/401/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}/reactivate
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/reactivate/put/responses/403/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}/reactivate
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/reactivate/put/responses/404/content/application/json/examples/response
+- operation: PUT /subscriber/{subscriber_id}/dependent/{id}/reactivate
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/dependent/{id}/reactivate/put/responses/500/content/application/json/examples/response
+- operation: GET /beneficiaries/meta
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//beneficiaries/meta/get/responses/200/content/application/json/examples/response
+- operation: GET /beneficiaries/meta
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//beneficiaries/meta/get/responses/400/content/application/json/examples/response
+- operation: GET /beneficiaries/meta
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//beneficiaries/meta/get/responses/401/content/application/json/examples/response
+- operation: GET /beneficiaries/meta
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//beneficiaries/meta/get/responses/403/content/application/json/examples/response
+- operation: GET /beneficiaries/meta
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//beneficiaries/meta/get/responses/404/content/application/json/examples/response
+- operation: GET /beneficiaries/meta
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//beneficiaries/meta/get/responses/500/content/application/json/examples/response
+- operation: GET /beneficiaries
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//beneficiaries/get/responses/200/content/application/json/examples/response
+- operation: GET /beneficiaries
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//beneficiaries/get/responses/400/content/application/json/examples/response
+- operation: GET /beneficiaries
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//beneficiaries/get/responses/401/content/application/json/examples/response
+- operation: GET /beneficiaries
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//beneficiaries/get/responses/403/content/application/json/examples/response
+- operation: GET /beneficiaries
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//beneficiaries/get/responses/404/content/application/json/examples/response
+- operation: GET /beneficiaries
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//beneficiaries/get/responses/500/content/application/json/examples/response
+- operation: GET /subscriber/{subscriber_id}/beneficiaries
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/beneficiaries/get/responses/200/content/application/json/examples/response
+- operation: GET /subscriber/{subscriber_id}/beneficiaries
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/beneficiaries/get/responses/400/content/application/json/examples/response
+- operation: GET /subscriber/{subscriber_id}/beneficiaries
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/beneficiaries/get/responses/401/content/application/json/examples/response
+- operation: GET /subscriber/{subscriber_id}/beneficiaries
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/beneficiaries/get/responses/403/content/application/json/examples/response
+- operation: GET /subscriber/{subscriber_id}/beneficiaries
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/beneficiaries/get/responses/404/content/application/json/examples/response
+- operation: GET /subscriber/{subscriber_id}/beneficiaries
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscriber/{subscriber_id}/beneficiaries/get/responses/500/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/beneficiaries
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/get/responses/200/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/beneficiaries
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/get/responses/400/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/beneficiaries
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/get/responses/401/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/beneficiaries
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/get/responses/403/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/beneficiaries
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/get/responses/404/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/beneficiaries
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/get/responses/500/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}/beneficiaries
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}/beneficiaries
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}/beneficiaries
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}/beneficiaries
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}/beneficiaries
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}/beneficiaries
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/put/responses/500/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/beneficiaries
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/post/responses/200/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/beneficiaries
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/post/responses/400/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/beneficiaries
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/post/responses/401/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/beneficiaries
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/post/responses/403/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/beneficiaries
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/post/responses/404/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/beneficiaries
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/post/responses/500/content/application/json/examples/response
+- operation: DELETE /coverage/{coverage_id}/beneficiaries
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/delete/responses/200/content/application/json/examples/response
+- operation: DELETE /coverage/{coverage_id}/beneficiaries
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/delete/responses/400/content/application/json/examples/response
+- operation: DELETE /coverage/{coverage_id}/beneficiaries
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/delete/responses/401/content/application/json/examples/response
+- operation: DELETE /coverage/{coverage_id}/beneficiaries
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/delete/responses/403/content/application/json/examples/response
+- operation: DELETE /coverage/{coverage_id}/beneficiaries
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/delete/responses/404/content/application/json/examples/response
+- operation: DELETE /coverage/{coverage_id}/beneficiaries
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/beneficiaries/delete/responses/500/content/application/json/examples/response
+- operation: GET /payroll_coverages_subscriber/{id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//payroll_coverages_subscriber/{id}/get/responses/200/content/application/json/examples/response
+- operation: GET /payroll_coverages_subscriber/{id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//payroll_coverages_subscriber/{id}/get/responses/400/content/application/json/examples/response
+- operation: GET /payroll_coverages_subscriber/{id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//payroll_coverages_subscriber/{id}/get/responses/401/content/application/json/examples/response
+- operation: GET /payroll_coverages_subscriber/{id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//payroll_coverages_subscriber/{id}/get/responses/403/content/application/json/examples/response
+- operation: GET /payroll_coverages_subscriber/{id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//payroll_coverages_subscriber/{id}/get/responses/404/content/application/json/examples/response
+- operation: GET /payroll_coverages_subscriber/{id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//payroll_coverages_subscriber/{id}/get/responses/500/content/application/json/examples/response
+- operation: GET /payroll_coverages_subscribers
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//payroll_coverages_subscribers/get/responses/200/content/application/json/examples/response
+- operation: GET /payroll_coverages_subscribers
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//payroll_coverages_subscribers/get/responses/400/content/application/json/examples/response
+- operation: GET /payroll_coverages_subscribers
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//payroll_coverages_subscribers/get/responses/401/content/application/json/examples/response
+- operation: GET /payroll_coverages_subscribers
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//payroll_coverages_subscribers/get/responses/403/content/application/json/examples/response
+- operation: GET /payroll_coverages_subscribers
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//payroll_coverages_subscribers/get/responses/404/content/application/json/examples/response
+- operation: GET /payroll_coverages_subscribers
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//payroll_coverages_subscribers/get/responses/500/content/application/json/examples/response
+- operation: GET /page_content
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//page_content/get/responses/200/content/application/json/examples/response
+- operation: GET /page_content
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//page_content/get/responses/400/content/application/json/examples/response
+- operation: GET /page_content
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//page_content/get/responses/401/content/application/json/examples/response
+- operation: GET /page_content
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//page_content/get/responses/403/content/application/json/examples/response
+- operation: GET /page_content
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//page_content/get/responses/404/content/application/json/examples/response
+- operation: GET /page_content
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//page_content/get/responses/500/content/application/json/examples/response
+- operation: PUT /page_content
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//page_content/put/responses/200/content/application/json/examples/response
+- operation: PUT /page_content
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//page_content/put/responses/400/content/application/json/examples/response
+- operation: PUT /page_content
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//page_content/put/responses/401/content/application/json/examples/response
+- operation: PUT /page_content
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//page_content/put/responses/403/content/application/json/examples/response
+- operation: PUT /page_content
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//page_content/put/responses/404/content/application/json/examples/response
+- operation: PUT /page_content
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//page_content/put/responses/500/content/application/json/examples/response
+- operation: GET /content_blocks
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//content_blocks/get/responses/200/content/application/json/examples/response
+- operation: GET /content_blocks
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//content_blocks/get/responses/400/content/application/json/examples/response
+- operation: GET /content_blocks
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//content_blocks/get/responses/401/content/application/json/examples/response
+- operation: GET /content_blocks
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//content_blocks/get/responses/403/content/application/json/examples/response
+- operation: GET /content_blocks
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//content_blocks/get/responses/404/content/application/json/examples/response
+- operation: GET /content_blocks
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//content_blocks/get/responses/500/content/application/json/examples/response
+- operation: PUT /content_block
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//content_block/put/responses/200/content/application/json/examples/response
+- operation: PUT /content_block
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//content_block/put/responses/400/content/application/json/examples/response
+- operation: PUT /content_block
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//content_block/put/responses/401/content/application/json/examples/response
+- operation: PUT /content_block
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//content_block/put/responses/403/content/application/json/examples/response
+- operation: PUT /content_block
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//content_block/put/responses/404/content/application/json/examples/response
+- operation: PUT /content_block
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//content_block/put/responses/500/content/application/json/examples/response
+- operation: GET /subscribers
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/get/responses/200/content/application/json/examples/response
+- operation: GET /subscribers
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/get/responses/400/content/application/json/examples/response
+- operation: GET /subscribers
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/get/responses/401/content/application/json/examples/response
+- operation: GET /subscribers
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/get/responses/403/content/application/json/examples/response
+- operation: GET /subscribers
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/get/responses/404/content/application/json/examples/response
+- operation: GET /subscribers
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/get/responses/500/content/application/json/examples/response
+- operation: PUT /subscribers
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/put/responses/200/content/application/json/examples/response
+- operation: PUT /subscribers
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/put/responses/400/content/application/json/examples/response
+- operation: PUT /subscribers
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/put/responses/401/content/application/json/examples/response
+- operation: PUT /subscribers
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/put/responses/403/content/application/json/examples/response
+- operation: PUT /subscribers
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/put/responses/404/content/application/json/examples/response
+- operation: PUT /subscribers
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/put/responses/500/content/application/json/examples/response
+- operation: POST /subscribers
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/post/responses/200/content/application/json/examples/response
+- operation: POST /subscribers
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/post/responses/400/content/application/json/examples/response
+- operation: POST /subscribers
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/post/responses/401/content/application/json/examples/response
+- operation: POST /subscribers
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/post/responses/403/content/application/json/examples/response
+- operation: POST /subscribers
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/post/responses/404/content/application/json/examples/response
+- operation: POST /subscribers
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/post/responses/500/content/application/json/examples/response
+- operation: PUT /subscribers/terminate
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/terminate/put/responses/200/content/application/json/examples/response
+- operation: PUT /subscribers/terminate
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/terminate/put/responses/400/content/application/json/examples/response
+- operation: PUT /subscribers/terminate
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/terminate/put/responses/401/content/application/json/examples/response
+- operation: PUT /subscribers/terminate
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/terminate/put/responses/403/content/application/json/examples/response
+- operation: PUT /subscribers/terminate
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/terminate/put/responses/404/content/application/json/examples/response
+- operation: PUT /subscribers/terminate
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/terminate/put/responses/500/content/application/json/examples/response
+- operation: PUT /subscribers/rehire
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/rehire/put/responses/200/content/application/json/examples/response
+- operation: PUT /subscribers/rehire
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/rehire/put/responses/400/content/application/json/examples/response
+- operation: PUT /subscribers/rehire
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/rehire/put/responses/401/content/application/json/examples/response
+- operation: PUT /subscribers/rehire
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/rehire/put/responses/403/content/application/json/examples/response
+- operation: PUT /subscribers/rehire
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/rehire/put/responses/404/content/application/json/examples/response
+- operation: PUT /subscribers/rehire
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//subscribers/rehire/put/responses/500/content/application/json/examples/response
+- operation: GET /dependents
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//dependents/get/responses/200/content/application/json/examples/response
+- operation: GET /dependents
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//dependents/get/responses/400/content/application/json/examples/response
+- operation: GET /dependents
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//dependents/get/responses/401/content/application/json/examples/response
+- operation: GET /dependents
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//dependents/get/responses/403/content/application/json/examples/response
+- operation: GET /dependents
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//dependents/get/responses/404/content/application/json/examples/response
+- operation: GET /organizations
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//organizations/get/responses/200/content/application/json/examples/response
+- operation: GET /organizations
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//organizations/get/responses/400/content/application/json/examples/response
+- operation: GET /organizations
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//organizations/get/responses/401/content/application/json/examples/response
+- operation: GET /organizations
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//organizations/get/responses/403/content/application/json/examples/response
+- operation: GET /organizations
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//organizations/get/responses/404/content/application/json/examples/response
+- operation: GET /organizations
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//organizations/get/responses/500/content/application/json/examples/response
+- operation: GET /eoi/subscriber/{subscriber_id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/subscriber/{subscriber_id}/get/responses/200/content/application/json/examples/response
+- operation: GET /eoi/subscriber/{subscriber_id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/subscriber/{subscriber_id}/get/responses/400/content/application/json/examples/response
+- operation: GET /eoi/subscriber/{subscriber_id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/subscriber/{subscriber_id}/get/responses/401/content/application/json/examples/response
+- operation: GET /eoi/subscriber/{subscriber_id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/subscriber/{subscriber_id}/get/responses/403/content/application/json/examples/response
+- operation: GET /eoi/subscriber/{subscriber_id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/subscriber/{subscriber_id}/get/responses/404/content/application/json/examples/response
+- operation: GET /eoi/subscriber/{subscriber_id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/subscriber/{subscriber_id}/get/responses/500/content/application/json/examples/response
+- operation: GET /eoi/subscribers
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/subscribers/get/responses/200/content/application/json/examples/response
+- operation: GET /eoi/subscribers
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/subscribers/get/responses/400/content/application/json/examples/response
+- operation: GET /eoi/subscribers
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/subscribers/get/responses/401/content/application/json/examples/response
+- operation: GET /eoi/subscribers
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/subscribers/get/responses/403/content/application/json/examples/response
+- operation: GET /eoi/subscribers
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/subscribers/get/responses/404/content/application/json/examples/response
+- operation: GET /eoi/subscribers
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/subscribers/get/responses/500/content/application/json/examples/response
+- operation: PUT /eoi/decision/{subscriber_id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decision/{subscriber_id}/put/responses/200/content/application/json/examples/response
+- operation: PUT /eoi/decision/{subscriber_id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decision/{subscriber_id}/put/responses/400/content/application/json/examples/response
+- operation: PUT /eoi/decision/{subscriber_id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decision/{subscriber_id}/put/responses/401/content/application/json/examples/response
+- operation: PUT /eoi/decision/{subscriber_id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decision/{subscriber_id}/put/responses/403/content/application/json/examples/response
+- operation: PUT /eoi/decision/{subscriber_id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decision/{subscriber_id}/put/responses/404/content/application/json/examples/response
+- operation: PUT /eoi/decision/{subscriber_id}
+  status: '422'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decision/{subscriber_id}/put/responses/422/content/application/json/examples/response
+- operation: PUT /eoi/decision/{subscriber_id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decision/{subscriber_id}/put/responses/500/content/application/json/examples/response
+- operation: PUT /eoi/decisions
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decisions/put/responses/200/content/application/json/examples/response
+- operation: PUT /eoi/decisions
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decisions/put/responses/400/content/application/json/examples/response
+- operation: PUT /eoi/decisions
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decisions/put/responses/401/content/application/json/examples/response
+- operation: PUT /eoi/decisions
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decisions/put/responses/403/content/application/json/examples/response
+- operation: PUT /eoi/decisions
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decisions/put/responses/404/content/application/json/examples/response
+- operation: PUT /eoi/decisions
+  status: '422'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decisions/put/responses/422/content/application/json/examples/response
+- operation: PUT /eoi/decisions
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/decisions/put/responses/500/content/application/json/examples/response
+- operation: PUT /eoi/form_completion/{subscriber_id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completion/{subscriber_id}/put/responses/200/content/application/json/examples/response
+- operation: PUT /eoi/form_completion/{subscriber_id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completion/{subscriber_id}/put/responses/400/content/application/json/examples/response
+- operation: PUT /eoi/form_completion/{subscriber_id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completion/{subscriber_id}/put/responses/401/content/application/json/examples/response
+- operation: PUT /eoi/form_completion/{subscriber_id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completion/{subscriber_id}/put/responses/403/content/application/json/examples/response
+- operation: PUT /eoi/form_completion/{subscriber_id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completion/{subscriber_id}/put/responses/404/content/application/json/examples/response
+- operation: PUT /eoi/form_completion/{subscriber_id}
+  status: '422'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completion/{subscriber_id}/put/responses/422/content/application/json/examples/response
+- operation: PUT /eoi/form_completion/{subscriber_id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completion/{subscriber_id}/put/responses/500/content/application/json/examples/response
+- operation: PUT /eoi/form_completions
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completions/put/responses/200/content/application/json/examples/response
+- operation: PUT /eoi/form_completions
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completions/put/responses/400/content/application/json/examples/response
+- operation: PUT /eoi/form_completions
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completions/put/responses/401/content/application/json/examples/response
+- operation: PUT /eoi/form_completions
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completions/put/responses/403/content/application/json/examples/response
+- operation: PUT /eoi/form_completions
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completions/put/responses/404/content/application/json/examples/response
+- operation: PUT /eoi/form_completions
+  status: '422'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completions/put/responses/422/content/application/json/examples/response
+- operation: PUT /eoi/form_completions
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//eoi/form_completions/put/responses/500/content/application/json/examples/response
+- operation: POST /coverage
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/post/responses/200/content/application/json/examples/response
+- operation: POST /coverage
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/post/responses/400/content/application/json/examples/response
+- operation: POST /coverage
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/post/responses/401/content/application/json/examples/response
+- operation: POST /coverage
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/post/responses/403/content/application/json/examples/response
+- operation: POST /coverage
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/post/responses/404/content/application/json/examples/response
+- operation: POST /coverage
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/post/responses/500/content/application/json/examples/response
+- operation: GET /coverage/meta
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/meta/get/responses/200/content/application/json/examples/response
+- operation: GET /coverage/meta
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/meta/get/responses/400/content/application/json/examples/response
+- operation: GET /coverage/meta
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/meta/get/responses/401/content/application/json/examples/response
+- operation: GET /coverage/meta
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/meta/get/responses/403/content/application/json/examples/response
+- operation: GET /coverage/meta
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/meta/get/responses/404/content/application/json/examples/response
+- operation: GET /coverage/meta
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/meta/get/responses/500/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/get/responses/200/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/get/responses/400/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/get/responses/401/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/get/responses/403/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/get/responses/404/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/get/responses/500/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/put/responses/500/content/application/json/examples/response
+- operation: GET /coverage/subscriber/{subscriber_id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/get/responses/200/content/application/json/examples/response
+- operation: GET /coverage/subscriber/{subscriber_id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/get/responses/400/content/application/json/examples/response
+- operation: GET /coverage/subscriber/{subscriber_id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/get/responses/401/content/application/json/examples/response
+- operation: GET /coverage/subscriber/{subscriber_id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/get/responses/403/content/application/json/examples/response
+- operation: GET /coverage/subscriber/{subscriber_id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/get/responses/404/content/application/json/examples/response
+- operation: GET /coverage/subscriber/{subscriber_id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/get/responses/500/content/application/json/examples/response
+- operation: PUT /coverage/subscriber/{subscriber_id}/terminate
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/terminate/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverage/subscriber/{subscriber_id}/terminate
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/terminate/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverage/subscriber/{subscriber_id}/terminate
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/terminate/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverage/subscriber/{subscriber_id}/terminate
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/terminate/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverage/subscriber/{subscriber_id}/terminate
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/terminate/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverage/subscriber/{subscriber_id}/terminate
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/terminate/put/responses/500/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}/terminate
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/terminate/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}/terminate
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/terminate/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}/terminate
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/terminate/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}/terminate
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/terminate/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}/terminate
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/terminate/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverage/{coverage_id}/terminate
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/terminate/put/responses/500/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/line
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/line/post/responses/200/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/line
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/line/post/responses/400/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/line
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/line/post/responses/401/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/line
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/line/post/responses/403/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/line
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/line/post/responses/404/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/line
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/line/post/responses/500/content/application/json/examples/response
+- operation: GET /coverage/line/{coverage_line_id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/get/responses/200/content/application/json/examples/response
+- operation: GET /coverage/line/{coverage_line_id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/get/responses/400/content/application/json/examples/response
+- operation: GET /coverage/line/{coverage_line_id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/get/responses/401/content/application/json/examples/response
+- operation: GET /coverage/line/{coverage_line_id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/get/responses/403/content/application/json/examples/response
+- operation: GET /coverage/line/{coverage_line_id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/get/responses/404/content/application/json/examples/response
+- operation: GET /coverage/line/{coverage_line_id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/get/responses/500/content/application/json/examples/response
+- operation: PUT /coverage/line/{coverage_line_id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverage/line/{coverage_line_id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverage/line/{coverage_line_id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverage/line/{coverage_line_id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverage/line/{coverage_line_id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverage/line/{coverage_line_id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/put/responses/500/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/lines
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/lines/get/responses/200/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/lines
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/lines/get/responses/400/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/lines
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/lines/get/responses/401/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/lines
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/lines/get/responses/403/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/lines
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/lines/get/responses/404/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/lines
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/lines/get/responses/500/content/application/json/examples/response
+- operation: PUT /coverage/line/{coverage_line_id}/terminate
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/terminate/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverage/line/{coverage_line_id}/terminate
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/terminate/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverage/line/{coverage_line_id}/terminate
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/terminate/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverage/line/{coverage_line_id}/terminate
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/terminate/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverage/line/{coverage_line_id}/terminate
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/terminate/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverage/line/{coverage_line_id}/terminate
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/line/{coverage_line_id}/terminate/put/responses/500/content/application/json/examples/response
+- operation: GET /coverage/dependent/{dependent_coverage_id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/get/responses/200/content/application/json/examples/response
+- operation: GET /coverage/dependent/{dependent_coverage_id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/get/responses/400/content/application/json/examples/response
+- operation: GET /coverage/dependent/{dependent_coverage_id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/get/responses/401/content/application/json/examples/response
+- operation: GET /coverage/dependent/{dependent_coverage_id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/get/responses/403/content/application/json/examples/response
+- operation: GET /coverage/dependent/{dependent_coverage_id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/get/responses/404/content/application/json/examples/response
+- operation: GET /coverage/dependent/{dependent_coverage_id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/get/responses/500/content/application/json/examples/response
+- operation: PUT /coverage/dependent/{dependent_coverage_id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverage/dependent/{dependent_coverage_id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverage/dependent/{dependent_coverage_id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverage/dependent/{dependent_coverage_id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverage/dependent/{dependent_coverage_id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverage/dependent/{dependent_coverage_id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/put/responses/500/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/dependent
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/dependent/post/responses/200/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/dependent
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/dependent/post/responses/400/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/dependent
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/dependent/post/responses/401/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/dependent
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/dependent/post/responses/403/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/dependent
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/dependent/post/responses/404/content/application/json/examples/response
+- operation: POST /coverage/{coverage_id}/dependent
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/dependent/post/responses/500/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/dependents
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/dependents/get/responses/200/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/dependents
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/dependents/get/responses/400/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/dependents
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/dependents/get/responses/401/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/dependents
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/dependents/get/responses/403/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/dependents
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/dependents/get/responses/404/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/dependents
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/dependents/get/responses/500/content/application/json/examples/response
+- operation: PUT /coverage/dependent/{dependent_coverage_id}/terminate
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/terminate/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverage/dependent/{dependent_coverage_id}/terminate
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/terminate/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverage/dependent/{dependent_coverage_id}/terminate
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/terminate/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverage/dependent/{dependent_coverage_id}/terminate
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/terminate/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverage/dependent/{dependent_coverage_id}/terminate
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/terminate/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverage/dependent/{dependent_coverage_id}/terminate
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/dependent/{dependent_coverage_id}/terminate/put/responses/500/content/application/json/examples/response
+- operation: GET /coverages
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/get/responses/200/content/application/json/examples/response
+- operation: GET /coverages
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/get/responses/400/content/application/json/examples/response
+- operation: GET /coverages
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/get/responses/401/content/application/json/examples/response
+- operation: GET /coverages
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/get/responses/403/content/application/json/examples/response
+- operation: GET /coverages
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/get/responses/404/content/application/json/examples/response
+- operation: GET /coverages
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/get/responses/500/content/application/json/examples/response
+- operation: PUT /coverages
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverages
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverages
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverages
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverages
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverages
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/put/responses/500/content/application/json/examples/response
+- operation: POST /coverages
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/post/responses/200/content/application/json/examples/response
+- operation: POST /coverages
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/post/responses/400/content/application/json/examples/response
+- operation: POST /coverages
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/post/responses/401/content/application/json/examples/response
+- operation: POST /coverages
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/post/responses/403/content/application/json/examples/response
+- operation: POST /coverages
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/post/responses/404/content/application/json/examples/response
+- operation: POST /coverages
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/post/responses/500/content/application/json/examples/response
+- operation: PUT /coverages/terminate
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/terminate/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverages/terminate
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/terminate/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverages/terminate
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/terminate/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverages/terminate
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/terminate/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverages/terminate
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/terminate/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverages/terminate
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/terminate/put/responses/500/content/application/json/examples/response
+- operation: GET /coverages/lines
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/get/responses/200/content/application/json/examples/response
+- operation: GET /coverages/lines
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/get/responses/400/content/application/json/examples/response
+- operation: GET /coverages/lines
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/get/responses/401/content/application/json/examples/response
+- operation: GET /coverages/lines
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/get/responses/403/content/application/json/examples/response
+- operation: GET /coverages/lines
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/get/responses/404/content/application/json/examples/response
+- operation: GET /coverages/lines
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/get/responses/500/content/application/json/examples/response
+- operation: PUT /coverages/lines
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverages/lines
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverages/lines
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverages/lines
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverages/lines
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverages/lines
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/put/responses/500/content/application/json/examples/response
+- operation: POST /coverages/lines
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/post/responses/200/content/application/json/examples/response
+- operation: POST /coverages/lines
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/post/responses/400/content/application/json/examples/response
+- operation: POST /coverages/lines
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/post/responses/401/content/application/json/examples/response
+- operation: POST /coverages/lines
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/post/responses/403/content/application/json/examples/response
+- operation: POST /coverages/lines
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/post/responses/404/content/application/json/examples/response
+- operation: POST /coverages/lines
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/post/responses/500/content/application/json/examples/response
+- operation: PUT /coverages/lines/terminate
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/terminate/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverages/lines/terminate
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/terminate/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverages/lines/terminate
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/terminate/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverages/lines/terminate
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/terminate/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverages/lines/terminate
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/terminate/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverages/lines/terminate
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/lines/terminate/put/responses/500/content/application/json/examples/response
+- operation: GET /coverages/dependents
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/get/responses/200/content/application/json/examples/response
+- operation: GET /coverages/dependents
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/get/responses/400/content/application/json/examples/response
+- operation: GET /coverages/dependents
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/get/responses/401/content/application/json/examples/response
+- operation: GET /coverages/dependents
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/get/responses/403/content/application/json/examples/response
+- operation: GET /coverages/dependents
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/get/responses/404/content/application/json/examples/response
+- operation: GET /coverages/dependents
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/get/responses/500/content/application/json/examples/response
+- operation: PUT /coverages/dependents
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverages/dependents
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverages/dependents
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverages/dependents
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverages/dependents
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverages/dependents
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/put/responses/500/content/application/json/examples/response
+- operation: POST /coverages/dependents
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/post/responses/200/content/application/json/examples/response
+- operation: POST /coverages/dependents
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/post/responses/400/content/application/json/examples/response
+- operation: POST /coverages/dependents
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/post/responses/401/content/application/json/examples/response
+- operation: POST /coverages/dependents
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/post/responses/403/content/application/json/examples/response
+- operation: POST /coverages/dependents
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/post/responses/404/content/application/json/examples/response
+- operation: POST /coverages/dependents
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/post/responses/500/content/application/json/examples/response
+- operation: PUT /coverages/dependents/terminate
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/terminate/put/responses/200/content/application/json/examples/response
+- operation: PUT /coverages/dependents/terminate
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/terminate/put/responses/400/content/application/json/examples/response
+- operation: PUT /coverages/dependents/terminate
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/terminate/put/responses/401/content/application/json/examples/response
+- operation: PUT /coverages/dependents/terminate
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/terminate/put/responses/403/content/application/json/examples/response
+- operation: PUT /coverages/dependents/terminate
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/terminate/put/responses/404/content/application/json/examples/response
+- operation: PUT /coverages/dependents/terminate
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverages/dependents/terminate/put/responses/500/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/composite
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/composite/get/responses/200/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/composite
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/composite/get/responses/400/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/composite
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/composite/get/responses/401/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/composite
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/composite/get/responses/403/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/composite
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/composite/get/responses/404/content/application/json/examples/response
+- operation: GET /coverage/{coverage_id}/composite
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/{coverage_id}/composite/get/responses/500/content/application/json/examples/response
+- operation: GET /coverage/subscriber/{subscriber_id}/composite
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/composite/get/responses/200/content/application/json/examples/response
+- operation: GET /coverage/subscriber/{subscriber_id}/composite
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/composite/get/responses/400/content/application/json/examples/response
+- operation: GET /coverage/subscriber/{subscriber_id}/composite
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/composite/get/responses/401/content/application/json/examples/response
+- operation: GET /coverage/subscriber/{subscriber_id}/composite
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/composite/get/responses/403/content/application/json/examples/response
+- operation: GET /coverage/subscriber/{subscriber_id}/composite
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/composite/get/responses/404/content/application/json/examples/response
+- operation: GET /coverage/subscriber/{subscriber_id}/composite
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/subscriber/{subscriber_id}/composite/get/responses/500/content/application/json/examples/response
+- operation: GET /coverage/composites
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/composites/get/responses/200/content/application/json/examples/response
+- operation: GET /coverage/composites
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/composites/get/responses/400/content/application/json/examples/response
+- operation: GET /coverage/composites
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/composites/get/responses/401/content/application/json/examples/response
+- operation: GET /coverage/composites
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/composites/get/responses/403/content/application/json/examples/response
+- operation: GET /coverage/composites
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/composites/get/responses/404/content/application/json/examples/response
+- operation: GET /coverage/composites
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//coverage/composites/get/responses/500/content/application/json/examples/response
+- operation: POST /administrator
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/post/responses/200/content/application/json/examples/response
+- operation: POST /administrator
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/post/responses/400/content/application/json/examples/response
+- operation: POST /administrator
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/post/responses/401/content/application/json/examples/response
+- operation: POST /administrator
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/post/responses/403/content/application/json/examples/response
+- operation: POST /administrator
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/post/responses/404/content/application/json/examples/response
+- operation: POST /administrator
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/post/responses/500/content/application/json/examples/response
+- operation: GET /administrator/{id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/get/responses/200/content/application/json/examples/response
+- operation: GET /administrator/{id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/get/responses/400/content/application/json/examples/response
+- operation: GET /administrator/{id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/get/responses/401/content/application/json/examples/response
+- operation: GET /administrator/{id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/get/responses/403/content/application/json/examples/response
+- operation: GET /administrator/{id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/get/responses/404/content/application/json/examples/response
+- operation: GET /administrator/{id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/get/responses/500/content/application/json/examples/response
+- operation: PUT /administrator/{id}
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/put/responses/200/content/application/json/examples/response
+- operation: PUT /administrator/{id}
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/put/responses/400/content/application/json/examples/response
+- operation: PUT /administrator/{id}
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/put/responses/401/content/application/json/examples/response
+- operation: PUT /administrator/{id}
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/put/responses/403/content/application/json/examples/response
+- operation: PUT /administrator/{id}
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/put/responses/404/content/application/json/examples/response
+- operation: PUT /administrator/{id}
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/put/responses/500/content/application/json/examples/response
+- operation: PUT /administrator/{id}/disable
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/disable/put/responses/200/content/application/json/examples/response
+- operation: PUT /administrator/{id}/disable
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/disable/put/responses/400/content/application/json/examples/response
+- operation: PUT /administrator/{id}/disable
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/disable/put/responses/401/content/application/json/examples/response
+- operation: PUT /administrator/{id}/disable
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/disable/put/responses/403/content/application/json/examples/response
+- operation: PUT /administrator/{id}/disable
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/disable/put/responses/404/content/application/json/examples/response
+- operation: PUT /administrator/{id}/disable
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrator/{id}/disable/put/responses/500/content/application/json/examples/response
+- operation: GET /administrators
+  status: '200'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrators/get/responses/200/content/application/json/examples/response
+- operation: GET /administrators
+  status: '400'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrators/get/responses/400/content/application/json/examples/response
+- operation: GET /administrators
+  status: '401'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrators/get/responses/401/content/application/json/examples/response
+- operation: GET /administrators
+  status: '403'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrators/get/responses/403/content/application/json/examples/response
+- operation: GET /administrators
+  status: '404'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrators/get/responses/404/content/application/json/examples/response
+- operation: GET /administrators
+  status: '500'
+  media_type: application/json
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//administrators/get/responses/500/content/application/json/examples/response
+- operation: GET /aca/offers
+  status: '200'
+  media_type: status
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//aca/offers/get/responses/200/content/status/examples/response
+- operation: GET /aca/offers
+  status: '200'
+  media_type: data
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//aca/offers/get/responses/200/content/data/examples/response
+- operation: GET /aca/offers/subscriber/{subscriber_id}
+  status: '200'
+  media_type: status
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//aca/offers/subscriber/{subscriber_id}/get/responses/200/content/status/examples/response
+- operation: GET /aca/offers/subscriber/{subscriber_id}
+  status: '200'
+  media_type: data
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//aca/offers/subscriber/{subscriber_id}/get/responses/200/content/data/examples/response
+- operation: GET /aca/enrollees
+  status: '200'
+  media_type: status
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//aca/enrollees/get/responses/200/content/status/examples/response
+- operation: GET /aca/enrollees
+  status: '200'
+  media_type: data
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//aca/enrollees/get/responses/200/content/data/examples/response
+- operation: GET /aca/enrollees/subscriber/{subscriber_id}
+  status: '200'
+  media_type: status
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//aca/enrollees/subscriber/{subscriber_id}/get/responses/200/content/status/examples/response
+- operation: GET /aca/enrollees/subscriber/{subscriber_id}
+  status: '200'
+  media_type: data
+  example: response
+  location: openapi/plansource-admin-api-openapi-original.json#/paths//aca/enrollees/subscriber/{subscriber_id}/get/responses/200/content/data/examples/response

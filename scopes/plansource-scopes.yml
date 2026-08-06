@@ -1,0 +1,87 @@
+generated: '2026-08-06'
+method: searched
+source:
+- openapi/plansource-admin-api-openapi-original.json
+- https://api.plansource.com/.well-known/openid-configuration
+docs: https://developer.plansource.com/v2.0/reference
+schemes:
+- name: clientSecretJwt
+  surface: Admin API
+  source: openapi/plansource-admin-api-openapi-original.json
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.plansource.com/oauth/v2/token
+- name: plansource-sso-oidc
+  surface: end-user SSO
+  source: well-known/plansource-openid-configuration.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.plansource.com/sso/oauth2/authorize
+    tokenUrl: https://api.plansource.com/sso/oauth2/token
+scopes:
+- scope: admin_api_v2
+  description: Access to all endpoints
+  flows:
+  - clientCredentials
+  surface: Admin API
+  sources:
+  - openapi/plansource-admin-api-openapi-original.json
+- scope: openid
+  description: OpenID Connect authentication
+  flows:
+  - authorizationCode
+  surface: SSO
+  sources:
+  - well-known/plansource-openid-configuration.json
+- scope: profile
+  description: Standard OIDC profile claims
+  flows:
+  - authorizationCode
+  surface: SSO
+  sources:
+  - well-known/plansource-openid-configuration.json
+- scope: email
+  description: Standard OIDC email claim
+  flows:
+  - authorizationCode
+  surface: SSO
+  sources:
+  - well-known/plansource-openid-configuration.json
+- scope: address
+  description: Standard OIDC address claim
+  flows:
+  - authorizationCode
+  surface: SSO
+  sources:
+  - well-known/plansource-openid-configuration.json
+- scope: phone
+  description: Standard OIDC phone claim
+  flows:
+  - authorizationCode
+  surface: SSO
+  sources:
+  - well-known/plansource-openid-configuration.json
+- scope: admin_access
+  description: 'PlanSource-specific: administrator-level portal access'
+  flows:
+  - authorizationCode
+  surface: SSO
+  sources:
+  - well-known/plansource-openid-configuration.json
+- scope: subscriber_access
+  description: 'PlanSource-specific: employee (subscriber) portal access'
+  flows:
+  - authorizationCode
+  surface: SSO
+  sources:
+  - well-known/plansource-openid-configuration.json
+analysis:
+  granularity: none on the Admin API
+  note: The Admin API has exactly ONE scope, `admin_api_v2`, whose own description is "Access to all endpoints".
+    A token issued for a partner that only needs to read payroll deductions carries the same authority
+    as one that can terminate every coverage for every employee (PUT /coverage/subscriber/{subscriber_id}/terminate)
+    and disable administrators. There is no read-only scope, no per-domain scope (demographic / payroll
+    / coverage / EOI / administrator) and no way to least-privilege an integration. For an API carrying
+    HIPAA-regulated PHI across 80 operations, this is the single largest authorization gap in the profile.
+  contrast: The SSO surface does distinguish admin_access from subscriber_access, so the concept exists
+    in the platform - it just has not been carried into the Admin API.

@@ -1,0 +1,97 @@
+generated: '2026-08-06'
+method: searched
+source:
+- https://developer.plansource.com/reference
+- https://developer.plansource.com/docs/information-on-partner-dev-production
+- openapi/plansource-admin-api-openapi-original.json
+base_urls:
+  production: https://api.plansource.com/admin/v2
+  partner_dev: https://partner-dev-api.plansource.com/admin/v2
+authentication:
+  styles:
+  - name: clientSecretJwt
+    type: oauth2
+    flow: clientCredentials
+    token_url: https://api.plansource.com/oauth/v2/token
+    scope: admin_api_v2
+    preferred: true
+  - name: authString + signature
+    type: apiKey
+    headers:
+    - AuthenticationString
+    - Signature
+    note: legacy header-pair scheme; both headers are required together
+  see: authentication/plansource-authentication.yml
+idempotency:
+  supported: false
+  note: No Idempotency-Key header, no idempotency parameter, and no idempotency guidance appears anywhere
+    in the OpenAPI or the developer docs. Bulk write endpoints (PUT /subscribers, PUT /coverages, PUT
+    /eoi/decisions) are replayable only because they are keyed on business identifiers (ssn, benefit_lookup_code)
+    - that is convergence, not an idempotency contract, and it does not protect a partially-applied bulk
+    write.
+pagination:
+  style: page-number
+  parameters:
+  - name: page
+    in: query
+    type: integer
+    default: 1
+  - name: per_page
+    in: query
+    type: integer
+    default: 500
+    note: overrides the 500-record default page size
+  applies_to: collection endpoints (/subscribers, /dependents, /coverages, /content_blocks, /aca/*)
+  response_fields: none - no total count, no next/prev cursor and no Link header are returned; a caller
+    pages blindly until a short page comes back
+delta_sync:
+  supported: true
+  parameters:
+  - name: changes_since
+    in: query
+    note: return only records changed since the given timestamp
+  - name: include_deletes
+    in: query
+    note: append deleted records, flagged is_deleted=true, in the state they held at deletion (ACA endpoints)
+  - name: plan_year
+    in: query
+    note: the single most common filter - present on 31 operations
+  - name: start_date / end_date
+    in: query
+  note: 'This is the API''s substitute for an event/webhook surface: consumers poll with changes_since
+    rather than subscribe.'
+identifiers:
+  is_custom_id: Set true when the {id} in the path is a customer-generated id rather than a PlanSource
+    id (18 operations)
+  note: lookup codes (benefit_lookup_code, page_content_lookup_code, deduction lookup codes) are the cross-system
+    join keys
+test_mode:
+  include_test: query flag to include test employees in a response
+  see: sandbox/plansource-sandbox.yml
+versioning:
+  scheme: uri-path
+  current: v2
+  spec_version: 2.0.0
+  docs_version: '2.0'
+  see: lifecycle/plansource-lifecycle.yml
+error_envelope:
+  media_type: application/json
+  see: errors/plansource-problem-types.yml
+rate_limiting:
+  documented: false
+  note: 'No rate limit is documented and no RateLimit/X-RateLimit/Retry-After header is declared in the
+    OpenAPI. The developer PORTAL (ReadMe) returns x-ratelimit-limit: 100, but that governs the docs site,
+    not the Admin API.'
+request_tracing:
+  documented: false
+  note: No request-id or correlation-id header is documented or declared.
+content_negotiation:
+  request: application/json
+  response: application/json
+  note: Accept and Content-Type appear as explicit header parameters on the four SSO/SAML operations only.
+gaps:
+- no idempotency contract
+- no pagination metadata in responses
+- no documented rate limits or rate-limit headers
+- no request-id tracing
+- no operationId on any of the 80 operations

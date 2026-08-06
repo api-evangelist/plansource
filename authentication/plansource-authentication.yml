@@ -1,0 +1,91 @@
+generated: '2026-08-06'
+method: searched
+source:
+- openapi/plansource-admin-api-openapi-original.json
+- https://api.plansource.com/.well-known/openid-configuration
+- https://developer.plansource.com/docs/saml-20-sso-implementation
+- https://developer.plansource.com/docs/utilize-postman
+docs: https://developer.plansource.com/v2.0/reference
+summary:
+  types:
+  - oauth2
+  - apiKey
+  - openIdConnect
+  - saml2
+  api_key_in:
+  - header
+  oauth2_flows:
+  - clientCredentials
+  - authorizationCode
+  note: 'Two distinct auth surfaces: machine-to-machine for the Admin API (client credentials / header
+    pair), and end-user SSO for the employee and admin portals (OIDC authorization code, or SAML 2.0).'
+schemes:
+- name: clientSecretJwt
+  type: oauth2
+  surface: Admin API
+  preferred: true
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://api.plansource.com/oauth/v2/token
+    partner_dev_tokenUrl: https://partner-dev-api.plansource.com/oauth/v2/token
+    scopes: 1
+  sources:
+  - openapi/plansource-admin-api-openapi-original.json
+- name: authString
+  type: apiKey
+  in: header
+  parameter: AuthenticationString
+  surface: Admin API
+  note: Legacy scheme. Required together with the Signature header - the spec's second security requirement
+    lists both, so neither header authenticates on its own.
+  sources:
+  - openapi/plansource-admin-api-openapi-original.json
+- name: signature
+  type: apiKey
+  in: header
+  parameter: Signature
+  surface: Admin API
+  note: Request-signature companion to AuthenticationString.
+  sources:
+  - openapi/plansource-admin-api-openapi-original.json
+- name: plansource-sso-oidc
+  type: openIdConnect
+  surface: end-user SSO
+  discovery: https://api.plansource.com/.well-known/openid-configuration
+  authorization_endpoint: https://api.plansource.com/sso/oauth2/authorize
+  token_endpoint: https://api.plansource.com/sso/oauth2/token
+  userinfo_endpoint: https://api.plansource.com/sso/oauth2/user_info
+  token_endpoint_auth_methods_supported:
+  - private_key_jwt
+  id_token_signing_alg_values_supported:
+  - RS256
+  grant_types_supported:
+  - code
+  response_types_supported:
+  - token id_token
+  sources:
+  - well-known/plansource-openid-configuration.json
+  deviations:
+  - issuer is ".plansource.com", not an https URL
+  - jwks_uri holds an inline JWK object instead of a URI
+  - claim_types_supported is a string, not an array
+- name: plansource-sso-saml2
+  type: saml2
+  surface: end-user SSO
+  docs: https://developer.plansource.com/docs/saml-20-sso-implementation
+  note: SAMLResponse / RelayState / Cookie appear as explicit header parameters on the SSO operations
+    in the spec.
+  sources:
+  - openapi/plansource-admin-api-openapi-original.json
+  - https://developer.plansource.com/docs/saml-20-sso-implementation
+credential_issuance:
+  self_serve: false
+  note: API credentials (lookup_code, plansource_admin, secret) are provisioned by PlanSource, not self-issued.
+    Partners request them through their PlanSource administrator contact or dev.support@plansource.com.
+  contact: dev.support@plansource.com
+mcp:
+  url: https://developer.plansource.com/mcp
+  scheme: OAuth 2.0
+  protected_resource_metadata: https://developer.plansource.com/.well-known/oauth-protected-resource/mcp
+  authorization_servers:
+  - https://dash.readme.com/oidc

@@ -1,0 +1,121 @@
+generated: '2026-08-06'
+method: derived
+source: openapi/plansource-admin-api-openapi-original.json
+format: vendor-json
+format_note: NOT RFC 9457. PlanSource returns a proprietary JSON error envelope with content-type application/json;
+  no `type` URI, no application/problem+json media type, and no published problem-type registry.
+envelope:
+  media_type: application/json
+  fields:
+  - name: status
+    type: string
+    note: success/error indicator; present on the collection-style envelopes
+  - name: http_status
+    type: integer
+    note: repeats the HTTP status code in the body
+  - name: message
+    type: string
+    note: 'human-readable summary, e.g. "Missing required attribute: ssn"'
+  - name: details
+    type: string
+    note: stack trace if available
+  - name: error_code
+    type: string
+    note: machine-readable code, e.g. missing.required.attribute, date.not.valid, server.error
+  - name: errors
+    type: array
+    note: per-row errors on bulk/collection endpoints
+  - name: links
+    type: array
+    note: self link {href, rel}; present on the 500Error/CollectionError/WrongFormat400Error variants
+      only
+  - name: data
+    type: array
+  required_on_strict_variants:
+  - error_code
+  - http_status
+  - message
+problems:
+- status: 400
+  title: Bad Request
+  descriptions:
+  - Malformed request.
+  - The request is invalid
+  schemas:
+  - 400Error
+  operation_count: 74
+  remediation: Correct the malformed field, date format (YYYY-MM-DD) or missing required attribute named
+    in `message`, then retry.
+- status: 401
+  title: Unauthorized
+  descriptions:
+  - Invalid token.
+  - The request is unauthorized
+  schemas:
+  - 401Error
+  operation_count: 76
+  remediation: Re-issue a client-credentials token from https://api.plansource.com/oauth/v2/token, or
+    re-compute the AuthenticationString/Signature header pair, then retry.
+- status: 403
+  title: Forbidden
+  descriptions:
+  - Access Error
+  - Access error.
+  schemas:
+  - 403Error
+  - Response_1
+  operation_count: 79
+  remediation: The authenticated API user is not authorized for this organization or record. Confirm the
+    organization is in scope via GET /organizations.
+- status: 404
+  title: Not Found
+  descriptions:
+  - Resource not found
+  - Resource not found.
+  - The user could not be found
+  schemas:
+  - 404Error
+  - Response_2
+  operation_count: 80
+  remediation: Confirm the id exists and belongs to the caller's organization; set is_custom_id=true when
+    passing a customer-generated id.
+- status: 422
+  title: Unprocessable Entity
+  descriptions:
+  - Missing parameter.
+  schemas:
+  - 422Error
+  operation_count: 4
+  remediation: A required query parameter is missing. Supply the parameter named in `message` and retry.
+- status: 500
+  title: Internal Server Error
+  descriptions:
+  - An internal InternalServerError has occured
+  - An internal InternalServerError has occurred
+  - InternalServerError
+  schemas:
+  - NoLinks500Error
+  operation_count: 79
+  remediation: Not caller-correctable. Capture `error_code` and `details` and contact dev.support@plansource.com.
+error_codes_published:
+- error_code: date.not.valid
+  example_message: start_date date is not a valid YYYY-MM-DD date format.
+  schema: WrongFormat400Error
+- error_code: missing.required.attribute
+  example_message: 'Missing required attribute: ssn'
+  schema: CollectionError
+- error_code: missing.required.attribute
+  example_message: Termination date is empty or not valid format.
+  schema: WrongParameters400Error
+- error_code: missing.required.attribute
+  example_message: The dependent does not belong to this subscriber.
+  schema: DependentNotFound400Error
+- error_code: server.error
+  example_message: InternalServerError
+  schema: 500Error
+gaps:
+- No `type` URI and no application/problem+json - the API does not conform to RFC 9457.
+- The full error_code registry is not published; only the handful above appear as spec examples.
+- Seven near-identical error schemas (400Error/401Error/403Error/404Error/422Error/500Error/NoLinks500Error)
+  differ only in which fields are required - a single reusable Error schema would be the same contract
+  with less surface.

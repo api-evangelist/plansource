@@ -1,0 +1,50 @@
+generated: '2026-08-06'
+method: searched
+source:
+- https://developer.plansource.com/docs/information-on-partner-dev-production
+- https://developer.plansource.com/docs/utilize-postman
+model: separate-host
+environments:
+- name: partner-dev
+  base_url: https://partner-dev-api.plansource.com/admin/v2
+  kind: sandbox
+  description: '"The API Partner-Dev site is where developers should make API calls to when working to
+    make their API configured to their client."'
+  oidc_discovery: https://partner-dev-api.plansource.com/.well-known/openid-configuration
+- name: production
+  base_url: https://api.plansource.com/admin/v2
+  kind: live
+  description: '"The API Production site is where developers should make API calls to when they want up-to-date
+    data on a configured and implemented client."'
+credentials:
+  self_serve: false
+  note: Sandbox credentials are not self-serve. The three Postman environment variables (lookup_code,
+    plansource_admin, secret) are "configured on PlanSource's side" and must be requested from a PlanSource
+    administrator contact. The API Data Package (API Testing.postman_environment.json) is emailed on request
+    to dev.support@plansource.com with the subject "Postman API Data Package Request".
+  request_email: dev.support@plansource.com
+  variables:
+  - lookup_code
+  - plansource_admin
+  - secret
+test_data:
+  in_api:
+  - parameter: include_test
+    in: query
+    default: false
+    description: Include test employees in the response. Present on 8 collection operations - the only
+      test-vs-live switch inside the API itself.
+  magic_values: []
+  magic_values_note: PlanSource publishes no magic test identifiers, test cards or fixture values. Test
+    data is client-configured inside the partner-dev tenant, not a published fixture set.
+tooling:
+  postman_collection:
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+    name: PlanSource's API Collection
+    public: true
+    http_status: 200
+    docs: https://developer.plansource.com/docs/utilize-postman
+gaps:
+- no self-serve sandbox signup
+- no published test fixtures or magic values
+- the partner-dev environment requires an existing PlanSource relationship

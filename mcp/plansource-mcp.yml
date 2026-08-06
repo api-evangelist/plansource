@@ -1,0 +1,39 @@
+generated: '2026-08-06'
+method: probed
+status: published
+source: https://developer.plansource.com/mcp
+server:
+  name: plansource-developer-docs
+  transport: http
+  url: https://developer.plansource.com/mcp
+  platform: ReadMe hosted documentation MCP server
+  scope: documentation and API-reference retrieval over the PlanSource developer portal, not direct execution
+    of Admin API operations
+authorization:
+  required: true
+  scheme: OAuth 2.0
+  protected_resource_metadata: https://developer.plansource.com/.well-known/oauth-protected-resource/mcp
+  authorization_servers:
+  - https://dash.readme.com/oidc
+  note: anonymous initialize and tools/list both return JSON-RPC error -32001 "Authorization required"
+    (HTTP 401), so the live tool set and its inputSchemas cannot be enumerated without credentials
+tools: []
+tools_note: Deliberately empty. tools/list is OAuth-gated; no tool names were observed, and none are inferred.
+  The provider does publish an agent-skills manifest at /.well-known/agent-skills/index.json describing
+  one document skill (read-the-docs) pointing at llms.txt.
+x-evidence:
+- url: https://developer.plansource.com/mcp
+  method: POST
+  body: '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+  http_status: 401
+  response: '{"jsonrpc":"2.0","error":{"code":-32001,"message":"Authorization required"},"id":null}'
+  fetched: '2026-08-06'
+- url: https://developer.plansource.com/mcp
+  method: POST
+  body: initialize
+  http_status: 401
+  fetched: '2026-08-06'
+- url: https://developer.plansource.com/.well-known/oauth-protected-resource/mcp
+  method: GET
+  http_status: 200
+  fetched: '2026-08-06'

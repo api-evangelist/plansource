@@ -1,0 +1,78 @@
+generated: '2026-08-06'
+method: probed
+source: live GET of /.well-known/* on every PlanSource host
+hosts:
+- host: https://api.plansource.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: plansource-openid-configuration.json
+    spec: OpenID Connect Discovery 1.0
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://partner-dev-api.plansource.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: plansource-partner-dev-openid-configuration.json
+    spec: OpenID Connect Discovery 1.0
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://developer.plansource.com
+  documents:
+  - path: /.well-known/agent-skills/index.json
+    status: 200
+    file: plansource-agent-skills-index.json
+    spec: agentskills.io v0.2.0
+    note: advertised via a Link rel="agent-skills" response header on the developer portal
+  - path: /.well-known/oauth-protected-resource/mcp
+    status: 200
+    file: plansource-oauth-protected-resource-mcp.json
+    spec: RFC 9728 OAuth 2.0 Protected Resource Metadata
+    note: guards the MCP server at /mcp
+  - path: /.well-known/api-catalog
+    status: 404
+    note: advertised in a Link rel="api-catalog" response header but the path itself returns 404 - a broken
+      RFC 9727 advertisement
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://plansource.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+findings:
+- OpenID Connect discovery is live on both the production and partner-dev API hosts, covering the SSO/authorization-code
+  surface (distinct from the client-credentials flow the Admin API itself uses).
+- No security.txt (RFC 9116) is published on any host.
+- No A2A agent card at either the canonical or the legacy well-known path on any host.
+- The developer portal advertises Link rel="api-catalog" but /.well-known/api-catalog returns 404.

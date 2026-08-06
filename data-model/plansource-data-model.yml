@@ -1,0 +1,485 @@
+generated: '2026-08-06'
+method: derived
+source: openapi/plansource-admin-api-openapi-original.json
+summary:
+  schemas_total: 114
+  core_entities: 24
+  root: organization
+  note: Every call is scoped to an organization (employer). GET /organizations returns the organizations
+    the calling API user may act on; the subscriber (employee) is the hub of the graph.
+entities:
+- name: Organization
+  schema: OrganizationsModel
+  domain: core
+  description: An employer tenant. The scope boundary for every other object.
+  operations:
+  - GET /organizations
+- name: Subscriber
+  schema: SubscriberModel
+  domain: demographic
+  description: 'An employee. The hub entity: demographics, employment, plan-year enrollment.'
+  id_prefix: null
+  operations:
+  - POST /subscriber
+  - GET /subscriber/{id}
+  - PUT /subscriber/{id}
+  - PUT /subscriber/{id}/terminate
+  - PUT /subscriber/{id}/rehire
+  - GET /subscribers
+  - PUT /subscribers
+  - POST /subscribers
+- name: Dependent
+  schema: DependentModel
+  domain: demographic
+  description: A spouse/child/other dependent of a subscriber.
+  operations:
+  - POST /subscriber/{subscriber_id}/dependent
+  - GET /subscriber/{subscriber_id}/dependent/{id}
+  - PUT /subscriber/{subscriber_id}/dependent/{id}
+  - PUT .../deactivate
+  - PUT .../reactivate
+  - GET /dependents
+- name: Beneficiary
+  schema: BeneficiaryModel
+  domain: demographic
+  description: A named beneficiary with an allocation percentage against a coverage.
+  operations:
+  - GET /beneficiaries
+  - GET /subscriber/{subscriber_id}/beneficiaries
+  - GET|PUT|POST|DELETE /coverage/{coverage_id}/beneficiaries
+- name: Coverage
+  schema: CoverageModel
+  domain: coverage
+  description: An enrolled benefit for a subscriber in a plan year.
+  operations:
+  - POST /coverage
+  - GET /coverage/{coverage_id}
+  - PUT /coverage/{coverage_id}
+  - PUT /coverage/{coverage_id}/terminate
+  - GET /coverages
+- name: CoverageLine
+  schema: CoverageLineModel
+  domain: coverage
+  description: A stacked line within a coverage (e.g. layered life volumes).
+  operations:
+  - POST /coverage/{coverage_id}/line
+  - GET /coverage/line/{coverage_line_id}
+  - GET /coverage/{coverage_id}/lines
+  - GET /coverages/lines
+- name: DependentCoverage
+  schema: DependentCoverageModel
+  domain: coverage
+  description: The join between a dependent and a coverage.
+  operations:
+  - POST /coverage/{coverage_id}/dependent
+  - GET /coverage/dependent/{dependent_coverage_id}
+  - GET /coverage/{coverage_id}/dependents
+  - GET /coverages/dependents
+- name: PayrollCoverage
+  schema: PayrollCoveragesSubscriberModel
+  domain: payroll
+  description: 'Deduction view of a subscriber''s coverages: pre-tax, post-tax, employer and imputed-income
+    amounts plus deduction lookup codes.'
+  operations:
+  - GET /payroll_coverages_subscriber/{id}
+  - GET /payroll_coverages_subscribers
+- name: PayrollSchedule
+  schema: PayrollScheduleModel
+  domain: payroll
+- name: EoiSubscriber
+  schema: EoiSubscriberModel
+  domain: eoi
+  description: A subscriber with pending Evidence of Insurability, awaiting a carrier underwriting decision.
+  operations:
+  - GET /eoi/subscriber/{subscriber_id}
+  - GET /eoi/subscribers
+  - PUT /eoi/decision/{subscriber_id}
+  - PUT /eoi/decisions
+  - PUT /eoi/form_completion/{subscriber_id}
+  - PUT /eoi/form_completions
+- name: Administrator
+  schema: AdministratorModel
+  domain: admin
+  description: A PlanSource admin user account with roles and access state.
+  operations:
+  - POST /administrator
+  - GET /administrator/{id}
+  - PUT /administrator/{id}
+  - PUT /administrator/{id}/disable
+  - GET /administrators
+- name: Role
+  schema: RoleModel
+  domain: admin
+- name: AcaOffer
+  schema: OfferModel
+  domain: aca
+  description: An ACA coverage offer record (1094-C/1095-C reporting input), with new/changed/deleted
+    deltas.
+  operations:
+  - GET /aca/offers
+  - GET /aca/offers/subscriber/{subscriber_id}
+- name: AcaEnrollee
+  schema: EnrolleeModel
+  domain: aca
+  description: An ACA enrollee record with new/changed/deleted deltas.
+  operations:
+  - GET /aca/enrollees
+  - GET /aca/enrollees/subscriber/{subscriber_id}
+- name: PageContent
+  schema: PageContentData
+  domain: content
+  description: Organization-branded portal page content, ordered by slot number.
+  operations:
+  - GET /page_content
+  - PUT /page_content
+- name: ContentBlock
+  schema: ContentBlock
+  domain: content
+  operations:
+  - GET /content_blocks
+  - PUT /content_block
+relationships:
+- from: Organization
+  to: Subscriber
+  kind: has_many
+  via: organization scope on the API credential
+- from: Subscriber
+  to: Dependent
+  kind: has_many
+  via: subscriber_id (path)
+- from: Subscriber
+  to: Coverage
+  kind: has_many
+  via: subscriber_id (path)
+- from: Subscriber
+  to: Beneficiary
+  kind: has_many
+  via: subscriber_id (path)
+- from: Subscriber
+  to: PayrollCoverage
+  kind: has_many
+  via: subscriber id (path)
+- from: Subscriber
+  to: EoiSubscriber
+  kind: has_one
+  via: subscriber_id (path)
+- from: Subscriber
+  to: AcaOffer
+  kind: has_many
+  via: subscriber_id (path)
+- from: Subscriber
+  to: AcaEnrollee
+  kind: has_many
+  via: subscriber_id (path)
+- from: Coverage
+  to: CoverageLine
+  kind: has_many
+  via: coverage_id (path)
+- from: Coverage
+  to: DependentCoverage
+  kind: has_many
+  via: coverage_id (path)
+- from: Coverage
+  to: Beneficiary
+  kind: has_many
+  via: coverage_id (path)
+- from: Dependent
+  to: DependentCoverage
+  kind: has_many
+  via: dependent_coverage_id
+- from: Administrator
+  to: Role
+  kind: has_many
+  via: $ref RoleModel
+- from: Coverage
+  to: CoverageCompositeModel
+  kind: projection
+  via: GET /coverage/{coverage_id}/composite
+schema_ref_edges:
+- from: PageContentData
+  to: ContentBlock
+  kind: references
+  via: $ref
+- from: ContentBlock
+  to: Marketplace
+  kind: references
+  via: $ref
+- from: CoverageCompositeModel
+  to: CoverageLineModel
+  kind: references
+  via: $ref
+- from: CoverageCompositeModel
+  to: CoverageModel
+  kind: references
+  via: $ref
+- from: CoverageCompositeModel
+  to: DependentCoverageModel
+  kind: references
+  via: $ref
+- from: Marketplace
+  to: MarketplaceBenefit
+  kind: references
+  via: $ref
+id_reference_fields:
+- field: anthem_sub_id
+  appears_in:
+  - SubscriberModel
+  - body_5
+- field: carrier_id
+  appears_in:
+  - AdminExtendedModel
+- field: coverage_id
+  appears_in:
+  - CoverageLineModel
+  - CoverageModel
+  - CoverageModelWithSurvey
+  - CreateCoverageLineModel
+  - CreateDependentCoverageModel
+  - DependentCoverageModel
+  - EoiSubscriberModel
+  - OfferModel
+- field: coverage_level_id
+  appears_in:
+  - CoverageLineModel
+  - CoverageModel
+  - CoverageModelWithSurvey
+  - CreateCoverageLineModel
+  - CreateCoverageModel
+  - CreateDependentCoverageModel
+  - DependentCoverageModel
+- field: coverage_line_id
+  appears_in:
+  - BeneficiaryCoverageIDModel
+  - BeneficiaryModel
+  - BeneficiarySubscriberIDModel
+  - CoverageLineModel
+  - CreateCoverageLineModel
+  - EoiSubscriberModel
+- field: coverages.coverage_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: coverages.coverage_level_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: coverages.dependent_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: coverages.gi_coverage_level_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: coverages.gi_org_plan_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: coverages.org_benefit_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: coverages.org_plan_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: coverages.plan_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: coverages.req_coverage_level_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: coverages.req_org_plan_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: coverages.subscriber_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: coverages.termination_reason_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: dependent_id
+  appears_in:
+  - CoverageModel
+  - CoverageModelWithSurvey
+  - CreateDependentCoverageModel
+  - DependentCoverageModel
+  - EnrolleeModel
+- field: dependents.coverage_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: dependents.coverage_level_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: dependents.dependent_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: dependents.org_benefit_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: dependents.org_carrier_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: dependents.org_plan_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: dependents.organization_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: dependents.termination_reason_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: general_agency_id
+  appears_in:
+  - AdminExtendedModel
+- field: gi_coverage_level_id
+  appears_in:
+  - CoverageModel
+  - CoverageModelWithSurvey
+  - CreateCoverageModel
+- field: gi_org_plan_id
+  appears_in:
+  - CoverageModel
+  - CoverageModelWithSurvey
+  - CreateCoverageModel
+- field: lines.coverage_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: lines.coverage_level_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: lines.coverage_line_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: lines.org_benefit_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: lines.org_plan_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: lines.subscriber_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: lines.termination_reason_id
+  appears_in:
+  - CoveragesCompositeModel
+- field: master_org_id
+  appears_in:
+  - AdminExtendedModel
+- field: org_admin_enroll_reason_id
+  appears_in:
+  - SubscriberModel
+- field: org_benefit_id
+  appears_in:
+  - CoverageLineModel
+  - CoverageModel
+  - CoverageModelWithSurvey
+  - CreateCoverageLineModel
+  - CreateCoverageModel
+  - CreateDependentCoverageModel
+  - DependentCoverageModel
+- field: org_carrier_id
+  appears_in:
+  - CreateDependentCoverageModel
+  - DependentCoverageModel
+- field: org_plan_id
+  appears_in:
+  - CoverageLineModel
+  - CoverageModel
+  - CoverageModelWithSurvey
+  - CreateCoverageLineModel
+  - CreateCoverageModel
+  - CreateDependentCoverageModel
+  - DependentCoverageModel
+  - OfferModel
+- field: org_plan_year_id
+  appears_in:
+  - PageContentData
+  - SubscriberOrgPlanYearModel
+- field: org_population_id
+  appears_in:
+  - PageContentData
+- field: org_relationship_id
+  appears_in:
+  - DependentModel
+- field: organization_id
+  appears_in:
+  - AdminExtendedModel
+  - CreateDependentCoverageModel
+  - DependentCoverageModel
+  - PayrollCoveragesSubscriberModel
+- field: origin_plan_year_id
+  appears_in:
+  - OfferModel
+- field: origin_subscriber_life_event_id
+  appears_in:
+  - OfferModel
+- field: parent_dependent_id
+  appears_in:
+  - SubscriberModel
+  - body_5
+- field: plan_id
+  appears_in:
+  - CoverageModel
+  - CoverageModelWithSurvey
+- field: public_id
+  appears_in:
+  - DependentModel
+  - SubscriberModel
+  - body_5
+- field: req_coverage_level_id
+  appears_in:
+  - CoverageModel
+  - CoverageModelWithSurvey
+  - CreateCoverageModel
+- field: req_org_plan_id
+  appears_in:
+  - CoverageModel
+  - CoverageModelWithSurvey
+  - CreateCoverageModel
+- field: subscriber_id
+  appears_in:
+  - CoverageLineModel
+  - CoverageModel
+  - CoverageModelWithSurvey
+  - CreateCoverageLineModel
+  - CreateCoverageModel
+  - EnrolleeModel
+  - OfferModel
+- field: subscriber_status_id
+  appears_in:
+  - SubscriberModel
+  - body_5
+- field: subscriber_status_subtype_id
+  appears_in:
+  - SubscriberModel
+  - body_5
+- field: tax_id
+  appears_in:
+  - AdminExtendedModel
+- field: termination_reason_id
+  appears_in:
+  - CoverageLineModel
+  - CoverageModel
+  - CoverageModelWithSurvey
+  - CreateCoverageLineModel
+  - CreateCoverageModel
+  - CreateDependentCoverageModel
+  - DependentCoverageModel
+  - DependentModel
+  - SubscriberModel
+  - TerminateModel
+  - body_2
+  - body_3
+  - body_5
+  - body_8
+  - body_9
+- field: user_id
+  appears_in:
+  - AdminExtendedModel
+join_keys:
+- key: benefit_lookup_code
+  note: cross-system join key for a benefit plan; used across coverage, payroll deduction and EOI payloads
+- key: page_content_lookup_code
+  note: identifies a portal content slot
+- key: ssn
+  note: the natural key used to match employees on bulk EOI decision payloads
+- key: plan_year
+  note: time dimension on 31 of the 80 operations
+notes:
+- The spec declares no operationId, so operations are referenced by METHOD + path.
+- 114 component schemas, but ~20 of them (body, body_1 ... body_10, Response, Response_1 ...) are generator-named
+  inline bodies rather than domain entities.

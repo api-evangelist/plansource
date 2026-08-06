@@ -1,0 +1,54 @@
+generated: '2026-08-06'
+method: searched
+source:
+- https://developer.plansource.com/v2.0/reference
+- https://developer.plansource.com/docs/information-on-partner-dev-production
+- openapi/plansource-admin-api-openapi-original.json
+versioning:
+  scheme: uri-path
+  current: v2
+  spec_version: 2.0.0
+  base_url: https://api.plansource.com/admin/v2
+  docs_version_channel: '2.0'
+  note: The ReadMe portal is versioned (developer.plansource.com/v2.0/...), so older API versions have
+    their own docs channels.
+environments:
+- name: production
+  base_url: https://api.plansource.com/admin/v2
+  purpose: live client data
+- name: partner-dev
+  base_url: https://partner-dev-api.plansource.com/admin/v2
+  purpose: partner integration build and test
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  note: 'No deprecation policy, no RFC 8594 Sunset/Deprecation header support, and no deprecated: true
+    flag on any of the 80 operations.'
+deprecated_operations: []
+sla:
+  url: null
+  uptime_target: null
+  published: false
+status_page: null
+status_page_note: No public status page. status.plansource.com does not resolve (NXDOMAIN); no status
+  link appears on plansource.com, the trust center, or the developer portal.
+change_log: null
+change_log_note: No dated changelog is published. /changelog on the developer portal returns 404 and plansource.com/resources/releases/
+  returns 404. Docs pages carry an updatedAt stamp (most recently 2025-11-09) but that is a page-edit
+  date, not a release log.
+support:
+  developer_support: dev.support@plansource.com
+  api_team: api-team@plansource.com
+  docs: https://developer.plansource.com/docs/contact-support
+x-evidence:
+- url: https://developer.plansource.com/changelog
+  http_status: 404
+  fetched: '2026-08-06'
+- url: https://plansource.com/resources/releases/
+  http_status: 404
+  fetched: '2026-08-06'
+- url: https://status.plansource.com/
+  http_status: 0
+  note: 'DNS: could not resolve host'
+  fetched: '2026-08-06'

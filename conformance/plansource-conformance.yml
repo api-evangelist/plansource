@@ -1,0 +1,82 @@
+generated: '2026-08-06'
+method: searched
+source:
+- https://trust.plansource.com/
+- https://api.plansource.com/.well-known/openid-configuration
+- openapi/plansource-admin-api-openapi-original.json
+standards:
+- id: openapi-3.0
+  conforms: true
+  evidence: published OpenAPI 3.0.0, 62 paths / 80 operations, harvested from developer.plansource.com
+- id: oauth2-client-credentials
+  conforms: true
+  evidence: components.securitySchemes.clientSecretJwt, tokenUrl https://api.plansource.com/oauth/v2/token,
+    scope admin_api_v2
+- id: oidc-discovery
+  conforms: false
+  partial: true
+  evidence: /.well-known/openid-configuration returns 200 on api.plansource.com and partner-dev-api.plansource.com
+  deviations:
+  - '`issuer` is ".plansource.com" - not the https URL OpenID Connect Discovery 1.0 requires'
+  - '`jwks_uri` holds an inline JWK object instead of a URI'
+  - '`claim_types_supported` is a string, not an array'
+  - '`grant_types_supported` is ["code"] rather than the registered value "authorization_code"'
+  - no /.well-known/oauth-authorization-server (RFC 8414) companion document
+- id: oidc-private-key-jwt
+  conforms: true
+  evidence: 'token_endpoint_auth_methods_supported: [private_key_jwt], RS256'
+- id: saml-2.0-sso
+  conforms: true
+  evidence: documented at https://developer.plansource.com/docs/saml-20-sso-implementation; SAMLResponse/RelayState
+    header parameters in the spec
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: errors are application/json with a proprietary {http_status,message,details,error_code} envelope;
+    no `type` URI, no application/problem+json
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on all four PlanSource hosts
+- id: rfc9727-api-catalog
+  conforms: false
+  evidence: developer.plansource.com sends Link rel="api-catalog" pointing at /.well-known/api-catalog,
+    but that path returns 404 - the advertisement is broken
+- id: rfc9728-oauth-protected-resource
+  conforms: true
+  evidence: /.well-known/oauth-protected-resource/mcp returns 200 with resource + authorization_servers
+- id: agentskills-0.2.0
+  conforms: true
+  evidence: /.well-known/agent-skills/index.json returns a $schema-anchored agentskills.io v0.2.0 manifest,
+    advertised via Link rel="agent-skills"
+- id: llmstxt
+  conforms: true
+  evidence: https://developer.plansource.com/llms.txt returns 200 text/plain with the full guide + reference
+    index
+- id: a2a-agent-card
+  conforms: false
+  evidence: 404 at both /.well-known/agent-card.json and /.well-known/agent.json on all four hosts
+- id: asyncapi
+  conforms: false
+  evidence: no event, webhook, callback or streaming surface exists - the API uses changes_since polling
+    instead. Not applicable rather than missing.
+- id: idempotency
+  conforms: false
+  evidence: no Idempotency-Key header or equivalent in the spec or docs
+- id: hipaa
+  conforms: true
+  evidence: HIPAA listed with a HIPAA Report at https://trust.plansource.com/
+- id: soc2-type2
+  conforms: true
+  evidence: SOC 2 Type 2 listed with a SOC 2 Report at https://trust.plansource.com/
+- id: iso-27001-2022
+  conforms: true
+  evidence: ISO/IEC 27001:2022 listed at https://trust.plansource.com/
+- id: ccpa
+  conforms: true
+  evidence: CCPA listed at https://trust.plansource.com/
+- id: 23-nycrr-500
+  conforms: true
+  evidence: 23 NYCRR 500 listed with a NYS Cybersecurity Report at https://trust.plansource.com/
+- id: aca-reporting
+  conforms: true
+  evidence: dedicated ACA tag with /aca/offers and /aca/enrollees operations supplying 1094-C/1095-C offer
+    and enrollee data

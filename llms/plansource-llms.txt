@@ -1,0 +1,93 @@
+# PlanSource API Documentation
+
+> The PlanSource API provides the ability to obtain near real-time employee, dependent, and payroll deduction data without the need to use standard EDI files.
+
+## Guides
+- [What is the Benefits Administration API?](https://developer.plansource.com/docs/plansource-administrative-api.md): Empowering partners and developers to integrate with PlanSource like never before.
+- [SAML 2.0 SSO Implementation](https://developer.plansource.com/docs/saml-20-sso-implementation.md): This document describes the implementation of SSO with PlanSource Benefits system via SAML 2.0.
+- [Contact Support](https://developer.plansource.com/docs/contact-support.md)
+
+## API Reference
+- [/subscriber](https://developer.plansource.com/reference/post_subscriber.md): Create a subscriber resource.
+- [/subscriber/meta](https://developer.plansource.com/reference/get_subscriber-meta.md): Retrieve meta data for subscriber.
+- [/subscriber/{id}](https://developer.plansource.com/reference/get_subscriber-id.md): Retrieve data for a subscriber.
+- [/subscriber/{id}](https://developer.plansource.com/reference/put_subscriber-id.md): Update data for a subscriber.
+- [/subscriber/{id}/terminate](https://developer.plansource.com/reference/put_subscriber-id-terminate.md): Terminate a subscriber.
+- [/subscriber/{id}/rehire](https://developer.plansource.com/reference/put_subscriber-id-rehire.md): Rehire a subscriber.
+- [/subscriber/{subscriber_id}/dependent](https://developer.plansource.com/reference/post_subscriber-subscriber-id-dependent.md): Create a dependent resource.
+- [/dependent/meta](https://developer.plansource.com/reference/get_dependent-meta.md): Retrieve meta data for dependent.
+- [/subscriber/{subscriber_id}/dependent/{id}](https://developer.plansource.com/reference/get_subscriber-subscriber-id-dependent-id.md): Retrieve data for a dependent.
+- [/subscriber/{subscriber_id}/dependent/{id}](https://developer.plansource.com/reference/put_subscriber-subscriber-id-dependent-id.md): Update data for a dependent.
+- [/subscriber/{subscriber_id}/dependent/{id}/deactivate](https://developer.plansource.com/reference/put_subscriber-subscriber-id-dependent-id-deactivate.md): Deactivate a dependent.
+- [/subscriber/{subscriber_id}/dependent/{id}/reactivate](https://developer.plansource.com/reference/put_subscriber-subscriber-id-dependent-id-reactivate.md): Reactivate a dependent.
+- [/beneficiaries/meta](https://developer.plansource.com/reference/get_beneficiaries-meta.md): Retrieve meta data for beneficiaries.
+- [/beneficiaries](https://developer.plansource.com/reference/get_beneficiaries.md): Retrieve all beneficiaries for an organization.
+- [/subscriber/{subscriber_id}/beneficiaries](https://developer.plansource.com/reference/get_subscriber-subscriber-id-beneficiaries.md): Retrieve all beneficiaries for a subscriber.
+- [/coverage/{coverage_id}/beneficiaries](https://developer.plansource.com/reference/get_coverage-coverage-id-beneficiaries.md): Retrieve all beneficiaries for a coverage.
+- [/coverage/{coverage_id}/beneficiaries](https://developer.plansource.com/reference/put_coverage-coverage-id-beneficiaries.md): Update data for all beneficiaries for a coverage.
+- [/coverage/{coverage_id}/beneficiaries](https://developer.plansource.com/reference/post_coverage-coverage-id-beneficiaries.md): Create beneficiary resources for a coverage.
+- [/coverage/{coverage_id}/beneficiaries](https://developer.plansource.com/reference/delete_coverage-coverage-id-beneficiaries.md): Delete coverage beneficiaries.
+- [/subscribers](https://developer.plansource.com/reference/get_subscribers.md): Retrieve data for all subscribers.
+- [/subscribers](https://developer.plansource.com/reference/put_subscribers.md): Update data for all subscribers.
+- [/subscribers](https://developer.plansource.com/reference/post_subscribers.md): Create subscriber resources.
+- [/subscribers/terminate](https://developer.plansource.com/reference/put_subscribers-terminate.md): Terminate subscriber resources.
+- [/subscribers/rehire](https://developer.plansource.com/reference/put_subscribers-rehire.md): Rehire subscriber resources.
+- [/dependents](https://developer.plansource.com/reference/get_dependents.md): Retrieve data for all dependents.
+- [/payroll_coverages_subscriber/{id}](https://developer.plansource.com/reference/get_payroll-coverages-subscriber-id.md): Retrieve payroll coverages for a subscriber.
+- [/payroll_coverages_subscribers](https://developer.plansource.com/reference/get_payroll-coverages-subscribers.md): Retrieve payroll coverages for all subscribers in the organization.
+- [/page_content](https://developer.plansource.com/reference/get_page-content.md): Returns page content or page contents for the requested view. Blocks are ordered according to their 'slot number' and all fields not set are omitted from the response.
+- [/page_content](https://developer.plansource.com/reference/put_page-content.md): Applies any changes to page content and content block records.
+- [/content_blocks](https://developer.plansource.com/reference/get_content-blocks.md): Returns a paginated array of content blocks.
+- [/content_block](https://developer.plansource.com/reference/put_content-block.md): Applies changes to content block record.
+- [/organizations](https://developer.plansource.com/reference/get_organizations.md): Retrieve all organizations current API User has access to.
+- [/eoi/subscriber/{subscriber_id}](https://developer.plansource.com/reference/get_eoi-subscriber-subscriber-id.md): Retrieve pending EOI data for a single subscriber.
+- [/eoi/subscribers](https://developer.plansource.com/reference/get_eoi-subscribers.md): Retrieve pending EOI data for all subscribers.
+- [/eoi/decision/{subscriber_id}](https://developer.plansource.com/reference/put_eoi-decision-subscriber-id.md): Process EOI decisions for a single subscriber.
+- [/eoi/decisions](https://developer.plansource.com/reference/put_eoi-decisions.md): Process EOI decisions for multiple subscribers.
+- [/eoi/form_completion/{subscriber_id}](https://developer.plansource.com/reference/put_eoi-form-completion-subscriber-id.md): Process EOI form completions for single subscriber.
+- [/eoi/form_completions](https://developer.plansource.com/reference/put_eoi-form-completions.md): Process EOI form completions for multiple subscribers.
+- [/coverage](https://developer.plansource.com/reference/post_coverage.md): Create coverage
+- [/coverage/meta](https://developer.plansource.com/reference/get_coverage-meta.md): Retrieve meta data for coverage.
+- [/coverage/{coverage_id}](https://developer.plansource.com/reference/get_coverage-coverage-id.md): Retrieve individual coverage data.
+- [/coverage/{coverage_id}](https://developer.plansource.com/reference/put_coverage-coverage-id.md): Update an individual coverage
+- [/coverage/subscriber/{subscriber_id}](https://developer.plansource.com/reference/get_coverage-subscriber-subscriber-id.md): Retrieve coverage data for an individual subscriber.
+- [/coverage/subscriber/{subscriber_id}/terminate](https://developer.plansource.com/reference/put_coverage-subscriber-subscriber-id-terminate.md): Terminate all coverages for a subscriber.
+- [/coverage/{coverage_id}/terminate](https://developer.plansource.com/reference/put_coverage-coverage-id-terminate.md): Terminate an individual coverage.
+- [/coverage/{coverage_id}/line](https://developer.plansource.com/reference/post_coverage-coverage-id-line.md): Create a stacked coverage line.
+- [/coverage/line/{coverage_line_id}](https://developer.plansource.com/reference/get_coverage-line-coverage-line-id.md): Retrieve an individual stacked coverage line.
+- [/coverage/line/{coverage_line_id}](https://developer.plansource.com/reference/put_coverage-line-coverage-line-id.md): Update an individual stacked coverage line
+- [/coverage/{coverage_id}/lines](https://developer.plansource.com/reference/get_coverage-coverage-id-lines.md): Retrieve stacked coverage lines for an individual coverage.
+- [/coverage/line/{coverage_line_id}/terminate](https://developer.plansource.com/reference/put_coverage-line-coverage-line-id-terminate.md): Terminate an individual stacked coverage line
+- [/coverage/dependent/{dependent_coverage_id}](https://developer.plansource.com/reference/get_coverage-dependent-dependent-coverage-id.md): Retrieve individual dependent coverage data.
+- [/coverage/dependent/{dependent_coverage_id}](https://developer.plansource.com/reference/put_coverage-dependent-dependent-coverage-id.md): Update an individual dependent coverage
+- [/coverage/{coverage_id}/dependent](https://developer.plansource.com/reference/post_coverage-coverage-id-dependent.md): Create dependent coverage
+- [/coverage/{coverage_id}/dependents](https://developer.plansource.com/reference/get_coverage-coverage-id-dependents.md): Retrieve dependent coverage data for an individual coverage.
+- [/coverage/dependent/{dependent_coverage_id}/terminate](https://developer.plansource.com/reference/put_coverage-dependent-dependent-coverage-id-terminate.md): Terminate an individual dependent coverage
+- [/coverages](https://developer.plansource.com/reference/get_coverages.md): Retrieve all coverages.
+- [/coverages](https://developer.plansource.com/reference/put_coverages.md): Update coverages
+- [/coverages](https://developer.plansource.com/reference/post_coverages.md): Create coverages
+- [/coverages/terminate](https://developer.plansource.com/reference/put_coverages-terminate.md): Terminate coverages
+- [/coverages/lines](https://developer.plansource.com/reference/get_coverages-lines.md): Retrieve all stacked coverage lines.
+- [/coverages/lines](https://developer.plansource.com/reference/put_coverages-lines.md): Update stacked coverage lines
+- [/coverages/lines](https://developer.plansource.com/reference/post_coverages-lines.md): Create stacked coverage lines
+- [/coverages/lines/terminate](https://developer.plansource.com/reference/put_coverages-lines-terminate.md): Terminate stacked coverage lines
+- [/coverages/dependents](https://developer.plansource.com/reference/get_coverages-dependents.md): Retrieve data for all dependent coverages.
+- [/coverages/dependents](https://developer.plansource.com/reference/put_coverages-dependents.md): Update an dependents coverages
+- [/coverages/dependents](https://developer.plansource.com/reference/post_coverages-dependents.md): Create dependent coverages
+- [/coverages/dependents/terminate](https://developer.plansource.com/reference/put_coverages-dependents-terminate.md): Terminate dependents coverages
+- [/coverage/{coverage_id}/composite](https://developer.plansource.com/reference/get_coverage-coverage-id-composite.md): Retrieve a composite of coverage and supporting data for an individual coverage.
+- [/coverage/subscriber/{subscriber_id}/composite](https://developer.plansource.com/reference/get_coverage-subscriber-subscriber-id-composite.md): Retrieve a composite of coverage and supporting data for an individual subscriber.
+- [/coverage/composites](https://developer.plansource.com/reference/get_coverage-composites.md): Retrieve a composite of all coverages and supporting data.
+- [/administrator](https://developer.plansource.com/reference/post_administrator.md): Create an administrator.
+- [/administrator/{id}](https://developer.plansource.com/reference/get_administrator-id.md): Retrieve data for an administrator.
+- [/administrator/{id}](https://developer.plansource.com/reference/put_administrator-id.md): Update data for an administrator.
+- [/administrator/{id}/disable](https://developer.plansource.com/reference/put_administrator-id-disable.md): Disable an administrator account.
+- [/administrators](https://developer.plansource.com/reference/get_administrators.md): Retrieve data for all administrators.
+- [/user_sessions](https://developer.plansource.com/reference/delete_user-sessions.md): Invalidates sessions for the given user, forcing the user to re-authenticate
+- [/aca/offers](https://developer.plansource.com/reference/get_aca-offers.md): Retrieve new, changed and deleted offers. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion.
+- [/aca/offers/subscriber/{subscriber_id}](https://developer.plansource.com/reference/get_aca-offers-subscriber-subscriber-id.md): Retrieve new, changed and deleted offers for individual subscriber. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion.
+- [/aca/enrollees](https://developer.plansource.com/reference/get_aca-enrollees.md): Retrieve new, changed and deleted enrollees. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion.
+- [/aca/enrollees/subscriber/{subscriber_id}](https://developer.plansource.com/reference/get_aca-enrollees-subscriber-subscriber-id.md): Retrieve new, changed and deleted enrollees for an individual subscriber. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion.
+
+## Pages
+- [Home Page](https://developer.plansource.com/home-page.md)

@@ -1,0 +1,82 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the PlanSource Benefits Administration API
+  version: 1.0.0
+extends: openapi/plansource-admin-api-openapi-original.json
+x-generated: '2026-08-06'
+x-method: generated
+x-note: Non-destructive enhancements over the provider's published spec. The harvested spec in openapi/
+  is never mutated. No operationId is invented here - the provider publishes none, and inventing them
+  would put identifiers in the catalog the provider does not honour.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-profile: https://apis.io/provider/plansource/
+    x-apievangelist-harvest:
+      date: '2026-08-06'
+      source: https://developer.plansource.com/reference
+      method: embedded-spec-extraction
+      note: The full OpenAPI is embedded in every ReadMe reference page; no standalone spec download URL
+        is published.
+    x-industry:
+    - Insurance
+    - Employee Benefits
+    - Human Resources
+    - Payroll
+    - Healthcare
+    x-compliance:
+    - HIPAA
+    - SOC 2 Type 2
+    - ISO/IEC 27001:2022
+    - CCPA
+    - 23 NYCRR 500
+- target: $.servers
+  update:
+  - url: https://api.plansource.com/admin/v2
+    description: Production
+  - url: https://partner-dev-api.plansource.com/admin/v2
+    description: Partner-Dev (sandbox)
+- target: $.info
+  update:
+    x-conventions:
+      pagination:
+        style: page-number
+        parameters:
+        - page
+        - per_page
+        default_page_size: 500
+        response_metadata: null
+      delta_sync:
+        parameters:
+        - changes_since
+        - include_deletes
+        - plan_year
+        - start_date
+        - end_date
+      idempotency:
+        supported: false
+      rate_limits:
+        documented: false
+      error_format: vendor-json (not RFC 9457)
+- target: $.info
+  update:
+    x-artifacts:
+      authentication: authentication/plansource-authentication.yml
+      scopes: scopes/plansource-scopes.yml
+      conventions: conventions/plansource-conventions.yml
+      errors: errors/plansource-problem-types.yml
+      lifecycle: lifecycle/plansource-lifecycle.yml
+      sandbox: sandbox/plansource-sandbox.yml
+      data_model: data-model/plansource-data-model.yml
+      conformance: conformance/plansource-conformance.yml
+      agentic_access: agentic-access/plansource-agentic-access.yml
+- target: $.info
+  update:
+    x-gaps:
+    - no operationId on any of the 80 operations
+    - no operation summary on any of the 80 operations (only description)
+    - no published standalone spec download URL
+    - errors are not RFC 9457 problem+json
+    - no idempotency contract on bulk write endpoints
+    - no documented rate limits and no rate-limit response headers
+    - no status page, no changelog, no deprecation policy

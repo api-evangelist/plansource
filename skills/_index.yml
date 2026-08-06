@@ -1,0 +1,87 @@
+generated: '2026-08-06'
+method: generated
+source: openapi/plansource-admin-api-openapi-original.json
+note: Operating instructions an agent follows to use the PlanSource Benefits Administration API correctly.
+  Every operation listed is verified verbatim against the harvested OpenAPI. The provider's spec declares
+  NO operationId, so operations are identified by METHOD + path - that is what the contract actually provides,
+  and inventing ids would put identifiers in the catalog PlanSource does not honour.
+provider_published:
+  exists: true
+  manifest: well-known/plansource-agent-skills-index.json
+  source: https://developer.plansource.com/.well-known/agent-skills/index.json
+  spec: agentskills.io v0.2.0
+  skills:
+  - name: read-the-docs
+    type: document
+    url: https://developer.plansource.com/llms.txt
+  note: PlanSource does publish an agent-skills manifest, but it carries a single ReadMe-generated documentation-retrieval
+    skill pointing at llms.txt - it is a docs pointer, not an API operating skill. The skills below fill
+    that gap.
+skills:
+- file: plansource-sync-employee-demographics.md
+  name: Sync employee demographics from an HCM into PlanSource
+  description: Create, update, terminate and rehire employees (subscribers) and their dependents so an
+    HCM/payroll system of record stays in sync with PlanSource benefits.
+  api: openapi/plansource-admin-api-openapi-original.json
+  operations:
+  - GET /organizations
+  - GET /subscriber/meta
+  - POST /subscribers
+  - GET /subscribers
+  - PUT /subscribers
+  - GET /subscriber/{id}
+  - PUT /subscriber/{id}
+  - PUT /subscriber/{id}/terminate
+  - PUT /subscriber/{id}/rehire
+  - POST /subscriber/{subscriber_id}/dependent
+  - PUT /subscriber/{subscriber_id}/dependent/{id}
+  - PUT /subscriber/{subscriber_id}/dependent/{id}/deactivate
+  - GET /dependent/meta
+- file: plansource-pull-payroll-deductions.md
+  name: Pull payroll deductions back into the payroll system
+  description: Retrieve per-employee benefit deductions, their lookup codes, and the pre-tax, post-tax,
+    employer and imputed-income amounts, so payroll can apply them.
+  api: openapi/plansource-admin-api-openapi-original.json
+  operations:
+  - GET /organizations
+  - GET /payroll_coverages_subscribers
+  - GET /payroll_coverages_subscriber/{id}
+  - GET /subscribers
+- file: plansource-process-eoi-decisions.md
+  name: Return carrier EOI decisions to PlanSource
+  description: As a carrier or underwriting partner, pull employees with pending Evidence of Insurability
+    and post approve/deny decisions and form completions back.
+  api: openapi/plansource-admin-api-openapi-original.json
+  operations:
+  - GET /eoi/subscribers
+  - GET /eoi/subscriber/{subscriber_id}
+  - PUT /eoi/decisions
+  - PUT /eoi/decision/{subscriber_id}
+  - PUT /eoi/form_completions
+  - PUT /eoi/form_completion/{subscriber_id}
+  - GET /coverage/subscriber/{subscriber_id}
+- file: plansource-manage-coverages.md
+  name: Create, stack, and terminate benefit coverages
+  description: Work with coverages, stacked coverage lines, dependent coverages and beneficiary allocations
+    for an employee.
+  api: openapi/plansource-admin-api-openapi-original.json
+  operations:
+  - GET /coverage/meta
+  - POST /coverage
+  - GET /coverage/{coverage_id}
+  - PUT /coverage/{coverage_id}
+  - PUT /coverage/{coverage_id}/terminate
+  - POST /coverage/{coverage_id}/line
+  - GET /coverage/{coverage_id}/lines
+  - PUT /coverage/line/{coverage_line_id}/terminate
+  - POST /coverage/{coverage_id}/dependent
+  - GET /coverage/{coverage_id}/dependents
+  - PUT /coverage/dependent/{dependent_coverage_id}/terminate
+  - GET /coverage/{coverage_id}/beneficiaries
+  - PUT /coverage/{coverage_id}/beneficiaries
+  - POST /coverage/{coverage_id}/beneficiaries
+  - DELETE /coverage/{coverage_id}/beneficiaries
+  - GET /coverage/subscriber/{subscriber_id}
+  - GET /coverage/subscriber/{subscriber_id}/composite
+  - PUT /coverage/subscriber/{subscriber_id}/terminate
+  - GET /coverage/composites
