@@ -33,25 +33,473 @@ tags:
 - Eligibility
 - Single Sign-On
 apis:
-- name: PlanSource Benefits Administration API
-  description: The PlanSource Admin API v2 - a collection of categorized RESTful endpoints that let partners, brokers,
-    organizations and carriers get, create and update employees (subscribers), dependents, beneficiaries, coverages,
-    stacked coverage lines, payroll deductions, Evidence of Insurability decisions, ACA offers and enrollees, administrators
-    and organization page content, removing the need for fixed-schedule EDI files.
+- aid: plansource:plansource-aca-api
+  name: PlanSource ACA API
+  description: Affordable Care Act data.
   humanURL: https://developer.plansource.com/v2.0/reference
   baseURL: https://api.plansource.com/admin/v2
-  version: 2.0.0
   tags:
-  - Benefits Administration
-  - Employee Benefits
-  - Payroll
-  - Insurance
-  - Enrollment
+  - ACA
   properties:
   - type: OpenAPI
-    url: openapi/plansource-admin-api-openapi-original.json
-  - type: Overlay
-    url: overlays/plansource-admin-api-overlay.yaml
+    url: openapi/plansource-aca-api-openapi.yml
+  - type: Examples
+    url: examples/plansource-examples.yml
+  - type: Authentication
+    url: authentication/plansource-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plansource-scopes.yml
+  - type: ErrorCatalog
+    url: errors/plansource-problem-types.yml
+  - type: Conventions
+    url: conventions/plansource-conventions.yml
+  - type: DataModel
+    url: data-model/plansource-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/plansource-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/plansource-sandbox.yml
+  - type: Conformance
+    url: conformance/plansource-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/plansource-agentic-access.yml
+  - type: ToolCrosswalk
+    url: mcp/plansource-tool-crosswalk.yml
+  - type: Postman
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+  - type: APIReference
+    url: https://developer.plansource.com/v2.0/reference
+  - type: Documentation
+    url: https://developer.plansource.com/docs/plansource-administrative-api
+- aid: plansource:plansource-administrators-api
+  name: PlanSource Administrators API
+  description: Administrator Management
+  humanURL: https://developer.plansource.com/v2.0/reference
+  baseURL: https://api.plansource.com/admin/v2
+  tags:
+  - Administrators
+  properties:
+  - type: OpenAPI
+    url: openapi/plansource-administrators-api-openapi.yml
+  - type: Examples
+    url: examples/plansource-examples.yml
+  - type: Authentication
+    url: authentication/plansource-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plansource-scopes.yml
+  - type: ErrorCatalog
+    url: errors/plansource-problem-types.yml
+  - type: Conventions
+    url: conventions/plansource-conventions.yml
+  - type: DataModel
+    url: data-model/plansource-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/plansource-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/plansource-sandbox.yml
+  - type: Conformance
+    url: conformance/plansource-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/plansource-agentic-access.yml
+  - type: ToolCrosswalk
+    url: mcp/plansource-tool-crosswalk.yml
+  - type: Postman
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+  - type: APIReference
+    url: https://developer.plansource.com/v2.0/reference
+  - type: Documentation
+    url: https://developer.plansource.com/docs/plansource-administrative-api
+- aid: plansource:plansource-all-api
+  name: PlanSource All API
+  description: The All API from PlanSource — 62 operation(s) for all.
+  humanURL: https://developer.plansource.com/v2.0/reference
+  baseURL: https://api.plansource.com/admin/v2
+  tags:
+  - All
+  properties:
+  - type: OpenAPI
+    url: openapi/plansource-all-api-openapi.yml
+  - type: Examples
+    url: examples/plansource-examples.yml
+  - type: Authentication
+    url: authentication/plansource-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plansource-scopes.yml
+  - type: ErrorCatalog
+    url: errors/plansource-problem-types.yml
+  - type: Conventions
+    url: conventions/plansource-conventions.yml
+  - type: DataModel
+    url: data-model/plansource-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/plansource-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/plansource-sandbox.yml
+  - type: Conformance
+    url: conformance/plansource-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/plansource-agentic-access.yml
+  - type: ToolCrosswalk
+    url: mcp/plansource-tool-crosswalk.yml
+  - type: Postman
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+  - type: APIReference
+    url: https://developer.plansource.com/v2.0/reference
+  - type: Documentation
+    url: https://developer.plansource.com/docs/plansource-administrative-api
+- aid: plansource:plansource-collections-api
+  name: PlanSource Collections API
+  description: Collections of objects.
+  humanURL: https://developer.plansource.com/v2.0/reference
+  baseURL: https://api.plansource.com/admin/v2
+  tags:
+  - Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/plansource-collections-api-openapi.yml
+  - type: Examples
+    url: examples/plansource-examples.yml
+  - type: Authentication
+    url: authentication/plansource-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plansource-scopes.yml
+  - type: ErrorCatalog
+    url: errors/plansource-problem-types.yml
+  - type: Conventions
+    url: conventions/plansource-conventions.yml
+  - type: DataModel
+    url: data-model/plansource-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/plansource-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/plansource-sandbox.yml
+  - type: Conformance
+    url: conformance/plansource-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/plansource-agentic-access.yml
+  - type: ToolCrosswalk
+    url: mcp/plansource-tool-crosswalk.yml
+  - type: Postman
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+  - type: APIReference
+    url: https://developer.plansource.com/v2.0/reference
+  - type: Documentation
+    url: https://developer.plansource.com/docs/plansource-administrative-api
+- aid: plansource:plansource-composites-api
+  name: PlanSource Composites API
+  description: Objects composed of resources.
+  humanURL: https://developer.plansource.com/v2.0/reference
+  baseURL: https://api.plansource.com/admin/v2
+  tags:
+  - Composites
+  properties:
+  - type: OpenAPI
+    url: openapi/plansource-composites-api-openapi.yml
+  - type: Examples
+    url: examples/plansource-examples.yml
+  - type: Authentication
+    url: authentication/plansource-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plansource-scopes.yml
+  - type: ErrorCatalog
+    url: errors/plansource-problem-types.yml
+  - type: Conventions
+    url: conventions/plansource-conventions.yml
+  - type: DataModel
+    url: data-model/plansource-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/plansource-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/plansource-sandbox.yml
+  - type: Conformance
+    url: conformance/plansource-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/plansource-agentic-access.yml
+  - type: ToolCrosswalk
+    url: mcp/plansource-tool-crosswalk.yml
+  - type: Postman
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+  - type: APIReference
+    url: https://developer.plansource.com/v2.0/reference
+  - type: Documentation
+    url: https://developer.plansource.com/docs/plansource-administrative-api
+- aid: plansource:plansource-coverage-api
+  name: PlanSource Coverage API
+  description: Coverages, coverage lines, and dependent coverages.
+  humanURL: https://developer.plansource.com/v2.0/reference
+  baseURL: https://api.plansource.com/admin/v2
+  tags:
+  - Coverage
+  properties:
+  - type: OpenAPI
+    url: openapi/plansource-coverage-api-openapi.yml
+  - type: Examples
+    url: examples/plansource-examples.yml
+  - type: Authentication
+    url: authentication/plansource-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plansource-scopes.yml
+  - type: ErrorCatalog
+    url: errors/plansource-problem-types.yml
+  - type: Conventions
+    url: conventions/plansource-conventions.yml
+  - type: DataModel
+    url: data-model/plansource-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/plansource-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/plansource-sandbox.yml
+  - type: Conformance
+    url: conformance/plansource-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/plansource-agentic-access.yml
+  - type: ToolCrosswalk
+    url: mcp/plansource-tool-crosswalk.yml
+  - type: Postman
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+  - type: APIReference
+    url: https://developer.plansource.com/v2.0/reference
+  - type: Documentation
+    url: https://developer.plansource.com/docs/plansource-administrative-api
+- aid: plansource:plansource-demographic-api
+  name: PlanSource Demographic API
+  description: Subscribers, their dependents and beneficiaries.
+  humanURL: https://developer.plansource.com/v2.0/reference
+  baseURL: https://api.plansource.com/admin/v2
+  tags:
+  - Demographic
+  properties:
+  - type: OpenAPI
+    url: openapi/plansource-demographic-api-openapi.yml
+  - type: Examples
+    url: examples/plansource-examples.yml
+  - type: Authentication
+    url: authentication/plansource-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plansource-scopes.yml
+  - type: ErrorCatalog
+    url: errors/plansource-problem-types.yml
+  - type: Conventions
+    url: conventions/plansource-conventions.yml
+  - type: DataModel
+    url: data-model/plansource-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/plansource-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/plansource-sandbox.yml
+  - type: Conformance
+    url: conformance/plansource-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/plansource-agentic-access.yml
+  - type: ToolCrosswalk
+    url: mcp/plansource-tool-crosswalk.yml
+  - type: Postman
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+  - type: APIReference
+    url: https://developer.plansource.com/v2.0/reference
+  - type: Documentation
+    url: https://developer.plansource.com/docs/plansource-administrative-api
+- aid: plansource:plansource-eoi-api
+  name: PlanSource EOI API
+  description: Evidence of Insurability Processing.
+  humanURL: https://developer.plansource.com/v2.0/reference
+  baseURL: https://api.plansource.com/admin/v2
+  tags:
+  - EOI
+  properties:
+  - type: OpenAPI
+    url: openapi/plansource-eoi-api-openapi.yml
+  - type: Examples
+    url: examples/plansource-examples.yml
+  - type: Authentication
+    url: authentication/plansource-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plansource-scopes.yml
+  - type: ErrorCatalog
+    url: errors/plansource-problem-types.yml
+  - type: Conventions
+    url: conventions/plansource-conventions.yml
+  - type: DataModel
+    url: data-model/plansource-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/plansource-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/plansource-sandbox.yml
+  - type: Conformance
+    url: conformance/plansource-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/plansource-agentic-access.yml
+  - type: ToolCrosswalk
+    url: mcp/plansource-tool-crosswalk.yml
+  - type: Postman
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+  - type: APIReference
+    url: https://developer.plansource.com/v2.0/reference
+  - type: Documentation
+    url: https://developer.plansource.com/docs/plansource-administrative-api
+- aid: plansource:plansource-page-content-api
+  name: PlanSource Page Content API
+  description: Organization page content data.
+  humanURL: https://developer.plansource.com/v2.0/reference
+  baseURL: https://api.plansource.com/admin/v2
+  tags:
+  - Page Content
+  properties:
+  - type: OpenAPI
+    url: openapi/plansource-page-content-api-openapi.yml
+  - type: Examples
+    url: examples/plansource-examples.yml
+  - type: Authentication
+    url: authentication/plansource-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plansource-scopes.yml
+  - type: ErrorCatalog
+    url: errors/plansource-problem-types.yml
+  - type: Conventions
+    url: conventions/plansource-conventions.yml
+  - type: DataModel
+    url: data-model/plansource-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/plansource-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/plansource-sandbox.yml
+  - type: Conformance
+    url: conformance/plansource-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/plansource-agentic-access.yml
+  - type: ToolCrosswalk
+    url: mcp/plansource-tool-crosswalk.yml
+  - type: Postman
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+  - type: APIReference
+    url: https://developer.plansource.com/v2.0/reference
+  - type: Documentation
+    url: https://developer.plansource.com/docs/plansource-administrative-api
+- aid: plansource:plansource-payroll-api
+  name: PlanSource Payroll API
+  description: Payroll coverages data.
+  humanURL: https://developer.plansource.com/v2.0/reference
+  baseURL: https://api.plansource.com/admin/v2
+  tags:
+  - Payroll
+  properties:
+  - type: OpenAPI
+    url: openapi/plansource-payroll-api-openapi.yml
+  - type: Examples
+    url: examples/plansource-examples.yml
+  - type: Authentication
+    url: authentication/plansource-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plansource-scopes.yml
+  - type: ErrorCatalog
+    url: errors/plansource-problem-types.yml
+  - type: Conventions
+    url: conventions/plansource-conventions.yml
+  - type: DataModel
+    url: data-model/plansource-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/plansource-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/plansource-sandbox.yml
+  - type: Conformance
+    url: conformance/plansource-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/plansource-agentic-access.yml
+  - type: ToolCrosswalk
+    url: mcp/plansource-tool-crosswalk.yml
+  - type: Postman
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+  - type: APIReference
+    url: https://developer.plansource.com/v2.0/reference
+  - type: Documentation
+    url: https://developer.plansource.com/docs/plansource-administrative-api
+- aid: plansource:plansource-processing-api
+  name: PlanSource Processing API
+  description: >-
+    Endpoints used for processing data, producing a result, and/or running a sequence of actions.
+  humanURL: https://developer.plansource.com/v2.0/reference
+  baseURL: https://api.plansource.com/admin/v2
+  tags:
+  - Processing
+  properties:
+  - type: OpenAPI
+    url: openapi/plansource-processing-api-openapi.yml
+  - type: Examples
+    url: examples/plansource-examples.yml
+  - type: Authentication
+    url: authentication/plansource-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plansource-scopes.yml
+  - type: ErrorCatalog
+    url: errors/plansource-problem-types.yml
+  - type: Conventions
+    url: conventions/plansource-conventions.yml
+  - type: DataModel
+    url: data-model/plansource-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/plansource-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/plansource-sandbox.yml
+  - type: Conformance
+    url: conformance/plansource-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/plansource-agentic-access.yml
+  - type: ToolCrosswalk
+    url: mcp/plansource-tool-crosswalk.yml
+  - type: Postman
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+  - type: APIReference
+    url: https://developer.plansource.com/v2.0/reference
+  - type: Documentation
+    url: https://developer.plansource.com/docs/plansource-administrative-api
+- aid: plansource:plansource-resources-api
+  name: PlanSource Resources API
+  description: Individual objects.
+  humanURL: https://developer.plansource.com/v2.0/reference
+  baseURL: https://api.plansource.com/admin/v2
+  tags:
+  - Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/plansource-resources-api-openapi.yml
+  - type: Examples
+    url: examples/plansource-examples.yml
+  - type: Authentication
+    url: authentication/plansource-authentication.yml
+  - type: OAuthScopes
+    url: scopes/plansource-scopes.yml
+  - type: ErrorCatalog
+    url: errors/plansource-problem-types.yml
+  - type: Conventions
+    url: conventions/plansource-conventions.yml
+  - type: DataModel
+    url: data-model/plansource-data-model.yml
+  - type: Lifecycle
+    url: lifecycle/plansource-lifecycle.yml
+  - type: Sandbox
+    url: sandbox/plansource-sandbox.yml
+  - type: Conformance
+    url: conformance/plansource-conformance.yml
+  - type: AgenticAccess
+    url: agentic-access/plansource-agentic-access.yml
+  - type: ToolCrosswalk
+    url: mcp/plansource-tool-crosswalk.yml
+  - type: Postman
+    url: https://www.getpostman.com/collections/93f063e64815e4122102
+  - type: APIReference
+    url: https://developer.plansource.com/v2.0/reference
+  - type: Documentation
+    url: https://developer.plansource.com/docs/plansource-administrative-api
+- aid: plansource:plansource-security-api
+  name: PlanSource Security API
+  description: Security Functions
+  humanURL: https://developer.plansource.com/v2.0/reference
+  baseURL: https://api.plansource.com/admin/v2
+  tags:
+  - Security
+  properties:
+  - type: OpenAPI
+    url: openapi/plansource-security-api-openapi.yml
   - type: Examples
     url: examples/plansource-examples.yml
   - type: Authentication
@@ -86,6 +534,8 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Overlay
+  url: overlays/plansource-admin-api-overlay.yaml
 - type: Website
   url: https://plansource.com/
 - type: DeveloperPortal
