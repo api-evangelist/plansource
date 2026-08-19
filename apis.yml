@@ -16,7 +16,7 @@ url: https://raw.githubusercontent.com/api-evangelist/plansource/refs/heads/main
 image: https://plansource.com/wp-content/uploads/2026/01/ps_social-share-img.webp
 x-type: company
 x-source: harvest:insurance-benefits-admin
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-06'
 modified: '2026-08-06'
 tags:
