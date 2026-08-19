@@ -1,0 +1,1369 @@
+{
+  "item": [
+    {
+      "id": "1865d333-957c-4286-9f79-dc29194d48e4",
+      "name": "ACA",
+      "description": {
+        "content": "Affordable Care Act data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c49b20a0-c1c0-4f05-9b3d-e7f59f8e103a",
+          "name": "Retrieve new, changed and deleted offers. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion.",
+          "request": {
+            "name": "Retrieve new, changed and deleted offers. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion.",
+            "description": {
+              "content": "Retrieve new, changed and deleted offers. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "aca",
+                "offers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "changes_since",
+                  "value": "<integer>",
+                  "description": "Number of minutes since now to find new, changed and deleted offers"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_deletes",
+                  "value": "false",
+                  "description": "Should deleted offers be included?"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "500",
+                  "description": "Override the maximum of records returned in a response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8405c2c5-fccb-4b9a-9bdf-f155d4a39e1d",
+              "name": "Offers data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 9422,\n      \"offer_ends_on\": \"1992-03-23\",\n      \"offer_origin_code\": \"string\",\n      \"offer_starts_on\": \"1984-12-14\",\n      \"subscriber_id\": 6637,\n      \"enrollment_starts_on\": \"1971-09-19\",\n      \"enrollment_ends_on\": \"1992-10-31\",\n      \"max_possible_tier_code\": \"string\",\n      \"is_minimum_value\": false,\n      \"subscriber_premium_monthly\": 9538.69882271799,\n      \"org_plan_id\": 4395,\n      \"coverage_id\": 1863,\n      \"origin_subscriber_life_event_id\": 2557,\n      \"origin_plan_year_id\": 2501,\n      \"origin_hire_date\": \"2001-07-27\",\n      \"is_manual\": true,\n      \"enrollment_tier_code\": \"string\",\n      \"calc_date\": \"2008-08-21\",\n      \"approval_date\": \"1946-10-23T07:50:08.046Z\",\n      \"approval_code\": \"string\",\n      \"is_eligible\": false,\n      \"is_mec\": true,\n      \"is_deleted\": false,\n      \"updated_at\": \"2003-10-21\"\n    },\n    {\n      \"id\": 3523,\n      \"offer_ends_on\": \"1990-03-17\",\n      \"offer_origin_code\": \"string\",\n      \"offer_starts_on\": \"1952-07-15\",\n      \"subscriber_id\": 4023,\n      \"enrollment_starts_on\": \"1971-10-09\",\n      \"enrollment_ends_on\": \"1998-03-27\",\n      \"max_possible_tier_code\": \"string\",\n      \"is_minimum_value\": false,\n      \"subscriber_premium_monthly\": 8624.47603435206,\n      \"org_plan_id\": 6890,\n      \"coverage_id\": 865,\n      \"origin_subscriber_life_event_id\": 9740,\n      \"origin_plan_year_id\": 7164,\n      \"origin_hire_date\": \"1965-06-03\",\n      \"is_manual\": true,\n      \"enrollment_tier_code\": \"string\",\n      \"calc_date\": \"2018-01-02\",\n      \"approval_date\": \"1957-11-15T14:17:06.268Z\",\n      \"approval_code\": \"string\",\n      \"is_eligible\": false,\n      \"is_mec\": true,\n      \"is_deleted\": true,\n      \"updated_at\": \"1951-08-17\"\n    }\n  ],\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "36c91b04-e741-4425-8c29-7d0d3bdc9b3f",
+              "name": "Access Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"http_status\": 1237,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"http_status\": 4347,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    }\n  ],\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dda281ef-a6a0-4b16-8e17-98344aa14a5c",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"http_status\": 5175,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"http_status\": 4445,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    }\n  ],\n  \"status\": \"failure\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9667d9c5-f2f9-4aef-88c6-f62406e91258",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "offers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"http_status\": 1948,\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "801fe346-2062-4184-8e39-b1761c823120",
+          "name": "Retrieve new, changed and deleted offers for individual subscriber. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion.",
+          "request": {
+            "name": "Retrieve new, changed and deleted offers for individual subscriber. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion.",
+            "description": {
+              "content": "Retrieve new, changed and deleted offers for individual subscriber. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "aca",
+                "offers",
+                "subscriber",
+                ":subscriber_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "changes_since",
+                  "value": "<integer>",
+                  "description": "Number of minutes since now to find new, changed and deleted offers"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_deletes",
+                  "value": "false",
+                  "description": "Should deleted offers be included?"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "500",
+                  "description": "Override the maximum of records returned in a response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "subscriber_id",
+                  "description": "(Required) The ID of the subscriber"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d312941-afee-4f7a-b980-024b5d1151c9",
+              "name": "Offers data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "offers",
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 2730,\n      \"offer_ends_on\": \"2006-03-08\",\n      \"offer_origin_code\": \"string\",\n      \"offer_starts_on\": \"1980-01-21\",\n      \"subscriber_id\": 8495,\n      \"enrollment_starts_on\": \"2010-01-09\",\n      \"enrollment_ends_on\": \"2024-09-16\",\n      \"max_possible_tier_code\": \"string\",\n      \"is_minimum_value\": true,\n      \"subscriber_premium_monthly\": 9391.748754046708,\n      \"org_plan_id\": 3664,\n      \"coverage_id\": 8456,\n      \"origin_subscriber_life_event_id\": 8055,\n      \"origin_plan_year_id\": 5934,\n      \"origin_hire_date\": \"1959-12-21\",\n      \"is_manual\": true,\n      \"enrollment_tier_code\": \"string\",\n      \"calc_date\": \"1950-02-04\",\n      \"approval_date\": \"2009-07-12T21:59:03.824Z\",\n      \"approval_code\": \"string\",\n      \"is_eligible\": true,\n      \"is_mec\": true,\n      \"is_deleted\": true,\n      \"updated_at\": \"1972-02-12\"\n    },\n    {\n      \"id\": 4530,\n      \"offer_ends_on\": \"2011-10-16\",\n      \"offer_origin_code\": \"string\",\n      \"offer_starts_on\": \"1976-04-10\",\n      \"subscriber_id\": 7542,\n      \"enrollment_starts_on\": \"2002-10-11\",\n      \"enrollment_ends_on\": \"2014-11-23\",\n      \"max_possible_tier_code\": \"string\",\n      \"is_minimum_value\": false,\n      \"subscriber_premium_monthly\": 2598.14613708222,\n      \"org_plan_id\": 2712,\n      \"coverage_id\": 2070,\n      \"origin_subscriber_life_event_id\": 9958,\n      \"origin_plan_year_id\": 6300,\n      \"origin_hire_date\": \"1976-08-12\",\n      \"is_manual\": false,\n      \"enrollment_tier_code\": \"string\",\n      \"calc_date\": \"2004-01-12\",\n      \"approval_date\": \"2010-05-07T03:53:27.894Z\",\n      \"approval_code\": \"string\",\n      \"is_eligible\": true,\n      \"is_mec\": true,\n      \"is_deleted\": true,\n      \"updated_at\": \"1974-05-03\"\n    }\n  ],\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "819b10c7-ab5a-4e10-af40-a3a605ba07a0",
+              "name": "Access Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "offers",
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"http_status\": 8390,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"http_status\": 1759,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    }\n  ],\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a8d5c8cf-ccb3-498a-8cc8-faf31b80b711",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "offers",
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"http_status\": 9525,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"http_status\": 8230,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    }\n  ],\n  \"status\": \"failure\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0be029f2-5290-4c2b-b6a1-54b60a6ed6bd",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "offers",
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"http_status\": 5893,\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6d82afc-4638-4cac-a5ff-7a2f45f42863",
+          "name": "Retrieve new, changed and deleted enrollees. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion.",
+          "request": {
+            "name": "Retrieve new, changed and deleted enrollees. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion.",
+            "description": {
+              "content": "Retrieve new, changed and deleted enrollees. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "aca",
+                "enrollees"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "changes_since",
+                  "value": "<integer>",
+                  "description": "Number of minutes since now to find new, changed and deleted enrollees"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_deletes",
+                  "value": "false",
+                  "description": "Should deleted enrollees be included?"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "500",
+                  "description": "Override the maximum of records returned in a response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ed8b0c50-75ad-47bc-b68f-b5a2afbe4015",
+              "name": "Enrollee data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "enrollees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"end_date\": \"2005-02-04\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"middle_name\": \"string\",\n      \"start_date\": \"2012-01-27\",\n      \"subscriber_id\": 7720,\n      \"id\": 8207,\n      \"dependent_id\": 8837,\n      \"ssn\": \"string\",\n      \"birthdate\": \"1984-06-28\",\n      \"is_deleted\": true,\n      \"updated_at\": \"1999-04-10\"\n    },\n    {\n      \"end_date\": \"2003-07-19\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"middle_name\": \"string\",\n      \"start_date\": \"1999-04-14\",\n      \"subscriber_id\": 8076,\n      \"id\": 5652,\n      \"dependent_id\": 5488,\n      \"ssn\": \"string\",\n      \"birthdate\": \"2000-08-17\",\n      \"is_deleted\": false,\n      \"updated_at\": \"2006-10-28\"\n    }\n  ],\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8447c615-6170-40a6-8c0c-01a8bbe8984f",
+              "name": "Access Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "enrollees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"http_status\": 8390,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"http_status\": 1759,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    }\n  ],\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e65f4199-ef72-4f7e-a949-e6d298334a69",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "enrollees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"http_status\": 9525,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"http_status\": 8230,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    }\n  ],\n  \"status\": \"failure\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "afa725e6-85d5-4aec-bf07-cb80302ba799",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "enrollees"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"http_status\": 5893,\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "454c0549-4803-44a7-8966-2974728aef46",
+          "name": "Retrieve new, changed and deleted enrollees for an individual subscriber. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion.",
+          "request": {
+            "name": "Retrieve new, changed and deleted enrollees for an individual subscriber. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion.",
+            "description": {
+              "content": "Retrieve new, changed and deleted enrollees for an individual subscriber. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "aca",
+                "enrollees",
+                "subscriber",
+                ":subscriber_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "changes_since",
+                  "value": "<integer>",
+                  "description": "Number of minutes since now to find new, changed and deleted enrollees"
+                },
+                {
+                  "disabled": false,
+                  "key": "include_deletes",
+                  "value": "false",
+                  "description": "Should deleted enrollees be included?"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "500",
+                  "description": "Override the maximum of records returned in a response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "subscriber_id",
+                  "description": "(Required) The ID of the subscriber"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d6f1d5da-3b58-4ae9-9269-5f0f7f2a8f48",
+              "name": "Enrollee data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "enrollees",
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"end_date\": \"1952-01-25\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"middle_name\": \"string\",\n      \"start_date\": \"1955-07-21\",\n      \"subscriber_id\": 206,\n      \"id\": 1293,\n      \"dependent_id\": 5014,\n      \"ssn\": \"string\",\n      \"birthdate\": \"1953-05-28\",\n      \"is_deleted\": false,\n      \"updated_at\": \"2001-11-19\"\n    },\n    {\n      \"end_date\": \"1979-02-16\",\n      \"first_name\": \"string\",\n      \"last_name\": \"string\",\n      \"middle_name\": \"string\",\n      \"start_date\": \"1995-05-21\",\n      \"subscriber_id\": 3394,\n      \"id\": 8686,\n      \"dependent_id\": 2922,\n      \"ssn\": \"string\",\n      \"birthdate\": \"1985-12-03\",\n      \"is_deleted\": false,\n      \"updated_at\": \"2008-04-01\"\n    }\n  ],\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "062e3856-b122-4e27-9435-a366e7a7cb10",
+              "name": "Access Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "enrollees",
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"http_status\": 8390,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"http_status\": 1759,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    }\n  ],\n  \"status\": \"success\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67ce9c9a-83da-4172-80fc-4739b37241c7",
+              "name": "Resource not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "enrollees",
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"errors\": [\n    {\n      \"status\": \"string\",\n      \"http_status\": 9525,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    },\n    {\n      \"status\": \"string\",\n      \"http_status\": 8230,\n      \"message\": \"string\",\n      \"details\": \"string\",\n      \"error_code\": \"string\"\n    }\n  ],\n  \"status\": \"failure\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "48934858-f94b-4887-bf1e-6f8bb2200987",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "aca",
+                    "enrollees",
+                    "subscriber",
+                    ":subscriber_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "changes_since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_deletes",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "500"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"http_status\": 5893,\n  \"message\": \"string\",\n  \"status\": \"string\",\n  \"details\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.plansource.com/admin/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "admin_api_v2"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.plansource.com/oauth/v2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "8695fa06-944d-4270-a7f4-f7dc185ab505",
+    "name": "Plansource Admin ACA API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An integration API for Plansource data for administration functions\n\nContact Support:\n Name: Plansource API team\n Email: api-team@plansource.com",
+      "type": "text/plain"
+    }
+  }
+}

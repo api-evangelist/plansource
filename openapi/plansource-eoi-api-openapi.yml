@@ -1,0 +1,1052 @@
+openapi: 3.2.0
+info:
+  title: Plansource Admin EOI API
+  description: An integration API for Plansource data for administration functions
+  contact:
+    name: Plansource API team
+    email: api-team@plansource.com
+  license:
+    name: B) 2017 Plansource.  All rights reserved.
+  version: 2.0.0
+servers:
+- url: https://api.plansource.com/admin/v2
+security:
+- clientSecretJwt:
+  - admin_api_v2
+- authString: []
+  signature: []
+tags:
+- name: EOI
+  description: Evidence of Insurability Processing.
+paths:
+  /eoi/subscriber/{subscriber_id}:
+    get:
+      tags:
+      - EOI
+      description: Retrieve pending EOI data for a single subscriber.
+      parameters:
+      - name: subscriber_id
+        in: path
+        description: The ID of the subscriber.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Coverage(s) pending EOI for a subscriber response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EoiSubscriberModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      id: 8859138
+                      original_effective_date: 2018/01/04
+                      change_effective_date: 2018/01/04
+                      volume: '100000.0'
+                      req_volume: '125000.0'
+                      gi_volume: '0.0'
+                      first_name: Eli
+                      last_name: Test
+                      middle_name: M
+                      ssn: '232425200'
+                      benefit_name: Voluntary Employee Life
+                      benefit_lookup_code: subscriber_life
+                      plan_name: Voluntary Employee Life
+                      coverage_id: 23278082
+                      req_plan_name: Voluntary Employee Life
+                      eoi_volume: '25000.0'
+                      eoi_form: Incomplete
+                      links:
+                        href: /admin/eoi/subscriber/8859138
+                        rel: self
+                      dependents:
+                        id: 5
+                        first_name: Amanda
+                        last_name: Base
+                        middle_name: J
+                        ssn: '232425201'
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Employee not found
+                      error_code: 404
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /eoi/subscribers:
+    get:
+      tags:
+      - EOI
+      description: Retrieve pending EOI data for all subscribers.
+      parameters:
+      - name: include_test
+        in: query
+        description: Include test employees.
+        required: false
+        schema:
+          type: string
+          default: 'no'
+          enum:
+          - 'yes'
+          - 'no'
+      responses:
+        '200':
+          description: Coverage(s) pending EOI for all subscribers response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EoiSubscriberModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      id: 8859138
+                      original_effective_date: 2018/01/04
+                      change_effective_date: 2018/01/04
+                      volume: '100000.0'
+                      req_volume: '125000.0'
+                      gi_volume: '0.0'
+                      first_name: Eli
+                      last_name: Test
+                      middle_name: M
+                      ssn: '232425200'
+                      benefit_name: Voluntary Employee Life
+                      benefit_lookup_code: subscriber_life
+                      plan_name: Voluntary Employee Life
+                      coverage_id: 23278082
+                      req_plan_name: Voluntary Employee Life
+                      eoi_volume: '25000.0'
+                      eoi_form: Incomplete
+                      links:
+                        href: /admin/eoi/subscriber/8859138
+                        rel: self
+                      dependents:
+                        id: 5
+                        first_name: Amanda
+                        last_name: Base
+                        middle_name: J
+                        ssn: '232425201'
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'eoi/subscriber' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /eoi/decision/{subscriber_id}:
+    put:
+      tags:
+      - EOI
+      description: Process EOI decisions for a single subscriber.
+      parameters:
+      - name: subscriber_id
+        in: path
+        description: The ID of the subscriber.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Decisions'
+      responses:
+        '200':
+          description: Status response for processing a subscriber's pending EOI.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EoiDecisionResponseOK'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      valid_count: 0
+                      failed_count: 1
+                      failed_rows:
+                        ssn: '123123123'
+                        benefit_lookup_code: subscriber_life
+                        action: approve_all
+                        approved_volume: '125000.00'
+                        effective_date: '2018-03-28T00:00:00.000Z'
+                        original_effective_date: ''
+                        errors: Benefit not found, Coverage not waiting for EOI decision
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: There was a problem in the JSON you submitted
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'eoi/subscriber' not found
+                      error_code: route_not_found
+        '422':
+          description: Missing parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/422Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 422
+                      message: Parameter 'decisions' is required
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /eoi/decisions:
+    put:
+      tags:
+      - EOI
+      description: Process EOI decisions for multiple subscribers.
+      requestBody:
+        $ref: '#/components/requestBodies/Decisions'
+      responses:
+        '200':
+          description: Status response for processing multiple subscriber pending EOIs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EoiDecisionResponseOK'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      valid_count: 1
+                      failed_count: 1
+                      failed_rows:
+                        ssn: '123123123'
+                        benefit_lookup_code: subscriber_life
+                        action: approve_all
+                        approved_volume: '125000.00'
+                        effective_date: '2018-03-28T00:00:00.000Z'
+                        original_effective_date: ''
+                        errors: Employee not found
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'eoi/decision' not found
+                      error_code: route_not_found
+        '422':
+          description: Missing parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/422Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 422
+                      message: Parameter 'decisions' is required
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /eoi/form_completion/{subscriber_id}:
+    put:
+      tags:
+      - EOI
+      description: Process EOI form completions for single subscriber.
+      parameters:
+      - name: subscriber_id
+        in: path
+        description: The ID of the subscriber.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/FormCompletions'
+      responses:
+        '200':
+          description: Status response for processing a subscriber's form completion.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EoiFormResponseOK'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      valid_count: 0
+                      failed_count: 1
+                      failed_rows:
+                        ssn: '123123123'
+                        benefits: subscriber_life
+                        completed: 'true'
+                        expiration_date: ''
+                        reference_number: ''
+                        errors: Employee not found
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'eoi/form_completion' not found
+                      error_code: route_not_found
+        '422':
+          description: Missing parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/422Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 422
+                      message: Parameter 'form_completions' is required
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /eoi/form_completions:
+    put:
+      tags:
+      - EOI
+      description: Process EOI form completions for multiple subscribers.
+      requestBody:
+        $ref: '#/components/requestBodies/FormCompletions'
+      responses:
+        '200':
+          description: Status response for processing multiple subscribers form completions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EoiFormResponseOK'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      valid_count: 1
+                      failed_count: 1
+                      failed_rows:
+                        ssn: '123123123'
+                        benefits: subscriber_life
+                        completed: 'true'
+                        expiration_date: ''
+                        reference_number: ''
+                        errors: Employee not found
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'eoi/form_completion' not found
+                      error_code: route_not_found
+        '422':
+          description: Missing parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/422Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 422
+                      message: Parameter 'form_completions' is required
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+components:
+  schemas:
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    EoiSubscriberModel:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: array
+          items: {}
+        id:
+          type: integer
+        original_effective_date:
+          type: string
+        change_effective_date:
+          type: string
+        volume:
+          type: string
+        req_volume:
+          type: string
+        gi_volume:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        middle_name:
+          type: string
+        ssn:
+          type: string
+        benefit_name:
+          type: string
+        benefit_lookup_code:
+          type: string
+        plan_name:
+          type: string
+        coverage_id:
+          type: integer
+        coverage_line_id:
+          type: integer
+        req_plan_name:
+          type: string
+        eoi_volume:
+          type: string
+        eoi_form:
+          type: string
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        dependents:
+          type: array
+          items: {}
+    403Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    EoiFormResponseOK:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: object
+        valid_count:
+          type: number
+        failed_count:
+          type: number
+        failed_rows:
+          type: array
+          items: {}
+        ssn:
+          type: string
+        benefits:
+          type: string
+        completed:
+          type: string
+        expiration_date:
+          type: string
+        reference_number:
+          type: string
+        errors:
+          type: string
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    EoiDecisionResponseOK:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: object
+        valid_count:
+          type: number
+        failed_count:
+          type: number
+        failed_rows:
+          type: array
+          items: {}
+        ssn:
+          type: string
+        benefit_lookup_code:
+          type: string
+        action:
+          type: string
+        approved_volume:
+          type: string
+        effective_date:
+          type: string
+        original_effective_date:
+          type: string
+        errors:
+          type: string
+    400Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    422Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    401Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+  requestBodies:
+    FormCompletions:
+      description: Subscriber EOI form completions.
+      content:
+        application/json:
+          schema:
+            title: body
+            type: object
+            properties:
+              decisions:
+                required:
+                - benefits
+                - completed
+                - ssn
+                type: object
+                properties:
+                  ssn:
+                    type: string
+                  benefits:
+                    type: string
+                  completed:
+                    type: string
+                    description: Completed or not completed.
+                    enum:
+                    - 'true'
+                    - 'false'
+                  expiration_date:
+                    type: string
+                    description: YYYY-MM-DD date format.
+                  reference_number:
+                    type: string
+      required: true
+    Decisions:
+      description: Subscriber EOI decision.
+      content:
+        application/json:
+          schema:
+            title: body
+            type: object
+            properties:
+              decisions:
+                required:
+                - action
+                - benefit_lookup_code
+                - effective_date
+                - ssn
+                type: object
+                properties:
+                  ssn:
+                    type: string
+                  benefit_lookup_code:
+                    type: string
+                  action:
+                    type: string
+                    description: Action for processing pending EOI.
+                    enum:
+                    - approve_all
+                    - approve_part
+                    - pend_remaining
+                    - deny_permanently
+                    - expire_all
+                    - deny_all
+                  approved_volume:
+                    type: string
+                  effective_date:
+                    type: string
+                    description: YYYY-MM-DD date format.
+                  original_effective_date:
+                    type: string
+                    description: YYYY-MM-DD date format.
+      required: true
+  securitySchemes:
+    clientSecretJwt:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.plansource.com/oauth/v2/token
+          scopes:
+            admin_api_v2: Access to all endpoints
+    authString:
+      type: apiKey
+      name: AuthenticationString
+      in: header
+    signature:
+      type: apiKey
+      name: Signature
+      in: header
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true

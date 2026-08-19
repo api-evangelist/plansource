@@ -1,0 +1,583 @@
+openapi: 3.2.0
+info:
+  title: Plansource Admin Payroll API
+  description: An integration API for Plansource data for administration functions
+  contact:
+    name: Plansource API team
+    email: api-team@plansource.com
+  license:
+    name: B) 2017 Plansource.  All rights reserved.
+  version: 2.0.0
+servers:
+- url: https://api.plansource.com/admin/v2
+security:
+- clientSecretJwt:
+  - admin_api_v2
+- authString: []
+  signature: []
+tags:
+- name: Payroll
+  description: Payroll coverages data.
+paths:
+  /payroll_coverages_subscriber/{id}:
+    get:
+      tags:
+      - Payroll
+      description: Retrieve payroll coverages for a subscriber.
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the subscriber.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: start_date
+        in: query
+        description: Start date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        description: End date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: is_custom_id
+        in: query
+        description: Set to true if the {id} in the path is customer generated.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: current
+        in: query
+        description: Return only the subscriber's current coverage records.
+        required: false
+        schema:
+          type: boolean
+      - name: previous
+        in: query
+        description: Return only the subscriber's coverage records that are immediately prior to the current record.
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Payroll coverages for a subscriber response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayrollCoveragesSubscriberModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      id: 8854530
+                      subscriber_code: ''
+                      first_name: Ted
+                      middle_name: M
+                      last_name: Mosby
+                      ssn: 123-12-1234
+                      subscriber_pay_frequency: Biweekly (26 per year)
+                      subscriber_total_paydays: 26
+                      organization_id: 652
+                      org_plan_year_starts: 2018/01/04
+                      org_plan_year_ends: 2019/01/03
+                      benefit_name: Medical
+                      benefit_lookup_code: medical
+                      plan_name: Decline
+                      coverage_level: Decline
+                      subscriber_premium: '0.0'
+                      org_premium: '0.0'
+                      imputed_income: '0.0'
+                      subscriber_pretax_premium: '0.0'
+                      subscriber_posttax_premium: '0.0'
+                      tax_treatment: posttax
+                      volume: '0.0'
+                      org_fsa_amount: '0.0'
+                      subscriber_fsa_amount: '0.0'
+                      original_effective_date: '2018-01-04T00:00:00.000Z'
+                      change_effective_date: '2018-01-04T00:00:00.000Z'
+                      dp_sub_imputed_income: '0.0'
+                      dp_org_imputed_income: '0.0'
+                      current: CA
+                      updated_at: '2018-05-29T19:59:55.000Z'
+                      created_at: '2018-05-29T15:31:25.000Z'
+                      termination_date: 2018/01/03
+                      termination_reason: Subscriber voluntarily waived coverage
+                      test_employee: false
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: start_date date is not a valid YYYY-MM-DD date format.
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'payroll_coverages_subscribr/8854530' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /payroll_coverages_subscribers:
+    get:
+      tags:
+      - Payroll
+      description: Retrieve payroll coverages for all subscribers in the organization.
+      parameters:
+      - name: start_date
+        in: query
+        description: Start date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        description: End date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: page
+        in: query
+        description: Set to page number. Large responses are parsed into a maximum of 500 records or the per_page value for large responses.
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        description: Override of the maximum of 500 records returned in a response.
+        required: false
+        schema:
+          type: integer
+          default: 500
+      - name: include_test
+        in: query
+        description: Include test employees.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: current
+        in: query
+        description: Return only the subscriber's current coverage records.
+        required: false
+        schema:
+          type: boolean
+      - name: previous
+        in: query
+        description: Return only the subscriber's coverage records that are immediately prior to the current record.
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Payroll coverages for all subscribers in the organization response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayrollCoveragesSubscriberModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      total: 6,
+                      per_page: 1,
+                      links:
+                      - href: /admin/payroll_coverages_subscribers?start_date=2019-01-01&end_date=2019-12-31&page=1&per_page=1
+                        rel: first
+                      - href: /admin/payroll_coverages_subscribers?start_date=2019-01-01&end_date=2019-12-31&page=1&per_page=1
+                        rel: current
+                      - href: /admin/payroll_coverages_subscribers?start_date=2019-01-01&end_date=2019-12-31&page=2&per_page=1
+                        rel: next
+                      - href: /admin/payroll_coverages_subscribers?start_date=2019-01-01&end_date=2019-12-31&page=6&per_page=1
+                        rel: last
+                      link:
+                        href: /admin/subscriber/8854530?start_date=2019-01-01&end_date=2019-12-31
+                        rel: self
+                      id: 8854530
+                      subscriber_code: ''
+                      first_name: Ted
+                      middle_name: M
+                      last_name: Mosby
+                      ssn: 123-12-1234
+                      subscriber_pay_frequency: Biweekly (26 per year)
+                      subscriber_total_paydays: 26
+                      organization_id: 652
+                      org_plan_year_starts: 2018/01/04
+                      org_plan_year_ends: 2019/01/03
+                      benefit_name: Medical
+                      benefit_lookup_code: medical
+                      plan_name: Decline
+                      coverage_level: Decline
+                      subscriber_premium: '0.0'
+                      org_premium: '0.0'
+                      imputed_income: '0.0'
+                      subscriber_pretax_premium: '0.0'
+                      subscriber_posttax_premium: '0.0'
+                      tax_treatment: posttax
+                      volume: '0.0'
+                      org_fsa_amount: '0.0'
+                      subscriber_fsa_amount: '0.0'
+                      original_effective_date: '2018-01-04T00:00:00.000Z'
+                      change_effective_date: '2018-01-04T00:00:00.000Z'
+                      dp_sub_imputed_income: '0.0'
+                      dp_org_imputed_income: '0.0'
+                      current: CA
+                      updated_at: '2018-05-29T19:59:55.000Z'
+                      created_at: '2018-05-29T15:31:25.000Z'
+                      termination_date: 2018/01/03
+                      termination_reason: Subscriber voluntarily waived coverage
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: No Start Date (params[:start_date] in the request.
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'payroll_coverages_subcribers' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+components:
+  schemas:
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    403Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    PayrollCoveragesSubscriberModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        id:
+          type: integer
+        subscriber_code:
+          type: string
+        first_name:
+          type: string
+        middle_name:
+          type: string
+        last_name:
+          type: string
+        ssn:
+          type: string
+        subscriber_status:
+          type: string
+        subscriber_pay_frequency:
+          type: string
+        subscriber_total_paydays:
+          type: integer
+        organization_id:
+          type: integer
+        org_plan_year_starts:
+          type: string
+        org_plan_year_ends:
+          type: string
+        benefit_name:
+          type: string
+        benefit_lookup_code:
+          type: string
+        plan_name:
+          type: string
+        coverage_level:
+          type: string
+        subscriber_premium:
+          type: string
+        org_premium:
+          type: string
+        imputed_income:
+          type: string
+        subscriber_pretax_premium:
+          type: string
+        subscriber_posttax_premium:
+          type: string
+        tax_treatment:
+          type: string
+        volume:
+          type: string
+        org_fsa_amount:
+          type: string
+        original_effective_date:
+          type: string
+        change_effective_date:
+          type: string
+        dp_sub_imputed_income:
+          type: string
+        dp_org_imputed_income:
+          type: string
+        plan_payroll_mapping_code:
+          type: string
+        plan_group_number:
+          type: string
+        plan_partner_code_1:
+          type: string
+        plan_partner_code_2:
+          type: string
+        current:
+          type: string
+        updated_at:
+          type: string
+        created_at:
+          type: string
+        termination_date:
+          type: string
+        termination_reason:
+          type: string
+        benefit_company:
+          type: string
+        test_employee:
+          type: boolean
+        changed_fields:
+          type: array
+          items: {}
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    400Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    401Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+  securitySchemes:
+    clientSecretJwt:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.plansource.com/oauth/v2/token
+          scopes:
+            admin_api_v2: Access to all endpoints
+    authString:
+      type: apiKey
+      name: AuthenticationString
+      in: header
+    signature:
+      type: apiKey
+      name: Signature
+      in: header
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true

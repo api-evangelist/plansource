@@ -1,0 +1,223 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plansource Admin Page Content API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.plansource.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Page Content",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /page_content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/page_content",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "SAMLResponse",
+                "value": ""
+              },
+              {
+                "name": "RelayState",
+                "value": ""
+              },
+              {
+                "name": "Cookie",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "org_page_content_id",
+                "value": "",
+                "type": "query",
+                "description": "Unique id for the org page content (NOTE! This parameter IS required when page_content_lookup_code IS NOT provided)"
+              },
+              {
+                "name": "page_content_lookup_code",
+                "value": "",
+                "type": "query",
+                "description": "Page content lookup code (NOTE! This parameter IS required when org_page_content_id IS NOT provided)"
+              },
+              {
+                "name": "org_plan_year_id",
+                "value": "",
+                "type": "query",
+                "description": "Unique id for the associated plan year"
+              },
+              {
+                "name": "enrollment_type",
+                "value": "",
+                "type": "query",
+                "description": "Enrollment lookup code (NOTE! This parameter IS required when page_content_lookup_code IS EQUAL sub_main)"
+              },
+              {
+                "name": "benefit_lookup_code",
+                "value": "",
+                "type": "query",
+                "description": "Benefit lookup code"
+              }
+            ]
+          },
+          "docs": "Returns page content or page contents for the requested view. Blocks are ordered according to their 'slot number' and all fields not set are omitted from the response."
+        },
+        {
+          "info": {
+            "name": "PUT /page_content",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/page_content",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "SAMLResponse",
+                "value": ""
+              },
+              {
+                "name": "RelayState",
+                "value": ""
+              },
+              {
+                "name": "Cookie",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "org_page_content_id",
+                "value": "",
+                "type": "query",
+                "description": "Unique id for the org page content."
+              },
+              {
+                "name": "org_plan_year_id",
+                "value": "",
+                "type": "query",
+                "description": "Unique id for the associated plan year"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Applies any changes to page content and content block records."
+        },
+        {
+          "info": {
+            "name": "GET /content_blocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/content_blocks",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "SAMLResponse",
+                "value": ""
+              },
+              {
+                "name": "RelayState",
+                "value": ""
+              },
+              {
+                "name": "Cookie",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number."
+              }
+            ]
+          },
+          "docs": "Returns a paginated array of content blocks."
+        },
+        {
+          "info": {
+            "name": "PUT /content_block",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/content_block",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "SAMLResponse",
+                "value": ""
+              },
+              {
+                "name": "RelayState",
+                "value": ""
+              },
+              {
+                "name": "Cookie",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Applies changes to content block record."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plansource Admin Payroll API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.plansource.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Payroll",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /payroll_coverages_subscriber/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/payroll_coverages_subscriber/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {id} in the path is customer generated."
+              },
+              {
+                "name": "current",
+                "value": "",
+                "type": "query",
+                "description": "Return only the subscriber's current coverage records."
+              },
+              {
+                "name": "previous",
+                "value": "",
+                "type": "query",
+                "description": "Return only the subscriber's coverage records that are immediately prior to the current record."
+              }
+            ]
+          },
+          "docs": "Retrieve payroll coverages for a subscriber."
+        },
+        {
+          "info": {
+            "name": "GET /payroll_coverages_subscribers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/payroll_coverages_subscribers",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Set to page number. Large responses are parsed into a maximum of 500 records or the per_page value for large responses."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override of the maximum of 500 records returned in a response."
+              },
+              {
+                "name": "include_test",
+                "value": "",
+                "type": "query",
+                "description": "Include test employees."
+              },
+              {
+                "name": "current",
+                "value": "",
+                "type": "query",
+                "description": "Return only the subscriber's current coverage records."
+              },
+              {
+                "name": "previous",
+                "value": "",
+                "type": "query",
+                "description": "Return only the subscriber's coverage records that are immediately prior to the current record."
+              }
+            ]
+          },
+          "docs": "Retrieve payroll coverages for all subscribers in the organization."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

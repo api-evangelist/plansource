@@ -1,0 +1,974 @@
+openapi: 3.2.0
+info:
+  title: Plansource Admin Administrators API
+  description: An integration API for Plansource data for administration functions
+  contact:
+    name: Plansource API team
+    email: api-team@plansource.com
+  license:
+    name: B) 2017 Plansource.  All rights reserved.
+  version: 2.0.0
+servers:
+- url: https://api.plansource.com/admin/v2
+security:
+- clientSecretJwt:
+  - admin_api_v2
+- authString: []
+  signature: []
+tags:
+- name: Administrators
+  description: Administrator Management
+paths:
+  /administrator:
+    post:
+      tags:
+      - Administrators
+      description: Create an administrator.
+      requestBody:
+        $ref: '#/components/requestBodies/Body3'
+      responses:
+        '200':
+          description: Administrator create response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdministratorModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      links:
+                        href: /admin/administrator/9956
+                        rel: self
+                    id: 9956
+                    first_name: Tom
+                    last_name: Leonardo
+                    user_name: tleon_1
+                    email: tleon101@email.com
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Organization(s) with code(s) 652 not found.
+                      error_code: 400
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'administrato' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /administrator/{id}:
+    get:
+      tags:
+      - Administrators
+      description: Retrieve data for an administrator.
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the administrator to fetch.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Retrieve administrator response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminExtendedModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      links:
+                        href: /admin/administrator/9956
+                        rel: self
+                    id: 9956
+                    type: OrganizationAdministrator
+                    first_name: Thomas
+                    middle_name: Mosby
+                    last_name: Leonardo
+                    user_id: 974037
+                    phone: ''
+                    organization_id: 652
+                    is_agent: false
+                    fax: ''
+                    is_primary_administrator: false
+                    is_data_discrepancy_contact: false
+                    receive_system_downtime_notifications: false
+                    receive_system_release_notes: true
+                    receive_renewal_notifications: true
+                    receive_ticket_notifications: true
+                    account_initialized: true
+                    populations:
+                      id: 43615
+                      name: ACAFromFullTime(dontuseoralter)
+                    roles:
+                      id: 1
+                      name: SystemAdministrator
+                    user_name: tleon_1
+                    email: tleon@email.com
+                    disabled_on: 2018/03/27
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Admin with id = 995 is not found.
+                      error_code: 404
+                    data: []
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+    put:
+      tags:
+      - Administrators
+      description: Update data for an administrator.
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the administrator to update. The API currently uses the payload's user_name to look up the administrator.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Body3'
+      responses:
+        '200':
+          description: Administrator update response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdministratorModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      links:
+                        href: /admin/administrator/9956
+                        rel: self
+                    id: 9956
+                    first_name: Tom
+                    last_name: Leonardo
+                    user_name: tleon_1
+                    email: tleon101@email.com
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: 'Invalid Attributes: user_name is/are required.'
+                      error_code: 400
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'administrato/9956' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /administrator/{id}/disable:
+    put:
+      tags:
+      - Administrators
+      description: Disable an administrator account.
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the administrator to update or 1.The API currently uses the payload's user_name to look up the administrator.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body_10'
+        required: true
+      responses:
+        '200':
+          description: Disable administrator response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdministratorDisable'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data: tleon_1 is successfully disabled.
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: 'Invalid Attributes: user_name is/are required.'
+                      error_code: 400
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'administrato/9956/disable' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /administrators:
+    get:
+      tags:
+      - Administrators
+      description: Retrieve data for all administrators.
+      parameters:
+      - name: page
+        in: query
+        description: Set to page number.  Large responses are parsed into a maximum of 500 administrators or the per_page value for large responses of administrators.
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        description: Override of the maximum of 500 administrators returned in a response.
+        required: false
+        schema:
+          type: integer
+          default: 500
+      - name: changes_since
+        in: query
+        description: Will only return admins whose updated_at timestamp is within the number of minutes of the change_since value.
+        required: false
+        schema:
+          type: integer
+          default: 1
+      responses:
+        '200':
+          description: Retrieve all administrators response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdminExtendedModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      links:
+                        href: /admin/administrator/9956
+                        rel: self
+                    id: 9956
+                    type: OrganizationAdministrator
+                    first_name: Thomas
+                    middle_name: Mosby
+                    last_name: Leonardo
+                    user_id: 974037
+                    phone: ''
+                    organization_id: 652
+                    is_agent: false
+                    fax: ''
+                    is_primary_administrator: false
+                    is_data_discrepancy_contact: false
+                    receive_system_downtime_notifications: false
+                    receive_system_release_notes: true
+                    receive_renewal_notifications: true
+                    receive_ticket_notifications: true
+                    account_initialized: true
+                    populations:
+                      id: 43615
+                      name: ACAFromFullTime(dontuseoralter)
+                    roles:
+                      id: 1
+                      name: SystemAdministrator
+                    user_name: tleon_1
+                    email: tleon@email.com
+                    disabled_on: 2018/03/27
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'administrator' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+components:
+  schemas:
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    body_10:
+      title: body
+      required:
+      - organization_codes
+      - roles
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/administratoriddisable_user'
+        roles:
+          type: array
+          description: List of role lookup_codes available to the logged_in API user.
+          items:
+            type: string
+        organization_codes:
+          type: array
+          description: List of one or more organization codes the administrator has access or belongs to.
+          items:
+            type: string
+        user_type:
+          type: string
+          description: The administrator user type - organization administrator or master administrator.
+          enum:
+          - org_admin
+          - master_admin
+    403Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    AdministratorDisable:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: string
+    AdminExtendedModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        id:
+          type: integer
+        type:
+          type: string
+        first_name:
+          type: string
+        middle_name:
+          type: string
+        last_name:
+          type: string
+        user_id:
+          type: integer
+        phone:
+          type: string
+        master_org_id:
+          type: integer
+        organization_id:
+          type: integer
+        is_agent:
+          type: boolean
+        carrier_id:
+          type: integer
+        general_agency_id:
+          type: integer
+        fax:
+          type: string
+        tax_id:
+          type: integer
+        is_primary_administrator:
+          type: boolean
+        is_data_discrepancy_contact:
+          type: boolean
+        receive_system_downtime_notifications:
+          type: boolean
+        receive_system_release_notes:
+          type: boolean
+        receive_renewal_notifications:
+          type: boolean
+        receive_ticket_notifications:
+          type: boolean
+        account_initialized:
+          type: boolean
+        populations:
+          type: array
+          items: {}
+        name:
+          type: string
+        roles:
+          type: array
+          items: {}
+        user_name:
+          type: string
+        email:
+          type: string
+        email2:
+          type: string
+        cell:
+          type: string
+        disabled_on:
+          type: string
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    401Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    400Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    AdministratorModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        id:
+          type: integer
+          format: int64
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+    administratoriddisable_user:
+      required:
+      - user_name
+      type: object
+      properties:
+        user_name:
+          type: string
+  requestBodies:
+    Body3:
+      content:
+        application/json:
+          schema:
+            title: body
+            required:
+            - far_lookup_code
+            - organization_codes
+            - roles
+            - user_type
+            type: object
+            properties:
+              user:
+                required:
+                - user_name
+                type: object
+                properties:
+                  user_name:
+                    type: string
+                  email:
+                    type: string
+                  time_zone:
+                    type: string
+                  override_sso:
+                    type: boolean
+                    default: false
+              administrator:
+                type: object
+                properties:
+                  first_name:
+                    type: string
+                    description: If included, field cannot be left blank.
+                  middle_name:
+                    type: string
+                  last_name:
+                    type: string
+                    description: If included, field cannot be left blank.
+                  phone:
+                    type: string
+                  fax:
+                    type: string
+                  is_agent:
+                    type: boolean
+                    default: false
+                  is_primary_administrator:
+                    type: boolean
+                    default: false
+                  is_data_discrepancy_contact:
+                    type: boolean
+                    default: false
+                  receive_system_downtime_notifications:
+                    type: boolean
+                    default: false
+                  receive_system_release_notes:
+                    type: boolean
+                    default: false
+                  receive_renewal_notifications:
+                    type: boolean
+                    default: false
+                  receive_ticket_notifications:
+                    type: boolean
+                    default: false
+              roles:
+                type: array
+                description: List of role lookup_codes available to the logged_in API user.
+                items:
+                  type: string
+              organization_codes:
+                type: array
+                description: List of one or more organization codes the administrator has access or belongs to.
+                items:
+                  type: string
+              org_populations:
+                type: array
+                description: List of one or mored population lookup_codes is required if creating organization administrator.
+                items:
+                  type: string
+              far_lookup_code:
+                type: string
+                description: The default value is update_all.
+                enum:
+                - update_all
+                - import
+                - read_only
+                - subscriber
+                - batch_import
+              user_type:
+                type: string
+                description: The administrator user type - organization administrator or master administrator.
+                enum:
+                - org_admin
+                - master_admin
+            example:
+              user:
+                user_name: my_admin_user
+                email: test_admin@plansourcetest.com
+              administrator:
+                first_name: admin
+                last_name: user
+              roles:
+              - Master Administrator
+              organization_codes:
+              - organzation_code_1
+              user_type: org_admin
+      required: true
+  securitySchemes:
+    clientSecretJwt:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.plansource.com/oauth/v2/token
+          scopes:
+            admin_api_v2: Access to all endpoints
+    authString:
+      type: apiKey
+      name: AuthenticationString
+      in: header
+    signature:
+      type: apiKey
+      name: Signature
+      in: header
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true

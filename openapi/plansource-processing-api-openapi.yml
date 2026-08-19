@@ -1,0 +1,2879 @@
+openapi: 3.2.0
+info:
+  title: Plansource Admin Processing API
+  description: An integration API for Plansource data for administration functions
+  contact:
+    name: Plansource API team
+    email: api-team@plansource.com
+  license:
+    name: B) 2017 Plansource.  All rights reserved.
+  version: 2.0.0
+servers:
+- url: https://api.plansource.com/admin/v2
+security:
+- clientSecretJwt:
+  - admin_api_v2
+- authString: []
+  signature: []
+tags:
+- name: Processing
+  description: Endpoints used for processing data, producing a result, and/or running a sequence of actions.
+paths:
+  /subscriber/{id}/terminate:
+    put:
+      tags:
+      - Processing
+      description: Terminate a subscriber.
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the subscriber to terminate.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: is_custom_id
+        in: query
+        description: Set to true if the {id} in the path is customer generated.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body'
+        required: true
+      responses:
+        '200':
+          description: Subscriber terminate response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriberModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      links:
+                        href: /admin/subscriber/12186626
+                        rel: self
+                      id: 12186626
+                      first_name: John
+                      last_name: Test
+                      middle_name: M
+                      address_1: 1234TestSt.
+                      address_2: ''
+                      city: Orlando
+                      state: FL
+                      zip_code: '32801'
+                      country: United States
+                      home_phone: '4071231234'
+                      work_phone: '4071231234'
+                      cell_phone: '4071231234'
+                      gender: M
+                      hire_date: 2006/06/13
+                      birthdate: 1990/03/11
+                      termination_date: 2018/04/08
+                      union_code: HR
+                      pay_rate: '40.0'
+                      org_payroll_id: '563'
+                      employee_number: '2'
+                      public_id: 988618
+                      marital_status: M
+                      division: A
+                      location: FLORIDA
+                      org_class: HOURLY
+                      business_title: MR
+                      original_hire_date: 2006/06/13
+                      current_salary_effective_on: 2006/06/13
+                      current_salary: '70000.0'
+                      subscriber_status_id: 15
+                      status_changed_at: '2006/06/1300: 00: 00-0400'
+                      status_starts_on: 2006/06/13
+                      benefits_start_date: 2006/06/13
+                      test_employee: false
+                      is_voluntary_termination: true
+                      hide_from_payroll: false
+                      termination_reason_id: 3
+                      ssn_exported: false
+                      shareholder: false
+                      owner: false
+                      exclude_from_batch_import: false
+                      user_name: jtest_7
+                      attempted_logon_count: 0
+                      benefit_salaries:
+                      - org_plan_year_id: 18791472
+                        starts_on: '2019-01-01T00:00:00.000Z'
+                        ends_on: '2019-12-31T00:00:00.000Z'
+                        benefit_salary: '70000.0'
+                        benefit_salary2: '75000.0'
+                      - org_plan_year_id: 18791492
+                        starts_on: '2020-01-01T00:00:00.000Z'
+                        ends_on: '2020-12-31T00:00:00.000Z'
+                        benefit_salary: '80000.0'
+                        benefit_salary2: '85000.0'
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Cannot perform action as the employee is terminated
+                      error_code: 400
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'subscriber/12187650/terminat' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /subscriber/{id}/rehire:
+    put:
+      tags:
+      - Processing
+      description: Rehire a subscriber.
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the subscriber to rehire.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: is_custom_id
+        in: query
+        description: Set to true if the {id} in the path is customer generated.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body_1'
+        required: true
+      responses:
+        '200':
+          description: Subscriber rehire response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriberModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      links:
+                        href: /admin/subscriber/12186626
+                        rel: self
+                      id: 12186626
+                      first_name: John
+                      last_name: Test
+                      middle_name: M
+                      address_1: 1234TestSt.
+                      address_2: ''
+                      city: Orlando
+                      state: FL
+                      zip_code: '32801'
+                      country: United States
+                      home_phone: '4071231234'
+                      work_phone: '4071231234'
+                      cell_phone: '4071231234'
+                      gender: M
+                      hire_date: 2018/07/08
+                      birthdate: 1990/03/11
+                      union_code: HR
+                      pay_rate: '40.0'
+                      org_payroll_id: '563'
+                      employee_number: '2'
+                      public_id: 988618
+                      marital_status: M
+                      division: A
+                      location: FLORIDA
+                      org_class: HOURLY
+                      business_title: MR
+                      original_hire_date: 2006/06/13
+                      current_salary_effective_on: 2006/06/13
+                      current_salary: '70000.0'
+                      subscriber_status_id: 15
+                      status_changed_at: '2006/06/1300: 00: 00-0400'
+                      status_starts_on: 2018/07/08
+                      benefits_start_date: 2018/07/08
+                      test_employee: false
+                      is_voluntary_termination: false
+                      hide_from_payroll: false
+                      ssn_exported: false
+                      shareholder: false
+                      owner: false
+                      exclude_from_batch_import: false
+                      user_name: jtest_7
+                      attempted_logon_count: 0
+                      benefit_salaries:
+                      - org_plan_year_id: 18791472
+                        starts_on: '2019-01-01T00:00:00.000Z'
+                        ends_on: '2019-12-31T00:00:00.000Z'
+                        benefit_salary: '70000.0'
+                        benefit_salary2: '75000.0'
+                      - org_plan_year_id: 18791492
+                        starts_on: '2020-01-01T00:00:00.000Z'
+                        ends_on: '2020-12-31T00:00:00.000Z'
+                        benefit_salary: '80000.0'
+                        benefit_salary2: '85000.0'
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Cannot perform action as the employee is not terminated
+                      error_code: 400
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'subscriber/12187650/rehir' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /subscriber/{subscriber_id}/dependent/{id}/deactivate:
+    put:
+      tags:
+      - Processing
+      description: Deactivate a dependent.
+      parameters:
+      - name: subscriber_id
+        in: path
+        description: The ID of the subscriber.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: id
+        in: path
+        description: The ID of the dependent to deactivate.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: is_custom_id
+        in: query
+        description: Set to true if the {subscriber_id} in the path is customer generated.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body_4'
+        required: true
+      responses:
+        '200':
+          description: Dependent deactivate response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DependentModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      links:
+                        href: /admin/subscriber/12206082/dependent/2078210
+                        rel: self
+                      id: 2078210
+                      public_id: 2078210
+                      ssn: XXX-XX-8782
+                      first_name: TestFirst
+                      middle_name: TestMiddle
+                      last_name: TestLast
+                      name_suffix: Mr.
+                      hide_dependent_on_termination: false
+                      termination_reason_id: 7
+                      medicare_effective_date: 2010/01/01
+                      medicare_plan: PART A
+                      medicare_reason: AGE
+                      medicare_termination_date: 2009/01/01
+                      birthdate: 2007/07/08
+                      gender: M
+                      relationship_code: child
+                      lives_at_home: false
+                      address_1: 111 Lane Dr.
+                      address_2: Apt. 21
+                      city: Orlando
+                      state: FL
+                      zip_code: '34786'
+                      country: United States
+                      is_smoker: 'NO'
+                      verified: true
+                      verification_expires_on: 2009/01/01
+                      termination_date: 2018/01/04
+                      udef_1: custom
+                      udef_2: custom
+                      udef_3: custom
+                      udef_4: custom
+                      udef_5: custom
+                      udef_6: custom
+                      udef_7: custom
+                      udef_8: custom
+                      udef_9: custom
+                      udef_10: custom
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: The dependent cannot be terminated.  The dependent is already terminated.
+                      error_code: 400
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: A termination_reason is required.  Please check the meta and pass the lookup_code in the termination_reason variable.
+                      error_code: 404
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /subscriber/{subscriber_id}/dependent/{id}/reactivate:
+    put:
+      tags:
+      - Processing
+      description: Reactivate a dependent.
+      parameters:
+      - name: subscriber_id
+        in: path
+        description: The ID of the subscriber.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: id
+        in: path
+        description: The ID of the dependent to reactivate.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: is_custom_id
+        in: query
+        description: Set to true if the {subscriber_id} in the path is customer generated.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Dependent reactivate response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DependentModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      links:
+                        href: /admin/subscriber/12206082/dependent/2078210
+                        rel: self
+                      id: 2078210
+                      public_id: 2078210
+                      ssn: XXX-XX-8782
+                      first_name: TestFirst
+                      middle_name: TestMiddle
+                      last_name: TestLast
+                      name_suffix: Mr.
+                      hide_dependent_on_termination: false
+                      termination_reason_id: 7
+                      medicare_effective_date: 2010/01/01
+                      medicare_plan: PART A
+                      medicare_reason: AGE
+                      medicare_termination_date: 2009/01/01
+                      birthdate: 2007/07/08
+                      gender: M
+                      relationship_code: child
+                      lives_at_home: false
+                      address_1: 111 Lane Dr.
+                      address_2: Apt. 21
+                      city: Orlando
+                      state: FL
+                      zip_code: '34786'
+                      country: United States
+                      is_smoker: 'NO'
+                      verified: true
+                      verification_expires_on: 2009/01/01
+                      udef_1: custom
+                      udef_2: custom
+                      udef_3: custom
+                      udef_4: custom
+                      udef_5: custom
+                      udef_6: custom
+                      udef_7: custom
+                      udef_8: custom
+                      udef_9: custom
+                      udef_10: custom
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: The dependent cannot be reactivated.  The dependent is already active.
+                      error_code: 400
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'subscriber/8854530/dependent/2079234/reactivat' not found
+                      error_code: route_not_found
+        '500':
+          description: An internal InternalServerError has occurred
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /payroll_coverages_subscriber/{id}:
+    get:
+      tags:
+      - Processing
+      description: Retrieve payroll coverages for a subscriber.
+      parameters:
+      - name: id
+        in: path
+        description: The ID of the subscriber.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: start_date
+        in: query
+        description: Start date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        description: End date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: is_custom_id
+        in: query
+        description: Set to true if the {id} in the path is customer generated.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: current
+        in: query
+        description: Return only the subscriber's current coverage records.
+        required: false
+        schema:
+          type: boolean
+      - name: previous
+        in: query
+        description: Return only the subscriber's coverage records that are immediately prior to the current record.
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Payroll coverages for a subscriber response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayrollCoveragesSubscriberModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      id: 8854530
+                      subscriber_code: ''
+                      first_name: Ted
+                      middle_name: M
+                      last_name: Mosby
+                      ssn: 123-12-1234
+                      subscriber_pay_frequency: Biweekly (26 per year)
+                      subscriber_total_paydays: 26
+                      organization_id: 652
+                      org_plan_year_starts: 2018/01/04
+                      org_plan_year_ends: 2019/01/03
+                      benefit_name: Medical
+                      benefit_lookup_code: medical
+                      plan_name: Decline
+                      coverage_level: Decline
+                      subscriber_premium: '0.0'
+                      org_premium: '0.0'
+                      imputed_income: '0.0'
+                      subscriber_pretax_premium: '0.0'
+                      subscriber_posttax_premium: '0.0'
+                      tax_treatment: posttax
+                      volume: '0.0'
+                      org_fsa_amount: '0.0'
+                      subscriber_fsa_amount: '0.0'
+                      original_effective_date: '2018-01-04T00:00:00.000Z'
+                      change_effective_date: '2018-01-04T00:00:00.000Z'
+                      dp_sub_imputed_income: '0.0'
+                      dp_org_imputed_income: '0.0'
+                      current: CA
+                      updated_at: '2018-05-29T19:59:55.000Z'
+                      created_at: '2018-05-29T15:31:25.000Z'
+                      termination_date: 2018/01/03
+                      termination_reason: Subscriber voluntarily waived coverage
+                      test_employee: false
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: start_date date is not a valid YYYY-MM-DD date format.
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'payroll_coverages_subscribr/8854530' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /payroll_coverages_subscribers:
+    get:
+      tags:
+      - Processing
+      description: Retrieve payroll coverages for all subscribers in the organization.
+      parameters:
+      - name: start_date
+        in: query
+        description: Start date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        description: End date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: page
+        in: query
+        description: Set to page number. Large responses are parsed into a maximum of 500 records or the per_page value for large responses.
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        description: Override of the maximum of 500 records returned in a response.
+        required: false
+        schema:
+          type: integer
+          default: 500
+      - name: include_test
+        in: query
+        description: Include test employees.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      - name: current
+        in: query
+        description: Return only the subscriber's current coverage records.
+        required: false
+        schema:
+          type: boolean
+      - name: previous
+        in: query
+        description: Return only the subscriber's coverage records that are immediately prior to the current record.
+        required: false
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Payroll coverages for all subscribers in the organization response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PayrollCoveragesSubscriberModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      total: 6,
+                      per_page: 1,
+                      links:
+                      - href: /admin/payroll_coverages_subscribers?start_date=2019-01-01&end_date=2019-12-31&page=1&per_page=1
+                        rel: first
+                      - href: /admin/payroll_coverages_subscribers?start_date=2019-01-01&end_date=2019-12-31&page=1&per_page=1
+                        rel: current
+                      - href: /admin/payroll_coverages_subscribers?start_date=2019-01-01&end_date=2019-12-31&page=2&per_page=1
+                        rel: next
+                      - href: /admin/payroll_coverages_subscribers?start_date=2019-01-01&end_date=2019-12-31&page=6&per_page=1
+                        rel: last
+                      link:
+                        href: /admin/subscriber/8854530?start_date=2019-01-01&end_date=2019-12-31
+                        rel: self
+                      id: 8854530
+                      subscriber_code: ''
+                      first_name: Ted
+                      middle_name: M
+                      last_name: Mosby
+                      ssn: 123-12-1234
+                      subscriber_pay_frequency: Biweekly (26 per year)
+                      subscriber_total_paydays: 26
+                      organization_id: 652
+                      org_plan_year_starts: 2018/01/04
+                      org_plan_year_ends: 2019/01/03
+                      benefit_name: Medical
+                      benefit_lookup_code: medical
+                      plan_name: Decline
+                      coverage_level: Decline
+                      subscriber_premium: '0.0'
+                      org_premium: '0.0'
+                      imputed_income: '0.0'
+                      subscriber_pretax_premium: '0.0'
+                      subscriber_posttax_premium: '0.0'
+                      tax_treatment: posttax
+                      volume: '0.0'
+                      org_fsa_amount: '0.0'
+                      subscriber_fsa_amount: '0.0'
+                      original_effective_date: '2018-01-04T00:00:00.000Z'
+                      change_effective_date: '2018-01-04T00:00:00.000Z'
+                      dp_sub_imputed_income: '0.0'
+                      dp_org_imputed_income: '0.0'
+                      current: CA
+                      updated_at: '2018-05-29T19:59:55.000Z'
+                      created_at: '2018-05-29T15:31:25.000Z'
+                      termination_date: 2018/01/03
+                      termination_reason: Subscriber voluntarily waived coverage
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: No Start Date (params[:start_date] in the request.
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'payroll_coverages_subcribers' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /subscribers/terminate:
+    put:
+      tags:
+      - Processing
+      description: Terminate subscriber resources.
+      parameters:
+      - name: is_custom_id
+        in: query
+        description: Set to true if the {id} is customer generated.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body_6'
+        required: true
+      responses:
+        '200':
+          description: Subscribers terminate response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriberModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      links:
+                        href: /admin/subscriber/12186626
+                        rel: self
+                      id: 12186626
+                      first_name: John
+                      last_name: Test
+                      middle_name: M
+                      address_1: 1234TestSt.
+                      address_2: ''
+                      city: Orlando
+                      state: FL
+                      zip_code: '32801'
+                      country: United States
+                      home_phone: '4071231234'
+                      work_phone: '4071231234'
+                      cell_phone: '4071231234'
+                      gender: M
+                      hire_date: 2006/06/13
+                      birthdate: 1990/03/11
+                      termination_date: 2018/04/13
+                      union_code: HR
+                      pay_rate: '40.0'
+                      org_payroll_id: '563'
+                      employee_number: '2'
+                      public_id: 988618
+                      marital_status: M
+                      division: A
+                      location: FLORIDA
+                      org_class: HOURLY
+                      business_title: MR
+                      original_hire_date: 2006/06/13
+                      current_salary_effective_on: 2006/06/13
+                      current_salary: '70000.0'
+                      subscriber_status_id: 15
+                      status_changed_at: '2006/06/1300: 00: 00-0400'
+                      status_starts_on: 2006/06/13
+                      benefits_start_date: 2006/06/13
+                      test_employee: false
+                      is_voluntary_termination: true
+                      hide_from_payroll: false
+                      termination_reason_id: 4
+                      ssn_exported: false
+                      shareholder: false
+                      owner: false
+                      exclude_from_batch_import: false
+                      user_name: jtest_7
+                      attempted_logon_count: 0
+                      benefit_salaries:
+                      - org_plan_year_id: 18791472
+                        starts_on: '2019-01-01T00:00:00.000Z'
+                        ends_on: '2019-12-31T00:00:00.000Z'
+                        benefit_salary: '70000.0'
+                        benefit_salary2: '75000.0'
+                      - org_plan_year_id: 18791492
+                        starts_on: '2020-01-01T00:00:00.000Z'
+                        ends_on: '2020-12-31T00:00:00.000Z'
+                        benefit_salary: '80000.0'
+                        benefit_salary2: '85000.0'
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Cannot perform action as the employee is terminated
+                      error_code: 400
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'subscribers/terminat' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /subscribers/rehire:
+    put:
+      tags:
+      - Processing
+      description: Rehire subscriber resources.
+      parameters:
+      - name: is_custom_id
+        in: query
+        description: Set to true if the {id} is customer generated.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/body_7'
+        required: true
+      responses:
+        '200':
+          description: Subscribers rehire response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubscriberModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      links:
+                        href: /admin/subscriber/12186626
+                        rel: self
+                      id: 12186626
+                      first_name: John
+                      last_name: Test
+                      middle_name: M
+                      address_1: 1234TestSt.
+                      address_2: ''
+                      city: Orlando
+                      state: FL
+                      zip_code: '32801'
+                      country: United States
+                      home_phone: '4071231234'
+                      work_phone: '4071231234'
+                      cell_phone: '4071231234'
+                      gender: M
+                      hire_date: 2018/07/08
+                      birthdate: 1990/03/11
+                      union_code: HR
+                      pay_rate: '40.0'
+                      org_payroll_id: '563'
+                      employee_number: '2'
+                      public_id: 988618
+                      marital_status: M
+                      division: A
+                      location: FLORIDA
+                      org_class: HOURLY
+                      business_title: MR
+                      original_hire_date: 2006/06/13
+                      current_salary_effective_on: 2006/06/13
+                      current_salary: '70000.0'
+                      subscriber_status_id: 15
+                      status_changed_at: '2006/06/1300: 00: 00-0400'
+                      status_starts_on: 2018/07/08
+                      benefits_start_date: 2018/07/08
+                      test_employee: false
+                      is_voluntary_termination: false
+                      hide_from_payroll: false
+                      ssn_exported: false
+                      shareholder: false
+                      owner: false
+                      exclude_from_batch_import: false
+                      user_name: jtest_7
+                      attempted_logon_count: 0
+                      benefit_salaries:
+                      - org_plan_year_id: 18791472
+                        starts_on: '2019-01-01T00:00:00.000Z'
+                        ends_on: '2019-12-31T00:00:00.000Z'
+                        benefit_salary: '70000.0'
+                        benefit_salary2: '75000.0'
+                      - org_plan_year_id: 18791492
+                        starts_on: '2020-01-01T00:00:00.000Z'
+                        ends_on: '2020-12-31T00:00:00.000Z'
+                        benefit_salary: '80000.0'
+                        benefit_salary2: '85000.0'
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Cannot perform action as the employee is not terminated
+                      error_code: 400
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'subscribers/rehir' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /eoi/subscriber/{subscriber_id}:
+    get:
+      tags:
+      - Processing
+      description: Retrieve pending EOI data for a single subscriber.
+      parameters:
+      - name: subscriber_id
+        in: path
+        description: The ID of the subscriber.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: Coverage(s) pending EOI for a subscriber response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EoiSubscriberModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      id: 8859138
+                      original_effective_date: 2018/01/04
+                      change_effective_date: 2018/01/04
+                      volume: '100000.0'
+                      req_volume: '125000.0'
+                      gi_volume: '0.0'
+                      first_name: Eli
+                      last_name: Test
+                      middle_name: M
+                      ssn: '232425200'
+                      benefit_name: Voluntary Employee Life
+                      benefit_lookup_code: subscriber_life
+                      plan_name: Voluntary Employee Life
+                      coverage_id: 23278082
+                      req_plan_name: Voluntary Employee Life
+                      eoi_volume: '25000.0'
+                      eoi_form: Incomplete
+                      links:
+                        href: /admin/eoi/subscriber/8859138
+                        rel: self
+                      dependents:
+                        id: 5
+                        first_name: Amanda
+                        last_name: Base
+                        middle_name: J
+                        ssn: '232425201'
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Employee not found
+                      error_code: 404
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /eoi/subscribers:
+    get:
+      tags:
+      - Processing
+      description: Retrieve pending EOI data for all subscribers.
+      parameters:
+      - name: include_test
+        in: query
+        description: Include test employees.
+        required: false
+        schema:
+          type: string
+          default: 'no'
+          enum:
+          - 'yes'
+          - 'no'
+      responses:
+        '200':
+          description: Coverage(s) pending EOI for all subscribers response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EoiSubscriberModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      id: 8859138
+                      original_effective_date: 2018/01/04
+                      change_effective_date: 2018/01/04
+                      volume: '100000.0'
+                      req_volume: '125000.0'
+                      gi_volume: '0.0'
+                      first_name: Eli
+                      last_name: Test
+                      middle_name: M
+                      ssn: '232425200'
+                      benefit_name: Voluntary Employee Life
+                      benefit_lookup_code: subscriber_life
+                      plan_name: Voluntary Employee Life
+                      coverage_id: 23278082
+                      req_plan_name: Voluntary Employee Life
+                      eoi_volume: '25000.0'
+                      eoi_form: Incomplete
+                      links:
+                        href: /admin/eoi/subscriber/8859138
+                        rel: self
+                      dependents:
+                        id: 5
+                        first_name: Amanda
+                        last_name: Base
+                        middle_name: J
+                        ssn: '232425201'
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'eoi/subscriber' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /eoi/decision/{subscriber_id}:
+    put:
+      tags:
+      - Processing
+      description: Process EOI decisions for a single subscriber.
+      parameters:
+      - name: subscriber_id
+        in: path
+        description: The ID of the subscriber.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/Decisions'
+      responses:
+        '200':
+          description: Status response for processing a subscriber's pending EOI.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EoiDecisionResponseOK'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      valid_count: 0
+                      failed_count: 1
+                      failed_rows:
+                        ssn: '123123123'
+                        benefit_lookup_code: subscriber_life
+                        action: approve_all
+                        approved_volume: '125000.00'
+                        effective_date: '2018-03-28T00:00:00.000Z'
+                        original_effective_date: ''
+                        errors: Benefit not found, Coverage not waiting for EOI decision
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: There was a problem in the JSON you submitted
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'eoi/subscriber' not found
+                      error_code: route_not_found
+        '422':
+          description: Missing parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/422Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 422
+                      message: Parameter 'decisions' is required
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /eoi/decisions:
+    put:
+      tags:
+      - Processing
+      description: Process EOI decisions for multiple subscribers.
+      requestBody:
+        $ref: '#/components/requestBodies/Decisions'
+      responses:
+        '200':
+          description: Status response for processing multiple subscriber pending EOIs.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EoiDecisionResponseOK'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      valid_count: 1
+                      failed_count: 1
+                      failed_rows:
+                        ssn: '123123123'
+                        benefit_lookup_code: subscriber_life
+                        action: approve_all
+                        approved_volume: '125000.00'
+                        effective_date: '2018-03-28T00:00:00.000Z'
+                        original_effective_date: ''
+                        errors: Employee not found
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'eoi/decision' not found
+                      error_code: route_not_found
+        '422':
+          description: Missing parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/422Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 422
+                      message: Parameter 'decisions' is required
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /eoi/form_completion/{subscriber_id}:
+    put:
+      tags:
+      - Processing
+      description: Process EOI form completions for single subscriber.
+      parameters:
+      - name: subscriber_id
+        in: path
+        description: The ID of the subscriber.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        $ref: '#/components/requestBodies/FormCompletions'
+      responses:
+        '200':
+          description: Status response for processing a subscriber's form completion.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EoiFormResponseOK'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      valid_count: 0
+                      failed_count: 1
+                      failed_rows:
+                        ssn: '123123123'
+                        benefits: subscriber_life
+                        completed: 'true'
+                        expiration_date: ''
+                        reference_number: ''
+                        errors: Employee not found
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'eoi/form_completion' not found
+                      error_code: route_not_found
+        '422':
+          description: Missing parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/422Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 422
+                      message: Parameter 'form_completions' is required
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /eoi/form_completions:
+    put:
+      tags:
+      - Processing
+      description: Process EOI form completions for multiple subscribers.
+      requestBody:
+        $ref: '#/components/requestBodies/FormCompletions'
+      responses:
+        '200':
+          description: Status response for processing multiple subscribers form completions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EoiFormResponseOK'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      valid_count: 1
+                      failed_count: 1
+                      failed_rows:
+                        ssn: '123123123'
+                        benefits: subscriber_life
+                        completed: 'true'
+                        expiration_date: ''
+                        reference_number: ''
+                        errors: Employee not found
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'eoi/form_completion' not found
+                      error_code: route_not_found
+        '422':
+          description: Missing parameter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/422Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 422
+                      message: Parameter 'form_completions' is required
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+components:
+  schemas:
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    body_6:
+      title: body
+      type: object
+      properties:
+        id:
+          type: string
+        termination_reason:
+          type: string
+          description: Valid values are based on what is retrieved from meta resource.
+        termination_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        volunatary:
+          type: boolean
+    EoiDecisionResponseOK:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: object
+        valid_count:
+          type: number
+        failed_count:
+          type: number
+        failed_rows:
+          type: array
+          items: {}
+        ssn:
+          type: string
+        benefit_lookup_code:
+          type: string
+        action:
+          type: string
+        approved_volume:
+          type: string
+        effective_date:
+          type: string
+        original_effective_date:
+          type: string
+        errors:
+          type: string
+    SubscriberModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        id:
+          type: integer
+        subscriber_code:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        middle_name:
+          type: string
+        address_1:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country:
+          type: string
+        home_phone:
+          type: string
+        work_phone:
+          type: string
+        cell_phone:
+          type: string
+        gender:
+          type: string
+        hire_date:
+          type: string
+        birthdate:
+          type: string
+        ssn:
+          type: string
+        original_effective_date:
+          type: string
+        change_effective_date:
+          type: string
+        termination_date:
+          type: string
+        union_code:
+          type: string
+        employment_level:
+          type: string
+        pay_rate:
+          type: string
+        pay_type:
+          type: string
+        org_payroll_id:
+          type: integer
+        employee_number:
+          type: string
+        public_id:
+          type: integer
+        marital_status:
+          type: string
+        division:
+          type: string
+        location:
+          type: string
+        org_class:
+          type: string
+        business_title:
+          type: string
+        udef_1:
+          type: string
+        udef_2:
+          type: string
+        udef_3:
+          type: string
+        udef_4:
+          type: string
+        udef_5:
+          type: string
+        udef_6:
+          type: string
+        udef_7:
+          type: string
+        udef_8:
+          type: string
+        udef_9:
+          type: string
+        udef_10:
+          type: string
+        udef_11:
+          type: string
+        udef_12:
+          type: string
+        udef_13:
+          type: string
+        udef_14:
+          type: string
+        udef_15:
+          type: string
+        udef_16:
+          type: string
+        udef_17:
+          type: string
+        udef_18:
+          type: string
+        udef_19:
+          type: string
+        udef_20:
+          type: string
+        ee_code:
+          type: string
+        benefit_company:
+          type: string
+        original_hire_date:
+          type: string
+        seniority_date:
+          type: string
+        employment_status:
+          type: string
+        employment_status_starts_on:
+          type: string
+        employment_status_ends_on:
+          type: string
+        employee_type:
+          type: string
+        current_salary_effective_on:
+          type: string
+        current_salary:
+          type: string
+        benefit_deduction_group:
+          type: string
+        highly_compensated:
+          type: string
+        vip:
+          type: string
+        fmla:
+          type: string
+        name_suffix:
+          type: string
+        subscriber_status_id:
+          type: string
+        status_changed_at:
+          type: string
+        status_starts_on:
+          type: string
+        status_ends_on:
+          type: string
+        benefits_start_date:
+          type: string
+        benefits_end_date:
+          type: string
+        parent_dependent_id:
+          type: string
+        status_ends_on_expected:
+          type: string
+        subscriber_status_subtype_id:
+          type: string
+        org_admin_enroll_reason_id:
+          type: string
+        test_employee:
+          type: boolean
+        is_voluntary_termination:
+          type: string
+        hide_from_payroll:
+          type: string
+        termination_reason_id:
+          type: string
+        bank_account_type:
+          type: string
+        ssn_exported:
+          type: boolean
+        eligible_org_population_ids:
+          type: string
+        shareholder:
+          type: string
+        owner:
+          type: string
+        anthem_hcid:
+          type: string
+        anthem_member_code:
+          type: string
+        written_language:
+          type: string
+        spoken_language:
+          type: string
+        exclude_from_batch_import:
+          type: string
+        anthem_sub_id:
+          type: string
+        hours_per_week:
+          type: string
+        medicare_reason:
+          type: string
+        medicare_plan:
+          type: string
+        medicare_effective_date:
+          type: string
+        medicare_termination_date:
+          type: string
+        is_smoker:
+          type: string
+        anthem_emp_dept_code:
+          type: string
+        county:
+          type: string
+        udef_21:
+          type: string
+        udef_22:
+          type: string
+        udef_23:
+          type: string
+        udef_24:
+          type: string
+        udef_25:
+          type: string
+        udef_26:
+          type: string
+        udef_27:
+          type: string
+        udef_28:
+          type: string
+        udef_29:
+          type: string
+        udef_30:
+          type: string
+        is_aca_full_time_for_enrollment:
+          type: string
+        email:
+          type: string
+        user_name:
+          type: string
+        email2:
+          type: string
+        locked_at:
+          type: string
+        attemtped_logon_count:
+          type: integer
+        disabled_on:
+          type: string
+        preferred_locale:
+          type: string
+        benefit_salaries:
+          type: array
+          items: {}
+    403Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    body:
+      title: body
+      type: object
+      properties:
+        termination_reason:
+          type: string
+          description: Valid values are based on what is retrieved from meta resource.
+        termination_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        volunatary:
+          type: boolean
+    EoiFormResponseOK:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: object
+        valid_count:
+          type: number
+        failed_count:
+          type: number
+        failed_rows:
+          type: array
+          items: {}
+        ssn:
+          type: string
+        benefits:
+          type: string
+        completed:
+          type: string
+        expiration_date:
+          type: string
+        reference_number:
+          type: string
+        errors:
+          type: string
+    body_4:
+      title: body
+      type: object
+      properties:
+        termination_reason:
+          type: string
+          description: Valid values are based on what is retrieved from meta resource.
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    DependentModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        dependents:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        id:
+          type: integer
+        public_id:
+          type: integer
+        ssn:
+          type: string
+        first_name:
+          type: string
+        middle_name:
+          type: string
+        last_name:
+          type: string
+        name_suffix:
+          type: string
+        hide_dependent_on_termination:
+          type: boolean
+        org_relationship_id:
+          type: integer
+        qmcso_benefits:
+          type: string
+        termination_reason_id:
+          type: string
+        medicare_effective_date:
+          type: string
+        medicare_plan:
+          type: string
+        medicare_reason:
+          type: string
+        medicare_termination_date:
+          type: string
+        birthdate:
+          type: string
+        gender:
+          type: string
+        relationship_code:
+          type: string
+        qmcso:
+          type: string
+        lives_at_home:
+          type: boolean
+        address_1:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country:
+          type: string
+        is_smoker:
+          type: string
+        enroll_in_medicare:
+          type: boolean
+        verified:
+          type: boolean
+        verification_expires_on:
+          type: string
+        termination_date:
+          type: string
+        udef_1:
+          type: string
+        udef_2:
+          type: string
+        udef_3:
+          type: string
+        udef_4:
+          type: string
+        udef_5:
+          type: string
+        udef_6:
+          type: string
+        udef_7:
+          type: string
+        udef_8:
+          type: string
+        udef_9:
+          type: string
+        udef_10:
+          type: string
+        has_worksite_coverage:
+          type: boolean
+        anthem_member_code:
+          type: string
+        inactive_dependents:
+          type: array
+          items: {}
+        cannot_terminate_dependents:
+          type: array
+          items: {}
+    401Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    PayrollCoveragesSubscriberModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        id:
+          type: integer
+        subscriber_code:
+          type: string
+        first_name:
+          type: string
+        middle_name:
+          type: string
+        last_name:
+          type: string
+        ssn:
+          type: string
+        subscriber_status:
+          type: string
+        subscriber_pay_frequency:
+          type: string
+        subscriber_total_paydays:
+          type: integer
+        organization_id:
+          type: integer
+        org_plan_year_starts:
+          type: string
+        org_plan_year_ends:
+          type: string
+        benefit_name:
+          type: string
+        benefit_lookup_code:
+          type: string
+        plan_name:
+          type: string
+        coverage_level:
+          type: string
+        subscriber_premium:
+          type: string
+        org_premium:
+          type: string
+        imputed_income:
+          type: string
+        subscriber_pretax_premium:
+          type: string
+        subscriber_posttax_premium:
+          type: string
+        tax_treatment:
+          type: string
+        volume:
+          type: string
+        org_fsa_amount:
+          type: string
+        original_effective_date:
+          type: string
+        change_effective_date:
+          type: string
+        dp_sub_imputed_income:
+          type: string
+        dp_org_imputed_income:
+          type: string
+        plan_payroll_mapping_code:
+          type: string
+        plan_group_number:
+          type: string
+        plan_partner_code_1:
+          type: string
+        plan_partner_code_2:
+          type: string
+        current:
+          type: string
+        updated_at:
+          type: string
+        created_at:
+          type: string
+        termination_date:
+          type: string
+        termination_reason:
+          type: string
+        benefit_company:
+          type: string
+        test_employee:
+          type: boolean
+        changed_fields:
+          type: array
+          items: {}
+    400Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    422Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    body_7:
+      title: body
+      type: object
+      properties:
+        id:
+          type: string
+        rehire_date:
+          description: YYYY-MM-DD date format.
+    EoiSubscriberModel:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: array
+          items: {}
+        id:
+          type: integer
+        original_effective_date:
+          type: string
+        change_effective_date:
+          type: string
+        volume:
+          type: string
+        req_volume:
+          type: string
+        gi_volume:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        middle_name:
+          type: string
+        ssn:
+          type: string
+        benefit_name:
+          type: string
+        benefit_lookup_code:
+          type: string
+        plan_name:
+          type: string
+        coverage_id:
+          type: integer
+        coverage_line_id:
+          type: integer
+        req_plan_name:
+          type: string
+        eoi_volume:
+          type: string
+        eoi_form:
+          type: string
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        dependents:
+          type: array
+          items: {}
+    body_1:
+      title: body
+      type: object
+      properties:
+        rehire_date:
+          type: string
+          description: YYYY-MM-DD date format.
+  requestBodies:
+    FormCompletions:
+      description: Subscriber EOI form completions.
+      content:
+        application/json:
+          schema:
+            title: body
+            type: object
+            properties:
+              decisions:
+                required:
+                - benefits
+                - completed
+                - ssn
+                type: object
+                properties:
+                  ssn:
+                    type: string
+                  benefits:
+                    type: string
+                  completed:
+                    type: string
+                    description: Completed or not completed.
+                    enum:
+                    - 'true'
+                    - 'false'
+                  expiration_date:
+                    type: string
+                    description: YYYY-MM-DD date format.
+                  reference_number:
+                    type: string
+      required: true
+    Decisions:
+      description: Subscriber EOI decision.
+      content:
+        application/json:
+          schema:
+            title: body
+            type: object
+            properties:
+              decisions:
+                required:
+                - action
+                - benefit_lookup_code
+                - effective_date
+                - ssn
+                type: object
+                properties:
+                  ssn:
+                    type: string
+                  benefit_lookup_code:
+                    type: string
+                  action:
+                    type: string
+                    description: Action for processing pending EOI.
+                    enum:
+                    - approve_all
+                    - approve_part
+                    - pend_remaining
+                    - deny_permanently
+                    - expire_all
+                    - deny_all
+                  approved_volume:
+                    type: string
+                  effective_date:
+                    type: string
+                    description: YYYY-MM-DD date format.
+                  original_effective_date:
+                    type: string
+                    description: YYYY-MM-DD date format.
+      required: true
+  securitySchemes:
+    clientSecretJwt:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.plansource.com/oauth/v2/token
+          scopes:
+            admin_api_v2: Access to all endpoints
+    authString:
+      type: apiKey
+      name: AuthenticationString
+      in: header
+    signature:
+      type: apiKey
+      name: Signature
+      in: header
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true

@@ -37,3 +37,10 @@ x-evidence:
   method: GET
   http_status: 200
   fetched: '2026-08-06'
+deployment:
+  mode: remote
+  endpoint: https://developer.plansource.com/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census

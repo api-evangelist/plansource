@@ -1,0 +1,2623 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plansource Admin All API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.plansource.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "All",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "POST /subscriber",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.plansource.com/admin/v2/subscriber",
+            "params": [
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {id} in the path is customer generated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a subscriber resource."
+        },
+        {
+          "info": {
+            "name": "GET /subscriber/meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/subscriber/meta"
+          },
+          "docs": "Retrieve meta data for subscriber."
+        },
+        {
+          "info": {
+            "name": "GET /subscriber/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/subscriber/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {id} in the path is customer generated."
+              }
+            ]
+          },
+          "docs": "Retrieve data for a subscriber."
+        },
+        {
+          "info": {
+            "name": "PUT /subscriber/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/subscriber/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {id} in the path is customer generated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update data for a subscriber."
+        },
+        {
+          "info": {
+            "name": "PUT /subscriber/{id}/terminate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/subscriber/:id/terminate",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber to terminate."
+              },
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {id} in the path is customer generated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Terminate a subscriber."
+        },
+        {
+          "info": {
+            "name": "PUT /subscriber/{id}/rehire",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/subscriber/:id/rehire",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber to rehire."
+              },
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {id} in the path is customer generated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rehire a subscriber."
+        },
+        {
+          "info": {
+            "name": "POST /subscriber/{subscriber_id}/dependent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.plansource.com/admin/v2/subscriber/:subscriber_id/dependent",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {subscriber_id} in the path is customer generated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a dependent resource."
+        },
+        {
+          "info": {
+            "name": "GET /dependent/meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/dependent/meta"
+          },
+          "docs": "Retrieve meta data for dependent."
+        },
+        {
+          "info": {
+            "name": "GET /subscriber/{subscriber_id}/dependent/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/subscriber/:subscriber_id/dependent/:id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {subscriber_id} in the path is customer generated."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dependent to fetch."
+              }
+            ]
+          },
+          "docs": "Retrieve data for a dependent."
+        },
+        {
+          "info": {
+            "name": "PUT /subscriber/{subscriber_id}/dependent/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/subscriber/:subscriber_id/dependent/:id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {subscriber_id} in the path is customer generated."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dependent to update."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update data for a dependent."
+        },
+        {
+          "info": {
+            "name": "PUT /subscriber/{subscriber_id}/dependent/{id}/deactivate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/subscriber/:subscriber_id/dependent/:id/deactivate",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dependent to deactivate."
+              },
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {subscriber_id} in the path is customer generated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deactivate a dependent."
+        },
+        {
+          "info": {
+            "name": "PUT /subscriber/{subscriber_id}/dependent/{id}/reactivate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/subscriber/:subscriber_id/dependent/:id/reactivate",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dependent to reactivate."
+              },
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {subscriber_id} in the path is customer generated."
+              }
+            ]
+          },
+          "docs": "Reactivate a dependent."
+        },
+        {
+          "info": {
+            "name": "GET /beneficiaries/meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/beneficiaries/meta"
+          },
+          "docs": "Retrieve meta data for beneficiaries."
+        },
+        {
+          "info": {
+            "name": "GET /beneficiaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/beneficiaries",
+            "params": [
+              {
+                "name": "include_test",
+                "value": "",
+                "type": "query",
+                "description": "Include test employees."
+              }
+            ]
+          },
+          "docs": "Retrieve all beneficiaries for an organization."
+        },
+        {
+          "info": {
+            "name": "GET /subscriber/{subscriber_id}/beneficiaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/subscriber/:subscriber_id/beneficiaries",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {subscriber_id} in the path is customer generated."
+              }
+            ]
+          },
+          "docs": "Retrieve all beneficiaries for a subscriber."
+        },
+        {
+          "info": {
+            "name": "GET /coverage/{coverage_id}/beneficiaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/:coverage_id/beneficiaries",
+            "params": [
+              {
+                "name": "coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage."
+              }
+            ]
+          },
+          "docs": "Retrieve all beneficiaries for a coverage."
+        },
+        {
+          "info": {
+            "name": "POST /coverage/{coverage_id}/beneficiaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.plansource.com/admin/v2/coverage/:coverage_id/beneficiaries",
+            "params": [
+              {
+                "name": "coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create beneficiary resources for a coverage."
+        },
+        {
+          "info": {
+            "name": "PUT /coverage/{coverage_id}/beneficiaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverage/:coverage_id/beneficiaries",
+            "params": [
+              {
+                "name": "coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update data for all beneficiaries for a coverage."
+        },
+        {
+          "info": {
+            "name": "DELETE /coverage/{coverage_id}/beneficiaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.plansource.com/admin/v2/coverage/:coverage_id/beneficiaries",
+            "params": [
+              {
+                "name": "coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage."
+              },
+              {
+                "name": "termination_date",
+                "value": "",
+                "type": "query",
+                "description": "The termination date."
+              }
+            ]
+          },
+          "docs": "Delete coverage beneficiaries."
+        },
+        {
+          "info": {
+            "name": "GET /payroll_coverages_subscriber/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/payroll_coverages_subscriber/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {id} in the path is customer generated."
+              },
+              {
+                "name": "current",
+                "value": "",
+                "type": "query",
+                "description": "Return only the subscriber's current coverage records."
+              },
+              {
+                "name": "previous",
+                "value": "",
+                "type": "query",
+                "description": "Return only the subscriber's coverage records that are immediately prior to the current record."
+              }
+            ]
+          },
+          "docs": "Retrieve payroll coverages for a subscriber."
+        },
+        {
+          "info": {
+            "name": "GET /payroll_coverages_subscribers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/payroll_coverages_subscribers",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of payroll changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Set to page number. Large responses are parsed into a maximum of 500 records or the per_page value for large responses."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override of the maximum of 500 records returned in a response."
+              },
+              {
+                "name": "include_test",
+                "value": "",
+                "type": "query",
+                "description": "Include test employees."
+              },
+              {
+                "name": "current",
+                "value": "",
+                "type": "query",
+                "description": "Return only the subscriber's current coverage records."
+              },
+              {
+                "name": "previous",
+                "value": "",
+                "type": "query",
+                "description": "Return only the subscriber's coverage records that are immediately prior to the current record."
+              }
+            ]
+          },
+          "docs": "Retrieve payroll coverages for all subscribers in the organization."
+        },
+        {
+          "info": {
+            "name": "GET /page_content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/page_content",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "SAMLResponse",
+                "value": ""
+              },
+              {
+                "name": "RelayState",
+                "value": ""
+              },
+              {
+                "name": "Cookie",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "org_page_content_id",
+                "value": "",
+                "type": "query",
+                "description": "Unique id for the org page content (NOTE! This parameter IS required when page_content_lookup_code IS NOT provided)"
+              },
+              {
+                "name": "page_content_lookup_code",
+                "value": "",
+                "type": "query",
+                "description": "Page content lookup code (NOTE! This parameter IS required when org_page_content_id IS NOT provided)"
+              },
+              {
+                "name": "org_plan_year_id",
+                "value": "",
+                "type": "query",
+                "description": "Unique id for the associated plan year"
+              },
+              {
+                "name": "enrollment_type",
+                "value": "",
+                "type": "query",
+                "description": "Enrollment lookup code (NOTE! This parameter IS required when page_content_lookup_code IS EQUAL sub_main)"
+              },
+              {
+                "name": "benefit_lookup_code",
+                "value": "",
+                "type": "query",
+                "description": "Benefit lookup code"
+              }
+            ]
+          },
+          "docs": "Returns page content or page contents for the requested view. Blocks are ordered according to their 'slot number' and all fields not set are omitted from the response."
+        },
+        {
+          "info": {
+            "name": "PUT /page_content",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/page_content",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "SAMLResponse",
+                "value": ""
+              },
+              {
+                "name": "RelayState",
+                "value": ""
+              },
+              {
+                "name": "Cookie",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "org_page_content_id",
+                "value": "",
+                "type": "query",
+                "description": "Unique id for the org page content."
+              },
+              {
+                "name": "org_plan_year_id",
+                "value": "",
+                "type": "query",
+                "description": "Unique id for the associated plan year"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Applies any changes to page content and content block records."
+        },
+        {
+          "info": {
+            "name": "GET /content_blocks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/content_blocks",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "SAMLResponse",
+                "value": ""
+              },
+              {
+                "name": "RelayState",
+                "value": ""
+              },
+              {
+                "name": "Cookie",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number."
+              }
+            ]
+          },
+          "docs": "Returns a paginated array of content blocks."
+        },
+        {
+          "info": {
+            "name": "PUT /content_block",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/content_block",
+            "headers": [
+              {
+                "name": "Accept",
+                "value": ""
+              },
+              {
+                "name": "Content-Type",
+                "value": ""
+              },
+              {
+                "name": "SAMLResponse",
+                "value": ""
+              },
+              {
+                "name": "RelayState",
+                "value": ""
+              },
+              {
+                "name": "Cookie",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Applies changes to content block record."
+        },
+        {
+          "info": {
+            "name": "GET /subscribers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/subscribers",
+            "params": [
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {id} in the path is customer generated."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Set to page number. Large responses are parsed into a maximum of 500 subscribers or the per_page value for large responses of subscribers."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override of the maximum of 500 subscribers returned in a response."
+              },
+              {
+                "name": "include_test",
+                "value": "",
+                "type": "query",
+                "description": "Include test employees."
+              }
+            ]
+          },
+          "docs": "Retrieve data for all subscribers."
+        },
+        {
+          "info": {
+            "name": "POST /subscribers",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.plansource.com/admin/v2/subscribers",
+            "params": [
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {id} in the path is customer generated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create subscriber resources."
+        },
+        {
+          "info": {
+            "name": "PUT /subscribers",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/subscribers",
+            "params": [
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {id} is customer generated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update data for all subscribers."
+        },
+        {
+          "info": {
+            "name": "PUT /subscribers/terminate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/subscribers/terminate",
+            "params": [
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {id} is customer generated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Terminate subscriber resources."
+        },
+        {
+          "info": {
+            "name": "PUT /subscribers/rehire",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/subscribers/rehire",
+            "params": [
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {id} is customer generated."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Rehire subscriber resources."
+        },
+        {
+          "info": {
+            "name": "GET /dependents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/dependents",
+            "params": [
+              {
+                "name": "is_custom_id",
+                "value": "",
+                "type": "query",
+                "description": "Set to true if the {subscriber_id} is customer generated."
+              },
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "query",
+                "description": "Set {subscriber_id} to get all dependents for selected subscriber."
+              }
+            ]
+          },
+          "docs": "Retrieve data for all dependents."
+        },
+        {
+          "info": {
+            "name": "GET /organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/organizations"
+          },
+          "docs": "Retrieve all organizations current API User has access to."
+        },
+        {
+          "info": {
+            "name": "GET /eoi/subscriber/{subscriber_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/eoi/subscriber/:subscriber_id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              }
+            ]
+          },
+          "docs": "Retrieve pending EOI data for a single subscriber."
+        },
+        {
+          "info": {
+            "name": "GET /eoi/subscribers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/eoi/subscribers",
+            "params": [
+              {
+                "name": "include_test",
+                "value": "",
+                "type": "query",
+                "description": "Include test employees."
+              }
+            ]
+          },
+          "docs": "Retrieve pending EOI data for all subscribers."
+        },
+        {
+          "info": {
+            "name": "PUT /eoi/decision/{subscriber_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/eoi/decision/:subscriber_id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Process EOI decisions for a single subscriber."
+        },
+        {
+          "info": {
+            "name": "PUT /eoi/decisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/eoi/decisions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Process EOI decisions for multiple subscribers."
+        },
+        {
+          "info": {
+            "name": "PUT /eoi/form_completion/{subscriber_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/eoi/form_completion/:subscriber_id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Process EOI form completions for single subscriber."
+        },
+        {
+          "info": {
+            "name": "PUT /eoi/form_completions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/eoi/form_completions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Process EOI form completions for multiple subscribers."
+        },
+        {
+          "info": {
+            "name": "POST /coverage",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.plansource.com/admin/v2/coverage",
+            "params": [
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "recalculate",
+                "value": "",
+                "type": "query",
+                "description": "Perform a recalculate of the coverage"
+              },
+              {
+                "name": "validate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform the validation of the coverage"
+              },
+              {
+                "name": "recalculate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform a volume recalculate of the coverage"
+              },
+              {
+                "name": "set_original_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the original effective date"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create coverage"
+        },
+        {
+          "info": {
+            "name": "GET /coverage/meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/meta"
+          },
+          "docs": "Retrieve meta data for coverage."
+        },
+        {
+          "info": {
+            "name": "GET /coverage/{coverage_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/:coverage_id",
+            "params": [
+              {
+                "name": "coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              }
+            ]
+          },
+          "docs": "Retrieve individual coverage data."
+        },
+        {
+          "info": {
+            "name": "PUT /coverage/{coverage_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverage/:coverage_id",
+            "params": [
+              {
+                "name": "coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage to fetch."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "recalculate",
+                "value": "",
+                "type": "query",
+                "description": "Perform a recalculate of the coverage"
+              },
+              {
+                "name": "validate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform the validation of the coverage"
+              },
+              {
+                "name": "recalculate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform a volume recalculate of the coverage"
+              },
+              {
+                "name": "set_original_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the original effective date"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an individual coverage"
+        },
+        {
+          "info": {
+            "name": "GET /coverage/subscriber/{subscriber_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/subscriber/:subscriber_id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              }
+            ]
+          },
+          "docs": "Retrieve coverage data for an individual subscriber."
+        },
+        {
+          "info": {
+            "name": "PUT /coverage/subscriber/{subscriber_id}/terminate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverage/subscriber/:subscriber_id/terminate",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Terminate all coverages for a subscriber."
+        },
+        {
+          "info": {
+            "name": "PUT /coverage/{coverage_id}/terminate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverage/:coverage_id/terminate",
+            "params": [
+              {
+                "name": "coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Terminate an individual coverage."
+        },
+        {
+          "info": {
+            "name": "POST /coverage/{coverage_id}/line",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.plansource.com/admin/v2/coverage/:coverage_id/line",
+            "params": [
+              {
+                "name": "coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage"
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "recalculate",
+                "value": "",
+                "type": "query",
+                "description": "Perform a recalculate of the coverage"
+              },
+              {
+                "name": "validate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform the validation of the coverage"
+              },
+              {
+                "name": "recalculate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform a volume recalculate of the coverage"
+              },
+              {
+                "name": "set_original_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the original effective date"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a stacked coverage line."
+        },
+        {
+          "info": {
+            "name": "GET /coverage/line/{coverage_line_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/line/:coverage_line_id",
+            "params": [
+              {
+                "name": "coverage_line_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage line."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              }
+            ]
+          },
+          "docs": "Retrieve an individual stacked coverage line."
+        },
+        {
+          "info": {
+            "name": "PUT /coverage/line/{coverage_line_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverage/line/:coverage_line_id",
+            "params": [
+              {
+                "name": "coverage_line_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage line"
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "recalculate",
+                "value": "",
+                "type": "query",
+                "description": "Perform a recalculate of the coverage"
+              },
+              {
+                "name": "validate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform the validation of the coverage"
+              },
+              {
+                "name": "recalculate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform a volume recalculate of the coverage"
+              },
+              {
+                "name": "set_original_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the original effective date"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an individual stacked coverage line"
+        },
+        {
+          "info": {
+            "name": "GET /coverage/{coverage_id}/lines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/:coverage_id/lines",
+            "params": [
+              {
+                "name": "coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              }
+            ]
+          },
+          "docs": "Retrieve stacked coverage lines for an individual coverage."
+        },
+        {
+          "info": {
+            "name": "PUT /coverage/line/{coverage_line_id}/terminate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverage/line/:coverage_line_id/terminate",
+            "params": [
+              {
+                "name": "coverage_line_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage line"
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Terminate an individual stacked coverage line"
+        },
+        {
+          "info": {
+            "name": "GET /coverage/dependent/{dependent_coverage_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/dependent/:dependent_coverage_id",
+            "params": [
+              {
+                "name": "dependent_coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dependent coverage."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              }
+            ]
+          },
+          "docs": "Retrieve individual dependent coverage data."
+        },
+        {
+          "info": {
+            "name": "PUT /coverage/dependent/{dependent_coverage_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverage/dependent/:dependent_coverage_id",
+            "params": [
+              {
+                "name": "dependent_coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dependent coverage"
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an individual dependent coverage"
+        },
+        {
+          "info": {
+            "name": "POST /coverage/{coverage_id}/dependent",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.plansource.com/admin/v2/coverage/:coverage_id/dependent",
+            "params": [
+              {
+                "name": "coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage"
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create dependent coverage"
+        },
+        {
+          "info": {
+            "name": "GET /coverage/{coverage_id}/dependents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/:coverage_id/dependents",
+            "params": [
+              {
+                "name": "coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              }
+            ]
+          },
+          "docs": "Retrieve dependent coverage data for an individual coverage."
+        },
+        {
+          "info": {
+            "name": "PUT /coverage/dependent/{dependent_coverage_id}/terminate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverage/dependent/:dependent_coverage_id/terminate",
+            "params": [
+              {
+                "name": "dependent_coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the dependent coverage"
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Terminate an individual dependent coverage"
+        },
+        {
+          "info": {
+            "name": "GET /coverages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverages",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override the maximum of records returned in a response."
+              },
+              {
+                "name": "include_test",
+                "value": "",
+                "type": "query",
+                "description": "Include test employees."
+              }
+            ]
+          },
+          "docs": "Retrieve all coverages."
+        },
+        {
+          "info": {
+            "name": "POST /coverages",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.plansource.com/admin/v2/coverages",
+            "params": [
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "recalculate",
+                "value": "",
+                "type": "query",
+                "description": "Perform a recalculate of the coverage"
+              },
+              {
+                "name": "validate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform the validation of the coverage"
+              },
+              {
+                "name": "recalculate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform a volume recalculate of the coverage"
+              },
+              {
+                "name": "set_original_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the original effective date"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create coverages"
+        },
+        {
+          "info": {
+            "name": "PUT /coverages",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverages",
+            "params": [
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "recalculate",
+                "value": "",
+                "type": "query",
+                "description": "Perform a recalculate of the coverage"
+              },
+              {
+                "name": "validate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform the validation of the coverage"
+              },
+              {
+                "name": "recalculate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform a volume recalculate of the coverage"
+              },
+              {
+                "name": "set_original_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the original effective date"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update coverages"
+        },
+        {
+          "info": {
+            "name": "PUT /coverages/terminate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverages/terminate",
+            "params": [
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Terminate coverages"
+        },
+        {
+          "info": {
+            "name": "GET /coverages/lines",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverages/lines",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override the maximum of records returned in a response."
+              },
+              {
+                "name": "include_test",
+                "value": "",
+                "type": "query",
+                "description": "Include test employees."
+              }
+            ]
+          },
+          "docs": "Retrieve all stacked coverage lines."
+        },
+        {
+          "info": {
+            "name": "POST /coverages/lines",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.plansource.com/admin/v2/coverages/lines",
+            "params": [
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "recalculate",
+                "value": "",
+                "type": "query",
+                "description": "Perform a recalculate of the coverage"
+              },
+              {
+                "name": "validate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform the validation of the coverage"
+              },
+              {
+                "name": "recalculate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform a volume recalculate of the coverage"
+              },
+              {
+                "name": "set_original_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the original effective date"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create stacked coverage lines"
+        },
+        {
+          "info": {
+            "name": "PUT /coverages/lines",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverages/lines",
+            "params": [
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "recalculate",
+                "value": "",
+                "type": "query",
+                "description": "Perform a recalculate of the coverage"
+              },
+              {
+                "name": "validate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform the validation of the coverage"
+              },
+              {
+                "name": "recalculate_volume",
+                "value": "",
+                "type": "query",
+                "description": "Perform a volume recalculate of the coverage"
+              },
+              {
+                "name": "set_original_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the original effective date"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update stacked coverage lines"
+        },
+        {
+          "info": {
+            "name": "PUT /coverages/lines/terminate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverages/lines/terminate",
+            "params": [
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Terminate stacked coverage lines"
+        },
+        {
+          "info": {
+            "name": "GET /coverages/dependents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverages/dependents",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override the maximum of records returned in a response."
+              },
+              {
+                "name": "include_test",
+                "value": "",
+                "type": "query",
+                "description": "Include test employees."
+              }
+            ]
+          },
+          "docs": "Retrieve data for all dependent coverages."
+        },
+        {
+          "info": {
+            "name": "POST /coverages/dependents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.plansource.com/admin/v2/coverages/dependents",
+            "params": [
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create dependent coverages"
+        },
+        {
+          "info": {
+            "name": "PUT /coverages/dependents",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverages/dependents",
+            "params": [
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an dependents coverages"
+        },
+        {
+          "info": {
+            "name": "PUT /coverages/dependents/terminate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/coverages/dependents/terminate",
+            "params": [
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year"
+              },
+              {
+                "name": "set_change_effective_date",
+                "value": "",
+                "type": "query",
+                "description": "Allow the setting of the change effective date"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Terminate dependents coverages"
+        },
+        {
+          "info": {
+            "name": "GET /coverage/{coverage_id}/composite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/:coverage_id/composite",
+            "params": [
+              {
+                "name": "coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              }
+            ]
+          },
+          "docs": "Retrieve a composite of coverage and supporting data for an individual coverage."
+        },
+        {
+          "info": {
+            "name": "GET /coverage/subscriber/{subscriber_id}/composite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/subscriber/:subscriber_id/composite",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              }
+            ]
+          },
+          "docs": "Retrieve a composite of coverage and supporting data for an individual subscriber."
+        },
+        {
+          "info": {
+            "name": "GET /coverage/composites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/composites",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override the maximum of records returned in a response."
+              },
+              {
+                "name": "include_test",
+                "value": "",
+                "type": "query",
+                "description": "Include test employees."
+              }
+            ]
+          },
+          "docs": "Retrieve a composite of all coverages and supporting data."
+        },
+        {
+          "info": {
+            "name": "POST /administrator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.plansource.com/admin/v2/administrator",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an administrator."
+        },
+        {
+          "info": {
+            "name": "GET /administrator/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/administrator/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the administrator to fetch."
+              }
+            ]
+          },
+          "docs": "Retrieve data for an administrator."
+        },
+        {
+          "info": {
+            "name": "PUT /administrator/{id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/administrator/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the administrator to update. The API currently uses the payload's user_name to look up the administrator."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update data for an administrator."
+        },
+        {
+          "info": {
+            "name": "PUT /administrator/{id}/disable",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/administrator/:id/disable",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the administrator to update or 1.The API currently uses the payload's user_name to look up the administrator."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Disable an administrator account."
+        },
+        {
+          "info": {
+            "name": "GET /administrators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/administrators",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Set to page number.  Large responses are parsed into a maximum of 500 administrators or the per_page value for large responses of administrators."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override of the maximum of 500 administrators returned in a response."
+              },
+              {
+                "name": "changes_since",
+                "value": "",
+                "type": "query",
+                "description": "Will only return admins whose updated_at timestamp is within the number of minutes of the change_since value."
+              }
+            ]
+          },
+          "docs": "Retrieve data for all administrators."
+        },
+        {
+          "info": {
+            "name": "GET /aca/offers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/aca/offers",
+            "params": [
+              {
+                "name": "changes_since",
+                "value": "",
+                "type": "query",
+                "description": "Number of minutes since now to find new, changed and deleted offers"
+              },
+              {
+                "name": "include_deletes",
+                "value": "",
+                "type": "query",
+                "description": "Should deleted offers be included?"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override the maximum of records returned in a response."
+              }
+            ]
+          },
+          "docs": "Retrieve new, changed and deleted offers. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion."
+        },
+        {
+          "info": {
+            "name": "GET /aca/offers/subscriber/{subscriber_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/aca/offers/subscriber/:subscriber_id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber"
+              },
+              {
+                "name": "changes_since",
+                "value": "",
+                "type": "query",
+                "description": "Number of minutes since now to find new, changed and deleted offers"
+              },
+              {
+                "name": "include_deletes",
+                "value": "",
+                "type": "query",
+                "description": "Should deleted offers be included?"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override the maximum of records returned in a response."
+              }
+            ]
+          },
+          "docs": "Retrieve new, changed and deleted offers for individual subscriber. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion."
+        },
+        {
+          "info": {
+            "name": "GET /aca/enrollees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/aca/enrollees",
+            "params": [
+              {
+                "name": "changes_since",
+                "value": "",
+                "type": "query",
+                "description": "Number of minutes since now to find new, changed and deleted enrollees"
+              },
+              {
+                "name": "include_deletes",
+                "value": "",
+                "type": "query",
+                "description": "Should deleted enrollees be included?"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override the maximum of records returned in a response."
+              }
+            ]
+          },
+          "docs": "Retrieve new, changed and deleted enrollees. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion."
+        },
+        {
+          "info": {
+            "name": "GET /aca/enrollees/subscriber/{subscriber_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/aca/enrollees/subscriber/:subscriber_id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber"
+              },
+              {
+                "name": "changes_since",
+                "value": "",
+                "type": "query",
+                "description": "Number of minutes since now to find new, changed and deleted enrollees"
+              },
+              {
+                "name": "include_deletes",
+                "value": "",
+                "type": "query",
+                "description": "Should deleted enrollees be included?"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override the maximum of records returned in a response."
+              }
+            ]
+          },
+          "docs": "Retrieve new, changed and deleted enrollees for an individual subscriber. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion."
+        },
+        {
+          "info": {
+            "name": "DELETE /user_sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.plansource.com/admin/v2/user_sessions",
+            "params": [
+              {
+                "name": "user_identifier",
+                "value": "",
+                "type": "query",
+                "description": "Attribute used to identify the user during single sign-on"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Used to determine the type of user that user_identifier represents"
+              }
+            ]
+          },
+          "docs": "Invalidates sessions for the given user, forcing the user to re-authenticate"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

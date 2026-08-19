@@ -1,0 +1,613 @@
+openapi: 3.2.0
+info:
+  title: Plansource Admin ACA API
+  description: An integration API for Plansource data for administration functions
+  contact:
+    name: Plansource API team
+    email: api-team@plansource.com
+  license:
+    name: B) 2017 Plansource.  All rights reserved.
+  version: 2.0.0
+servers:
+- url: https://api.plansource.com/admin/v2
+security:
+- clientSecretJwt:
+  - admin_api_v2
+- authString: []
+  signature: []
+tags:
+- name: ACA
+  description: Affordable Care Act data.
+paths:
+  /aca/offers:
+    get:
+      tags:
+      - ACA
+      description: Retrieve new, changed and deleted offers. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion.
+      parameters:
+      - name: changes_since
+        in: query
+        description: Number of minutes since now to find new, changed and deleted offers
+        required: false
+        schema:
+          type: string
+          format: integer
+      - name: include_deletes
+        in: query
+        description: Should deleted offers be included?
+        required: false
+        schema:
+          type: string
+          format: boolean
+          default: 'false'
+      - name: page
+        in: query
+        description: Page number
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        description: Override the maximum of records returned in a response.
+        required: false
+        schema:
+          type: integer
+          default: 500
+      responses:
+        '200':
+          description: Offers data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+            status:
+              examples:
+                response:
+                  value: success
+            data:
+              examples:
+                response:
+                  value:
+                  - id: 10
+                    subscriber_id: 1
+                    offer_starts_on: 2018/01/01
+                    offer_ends_on: 2018/12/31
+                    offer_origin_code: NEW_HIRE
+                    max_possible_tier_code: ALL
+                    is_minimum_value: true
+                    subscriber_premium_monthly: '100.0'
+                    org_plan_id: 100
+                    origin_plan_year_id: 1000
+                    origin_hire_date: 2017/12/13
+                    is_manual: false
+                    calc_date: 2017/12/31
+                    approval_code: MANUALLY_ACCEPTED
+                    is_eligible: true
+                    is_mec: true
+                    is_deleted: false
+                    updated_at: '2018-05-29T19:59:55.000Z'
+        '403':
+          description: Access Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response_1'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response_2'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+  /aca/offers/subscriber/{subscriber_id}:
+    get:
+      tags:
+      - ACA
+      description: Retrieve new, changed and deleted offers for individual subscriber. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion.
+      parameters:
+      - name: subscriber_id
+        in: path
+        description: The ID of the subscriber
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: changes_since
+        in: query
+        description: Number of minutes since now to find new, changed and deleted offers
+        required: false
+        schema:
+          type: string
+          format: integer
+      - name: include_deletes
+        in: query
+        description: Should deleted offers be included?
+        required: false
+        schema:
+          type: string
+          format: boolean
+          default: 'false'
+      - name: page
+        in: query
+        description: Page number
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        description: Override the maximum of records returned in a response.
+        required: false
+        schema:
+          type: integer
+          default: 500
+      responses:
+        '200':
+          description: Offers data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+            status:
+              examples:
+                response:
+                  value: success
+            data:
+              examples:
+                response:
+                  value:
+                  - id: 10
+                    subscriber_id: 1
+                    offer_starts_on: 2018/01/01
+                    offer_ends_on: 2018/12/31
+                    offer_origin_code: NEW_HIRE
+                    max_possible_tier_code: ALL
+                    is_minimum_value: true
+                    subscriber_premium_monthly: '100.0'
+                    org_plan_id: 100
+                    origin_plan_year_id: 1000
+                    origin_hire_date: 2017/12/13
+                    is_manual: false
+                    calc_date: 2017/12/31
+                    approval_code: MANUALLY_ACCEPTED
+                    is_eligible: true
+                    is_mec: true
+                    is_deleted: false
+                    updated_at: '2018-05-29T19:59:55.000Z'
+        '403':
+          description: Access Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response_1'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response_2'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+  /aca/enrollees:
+    get:
+      tags:
+      - ACA
+      description: Retrieve new, changed and deleted enrollees. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion.
+      parameters:
+      - name: changes_since
+        in: query
+        description: Number of minutes since now to find new, changed and deleted enrollees
+        required: false
+        schema:
+          type: string
+          format: integer
+      - name: include_deletes
+        in: query
+        description: Should deleted enrollees be included?
+        required: false
+        schema:
+          type: string
+          format: boolean
+          default: 'false'
+      - name: page
+        in: query
+        description: Page number
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        description: Override the maximum of records returned in a response.
+        required: false
+        schema:
+          type: integer
+          default: 500
+      responses:
+        '200':
+          description: Enrollee data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response_3'
+            status:
+              examples:
+                response:
+                  value: success
+            data:
+              examples:
+                response:
+                  value:
+                  - subscriber_id: 123123123
+                    dependent_id: 123124
+                    first_name: John
+                    middle_name: William
+                    last_name: Smith
+                    ssn: 999999999
+                    birthdate: 1981/07/23
+                    start_date: 2018/01/15
+                    end_date: 2018/05/31
+                    is_deleted: false
+                    updated_at: '2018-05-29T19:59:55.000Z'
+        '403':
+          description: Access Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response_1'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response_2'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+  /aca/enrollees/subscriber/{subscriber_id}:
+    get:
+      tags:
+      - ACA
+      description: Retrieve new, changed and deleted enrollees for an individual subscriber. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion.
+      parameters:
+      - name: subscriber_id
+        in: path
+        description: The ID of the subscriber
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: changes_since
+        in: query
+        description: Number of minutes since now to find new, changed and deleted enrollees
+        required: false
+        schema:
+          type: string
+          format: integer
+      - name: include_deletes
+        in: query
+        description: Should deleted enrollees be included?
+        required: false
+        schema:
+          type: string
+          format: boolean
+          default: 'false'
+      - name: page
+        in: query
+        description: Page number
+        required: false
+        schema:
+          type: integer
+          default: 1
+      - name: per_page
+        in: query
+        description: Override the maximum of records returned in a response.
+        required: false
+        schema:
+          type: integer
+          default: 500
+      responses:
+        '200':
+          description: Enrollee data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response_3'
+            status:
+              examples:
+                response:
+                  value: success
+            data:
+              examples:
+                response:
+                  value:
+                  - subscriber_id: 123123123
+                    dependent_id: 123124
+                    first_name: John
+                    middle_name: William
+                    last_name: Smith
+                    ssn: 999999999
+                    birthdate: 1981/07/23
+                    start_date: 2018/01/15
+                    end_date: 2018/05/31
+                    is_deleted: false
+                    updated_at: '2018-05-29T19:59:55.000Z'
+        '403':
+          description: Access Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response_1'
+        '404':
+          description: Resource not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response_2'
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+components:
+  schemas:
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    403Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    OfferModel:
+      required:
+      - id
+      - offer_ends_on
+      - offer_origin_code
+      - offer_starts_on
+      - subscriber_id
+      type: object
+      properties:
+        id:
+          type: integer
+        subscriber_id:
+          type: integer
+        offer_starts_on:
+          type: string
+          format: date
+        offer_ends_on:
+          type: string
+          format: date
+        offer_origin_code:
+          type: string
+        enrollment_starts_on:
+          type: string
+          format: date
+        enrollment_ends_on:
+          type: string
+          format: date
+        max_possible_tier_code:
+          type: string
+        is_minimum_value:
+          type: boolean
+        subscriber_premium_monthly:
+          type: number
+          format: double
+        org_plan_id:
+          type: integer
+        coverage_id:
+          type: integer
+        origin_subscriber_life_event_id:
+          type: integer
+        origin_plan_year_id:
+          type: integer
+        origin_hire_date:
+          type: string
+          format: date
+        is_manual:
+          type: boolean
+        enrollment_tier_code:
+          type: string
+        calc_date:
+          type: string
+          format: date
+        approval_date:
+          type: string
+          format: date-time
+        approval_code:
+          type: string
+        is_eligible:
+          type: boolean
+        is_mec:
+          type: boolean
+        is_deleted:
+          type: boolean
+        updated_at:
+          type: string
+          format: date
+    Response_3:
+      title: Response
+      required:
+      - data
+      - status
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - failure
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnrolleeModel'
+    Response_1:
+      title: Response
+      required:
+      - errors
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - failure
+          - success
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/403Error'
+    Response:
+      title: Response
+      required:
+      - data
+      - status
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - failure
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OfferModel'
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    Response_2:
+      title: Response
+      required:
+      - errors
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - failure
+          - success
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/404Error'
+    EnrolleeModel:
+      required:
+      - end_date
+      - first_name
+      - last_name
+      - middle_name
+      - start_date
+      - subscriber_id
+      type: object
+      properties:
+        id:
+          type: integer
+        subscriber_id:
+          type: integer
+        dependent_id:
+          type: integer
+        first_name:
+          type: string
+        middle_name:
+          type: string
+        last_name:
+          type: string
+        ssn:
+          type: string
+        birthdate:
+          type: string
+          format: date
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        is_deleted:
+          type: boolean
+        updated_at:
+          type: string
+          format: date
+  securitySchemes:
+    clientSecretJwt:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.plansource.com/oauth/v2/token
+          scopes:
+            admin_api_v2: Access to all endpoints
+    authString:
+      type: apiKey
+      name: AuthenticationString
+      in: header
+    signature:
+      type: apiKey
+      name: Signature
+      in: header
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true

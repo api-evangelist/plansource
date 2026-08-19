@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plansource Admin Security API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.plansource.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Security",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "DELETE /user_sessions",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.plansource.com/admin/v2/user_sessions",
+            "params": [
+              {
+                "name": "user_identifier",
+                "value": "",
+                "type": "query",
+                "description": "Attribute used to identify the user during single sign-on"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Used to determine the type of user that user_identifier represents"
+              }
+            ]
+          },
+          "docs": "Invalidates sessions for the given user, forcing the user to re-authenticate"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,143 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plansource Admin EOI API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.plansource.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EOI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /eoi/subscriber/{subscriber_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/eoi/subscriber/:subscriber_id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              }
+            ]
+          },
+          "docs": "Retrieve pending EOI data for a single subscriber."
+        },
+        {
+          "info": {
+            "name": "GET /eoi/subscribers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/eoi/subscribers",
+            "params": [
+              {
+                "name": "include_test",
+                "value": "",
+                "type": "query",
+                "description": "Include test employees."
+              }
+            ]
+          },
+          "docs": "Retrieve pending EOI data for all subscribers."
+        },
+        {
+          "info": {
+            "name": "PUT /eoi/decision/{subscriber_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/eoi/decision/:subscriber_id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Process EOI decisions for a single subscriber."
+        },
+        {
+          "info": {
+            "name": "PUT /eoi/decisions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/eoi/decisions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Process EOI decisions for multiple subscribers."
+        },
+        {
+          "info": {
+            "name": "PUT /eoi/form_completion/{subscriber_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/eoi/form_completion/:subscriber_id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Process EOI form completions for single subscriber."
+        },
+        {
+          "info": {
+            "name": "PUT /eoi/form_completions",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.plansource.com/admin/v2/eoi/form_completions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Process EOI form completions for multiple subscribers."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

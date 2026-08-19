@@ -1,0 +1,189 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plansource Admin ACA API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.plansource.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ACA",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /aca/offers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/aca/offers",
+            "params": [
+              {
+                "name": "changes_since",
+                "value": "",
+                "type": "query",
+                "description": "Number of minutes since now to find new, changed and deleted offers"
+              },
+              {
+                "name": "include_deletes",
+                "value": "",
+                "type": "query",
+                "description": "Should deleted offers be included?"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override the maximum of records returned in a response."
+              }
+            ]
+          },
+          "docs": "Retrieve new, changed and deleted offers. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion."
+        },
+        {
+          "info": {
+            "name": "GET /aca/offers/subscriber/{subscriber_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/aca/offers/subscriber/:subscriber_id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber"
+              },
+              {
+                "name": "changes_since",
+                "value": "",
+                "type": "query",
+                "description": "Number of minutes since now to find new, changed and deleted offers"
+              },
+              {
+                "name": "include_deletes",
+                "value": "",
+                "type": "query",
+                "description": "Should deleted offers be included?"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override the maximum of records returned in a response."
+              }
+            ]
+          },
+          "docs": "Retrieve new, changed and deleted offers for individual subscriber. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion."
+        },
+        {
+          "info": {
+            "name": "GET /aca/enrollees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/aca/enrollees",
+            "params": [
+              {
+                "name": "changes_since",
+                "value": "",
+                "type": "query",
+                "description": "Number of minutes since now to find new, changed and deleted enrollees"
+              },
+              {
+                "name": "include_deletes",
+                "value": "",
+                "type": "query",
+                "description": "Should deleted enrollees be included?"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override the maximum of records returned in a response."
+              }
+            ]
+          },
+          "docs": "Retrieve new, changed and deleted enrollees. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion."
+        },
+        {
+          "info": {
+            "name": "GET /aca/enrollees/subscriber/{subscriber_id}",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/aca/enrollees/subscriber/:subscriber_id",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber"
+              },
+              {
+                "name": "changes_since",
+                "value": "",
+                "type": "query",
+                "description": "Number of minutes since now to find new, changed and deleted enrollees"
+              },
+              {
+                "name": "include_deletes",
+                "value": "",
+                "type": "query",
+                "description": "Should deleted enrollees be included?"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override the maximum of records returned in a response."
+              }
+            ]
+          },
+          "docs": "Retrieve new, changed and deleted enrollees for an individual subscriber. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

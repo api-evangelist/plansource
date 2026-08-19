@@ -1,0 +1,1463 @@
+{
+  "item": [
+    {
+      "id": "efca319f-e167-4284-bda0-805dcd76296f",
+      "name": "Composites",
+      "description": {
+        "content": "Objects composed of resources.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2cc84644-9e74-4650-99a1-2ea37962b8c4",
+          "name": "Retrieve a composite of coverage and supporting data for an individual coverage.",
+          "request": {
+            "name": "Retrieve a composite of coverage and supporting data for an individual coverage.",
+            "description": {
+              "content": "Retrieve a composite of coverage and supporting data for an individual coverage.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "coverage",
+                ":coverage_id",
+                "composite"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+                },
+                {
+                  "disabled": false,
+                  "key": "plan_year",
+                  "value": "<string>",
+                  "description": "Plan year."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "coverage_id",
+                  "description": "(Required) The ID of the coverage."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6082cead-8c74-4a91-a8f0-aa36a80a5710",
+              "name": "Composite of coverage and supporting data for an individual coverage.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    ":coverage_id",
+                    "composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "coverage_id",
+                      "description": "(Required) The ID of the coverage."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"coverages\": {\n      \"id\": 21028866,\n      \"org_benefit_id\": 4066306,\n      \"coverage_level_id\": 139,\n      \"termination_reason_id\": 4,\n      \"original_effective_date\": \"2018/05/29\",\n      \"change_effective_date\": \"2018/01/04\",\n      \"payment_change_effective_date\": \"2018/01/04\",\n      \"termination_date\": \"2018/05/28\",\n      \"org_plan_id\": 6954498,\n      \"subscriber_id\": 8854530,\n      \"subscriber_premium\": \"0.0\",\n      \"org_premium\": \"0.0\",\n      \"volume\": \"0.0\",\n      \"org_fsa_amount\": \"0.0\",\n      \"subscriber_fsa_amount\": \"0.0\",\n      \"increments\": 0,\n      \"billing_premium\": \"0.0\",\n      \"billing_fee\": \"0.0\",\n      \"billing_fee2\": \"0.0\",\n      \"imputed_income\": \"0.0\",\n      \"req_volume\": \"0.0\",\n      \"req_increments\": \"0.0\",\n      \"req_subscriber_premium\": \"0.0\",\n      \"req_org_premium\": \"0.0\",\n      \"req_billing_premium\": \"0.0\",\n      \"req_billing_fee\": \"0.0\",\n      \"req_billing_fee2\": \"0.0\",\n      \"gi_volume\": \"0.0\",\n      \"gi_increments\": \"0.0\",\n      \"waiting_for_eoi\": false,\n      \"req_imputed_income\": \"0.0\",\n      \"dp_sub_imputed_income\": \"0.0\",\n      \"dp_org_imputed_income\": \"0.0\",\n      \"req_dp_sub_imputed_income\": \"0.0\",\n      \"req_dp_org_imputed_income\": \"0.0\",\n      \"election_effective_date\": \"2018/01/04\",\n      \"subscriber_election_amount\": \"0.0\",\n      \"subscriber_pretax_premium\": \"0.0\",\n      \"subscriber_posttax_premium\": \"0.0\",\n      \"signature_date\": \"2018/05/29\",\n      \"req_org_plan_id\": 6954498,\n      \"req_coverage_level_id\": 139,\n      \"req_dependent_ids\": [],\n      \"req_subscriber_election_amount\": \"0.0\",\n      \"req_subscriber_fsa_amount\": \"0.0\",\n      \"req_org_fsa_amount\": \"0.0\",\n      \"gi_dependent_ids\": [],\n      \"gi_subscriber_election_amount\": \"0.0\",\n      \"waiting_for_doc_requests\": false,\n      \"bookkeeping_values\": {\n        \"cost_org_base_amount\": 0,\n        \"cost_org_match_amount\": 1162,\n        \"org_annual_base_amount\": 0,\n        \"org_annual_match_amount\": 1162\n      },\n      \"org_benefit_name\": \"Health Savings Account\",\n      \"benefit_lookup_code\": \"hsa\",\n      \"coverage_level_name\": \"Employee Only\",\n      \"plan_year_starts_on\": \"2018/01/04\",\n      \"plan_year_ends_on\": \"2019/01/03\",\n      \"coverage_type_name\": \"Employee\",\n      \"benefit_class\": \"contribution\",\n      \"beneficiary_required\": \"Not Applicable\",\n      \"beneficiary_optional_admin\": false,\n      \"org_plan_name\": \"Health Savings Account\",\n      \"first_name\": \"Eli\",\n      \"last_name\": \"Test\",\n      \"req_org_plan_name\": \"Health Savings Account\",\n      \"req_coverage_level_name\": \"Employee Only\",\n      \"survey_data\": {\n        \"coverage_id\": 21028866,\n        \"survey_benefit_name\": \"Tobacco Survey\",\n        \"org_benefit_id\": 4066306,\n        \"question_response_data\": {\n          \"plan_id\": 846850,\n          \"question_text\": \"Do you currently use tobacco products?\",\n          \"subscriber_ssn\": 111222444,\n          \"question_response\": {\n            \"response_text\": \"Yes\",\n            \"value\": \"Yes\"\n          },\n          \"time_answered\": \"05/29/201816:03:27\",\n          \"question_targeted_at\": \"Subscriber\",\n          \"carrier_question_type\": \"Actively At Work (Employee)\"\n        }\n      }\n    },\n    \"dependents\": {\n      \"id\": 5091330,\n      \"coverage_id\": 23916546,\n      \"dependent_id\": 2079234,\n      \"original_effective_date\": \"2018/01/04\",\n      \"change_effective_date\": \"2018/01/04\",\n      \"organization_id\": 652,\n      \"election_effective_date\": \"2018/01/04\",\n      \"first_name\": \"Matt\",\n      \"last_name\": \"Test\",\n      \"org_benefit_id\": 8621,\n      \"org_benefit_name\": \"Basic Dependent Life\",\n      \"benefit_lookup_code\": \"basic_dependent_life\",\n      \"coverage_level_id\": 251,\n      \"coverage_level_name\": \"Enrolled\",\n      \"org_plan_id\": 22427,\n      \"org_plan_name\": \"Basic Dependent Life\",\n      \"plan_year_starts_on\": \"2018/01/04\",\n      \"plan_year_ends_on\": \"2019/01/03\"\n    },\n    \"lines\": {\n      \"id\": 3586,\n      \"coverage_id\": 20551170,\n      \"original_effective_date\": \"2018/01/04\",\n      \"change_effective_date\": \"2018/01/04\",\n      \"payment_change_effective_date\": \"2018/01/04\",\n      \"subscriber_premium\": \"3.82\",\n      \"org_premium\": \"0.0\",\n      \"volume\": \"125000.0\",\n      \"increments\": 5,\n      \"billing_premium\": \"7.0\",\n      \"billing_fee\": \"0.0\",\n      \"billing_fee2\": \"0.0\",\n      \"imputed_income\": \"0.0\",\n      \"req_volume\": \"150000.0\",\n      \"req_increments\": \"6.0\",\n      \"req_subscriber_premium\": \"4.58\",\n      \"req_org_premium\": \"0.0\",\n      \"req_billing_premium\": \"8.4\",\n      \"req_billing_fee\": \"0.0\",\n      \"req_billing_fee2\": \"0.0\",\n      \"org_benefit_id\": 8619,\n      \"org_benefit_name\": \"Voluntary Employee Life\",\n      \"benefit_lookup_code\": \"subscriber_life\",\n      \"coverage_level_id\": 310,\n      \"coverage_level_name\": \"Employee Only\",\n      \"plan_year_starts_on\": \"2018/01/04\",\n      \"plan_year_ends_on\": \"2019/01/03\",\n      \"org_plan_id\": 22423,\n      \"org_plan_name\": \"Voluntary Employee Life\",\n      \"subscriber_id\": 8854530,\n      \"first_name\": \"Harry\",\n      \"last_name\": \"Test\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "69321c61-9119-4421-a9a1-b1c9f55a8fcb",
+              "name": "Malformed request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    ":coverage_id",
+                    "composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "coverage_id",
+                      "description": "(Required) The ID of the coverage."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 400,\n    \"message\": \"Not enough or too many segments\"\n  },\n  \"data\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fea1aa7f-7fd4-404a-a37b-15e6a509813f",
+              "name": "Invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    ":coverage_id",
+                    "composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "coverage_id",
+                      "description": "(Required) The ID of the coverage."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 401,\n    \"message\": \"Signature has expired\",\n    \"error_code\": \"invalid_token\"\n  },\n  \"data\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2fa12519-7770-456f-9a6d-80b9bb68769f",
+              "name": "Access error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    ":coverage_id",
+                    "composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "coverage_id",
+                      "description": "(Required) The ID of the coverage."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 403,\n    \"message\": \"Forbidden\"\n  },\n  \"data\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3b51bb5-b549-49d8-b4c0-e2bed975e609",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    ":coverage_id",
+                    "composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "coverage_id",
+                      "description": "(Required) The ID of the coverage."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 404,\n    \"message\": \"Invalid coverage\",\n    \"error_code\": 404\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1e50ae2b-1aa5-4591-8752-164803d8656a",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    ":coverage_id",
+                    "composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "coverage_id",
+                      "description": "(Required) The ID of the coverage."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 500,\n    \"message\": \"Internal error\"\n  },\n  \"data\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5a9fb95f-7590-44a1-87e1-57c5d08fa0e9",
+          "name": "Retrieve a composite of coverage and supporting data for an individual subscriber.",
+          "request": {
+            "name": "Retrieve a composite of coverage and supporting data for an individual subscriber.",
+            "description": {
+              "content": "Retrieve a composite of coverage and supporting data for an individual subscriber.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "coverage",
+                "subscriber",
+                ":subscriber_id",
+                "composite"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+                },
+                {
+                  "disabled": false,
+                  "key": "plan_year",
+                  "value": "<string>",
+                  "description": "Plan year."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<long>",
+                  "key": "subscriber_id",
+                  "description": "(Required) The ID of the subscriber."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43f358ef-00a7-46a5-813d-4eff48c072c0",
+              "name": "Composite of coverage and supporting data for an individual subscriber.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    "subscriber",
+                    ":subscriber_id",
+                    "composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"data\": {\n    \"coverages\": {\n      \"id\": 21028866,\n      \"org_benefit_id\": 4066306,\n      \"coverage_level_id\": 139,\n      \"termination_reason_id\": 4,\n      \"original_effective_date\": \"2018/05/29\",\n      \"change_effective_date\": \"2018/01/04\",\n      \"payment_change_effective_date\": \"2018/01/04\",\n      \"termination_date\": \"2018/05/28\",\n      \"org_plan_id\": 6954498,\n      \"subscriber_id\": 8854530,\n      \"subscriber_premium\": \"0.0\",\n      \"org_premium\": \"0.0\",\n      \"volume\": \"0.0\",\n      \"org_fsa_amount\": \"0.0\",\n      \"subscriber_fsa_amount\": \"0.0\",\n      \"increments\": 0,\n      \"billing_premium\": \"0.0\",\n      \"billing_fee\": \"0.0\",\n      \"billing_fee2\": \"0.0\",\n      \"imputed_income\": \"0.0\",\n      \"req_volume\": \"0.0\",\n      \"req_increments\": \"0.0\",\n      \"req_subscriber_premium\": \"0.0\",\n      \"req_org_premium\": \"0.0\",\n      \"req_billing_premium\": \"0.0\",\n      \"req_billing_fee\": \"0.0\",\n      \"req_billing_fee2\": \"0.0\",\n      \"gi_volume\": \"0.0\",\n      \"gi_increments\": \"0.0\",\n      \"waiting_for_eoi\": false,\n      \"req_imputed_income\": \"0.0\",\n      \"dp_sub_imputed_income\": \"0.0\",\n      \"dp_org_imputed_income\": \"0.0\",\n      \"req_dp_sub_imputed_income\": \"0.0\",\n      \"req_dp_org_imputed_income\": \"0.0\",\n      \"election_effective_date\": \"2018/01/04\",\n      \"subscriber_election_amount\": \"0.0\",\n      \"subscriber_pretax_premium\": \"0.0\",\n      \"subscriber_posttax_premium\": \"0.0\",\n      \"signature_date\": \"2018/05/29\",\n      \"req_org_plan_id\": 6954498,\n      \"req_coverage_level_id\": 139,\n      \"req_dependent_ids\": [],\n      \"req_subscriber_election_amount\": \"0.0\",\n      \"req_subscriber_fsa_amount\": \"0.0\",\n      \"req_org_fsa_amount\": \"0.0\",\n      \"gi_dependent_ids\": [],\n      \"gi_subscriber_election_amount\": \"0.0\",\n      \"waiting_for_doc_requests\": false,\n      \"bookkeeping_values\": {\n        \"cost_org_base_amount\": 0,\n        \"cost_org_match_amount\": 1162,\n        \"org_annual_base_amount\": 0,\n        \"org_annual_match_amount\": 1162\n      },\n      \"org_benefit_name\": \"Health Savings Account\",\n      \"benefit_lookup_code\": \"hsa\",\n      \"coverage_level_name\": \"Employee Only\",\n      \"plan_year_starts_on\": \"2018/01/04\",\n      \"plan_year_ends_on\": \"2019/01/03\",\n      \"coverage_type_name\": \"Employee\",\n      \"benefit_class\": \"contribution\",\n      \"beneficiary_required\": \"Not Applicable\",\n      \"beneficiary_optional_admin\": false,\n      \"org_plan_name\": \"Health Savings Account\",\n      \"first_name\": \"Eli\",\n      \"last_name\": \"Test\",\n      \"req_org_plan_name\": \"Health Savings Account\",\n      \"req_coverage_level_name\": \"Employee Only\",\n      \"survey_data\": {\n        \"coverage_id\": 21028866,\n        \"survey_benefit_name\": \"Tobacco Survey\",\n        \"org_benefit_id\": 4066306,\n        \"question_response_data\": {\n          \"plan_id\": 846850,\n          \"question_text\": \"Do you currently use tobacco products?\",\n          \"subscriber_ssn\": 111222444,\n          \"question_response\": {\n            \"response_text\": \"Yes\",\n            \"value\": \"Yes\"\n          },\n          \"time_answered\": \"05/29/201816:03:27\",\n          \"question_targeted_at\": \"Subscriber\",\n          \"carrier_question_type\": \"Actively At Work (Employee)\"\n        }\n      }\n    },\n    \"dependents\": {\n      \"id\": 5091330,\n      \"coverage_id\": 23916546,\n      \"dependent_id\": 2079234,\n      \"original_effective_date\": \"2018/01/04\",\n      \"change_effective_date\": \"2018/01/04\",\n      \"organization_id\": 652,\n      \"election_effective_date\": \"2018/01/04\",\n      \"first_name\": \"Matt\",\n      \"last_name\": \"Test\",\n      \"org_benefit_id\": 8621,\n      \"org_benefit_name\": \"Basic Dependent Life\",\n      \"benefit_lookup_code\": \"basic_dependent_life\",\n      \"coverage_level_id\": 251,\n      \"coverage_level_name\": \"Enrolled\",\n      \"org_plan_id\": 22427,\n      \"org_plan_name\": \"Basic Dependent Life\",\n      \"plan_year_starts_on\": \"2018/01/04\",\n      \"plan_year_ends_on\": \"2019/01/03\"\n    },\n    \"lines\": {\n      \"id\": 3586,\n      \"coverage_id\": 20551170,\n      \"original_effective_date\": \"2018/01/04\",\n      \"change_effective_date\": \"2018/01/04\",\n      \"payment_change_effective_date\": \"2018/01/04\",\n      \"subscriber_premium\": \"3.82\",\n      \"org_premium\": \"0.0\",\n      \"volume\": \"125000.0\",\n      \"increments\": 5,\n      \"billing_premium\": \"7.0\",\n      \"billing_fee\": \"0.0\",\n      \"billing_fee2\": \"0.0\",\n      \"imputed_income\": \"0.0\",\n      \"req_volume\": \"150000.0\",\n      \"req_increments\": \"6.0\",\n      \"req_subscriber_premium\": \"4.58\",\n      \"req_org_premium\": \"0.0\",\n      \"req_billing_premium\": \"8.4\",\n      \"req_billing_fee\": \"0.0\",\n      \"req_billing_fee2\": \"0.0\",\n      \"org_benefit_id\": 8619,\n      \"org_benefit_name\": \"Voluntary Employee Life\",\n      \"benefit_lookup_code\": \"subscriber_life\",\n      \"coverage_level_id\": 310,\n      \"coverage_level_name\": \"Employee Only\",\n      \"plan_year_starts_on\": \"2018/01/04\",\n      \"plan_year_ends_on\": \"2019/01/03\",\n      \"org_plan_id\": 22423,\n      \"org_plan_name\": \"Voluntary Employee Life\",\n      \"subscriber_id\": 8854530,\n      \"first_name\": \"Harry\",\n      \"last_name\": \"Test\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "faaa1772-508c-408d-bd1b-f41f173bd202",
+              "name": "Malformed request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    "subscriber",
+                    ":subscriber_id",
+                    "composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 400,\n    \"message\": \"Not enough or too many segments\"\n  },\n  \"data\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f262ad57-8080-46cd-9e5b-14c54dc2cacb",
+              "name": "Invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    "subscriber",
+                    ":subscriber_id",
+                    "composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 401,\n    \"message\": \"Signature has expired\",\n    \"error_code\": \"invalid_token\"\n  },\n  \"data\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2292d885-79d4-4a14-b681-f8edb5f5a2aa",
+              "name": "Access error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    "subscriber",
+                    ":subscriber_id",
+                    "composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 403,\n    \"message\": \"Forbidden\"\n  },\n  \"data\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d0b68c29-b453-4a5e-b2be-8dba5579e486",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    "subscriber",
+                    ":subscriber_id",
+                    "composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 404,\n    \"message\": \"Employee not found\",\n    \"error_code\": 404\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6b6ac35-2505-47d9-87e3-5f42106d9e1e",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    "subscriber",
+                    ":subscriber_id",
+                    "composite"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<long>",
+                      "key": "subscriber_id",
+                      "description": "(Required) The ID of the subscriber."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 500,\n    \"message\": \"Internal error\"\n  },\n  \"data\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "83abc43f-f351-4bb7-8ec7-e8dc16fb7ed2",
+          "name": "Retrieve a composite of all coverages and supporting data.",
+          "request": {
+            "name": "Retrieve a composite of all coverages and supporting data.",
+            "description": {
+              "content": "Retrieve a composite of all coverages and supporting data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "coverage",
+                "composites"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+                },
+                {
+                  "disabled": false,
+                  "key": "plan_year",
+                  "value": "<string>",
+                  "description": "Plan year."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "<integer>",
+                  "description": "Page number."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "<integer>",
+                  "description": "Override the maximum of records returned in a response."
+                },
+                {
+                  "disabled": false,
+                  "key": "include_test",
+                  "value": "false",
+                  "description": "Include test employees."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8d6d4656-7b45-411d-a8c2-d2c85c8d1505",
+              "name": "Composite of all coverages and supporting data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    "composites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_test",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"success\",\n  \"errors\": [],\n  \"data\": {\n    \"coverages\": {\n      \"id\": 21028866,\n      \"org_benefit_id\": 4066306,\n      \"coverage_level_id\": 139,\n      \"termination_reason_id\": 4,\n      \"original_effective_date\": \"2018/05/29\",\n      \"change_effective_date\": \"2018/01/04\",\n      \"payment_change_effective_date\": \"2018/01/04\",\n      \"termination_date\": \"2018/05/28\",\n      \"org_plan_id\": 6954498,\n      \"subscriber_id\": 8854530,\n      \"subscriber_premium\": \"0.0\",\n      \"org_premium\": \"0.0\",\n      \"volume\": \"0.0\",\n      \"org_fsa_amount\": \"0.0\",\n      \"subscriber_fsa_amount\": \"0.0\",\n      \"increments\": 0,\n      \"billing_premium\": \"0.0\",\n      \"billing_fee\": \"0.0\",\n      \"billing_fee2\": \"0.0\",\n      \"imputed_income\": \"0.0\",\n      \"req_volume\": \"0.0\",\n      \"req_increments\": \"0.0\",\n      \"req_subscriber_premium\": \"0.0\",\n      \"req_org_premium\": \"0.0\",\n      \"req_billing_premium\": \"0.0\",\n      \"req_billing_fee\": \"0.0\",\n      \"req_billing_fee2\": \"0.0\",\n      \"gi_volume\": \"0.0\",\n      \"gi_increments\": \"0.0\",\n      \"waiting_for_eoi\": false,\n      \"req_imputed_income\": \"0.0\",\n      \"dp_sub_imputed_income\": \"0.0\",\n      \"dp_org_imputed_income\": \"0.0\",\n      \"req_dp_sub_imputed_income\": \"0.0\",\n      \"req_dp_org_imputed_income\": \"0.0\",\n      \"election_effective_date\": \"2018/01/04\",\n      \"subscriber_election_amount\": \"0.0\",\n      \"subscriber_pretax_premium\": \"0.0\",\n      \"subscriber_posttax_premium\": \"0.0\",\n      \"signature_date\": \"2018/05/29\",\n      \"req_org_plan_id\": 6954498,\n      \"req_coverage_level_id\": 139,\n      \"req_dependent_ids\": [],\n      \"req_subscriber_election_amount\": \"0.0\",\n      \"req_subscriber_fsa_amount\": \"0.0\",\n      \"req_org_fsa_amount\": \"0.0\",\n      \"gi_dependent_ids\": [],\n      \"gi_subscriber_election_amount\": \"0.0\",\n      \"waiting_for_doc_requests\": false,\n      \"bookkeeping_values\": {\n        \"cost_org_base_amount\": 0,\n        \"cost_org_match_amount\": 1162,\n        \"org_annual_base_amount\": 0,\n        \"org_annual_match_amount\": 1162\n      },\n      \"org_benefit_name\": \"Health Savings Account\",\n      \"benefit_lookup_code\": \"hsa\",\n      \"coverage_level_name\": \"Employee Only\",\n      \"plan_year_starts_on\": \"2018/01/04\",\n      \"plan_year_ends_on\": \"2019/01/03\",\n      \"coverage_type_name\": \"Employee\",\n      \"benefit_class\": \"contribution\",\n      \"beneficiary_required\": \"Not Applicable\",\n      \"beneficiary_optional_admin\": false,\n      \"org_plan_name\": \"Health Savings Account\",\n      \"first_name\": \"Eli\",\n      \"last_name\": \"Test\",\n      \"req_org_plan_name\": \"Health Savings Account\",\n      \"req_coverage_level_name\": \"Employee Only\",\n      \"survey_data\": {\n        \"coverage_id\": 21028866,\n        \"survey_benefit_name\": \"Tobacco Survey\",\n        \"org_benefit_id\": 4066306,\n        \"question_response_data\": {\n          \"plan_id\": 846850,\n          \"question_text\": \"Do you currently use tobacco products?\",\n          \"subscriber_ssn\": 111222444,\n          \"question_response\": {\n            \"response_text\": \"Yes\",\n            \"value\": \"Yes\"\n          },\n          \"time_answered\": \"05/29/201816:03:27\",\n          \"question_targeted_at\": \"Subscriber\",\n          \"carrier_question_type\": \"Actively At Work (Employee)\"\n        }\n      }\n    },\n    \"dependents\": {\n      \"id\": 5091330,\n      \"coverage_id\": 23916546,\n      \"dependent_id\": 2079234,\n      \"original_effective_date\": \"2018/01/04\",\n      \"change_effective_date\": \"2018/01/04\",\n      \"organization_id\": 652,\n      \"election_effective_date\": \"2018/01/04\",\n      \"first_name\": \"Matt\",\n      \"last_name\": \"Test\",\n      \"org_benefit_id\": 8621,\n      \"org_benefit_name\": \"Basic Dependent Life\",\n      \"benefit_lookup_code\": \"basic_dependent_life\",\n      \"coverage_level_id\": 251,\n      \"coverage_level_name\": \"Enrolled\",\n      \"org_plan_id\": 22427,\n      \"org_plan_name\": \"Basic Dependent Life\",\n      \"plan_year_starts_on\": \"2018/01/04\",\n      \"plan_year_ends_on\": \"2019/01/03\"\n    },\n    \"lines\": {\n      \"id\": 3586,\n      \"coverage_id\": 20551170,\n      \"original_effective_date\": \"2018/01/04\",\n      \"change_effective_date\": \"2018/01/04\",\n      \"payment_change_effective_date\": \"2018/01/04\",\n      \"subscriber_premium\": \"3.82\",\n      \"org_premium\": \"0.0\",\n      \"volume\": \"125000.0\",\n      \"increments\": 5,\n      \"billing_premium\": \"7.0\",\n      \"billing_fee\": \"0.0\",\n      \"billing_fee2\": \"0.0\",\n      \"imputed_income\": \"0.0\",\n      \"req_volume\": \"150000.0\",\n      \"req_increments\": \"6.0\",\n      \"req_subscriber_premium\": \"4.58\",\n      \"req_org_premium\": \"0.0\",\n      \"req_billing_premium\": \"8.4\",\n      \"req_billing_fee\": \"0.0\",\n      \"req_billing_fee2\": \"0.0\",\n      \"org_benefit_id\": 8619,\n      \"org_benefit_name\": \"Voluntary Employee Life\",\n      \"benefit_lookup_code\": \"subscriber_life\",\n      \"coverage_level_id\": 310,\n      \"coverage_level_name\": \"Employee Only\",\n      \"plan_year_starts_on\": \"2018/01/04\",\n      \"plan_year_ends_on\": \"2019/01/03\",\n      \"org_plan_id\": 22423,\n      \"org_plan_name\": \"Voluntary Employee Life\",\n      \"subscriber_id\": 8854530,\n      \"first_name\": \"Harry\",\n      \"last_name\": \"Test\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "483132f8-c1d7-41e7-8888-9491fcfb4541",
+              "name": "Malformed request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    "composites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_test",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 400,\n    \"message\": \"Not enough or too many segments\"\n  },\n  \"data\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4330df6-2827-488e-9ffc-d18a4a7e7726",
+              "name": "Invalid token.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    "composites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_test",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 401,\n    \"message\": \"Signature has expired\",\n    \"error_code\": \"invalid_token\"\n  },\n  \"data\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "377682db-8957-4554-90a1-1304c85941aa",
+              "name": "Access error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    "composites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_test",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 403,\n    \"message\": \"Forbidden\"\n  },\n  \"data\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "082f9a1f-cbf9-4ec7-a5c5-810f81efd875",
+              "name": "Resource not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    "composites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_test",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 404,\n    \"message\": \"Invalid coverage\",\n    \"error_code\": 404\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53f72070-f19b-4da7-9837-cea844d1faf3",
+              "name": "InternalServerError",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage",
+                    "composites"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "plan_year",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "include_test",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"failure\",\n  \"errors\": {\n    \"http_status\": 500,\n    \"message\": \"Internal error\"\n  },\n  \"data\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.plansource.com/admin/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "admin_api_v2"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "https://api.plansource.com/oauth/v2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ad04547e-c330-470f-8085-1f3509eff3c9",
+    "name": "Plansource Admin Composites API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "An integration API for Plansource data for administration functions\n\nContact Support:\n Name: Plansource API team\n Email: api-team@plansource.com",
+      "type": "text/plain"
+    }
+  }
+}

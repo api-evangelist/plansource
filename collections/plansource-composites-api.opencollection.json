@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Plansource Admin Composites API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://api.plansource.com/oauth/v2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Composites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /coverage/{coverage_id}/composite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/:coverage_id/composite",
+            "params": [
+              {
+                "name": "coverage_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the coverage."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              }
+            ]
+          },
+          "docs": "Retrieve a composite of coverage and supporting data for an individual coverage."
+        },
+        {
+          "info": {
+            "name": "GET /coverage/subscriber/{subscriber_id}/composite",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/subscriber/:subscriber_id/composite",
+            "params": [
+              {
+                "name": "subscriber_id",
+                "value": "",
+                "type": "path",
+                "description": "The ID of the subscriber."
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              }
+            ]
+          },
+          "docs": "Retrieve a composite of coverage and supporting data for an individual subscriber."
+        },
+        {
+          "info": {
+            "name": "GET /coverage/composites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.plansource.com/admin/v2/coverage/composites",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00)."
+              },
+              {
+                "name": "plan_year",
+                "value": "",
+                "type": "query",
+                "description": "Plan year."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Override the maximum of records returned in a response."
+              },
+              {
+                "name": "include_test",
+                "value": "",
+                "type": "query",
+                "description": "Include test employees."
+              }
+            ]
+          },
+          "docs": "Retrieve a composite of all coverages and supporting data."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

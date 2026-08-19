@@ -1,0 +1,1292 @@
+openapi: 3.2.0
+info:
+  title: Plansource Admin Page Content API
+  description: An integration API for Plansource data for administration functions
+  contact:
+    name: Plansource API team
+    email: api-team@plansource.com
+  license:
+    name: B) 2017 Plansource.  All rights reserved.
+  version: 2.0.0
+servers:
+- url: https://api.plansource.com/admin/v2
+security:
+- clientSecretJwt:
+  - admin_api_v2
+- authString: []
+  signature: []
+tags:
+- name: Page Content
+  description: Organization page content data.
+paths:
+  /page_content:
+    get:
+      tags:
+      - Page Content
+      description: Returns page content or page contents for the requested view. Blocks are ordered according to their 'slot number' and all fields not set are omitted from the response.
+      parameters:
+      - name: Accept
+        in: header
+        description: The format of content that is acceptable as a response.
+        required: false
+        schema:
+          type: string
+          enum:
+          - application/json
+      - name: Content-Type
+        in: header
+        description: The format of content in the request.
+        required: false
+        schema:
+          type: string
+          enum:
+          - application/json
+      - name: org_page_content_id
+        in: query
+        description: Unique id for the org page content (NOTE! This parameter IS required when page_content_lookup_code IS NOT provided)
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: page_content_lookup_code
+        in: query
+        description: Page content lookup code (NOTE! This parameter IS required when org_page_content_id IS NOT provided)
+        required: false
+        allowEmptyValue: true
+        schema:
+          type: string
+          enum:
+          - enroll_coverage
+          - enroll_pcp
+          - enroll_confirm_email
+          - enroll_confirm
+          - enroll_beneficiary
+          - enroll_benefits
+          - enroll_dependents
+          - enroll_dependents/new
+          - enroll_personal
+          - enroll_personal_view
+          - enroll_dependents/edit
+          - sub_main/initial
+          - sub_main/confirm
+          - sub_main/open
+          - sub_main/life_event
+          - sub_main/dual
+          - sub_main/new_message
+          - dashboard/initial
+          - dashboard
+          - dashboard/open
+          - dashboard/dual
+          - dashboard/life_event
+      - name: org_plan_year_id
+        in: query
+        description: Unique id for the associated plan year
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: enrollment_type
+        in: query
+        description: Enrollment lookup code (NOTE! This parameter IS required when page_content_lookup_code IS EQUAL sub_main)
+        required: false
+        schema:
+          type: string
+          enum:
+          - open
+          - initial
+          - life_event
+          - dual
+      - name: benefit_lookup_code
+        in: query
+        description: Benefit lookup code
+        required: false
+        schema:
+          type: string
+          enum:
+          - 401k
+          - 401k_catch_up
+          - 401k_roth
+          - 401k_roth_catch_up
+          - accident_advance_coverage
+          - add
+          - add_dep_only
+          - add_spouse_only
+          - admin_fee
+          - aflac_accidtental
+          - aflac_critical_ill_ee
+          - aflac_critical_ill_ee_buyup
+          - aflac_critical_ill_sp
+          - aflac_critical_ill_sp_buyup
+          - aflac_hospital
+          - aflac_std
+          - aflac_whole_life
+          - aflac_whole_life_ch
+          - aflac_whole_life_sp
+          - agreement_1
+          - agreement_2
+          - agreement_3
+          - allstate_accident
+          - allstate_accidental
+          - allstate_cancer
+          - allstate_cancer2
+          - allstate_critical_illness
+          - allstate_critical_illness1
+          - allstate_critical_ill_ee
+          - allstate_critical_ill_sp
+          - allstate_disability
+          - allstate_grp_accident
+          - allstate_grp_cancer
+          - allstate_grp_cancer_ill
+          - allstate_grp_disability
+          - allstate_grp_medical
+          - allstate_grp_term_to_100
+          - allstate_grp_term_to_100_ch
+          - allstate_grp_term_to_100_sp
+          - allstate_grp_univ_life
+          - allstate_hospital
+          - allstate_shop
+          - allstate_std
+          - allstate_survey
+          - allstate_universal_life_dep
+          - allstate_universal_life_ee
+          - allstate_universal_life_sp
+          - allstate_whole_life
+          - basic_add
+          - basic_dependent_life
+          - basic_spouse_life
+          - basic_subscriber_life
+          - bltd
+          - bstd
+          - cancer
+          - cancer_select_plus_coverage
+          - colonial
+          - critical_assistance_advance_coverage
+          - critical_illness
+          - critical_illness_2
+          - critical_illness_3
+          - dcra
+          - dental
+          - dependent_life
+          - eap
+          - flex_credit
+          - group_hospital_indemnity
+          - hcra
+          - hosp_intensive
+          - hra
+          - hsa
+          - legal
+          - long_term_care
+          - ltd
+          - medical
+          - medical_2
+          - miscellaneous
+          - parking
+          - premium_fsa
+          - pto_cash_out
+          - pto_purchase
+          - rider_1
+          - rider_2
+          - rider_3
+          - rider_4
+          - rider_5
+          - Rider_AD&D
+          - Rider_Cancer
+          - Rider_Child_Term
+          - Rider_Continuation
+          - Rider_Dental
+          - Rider_Long_Term_Care
+          - Rider_Maternity
+          - Rider_Mental_Illness
+          - Rider_Prescription
+          - Rider_Pre_Existing_Condition
+          - Rider_Restoration
+          - Rider_Sports
+          - Rider_Spouse_Term
+          - Rider_Subscriber_Term
+          - Rider_Terminal_Illness
+          - Rider_Terrorism
+          - Rider_Vision
+          - Rider_Waiver_of_Premium
+          - rx
+          - section_125
+          - specified_health
+          - spouse_life
+          - std
+          - subscriber_life
+          - survey_1
+          - survey_2
+          - survey_3
+          - survey_4
+          - survey_5
+          - survey_6
+          - survey_7
+          - survey_8
+          - survey_9
+          - survey_10
+          - survey_11
+          - survey_12
+          - survey_13
+          - survey_14
+          - survey_15
+          - survey_16
+          - survey_17
+          - survey_18
+          - survey_19
+          - survey_20
+          - survey_unum_eligibility
+          - transit
+          - transit_2
+          - trans_di_plus_coverage
+          - trans_legacy_coverage
+          - trans_select_coverage
+          - trans_sure_coverage
+          - unum_group_accident_employee
+          - unum_group_critical_illness_ee_employee
+          - unum_group_critical_illness_ee_spouse
+          - unum_group_critical_illness_employee
+          - unum_group_critical_illness_spouse
+          - unum_group_hospital_indemnity_employee
+          - unum_interest_sensitive_whole_life_child
+          - unum_interest_sensitive_whole_life_employee
+          - unum_interest_sensitive_whole_life_spouse
+          - unum_vwb_std_employee
+          - unum__whole_life_child
+          - unum__whole_life_employee
+          - unum__whole_life_spouse
+          - vision
+          - work_accident
+      - name: SAMLResponse
+        in: header
+        description: When using SAML SSO, the content of the SAML assertion.
+        required: false
+        schema:
+          type: string
+      - name: RelayState
+        in: header
+        description: When using SAML SSO, the URI to redirect the client to if authentication is successful.
+        required: false
+        schema:
+          type: string
+      - name: Cookie
+        in: header
+        description: Session cookie.  A string following the standard HTTP Cookie standard (RFC 6265).
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Page content(s) retrieval response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageContentResponse'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data: []
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'page_conten' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+    put:
+      tags:
+      - Page Content
+      description: Applies any changes to page content and content block records.
+      parameters:
+      - name: Accept
+        in: header
+        description: The format of content that is acceptable as a response.
+        required: false
+        schema:
+          type: string
+          enum:
+          - application/json
+      - name: Content-Type
+        in: header
+        description: The format of content in the request.
+        required: false
+        schema:
+          type: string
+          enum:
+          - application/json
+      - name: org_page_content_id
+        in: query
+        description: Unique id for the org page content.
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: org_plan_year_id
+        in: query
+        description: Unique id for the associated plan year
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: SAMLResponse
+        in: header
+        description: When using SAML SSO, the content of the SAML assertion.
+        required: false
+        schema:
+          type: string
+      - name: RelayState
+        in: header
+        description: When using SAML SSO, the URI to redirect the client to if authentication is successful.
+        required: false
+        schema:
+          type: string
+      - name: Cookie
+        in: header
+        description: Session cookie.  A string following the standard HTTP Cookie standard (RFC 6265).
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PageContentData'
+        required: true
+      responses:
+        '200':
+          description: Updated page content and content block records response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageContentResponse'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data: []
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Requested Page Content Not Found
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'page_conten' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /content_blocks:
+    get:
+      tags:
+      - Page Content
+      description: Returns a paginated array of content blocks.
+      parameters:
+      - name: Accept
+        in: header
+        description: The format of content that is acceptable as a response.
+        required: false
+        schema:
+          type: string
+          enum:
+          - application/json
+      - name: Content-Type
+        in: header
+        description: The format of content in the request.
+        required: false
+        schema:
+          type: string
+          enum:
+          - application/json
+      - name: page
+        in: query
+        description: Page number.
+        required: false
+        schema:
+          type: integer
+      - name: SAMLResponse
+        in: header
+        description: When using SAML SSO, the content of the SAML assertion.
+        required: false
+        schema:
+          type: string
+      - name: RelayState
+        in: header
+        description: When using SAML SSO, the URI to redirect the client to if authentication is successful.
+        required: false
+        schema:
+          type: string
+      - name: Cookie
+        in: header
+        description: Session cookie.  A string following the standard HTTP Cookie standard (RFC 6265).
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Paginated array of content blocks retrieval response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentBlocksResponse'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      content_blocks:
+                        slot_num: false
+                        icon_image: https://partner-dev-benefits.plansource.com/logo/content_icons/icon_images/icon1394.png
+                        documents:
+                          label: See what's new this year!
+                          description: ''
+                          required: false
+                          required_eoi: false
+                          required_admin: false
+                          document_url: https://httppartner-dev-benefits.plansource.com/admin/file_store/get_file/20525
+                          id: 70
+                          document_name: 2015_What_s_New_in_Benefits.pdf
+                        rotating_content: []
+                        marketplace: {}
+                        name: 'System : Med - Plan Differences Video'
+                        label: Plan Comparison Video
+                        label_type: text
+                        block_type: content
+                        url: ''
+                        url_type: popup_content
+                        content: ''
+                        popup_content: '<p><a href="//fast.wistia.net/embed/iframe/75nx5wc1rt">//fast.wistia.net/embed/iframe/75nx5wc1rt</a></p>
+
+                          '
+                        popup_width: 560
+                        popup_height: 350
+                        show_legend: false
+                        container_css_class: ''
+                        id: 1396
+                        is_system: false
+                      page: 2
+                      per_page: 10
+                      total_records: 18
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'content_block' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /content_block:
+    put:
+      tags:
+      - Page Content
+      description: Applies changes to content block record.
+      parameters:
+      - name: Accept
+        in: header
+        description: The format of content that is acceptable as a response.
+        required: false
+        schema:
+          type: string
+          enum:
+          - application/json
+      - name: Content-Type
+        in: header
+        description: The format of content in the request.
+        required: false
+        schema:
+          type: string
+          enum:
+          - application/json
+      - name: SAMLResponse
+        in: header
+        description: When using SAML SSO, the content of the SAML assertion.
+        required: false
+        schema:
+          type: string
+      - name: RelayState
+        in: header
+        description: When using SAML SSO, the URI to redirect the client to if authentication is successful.
+        required: false
+        schema:
+          type: string
+      - name: Cookie
+        in: header
+        description: Session cookie.  A string following the standard HTTP Cookie standard (RFC 6265).
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/content_block_body'
+        required: true
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContentBlocksResponse'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      content_blocks:
+                        slot_num: false
+                        icon_image: https://partner-dev-benefits.plansource.com/logo/content_icons/icon_images/icon1394.png
+                        documents:
+                          label: See what's new this year!
+                          description: ''
+                          required: false
+                          required_eoi: false
+                          required_admin: false
+                          document_url: https://partner-dev-benefits.plansource.com/admin/file_store/get_file/20525
+                          id: 70
+                          document_name: 2015_What_s_New_in_Benefits.pdf
+                        rotating_content: []
+                        marketplace: {}
+                        name: 'System : Med - Plan Differences Video'
+                        label: Plan Comparison Video
+                        label_type: text
+                        block_type: content
+                        url: ''
+                        url_type: popup_content
+                        content: ''
+                        popup_content: '<p><a href="//fast.wistia.net/embed/iframe/75nx5wc1rt">//fast.wistia.net/embed/iframe/75nx5wc1rt</a></p>
+
+                          '
+                        popup_width: 560
+                        popup_height: 350
+                        show_legend: false
+                        container_css_class: ''
+                        id: 1396
+                        is_system: false
+                      page: 2
+                      per_page: 10
+                      total_records: 18
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: no implicit conversion of Symbol into Integer
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Requested route 'content_bloc' not found
+                      error_code: route_not_found
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+components:
+  schemas:
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    PageContentData:
+      title: PageContentData
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Page content ID.
+          format: int32
+        page_title:
+          type: string
+          description: Page title.
+        page_subtitle:
+          type: string
+          description: Page subtitle.
+        page_text:
+          type: string
+          description: Page body text.
+        view:
+          type: string
+          description: Page view.
+        org_plan_year_id:
+          type: integer
+          description: Assigned plan year ID.
+          format: int32
+        org_population_id:
+          type: integer
+          description: Assigned population ID.
+          format: int32
+        benefit:
+          type: string
+          description: Benefit name.
+        locale:
+          type: string
+          description: Assigned localization.
+        content_blocks:
+          type: array
+          description: Array of content block objects.
+          items:
+            $ref: '#/components/schemas/ContentBlock'
+    403Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    ContentBlockWithId:
+      title: Content Block With Id
+      type: object
+      properties:
+        slot_num:
+          type: integer
+          description: Display order of content blocks.
+          format: int32
+        block_type:
+          type: string
+          description: 'Type of content block. Options: content | rotating | marketplace | documents'
+        label:
+          type: string
+          description: Content block label.
+        label_action:
+          type: string
+          description: 'Action to be taken when label is clicked (If set.) Options: popup_content | navigate | new_window | popup_url'
+        css_class:
+          type: string
+          description: CSS class to use for content block container.
+        url:
+          type: string
+          description: URL to navigate to or open in popup when label is clicked.
+        icon_img:
+          type: string
+          description: Base64 encoded image to use as a background icon in this block.
+        popup:
+          $ref: '#/components/schemas/Popup'
+        html_content:
+          type: string
+          description: HTML-formatted content block.
+        content:
+          type: string
+          description: Non-HTML-formatted content used for this block.
+        rotating_content:
+          type: array
+          description: List of rotating content blocks. Only available when block type is rotating.
+          items:
+            type: object
+        marketplace:
+          $ref: '#/components/schemas/Marketplace'
+        documents:
+          type: array
+          description: List of documents. Only available when block type is documents.
+          items:
+            $ref: '#/components/schemas/Document156'
+        id:
+          type: integer
+          description: Id of content block.
+          format: int32
+    ContentBlock:
+      title: ContentBlock
+      type: object
+      properties:
+        id:
+          type: integer
+          description: P!ontent block ID.
+          format: int32
+        slot_num:
+          type: integer
+          description: Display order of content blocks.
+          format: int32
+        block_type:
+          type: string
+          description: 'Type of content block. Options: content | rotating | marketplace | documents'
+        label:
+          type: string
+          description: Content block label.
+        label_action:
+          type: string
+          description: 'Action to be taken when label is clicked (If set.) Options: popup_content | navigate | new_window | popup_url'
+        css_class:
+          type: string
+          description: CSS class to use for content block container.
+        url:
+          type: string
+          description: URL to navigate to or open in popup when label is clicked.
+        icon_img:
+          type: string
+          description: Base64 encoded image to use as a background icon in this block.
+        popup:
+          $ref: '#/components/schemas/Popup'
+        html_content:
+          type: string
+          description: HTML-formatted content block.
+        content:
+          type: string
+          description: Non-HTML-formatted content used for this block.
+        rotating_content:
+          type: array
+          description: List of rotating content blocks. Only available when block type is rotating.
+          items:
+            type: object
+        marketplace:
+          $ref: '#/components/schemas/Marketplace'
+        documents:
+          type: array
+          description: List of documents. Only available when block type is documents.
+          items:
+            $ref: '#/components/schemas/Document156'
+    Popup:
+      title: Popup
+      type: object
+      properties:
+        width:
+          type: integer
+          description: Popup width.
+          format: int32
+        height:
+          type: integer
+          description: Popup height.
+          format: int32
+        content:
+          type: string
+          description: HTML content for popup when label action is popup_content.
+    ResponseStatus:
+      type: string
+      enum:
+      - success
+      - failure
+    PageContentResponse:
+      title: Page Content response
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ResponseStatus'
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PageContentData'
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    ContentBlocksResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        content_blocks:
+          type: array
+          items: {}
+        slot_num:
+          type: boolean
+        icon_image:
+          type: string
+        documents:
+          type: array
+          items: {}
+        label:
+          type: string
+        description:
+          type: string
+        required:
+          type: boolean
+        required_eoi:
+          type: boolean
+        required_admin:
+          type: boolean
+        document_url:
+          type: string
+        id:
+          type: integer
+        document_name:
+          type: string
+        rotating_content:
+          type: array
+          items: {}
+        html_content:
+          type: string
+        marketplace:
+          type: array
+          items: {}
+        name:
+          type: string
+        label_type:
+          type: string
+        block_type:
+          type: string
+        url:
+          type: string
+        url_type:
+          type: string
+        content:
+          type: string
+        popup_content:
+          type: string
+        popup_width:
+          type: string
+        popup_height:
+          type: string
+        show_legend:
+          type: boolean
+        container_css_class:
+          type: string
+        is_system:
+          type: boolean
+        page:
+          type: integer
+        per_page:
+          type: integer
+        total_records:
+          type: integer
+    400Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    content_block_body:
+      type: object
+      properties:
+        content_block:
+          $ref: '#/components/schemas/ContentBlockWithId'
+    401Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    MarketplaceBenefit:
+      title: Benefit
+      required:
+      - available_plans_txt
+      - cobra_eligible
+      - fsa_eligible
+      - has_125_plan
+      - hsa_eligible
+      - icon_class
+      - id
+      - name
+      - type
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID used to identify this benefit container.
+        name:
+          type: string
+          description: Name of benefit.
+        type:
+          type: string
+          description: Benefit lookup code for this benefit.
+        icon_class:
+          type: string
+          description: CSS class used to denote this benefits icon.
+        available_plans_txt:
+          type: string
+          description: Generated text explaining plans available for this benefit.
+        hsa_eligible:
+          type: boolean
+          description: Are there any HSA eligible plans for this benefit?
+        fsa_eligible:
+          type: boolean
+          description: Are there any FSA eligible plans for this benefit?
+        cobra_eligible:
+          type: boolean
+          description: Are there any COBRA eligible plans for this benefit?
+        has_125_plan:
+          type: boolean
+          description: Are there any 125 plans for this benefit?
+    Document156:
+      title: Document156
+      type: object
+      properties:
+        label:
+          type: string
+          description: Label used for document link.
+        description:
+          type: string
+          description: Optional document description.
+        required:
+          type: boolean
+          description: Document required.
+        eoi_required:
+          type: boolean
+          description: EOI required.
+        admin_required:
+          type: boolean
+          description: Admin required.
+        document_url:
+          type: string
+          description: URL to document.
+    Marketplace:
+      title: Marketplace
+      required:
+      - benefits
+      - enrollment_link
+      - enrollment_text
+      - py_ends
+      - py_starts
+      type: object
+      properties:
+        py_starts:
+          type: string
+          description: Date of start of plan year for given context.
+        py_ends:
+          type: string
+          description: Date of end of plan year for given context.
+        enrollment_text:
+          type: string
+          description: Label for requested enrollment context.
+        enrollment_link:
+          type: string
+          description: Link to first step of enrollment process.
+        benefits:
+          type: array
+          description: List of benefits to be included in marketplace preview.
+          items:
+            $ref: '#/components/schemas/MarketplaceBenefit'
+  securitySchemes:
+    clientSecretJwt:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.plansource.com/oauth/v2/token
+          scopes:
+            admin_api_v2: Access to all endpoints
+    authString:
+      type: apiKey
+      name: AuthenticationString
+      in: header
+    signature:
+      type: apiKey
+      name: Signature
+      in: header
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true

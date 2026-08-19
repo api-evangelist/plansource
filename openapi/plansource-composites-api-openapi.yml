@@ -1,0 +1,1291 @@
+openapi: 3.2.0
+info:
+  title: Plansource Admin Composites API
+  description: An integration API for Plansource data for administration functions
+  contact:
+    name: Plansource API team
+    email: api-team@plansource.com
+  license:
+    name: B) 2017 Plansource.  All rights reserved.
+  version: 2.0.0
+servers:
+- url: https://api.plansource.com/admin/v2
+security:
+- clientSecretJwt:
+  - admin_api_v2
+- authString: []
+  signature: []
+tags:
+- name: Composites
+  description: Objects composed of resources.
+paths:
+  /coverage/{coverage_id}/composite:
+    get:
+      tags:
+      - Composites
+      description: Retrieve a composite of coverage and supporting data for an individual coverage.
+      parameters:
+      - name: coverage_id
+        in: path
+        description: The ID of the coverage.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: start_date
+        in: query
+        description: Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        description: End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: plan_year
+        in: query
+        description: Plan year.
+        required: false
+        schema:
+          type: string
+          enum:
+          - previous
+          - current
+          - next
+      responses:
+        '200':
+          description: Composite of coverage and supporting data for an individual coverage.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoveragesCompositeModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      coverages:
+                        id: 21028866
+                        org_benefit_id: 4066306
+                        coverage_level_id: 139
+                        termination_reason_id: 4
+                        original_effective_date: 2018/05/29
+                        change_effective_date: 2018/01/04
+                        payment_change_effective_date: 2018/01/04
+                        termination_date: 2018/05/28
+                        org_plan_id: 6954498
+                        subscriber_id: 8854530
+                        subscriber_premium: '0.0'
+                        org_premium: '0.0'
+                        volume: '0.0'
+                        org_fsa_amount: '0.0'
+                        subscriber_fsa_amount: '0.0'
+                        increments: 0
+                        billing_premium: '0.0'
+                        billing_fee: '0.0'
+                        billing_fee2: '0.0'
+                        imputed_income: '0.0'
+                        req_volume: '0.0'
+                        req_increments: '0.0'
+                        req_subscriber_premium: '0.0'
+                        req_org_premium: '0.0'
+                        req_billing_premium: '0.0'
+                        req_billing_fee: '0.0'
+                        req_billing_fee2: '0.0'
+                        gi_volume: '0.0'
+                        gi_increments: '0.0'
+                        waiting_for_eoi: false
+                        req_imputed_income: '0.0'
+                        dp_sub_imputed_income: '0.0'
+                        dp_org_imputed_income: '0.0'
+                        req_dp_sub_imputed_income: '0.0'
+                        req_dp_org_imputed_income: '0.0'
+                        election_effective_date: 2018/01/04
+                        subscriber_election_amount: '0.0'
+                        subscriber_pretax_premium: '0.0'
+                        subscriber_posttax_premium: '0.0'
+                        signature_date: 2018/05/29
+                        req_org_plan_id: 6954498
+                        req_coverage_level_id: 139
+                        req_dependent_ids: []
+                        req_subscriber_election_amount: '0.0'
+                        req_subscriber_fsa_amount: '0.0'
+                        req_org_fsa_amount: '0.0'
+                        gi_dependent_ids: []
+                        gi_subscriber_election_amount: '0.0'
+                        waiting_for_doc_requests: false
+                        bookkeeping_values:
+                          cost_org_base_amount: 0
+                          cost_org_match_amount: 1162
+                          org_annual_base_amount: 0
+                          org_annual_match_amount: 1162
+                        org_benefit_name: Health Savings Account
+                        benefit_lookup_code: hsa
+                        coverage_level_name: Employee Only
+                        plan_year_starts_on: 2018/01/04
+                        plan_year_ends_on: 2019/01/03
+                        coverage_type_name: Employee
+                        benefit_class: contribution
+                        beneficiary_required: Not Applicable
+                        beneficiary_optional_admin: false
+                        org_plan_name: Health Savings Account
+                        first_name: Eli
+                        last_name: Test
+                        req_org_plan_name: Health Savings Account
+                        req_coverage_level_name: Employee Only
+                        survey_data:
+                          coverage_id: 21028866
+                          survey_benefit_name: Tobacco Survey
+                          org_benefit_id: 4066306
+                          question_response_data:
+                            plan_id: 846850
+                            question_text: Do you currently use tobacco products?
+                            subscriber_ssn: 111222444
+                            question_response:
+                              response_text: 'Yes'
+                              value: 'Yes'
+                            time_answered: 05/29/201816:03:27
+                            question_targeted_at: Subscriber
+                            carrier_question_type: Actively At Work (Employee)
+                      dependents:
+                        id: 5091330
+                        coverage_id: 23916546
+                        dependent_id: 2079234
+                        original_effective_date: 2018/01/04
+                        change_effective_date: 2018/01/04
+                        organization_id: 652
+                        election_effective_date: 2018/01/04
+                        first_name: Matt
+                        last_name: Test
+                        org_benefit_id: 8621
+                        org_benefit_name: Basic Dependent Life
+                        benefit_lookup_code: basic_dependent_life
+                        coverage_level_id: 251
+                        coverage_level_name: Enrolled
+                        org_plan_id: 22427
+                        org_plan_name: Basic Dependent Life
+                        plan_year_starts_on: 2018/01/04
+                        plan_year_ends_on: 2019/01/03
+                      lines:
+                        id: 3586
+                        coverage_id: 20551170
+                        original_effective_date: 2018/01/04
+                        change_effective_date: 2018/01/04
+                        payment_change_effective_date: 2018/01/04
+                        subscriber_premium: '3.82'
+                        org_premium: '0.0'
+                        volume: '125000.0'
+                        increments: 5
+                        billing_premium: '7.0'
+                        billing_fee: '0.0'
+                        billing_fee2: '0.0'
+                        imputed_income: '0.0'
+                        req_volume: '150000.0'
+                        req_increments: '6.0'
+                        req_subscriber_premium: '4.58'
+                        req_org_premium: '0.0'
+                        req_billing_premium: '8.4'
+                        req_billing_fee: '0.0'
+                        req_billing_fee2: '0.0'
+                        org_benefit_id: 8619
+                        org_benefit_name: Voluntary Employee Life
+                        benefit_lookup_code: subscriber_life
+                        coverage_level_id: 310
+                        coverage_level_name: Employee Only
+                        plan_year_starts_on: 2018/01/04
+                        plan_year_ends_on: 2019/01/03
+                        org_plan_id: 22423
+                        org_plan_name: Voluntary Employee Life
+                        subscriber_id: 8854530
+                        first_name: Harry
+                        last_name: Test
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Invalid coverage
+                      error_code: 404
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /coverage/subscriber/{subscriber_id}/composite:
+    get:
+      tags:
+      - Composites
+      description: Retrieve a composite of coverage and supporting data for an individual subscriber.
+      parameters:
+      - name: subscriber_id
+        in: path
+        description: The ID of the subscriber.
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: start_date
+        in: query
+        description: Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        description: End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: plan_year
+        in: query
+        description: Plan year.
+        required: false
+        schema:
+          type: string
+          enum:
+          - previous
+          - current
+          - next
+      responses:
+        '200':
+          description: Composite of coverage and supporting data for an individual subscriber.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoveragesCompositeModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    data:
+                      coverages:
+                        id: 21028866
+                        org_benefit_id: 4066306
+                        coverage_level_id: 139
+                        termination_reason_id: 4
+                        original_effective_date: 2018/05/29
+                        change_effective_date: 2018/01/04
+                        payment_change_effective_date: 2018/01/04
+                        termination_date: 2018/05/28
+                        org_plan_id: 6954498
+                        subscriber_id: 8854530
+                        subscriber_premium: '0.0'
+                        org_premium: '0.0'
+                        volume: '0.0'
+                        org_fsa_amount: '0.0'
+                        subscriber_fsa_amount: '0.0'
+                        increments: 0
+                        billing_premium: '0.0'
+                        billing_fee: '0.0'
+                        billing_fee2: '0.0'
+                        imputed_income: '0.0'
+                        req_volume: '0.0'
+                        req_increments: '0.0'
+                        req_subscriber_premium: '0.0'
+                        req_org_premium: '0.0'
+                        req_billing_premium: '0.0'
+                        req_billing_fee: '0.0'
+                        req_billing_fee2: '0.0'
+                        gi_volume: '0.0'
+                        gi_increments: '0.0'
+                        waiting_for_eoi: false
+                        req_imputed_income: '0.0'
+                        dp_sub_imputed_income: '0.0'
+                        dp_org_imputed_income: '0.0'
+                        req_dp_sub_imputed_income: '0.0'
+                        req_dp_org_imputed_income: '0.0'
+                        election_effective_date: 2018/01/04
+                        subscriber_election_amount: '0.0'
+                        subscriber_pretax_premium: '0.0'
+                        subscriber_posttax_premium: '0.0'
+                        signature_date: 2018/05/29
+                        req_org_plan_id: 6954498
+                        req_coverage_level_id: 139
+                        req_dependent_ids: []
+                        req_subscriber_election_amount: '0.0'
+                        req_subscriber_fsa_amount: '0.0'
+                        req_org_fsa_amount: '0.0'
+                        gi_dependent_ids: []
+                        gi_subscriber_election_amount: '0.0'
+                        waiting_for_doc_requests: false
+                        bookkeeping_values:
+                          cost_org_base_amount: 0
+                          cost_org_match_amount: 1162
+                          org_annual_base_amount: 0
+                          org_annual_match_amount: 1162
+                        org_benefit_name: Health Savings Account
+                        benefit_lookup_code: hsa
+                        coverage_level_name: Employee Only
+                        plan_year_starts_on: 2018/01/04
+                        plan_year_ends_on: 2019/01/03
+                        coverage_type_name: Employee
+                        benefit_class: contribution
+                        beneficiary_required: Not Applicable
+                        beneficiary_optional_admin: false
+                        org_plan_name: Health Savings Account
+                        first_name: Eli
+                        last_name: Test
+                        req_org_plan_name: Health Savings Account
+                        req_coverage_level_name: Employee Only
+                        survey_data:
+                          coverage_id: 21028866
+                          survey_benefit_name: Tobacco Survey
+                          org_benefit_id: 4066306
+                          question_response_data:
+                            plan_id: 846850
+                            question_text: Do you currently use tobacco products?
+                            subscriber_ssn: 111222444
+                            question_response:
+                              response_text: 'Yes'
+                              value: 'Yes'
+                            time_answered: 05/29/201816:03:27
+                            question_targeted_at: Subscriber
+                            carrier_question_type: Actively At Work (Employee)
+                      dependents:
+                        id: 5091330
+                        coverage_id: 23916546
+                        dependent_id: 2079234
+                        original_effective_date: 2018/01/04
+                        change_effective_date: 2018/01/04
+                        organization_id: 652
+                        election_effective_date: 2018/01/04
+                        first_name: Matt
+                        last_name: Test
+                        org_benefit_id: 8621
+                        org_benefit_name: Basic Dependent Life
+                        benefit_lookup_code: basic_dependent_life
+                        coverage_level_id: 251
+                        coverage_level_name: Enrolled
+                        org_plan_id: 22427
+                        org_plan_name: Basic Dependent Life
+                        plan_year_starts_on: 2018/01/04
+                        plan_year_ends_on: 2019/01/03
+                      lines:
+                        id: 3586
+                        coverage_id: 20551170
+                        original_effective_date: 2018/01/04
+                        change_effective_date: 2018/01/04
+                        payment_change_effective_date: 2018/01/04
+                        subscriber_premium: '3.82'
+                        org_premium: '0.0'
+                        volume: '125000.0'
+                        increments: 5
+                        billing_premium: '7.0'
+                        billing_fee: '0.0'
+                        billing_fee2: '0.0'
+                        imputed_income: '0.0'
+                        req_volume: '150000.0'
+                        req_increments: '6.0'
+                        req_subscriber_premium: '4.58'
+                        req_org_premium: '0.0'
+                        req_billing_premium: '8.4'
+                        req_billing_fee: '0.0'
+                        req_billing_fee2: '0.0'
+                        org_benefit_id: 8619
+                        org_benefit_name: Voluntary Employee Life
+                        benefit_lookup_code: subscriber_life
+                        coverage_level_id: 310
+                        coverage_level_name: Employee Only
+                        plan_year_starts_on: 2018/01/04
+                        plan_year_ends_on: 2019/01/03
+                        org_plan_id: 22423
+                        org_plan_name: Voluntary Employee Life
+                        subscriber_id: 8854530
+                        first_name: Harry
+                        last_name: Test
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Employee not found
+                      error_code: 404
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+  /coverage/composites:
+    get:
+      tags:
+      - Composites
+      description: Retrieve a composite of all coverages and supporting data.
+      parameters:
+      - name: start_date
+        in: query
+        description: Start date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time date (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        description: End date of a date range of coverage changes.  ISO 8601 date or RFC 3339 date time (ex. 2017-12-01 or 2017-12-01T12:30:30-06:00).
+        required: false
+        schema:
+          type: string
+          format: date
+      - name: plan_year
+        in: query
+        description: Plan year.
+        required: false
+        schema:
+          type: string
+          enum:
+          - previous
+          - current
+          - next
+      - name: page
+        in: query
+        description: Page number.
+        required: false
+        schema:
+          type: integer
+      - name: per_page
+        in: query
+        description: Override the maximum of records returned in a response.
+        required: false
+        schema:
+          type: integer
+      - name: include_test
+        in: query
+        description: Include test employees.
+        required: false
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Composite of all coverages and supporting data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoveragesCompositeModel'
+              examples:
+                response:
+                  value:
+                    status: success
+                    errors: []
+                    data:
+                      coverages:
+                        id: 21028866
+                        org_benefit_id: 4066306
+                        coverage_level_id: 139
+                        termination_reason_id: 4
+                        original_effective_date: 2018/05/29
+                        change_effective_date: 2018/01/04
+                        payment_change_effective_date: 2018/01/04
+                        termination_date: 2018/05/28
+                        org_plan_id: 6954498
+                        subscriber_id: 8854530
+                        subscriber_premium: '0.0'
+                        org_premium: '0.0'
+                        volume: '0.0'
+                        org_fsa_amount: '0.0'
+                        subscriber_fsa_amount: '0.0'
+                        increments: 0
+                        billing_premium: '0.0'
+                        billing_fee: '0.0'
+                        billing_fee2: '0.0'
+                        imputed_income: '0.0'
+                        req_volume: '0.0'
+                        req_increments: '0.0'
+                        req_subscriber_premium: '0.0'
+                        req_org_premium: '0.0'
+                        req_billing_premium: '0.0'
+                        req_billing_fee: '0.0'
+                        req_billing_fee2: '0.0'
+                        gi_volume: '0.0'
+                        gi_increments: '0.0'
+                        waiting_for_eoi: false
+                        req_imputed_income: '0.0'
+                        dp_sub_imputed_income: '0.0'
+                        dp_org_imputed_income: '0.0'
+                        req_dp_sub_imputed_income: '0.0'
+                        req_dp_org_imputed_income: '0.0'
+                        election_effective_date: 2018/01/04
+                        subscriber_election_amount: '0.0'
+                        subscriber_pretax_premium: '0.0'
+                        subscriber_posttax_premium: '0.0'
+                        signature_date: 2018/05/29
+                        req_org_plan_id: 6954498
+                        req_coverage_level_id: 139
+                        req_dependent_ids: []
+                        req_subscriber_election_amount: '0.0'
+                        req_subscriber_fsa_amount: '0.0'
+                        req_org_fsa_amount: '0.0'
+                        gi_dependent_ids: []
+                        gi_subscriber_election_amount: '0.0'
+                        waiting_for_doc_requests: false
+                        bookkeeping_values:
+                          cost_org_base_amount: 0
+                          cost_org_match_amount: 1162
+                          org_annual_base_amount: 0
+                          org_annual_match_amount: 1162
+                        org_benefit_name: Health Savings Account
+                        benefit_lookup_code: hsa
+                        coverage_level_name: Employee Only
+                        plan_year_starts_on: 2018/01/04
+                        plan_year_ends_on: 2019/01/03
+                        coverage_type_name: Employee
+                        benefit_class: contribution
+                        beneficiary_required: Not Applicable
+                        beneficiary_optional_admin: false
+                        org_plan_name: Health Savings Account
+                        first_name: Eli
+                        last_name: Test
+                        req_org_plan_name: Health Savings Account
+                        req_coverage_level_name: Employee Only
+                        survey_data:
+                          coverage_id: 21028866
+                          survey_benefit_name: Tobacco Survey
+                          org_benefit_id: 4066306
+                          question_response_data:
+                            plan_id: 846850
+                            question_text: Do you currently use tobacco products?
+                            subscriber_ssn: 111222444
+                            question_response:
+                              response_text: 'Yes'
+                              value: 'Yes'
+                            time_answered: 05/29/201816:03:27
+                            question_targeted_at: Subscriber
+                            carrier_question_type: Actively At Work (Employee)
+                      dependents:
+                        id: 5091330
+                        coverage_id: 23916546
+                        dependent_id: 2079234
+                        original_effective_date: 2018/01/04
+                        change_effective_date: 2018/01/04
+                        organization_id: 652
+                        election_effective_date: 2018/01/04
+                        first_name: Matt
+                        last_name: Test
+                        org_benefit_id: 8621
+                        org_benefit_name: Basic Dependent Life
+                        benefit_lookup_code: basic_dependent_life
+                        coverage_level_id: 251
+                        coverage_level_name: Enrolled
+                        org_plan_id: 22427
+                        org_plan_name: Basic Dependent Life
+                        plan_year_starts_on: 2018/01/04
+                        plan_year_ends_on: 2019/01/03
+                      lines:
+                        id: 3586
+                        coverage_id: 20551170
+                        original_effective_date: 2018/01/04
+                        change_effective_date: 2018/01/04
+                        payment_change_effective_date: 2018/01/04
+                        subscriber_premium: '3.82'
+                        org_premium: '0.0'
+                        volume: '125000.0'
+                        increments: 5
+                        billing_premium: '7.0'
+                        billing_fee: '0.0'
+                        billing_fee2: '0.0'
+                        imputed_income: '0.0'
+                        req_volume: '150000.0'
+                        req_increments: '6.0'
+                        req_subscriber_premium: '4.58'
+                        req_org_premium: '0.0'
+                        req_billing_premium: '8.4'
+                        req_billing_fee: '0.0'
+                        req_billing_fee2: '0.0'
+                        org_benefit_id: 8619
+                        org_benefit_name: Voluntary Employee Life
+                        benefit_lookup_code: subscriber_life
+                        coverage_level_id: 310
+                        coverage_level_name: Employee Only
+                        plan_year_starts_on: 2018/01/04
+                        plan_year_ends_on: 2019/01/03
+                        org_plan_id: 22423
+                        org_plan_name: Voluntary Employee Life
+                        subscriber_id: 8854530
+                        first_name: Harry
+                        last_name: Test
+        '400':
+          description: Malformed request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 400
+                      message: Not enough or too many segments
+                    data: []
+        '401':
+          description: Invalid token.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/401Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 401
+                      message: Signature has expired
+                      error_code: invalid_token
+                    data: []
+        '403':
+          description: Access error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/403Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 403
+                      message: Forbidden
+                    data: []
+        '404':
+          description: Resource not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/404Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 404
+                      message: Invalid coverage
+                      error_code: 404
+        '500':
+          description: InternalServerError
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoLinks500Error'
+              examples:
+                response:
+                  value:
+                    status: failure
+                    errors:
+                      http_status: 500
+                      message: Internal error
+                    data: []
+components:
+  schemas:
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    403Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    400Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    401Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    CoveragesCompositeModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        coverages:
+          type: array
+          items: {}
+        coverages.id:
+          type: integer
+        coverages.org_benefit_id:
+          type: integer
+        coverages.coverage_level_id:
+          type: integer
+        coverages.termination_reason_id:
+          type: integer
+        coverages.original_effective_date:
+          type: string
+        coverages.change_effective_date:
+          type: string
+        coverages.payment_change_effective_date:
+          type: string
+        coverages.termination_date:
+          type: string
+        coverages.pcpcode1:
+          type: string
+        coverages.pcpcode2:
+          type: string
+        coverages.org_plan_id:
+          type: integer
+        coverages.subscriber_id:
+          type: integer
+        coverages.subscriber_premium:
+          type: string
+        coverages.org_premium:
+          type: string
+        coverages.volume:
+          type: string
+        coverages.org_fsa_amount:
+          type: string
+        coverages.subscriber_fsa_amount:
+          type: string
+        coverages.increments:
+          type: integer
+        coverages.billing_premium:
+          type: string
+        coverages.billing_fee:
+          type: string
+        coverages.billing_fee2:
+          type: string
+        coverages.pcp_name1:
+          type: string
+        coverages.had_prior_coverage:
+          type: boolean
+        coverages.pcp_existing_patient1:
+          type: string
+        coverages.imputed_income:
+          type: string
+        coverages.req_volume:
+          type: string
+        coverages.req_increments:
+          type: string
+        coverages.req_subscriber_premium:
+          type: string
+        coverages.req_org_premium:
+          type: string
+        coverages.req_billing_premium:
+          type: string
+        coverages.req_billing_fee:
+          type: string
+        coverages.req_billing_fee2:
+          type: string
+        coverages.gi_volume:
+          type: string
+        coverages.gi_increments:
+          type: string
+        coverages.waiting_for_eoi:
+          type: boolean
+        coverages.req_imputed_income:
+          type: string
+        coverages.dp_sub_imputed_income:
+          type: string
+        coverages.dp_org_imputed_income:
+          type: string
+        coverages.req_dp_sub_imputed_income:
+          type: string
+        coverages.req_dp_org_imputed_income:
+          type: string
+        coverages.election_effective_date:
+          type: string
+        coverages.udef_1:
+          type: string
+        coverages.subscriber_election_amount:
+          type: string
+        coverages.subscriber_pretax_premium:
+          type: string
+        coverages.subscriber_posttax_premium:
+          type: string
+        coverages.carrier_effective_date:
+          type: string
+        coverages.demographic_effective_date:
+          type: string
+        coverages.signature_date:
+          type: string
+        coverages.req_org_plan_id:
+          type: integer
+        coverages.req_coverage_level_id:
+          type: integer
+        coverages.req_dependent_ids:
+          type: array
+          items: {}
+        coverages.req_subscriber_election_amount:
+          type: string
+        coverages.req_subscriber_fsa_amount:
+          type: string
+        coverages.req_org_fsa_amount:
+          type: string
+        coverages.gi_org_plan_id:
+          type: integer
+        coverages.gi_coverage_level_id:
+          type: integer
+        coverages.gi_dependent_ids:
+          type: array
+          items: {}
+        coverages.gi_subscriber_election_amount:
+          type: string
+        coverages.esigned_at:
+          type: string
+        coverages.esigned_by:
+          type: string
+        coverages.waive_plan_policyholder:
+          type: string
+        coverages.waive_plan_insurer:
+          type: string
+        coverages.waive_plan_insurer_phone:
+          type: string
+        coverages.waive_plan_effective_date:
+          type: string
+        coverages.waive_plan_termination_date:
+          type: string
+        coverages.beneficiary_esign_at:
+          type: string
+        coverages.beneficiary_esign_by:
+          type: string
+        coverages.subscriber_ytd:
+          type: string
+        coverages.org_ytd:
+          type: string
+        coverages.subscriber_ytd_effective_date:
+          type: string
+        coverages.org_ytd_effective_date:
+          type: string
+        coverages.deny_pend_permanently_amount:
+          type: string
+        coverages.waiting_for_doc_requests:
+          type: boolean
+        coverages.hsa_contribution_end_date:
+          type: string
+        coverages.req_hsa_contribution_end_date:
+          type: string
+        coverages.bookkeeping_values:
+          type: array
+          items: {}
+        coverages.cost_org_base_amount:
+          type: integer
+        coverages.cost_org_match_amount:
+          type: integer
+        coverages.org_annual_base_amount:
+          type: integer
+        coverages.org_annual_match_amount:
+          type: integer
+        coverages.org_benefit_name:
+          type: string
+        coverages.benefit_lookup_code:
+          type: string
+        coverages.coverage_level_name:
+          type: string
+        coverages.plan_year_starts_on:
+          type: string
+        coverages.plan_year_ends_on:
+          type: string
+        coverages.coverage_type_name:
+          type: string
+        coverages.benefit_class:
+          type: string
+        coverages.beneficiary_required:
+          type: string
+        coverages.beneficiary_optional_admin:
+          type: boolean
+        coverages.org_plan_name:
+          type: string
+        coverages.first_name:
+          type: string
+        coverages.last_name:
+          type: string
+        coverages.req_org_plan_name:
+          type: string
+        coverages.req_coverage_level_name:
+          type: string
+        coverages.survey_data:
+          type: array
+          items: {}
+        coverages.coverage_id:
+          type: integer
+        coverages.survey_benefit_name:
+          type: string
+        coverages.question_response_data:
+          type: array
+          items: {}
+        coverages.plan_id:
+          type: string
+        coverages.question_text:
+          type: string
+        coverages.subscriber_ssn:
+          type: string
+        coverages.dependent_ssn:
+          type: string
+        coverages.dependent_id:
+          type: integer
+        coverages.question_response:
+          type: array
+          items: {}
+        coverages.response_text:
+          type: string
+        coverages.value:
+          type: string
+        coverages.time_answered:
+          type: string
+        coverages.question_targeted_at:
+          type: string
+        coverages.carrier_question_type:
+          type: string
+        dependents:
+          type: array
+          items: {}
+        dependents.id:
+          type: integer
+        dependents.coverage_id:
+          type: integer
+        dependents.dependent_id:
+          type: integer
+        dependents.original_effective_date:
+          type: string
+        dependents.change_effective_date:
+          type: string
+        dependents.termination_reason_id:
+          type: integer
+        dependents.termination_date:
+          type: string
+        dependents.organization_id:
+          type: integer
+        dependents.pcp_code1:
+          type: string
+        dependents.pcp_name1:
+          type: string
+        dependents.org_carrier_id:
+          type: integer
+        dependents.pcp_existing_patient1:
+          type: string
+        dependents.election_effective_date:
+          type: string
+        dependents.carrier_effective_date:
+          type: string
+        dependents.demographic_effective_date:
+          type: string
+        dependents.first_name:
+          type: string
+        dependents.last_name:
+          type: string
+        dependents.org_benefit_id:
+          type: integer
+        dependents.org_benefit_name:
+          type: string
+        dependents.benefit_lookup_code:
+          type: string
+        dependents.coverage_level_id:
+          type: integer
+        dependents.coverage_level_name:
+          type: string
+        dependents.org_plan_id:
+          type: integer
+        dependents.org_plan_name:
+          type: string
+        dependents.plan_year_starts_on:
+          type: string
+        dependents.plan_year_ends_on:
+          type: string
+        lines:
+          type: array
+          items: {}
+        lines.id:
+          type: integer
+        lines.coverage_id:
+          type: integer
+        lines.coverage_line_id:
+          type: integer
+        lines.termination_reason_id:
+          type: integer
+        lines.original_effective_date:
+          type: string
+        lines.change_effective_date:
+          type: string
+        lines.payment_change_effective_date:
+          type: string
+        lines.termination_date:
+          type: string
+        lines.subscriber_premium:
+          type: string
+        lines.org_premium:
+          type: string
+        lines.volume:
+          type: string
+        lines.increments:
+          type: integer
+        lines.billing_premium:
+          type: string
+        lines.billing_fee:
+          type: string
+        lines.billing_fee2:
+          type: string
+        lines.imputed_income:
+          type: string
+        lines.req_volume:
+          type: string
+        lines.req_increments:
+          type: string
+        lines.req_subscriber_premium:
+          type: string
+        lines.req_org_premium:
+          type: string
+        lines.req_billing_premium:
+          type: string
+        lines.req_billing_fee:
+          type: string
+        lines.req_billing_fee2:
+          type: string
+        lines.policy:
+          type: string
+        lines.pretax:
+          type: string
+        lines.org_benefit_id:
+          type: integer
+        lines.org_benefit_name:
+          type: string
+        lines.benefit_lookup_code:
+          type: string
+        lines.coverage_level_id:
+          type: integer
+        lines.coverage_level_name:
+          type: string
+        lines.plan_year_starts_on:
+          type: string
+        lines.plan_year_ends_on:
+          type: string
+        lines.org_plan_id:
+          type: integer
+        lines.org_plan_name:
+          type: string
+        lines.subscriber_id:
+          type: integer
+        lines.first_name:
+          type: string
+        lines.last_name:
+          type: string
+  securitySchemes:
+    clientSecretJwt:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://api.plansource.com/oauth/v2/token
+          scopes:
+            admin_api_v2: Access to all endpoints
+    authString:
+      type: apiKey
+      name: AuthenticationString
+      in: header
+    signature:
+      type: apiKey
+      name: Signature
+      in: header
+x-readme:
+  explorer-enabled: true
+  proxy-enabled: true
