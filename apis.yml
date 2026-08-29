@@ -13,6 +13,18 @@ description: PlanSource is a benefits administration and employee-benefits engag
   manifest and an OAuth-gated MCP server, and PlanSource maintains a SafeBase trust center listing SOC 2 Type 2,
   ISO/IEC 27001:2022, HIPAA, CCPA and 23 NYCRR 500.
 url: https://raw.githubusercontent.com/api-evangelist/plansource/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://plansource.com/wp-content/uploads/2026/01/ps_social-share-img.webp
 x-type: company
 x-source: harvest:insurance-benefits-admin
