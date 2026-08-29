@@ -1,0 +1,34 @@
+slug: plansource
+provider: PlanSource
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Insurance
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Coverage
+  spec_file: plansource-coverage-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.75
+  evidence: POST /coverage, PUT /coverage/subscriber/{subscriber_id}/terminate, POST /coverage/{coverage_id}/line,
+    DependentCoverageModel
+  reason: Enrollment, maintenance and termination of employee and dependent benefit coverages and coverage
+    lines within an employer benefits administration platform — benefits administration.
+- tag: ACA
+  spec_file: plansource-aca-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: GET /aca/offers, GET /aca/enrollees/subscriber/{subscriber_id}; schemas OfferModel, EnrolleeModel
+  reason: Affordable Care Act offer-of-coverage and enrollee data for employer benefits administration
+    — employee benefits administration rather than an insurer capability.
