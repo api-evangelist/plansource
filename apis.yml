@@ -281,7 +281,7 @@ apis:
   humanURL: https://developer.plansource.com/v2.0/reference
   baseURL: https://api.plansource.com/admin/v2
   tags:
-  - Page content
+  - Page Content
   tags_raw:
   - Page Content
   properties:
