@@ -1,17 +1,18 @@
 aid: plansource
 name: PlanSource
-description: PlanSource is a benefits administration and employee-benefits engagement platform used by employers,
-  brokers, carriers and HR/payroll partners to run enrollment, eligibility, billing and benefits communication.
-  Its public developer surface is the PlanSource Benefits Administration API (Admin API v2), a RESTful HTTPS API
-  of 80 operations across 62 paths covering employee (subscriber) demographics, dependents, beneficiaries, coverages
-  and stacked coverage lines, payroll deductions with lookup codes and pre-tax/post-tax/employer/imputed amounts,
-  Evidence of Insurability decisions and form completions, ACA offer and enrollee reporting data, administrator
-  accounts, and organization portal page content. It is designed to replace fixed-schedule EDI files with near real-time
-  sync between an HCM/payroll system of record and PlanSource. Authentication is OAuth 2.0 client credentials (scope
-  admin_api_v2) or a legacy AuthenticationString + Signature header pair, with OpenID Connect and SAML 2.0 available
-  for end-user single sign-on. The API is documented on a ReadMe developer portal that publishes llms.txt, an agent-skills
-  manifest and an OAuth-gated MCP server, and PlanSource maintains a SafeBase trust center listing SOC 2 Type 2,
-  ISO/IEC 27001:2022, HIPAA, CCPA and 23 NYCRR 500.
+description: PlanSource is a benefits administration and employee-benefits engagement platform used by
+  employers, brokers, carriers and HR/payroll partners to run enrollment, eligibility, billing and benefits
+  communication. Its public developer surface is the PlanSource Benefits Administration API (Admin API
+  v2), a RESTful HTTPS API of 80 operations across 62 paths covering employee (subscriber) demographics,
+  dependents, beneficiaries, coverages and stacked coverage lines, payroll deductions with lookup codes
+  and pre-tax/post-tax/employer/imputed amounts, Evidence of Insurability decisions and form completions,
+  ACA offer and enrollee reporting data, administrator accounts, and organization portal page content.
+  It is designed to replace fixed-schedule EDI files with near real-time sync between an HCM/payroll system
+  of record and PlanSource. Authentication is OAuth 2.0 client credentials (scope admin_api_v2) or a legacy
+  AuthenticationString + Signature header pair, with OpenID Connect and SAML 2.0 available for end-user
+  single sign-on. The API is documented on a ReadMe developer portal that publishes llms.txt, an agent-skills
+  manifest and an OAuth-gated MCP server, and PlanSource maintains a SafeBase trust center listing SOC
+  2 Type 2, ISO/IEC 27001:2022, HIPAA, CCPA and 23 NYCRR 500.
 url: https://raw.githubusercontent.com/api-evangelist/plansource/refs/heads/main/apis.yml
 deliveryModel:
   model: saas
@@ -45,7 +46,7 @@ x-type: company
 x-source: harvest:insurance-benefits-admin
 specificationVersion: '0.23'
 created: '2026-08-06'
-modified: '2026-08-06'
+modified: '2026-09-16'
 tags:
 - Employee Benefits
 - Benefits Administration
@@ -59,6 +60,7 @@ tags:
 - ACA Reporting
 - Eligibility
 - Single Sign-On
+- Identity Federation
 apis:
 - aid: plansource:plansource-aca-api
   name: PlanSource ACA API
