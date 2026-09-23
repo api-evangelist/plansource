@@ -175,6 +175,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Create subscriber
+      x-summary-source: derived
+      operationId: postSubscriber
+      x-operation-id-source: derived
   /subscriber/meta:
     get:
       tags:
@@ -319,6 +323,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get subscriber meta
+      x-summary-source: derived
+      operationId: getSubscriberMeta
+      x-operation-id-source: derived
   /subscriber/{id}:
     get:
       tags:
@@ -465,6 +473,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get subscriber by id
+      x-summary-source: derived
+      operationId: getSubscriberById
+      x-operation-id-source: derived
     put:
       tags:
       - Demographic
@@ -627,6 +639,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace subscriber by id
+      x-summary-source: derived
+      operationId: putSubscriberById
+      x-operation-id-source: derived
   /subscriber/{id}/terminate:
     put:
       tags:
@@ -796,6 +812,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace subscriber by id terminate
+      x-summary-source: derived
+      operationId: putSubscriberByIdTerminate
+      x-operation-id-source: derived
   /subscriber/{id}/rehire:
     put:
       tags:
@@ -963,6 +983,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace subscriber by id rehire
+      x-summary-source: derived
+      operationId: putSubscriberByIdRehire
+      x-operation-id-source: derived
   /subscriber/{subscriber_id}/dependent:
     post:
       tags:
@@ -1114,6 +1138,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Create subscriber by subscriber id dependent
+      x-summary-source: derived
+      operationId: postSubscriberBySubscriberIdDependent
+      x-operation-id-source: derived
   /dependent/meta:
     get:
       tags:
@@ -1260,6 +1288,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get dependent meta
+      x-summary-source: derived
+      operationId: getDependentMeta
+      x-operation-id-source: derived
   /subscriber/{subscriber_id}/dependent/{id}:
     get:
       tags:
@@ -1411,6 +1443,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get subscriber by subscriber id dependent by id
+      x-summary-source: derived
+      operationId: getSubscriberBySubscriberIdDependentById
+      x-operation-id-source: derived
     put:
       tags:
       - Demographic
@@ -1568,6 +1604,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace subscriber by subscriber id dependent by id
+      x-summary-source: derived
+      operationId: putSubscriberBySubscriberIdDependentById
+      x-operation-id-source: derived
   /subscriber/{subscriber_id}/dependent/{id}/deactivate:
     put:
       tags:
@@ -1726,6 +1766,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace subscriber by subscriber id dependent by id deactivate
+      x-summary-source: derived
+      operationId: putSubscriberBySubscriberIdDependentByIdDeactivate
+      x-operation-id-source: derived
   /subscriber/{subscriber_id}/dependent/{id}/reactivate:
     put:
       tags:
@@ -1877,6 +1921,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace subscriber by subscriber id dependent by id reactivate
+      x-summary-source: derived
+      operationId: putSubscriberBySubscriberIdDependentByIdReactivate
+      x-operation-id-source: derived
   /beneficiaries/meta:
     get:
       tags:
@@ -1982,6 +2030,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get beneficiaries meta
+      x-summary-source: derived
+      operationId: getBeneficiariesMeta
+      x-operation-id-source: derived
   /beneficiaries:
     get:
       tags:
@@ -2099,6 +2151,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get beneficiaries
+      x-summary-source: derived
+      operationId: getBeneficiaries
+      x-operation-id-source: derived
   /subscriber/{subscriber_id}/beneficiaries:
     get:
       tags:
@@ -2218,6 +2274,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get subscriber by subscriber id beneficiaries
+      x-summary-source: derived
+      operationId: getSubscriberBySubscriberIdBeneficiaries
+      x-operation-id-source: derived
   /coverage/{coverage_id}/beneficiaries:
     get:
       tags:
@@ -2326,6 +2386,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get coverage by coverage id beneficiaries
+      x-summary-source: derived
+      operationId: getCoverageByCoverageIdBeneficiaries
+      x-operation-id-source: derived
     put:
       tags:
       - Demographic
@@ -2440,6 +2504,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverage by coverage id beneficiaries
+      x-summary-source: derived
+      operationId: putCoverageByCoverageIdBeneficiaries
+      x-operation-id-source: derived
     post:
       tags:
       - Demographic
@@ -2553,6 +2621,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Create coverage by coverage id beneficiaries
+      x-summary-source: derived
+      operationId: postCoverageByCoverageIdBeneficiaries
+      x-operation-id-source: derived
     delete:
       tags:
       - Demographic
@@ -2671,6 +2743,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Delete coverage by coverage id beneficiaries
+      x-summary-source: derived
+      operationId: deleteCoverageByCoverageIdBeneficiaries
+      x-operation-id-source: derived
   /subscribers:
     get:
       tags:
@@ -2845,6 +2921,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get subscribers
+      x-summary-source: derived
+      operationId: getSubscribers
+      x-operation-id-source: derived
     put:
       tags:
       - Demographic
@@ -3004,6 +3084,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace subscribers
+      x-summary-source: derived
+      operationId: putSubscribers
+      x-operation-id-source: derived
     post:
       tags:
       - Demographic
@@ -3159,6 +3243,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Create subscribers
+      x-summary-source: derived
+      operationId: postSubscribers
+      x-operation-id-source: derived
   /subscribers/terminate:
     put:
       tags:
@@ -3321,6 +3409,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace subscribers terminate
+      x-summary-source: derived
+      operationId: putSubscribersTerminate
+      x-operation-id-source: derived
   /subscribers/rehire:
     put:
       tags:
@@ -3481,6 +3573,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace subscribers rehire
+      x-summary-source: derived
+      operationId: putSubscribersRehire
+      x-operation-id-source: derived
   /dependents:
     get:
       tags:
@@ -3616,103 +3712,12 @@ paths:
                       http_status: 404
                       message: Requested route 'dependents/1' not found
                       error_code: route_not_found
+      summary: Get dependents
+      x-summary-source: derived
+      operationId: getDependents
+      x-operation-id-source: derived
 components:
   schemas:
-    NoLinks500Error:
-      title: Error
-      required:
-      - error_code
-      - http_status
-      - message
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    BeneficiaryCoverageIDModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        beneficiaries:
-          type: array
-          items: {}
-        links:
-          type: array
-          items: {}
-        href:
-          type: string
-        rel:
-          type: string
-        id:
-          type: integer
-        coverage_line_id:
-          type: integer
-        name:
-          type: string
-        relationship:
-          type: string
-        allocation:
-          type: string
-        primary_beneficiary:
-          type: boolean
-        address_1:
-          type: string
-        address_2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        country:
-          type: string
-        zip_code:
-          type: string
-        udef_1:
-          type: string
-        udef_2:
-          type: string
-        udef_3:
-          type: string
-        udef_4:
-          type: string
-        udef_5:
-          type: string
-        udef_6:
-          type: string
-        udef_7:
-          type: string
-        udef_8:
-          type: string
-        udef_9:
-          type: string
-        udef_10:
-          type: string
-        original_effective_date:
-          type: string
-        change_effective_date:
-          type: string
-        termination_date:
-          type: string
     body_6:
       title: body
       type: object
@@ -3727,92 +3732,7 @@ components:
           description: YYYY-MM-DD date format.
         volunatary:
           type: boolean
-    body_1:
-      title: body
-      type: object
-      properties:
-        rehire_date:
-          type: string
-          description: YYYY-MM-DD date format.
-    BeneficiaryModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: string
-        data:
-          type: array
-          items: {}
-        organization:
-          type: array
-          items: {}
-        links:
-          type: array
-          items: {}
-        href:
-          type: string
-        rel:
-          type: string
-        subscriber:
-          type: array
-          items: {}
-        beneficiaries:
-          type: array
-          items: {}
-        id:
-          type: integer
-        coverage_line_id:
-          type: integer
-        name:
-          type: string
-        relationship:
-          type: string
-        allocation:
-          type: string
-        primary_beneficiary:
-          type: boolean
-        address_1:
-          type: string
-        address_2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        country:
-          type: string
-        zip_code:
-          type: string
-        udef_1:
-          type: string
-        udef_2:
-          type: string
-        udef_3:
-          type: string
-        udef_4:
-          type: string
-        udef_5:
-          type: string
-        udef_6:
-          type: string
-        udef_7:
-          type: string
-        udef_8:
-          type: string
-        udef_9:
-          type: string
-        udef_10:
-          type: string
-        original_effective_date:
-          type: string
-        change_effective_date:
-          type: string
-        termination_date:
-          type: string
-        test_employee:
-          type: boolean
-    body_3:
+    body_2:
       title: body
       type: object
       properties:
@@ -4163,119 +4083,6 @@ components:
         benefit_salaries:
           type: array
           items: {}
-    403Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    MetaModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        payroll_schedules:
-          type: array
-          items: {}
-        id:
-          type: integer
-        name:
-          type: string
-        lookup_code:
-          type: string
-        is_smoker:
-          type: array
-          items: {}
-        update:
-          type: boolean
-        required:
-          type: boolean
-        caption:
-          type: string
-        data_type:
-          type: string
-        validation_data:
-          type: array
-          items: {}
-        employment_level:
-          type: array
-          items: {}
-        state:
-          type: array
-          items: {}
-        country:
-          type: array
-          items: {}
-        gender:
-          type: array
-          items: {}
-        marital_status:
-          type: array
-          items: {}
-        org_payroll_id:
-          type: array
-          items: {}
-        termination_reason:
-          type: array
-          items: {}
-        description:
-          type: string
-    body:
-      title: body
-      type: object
-      properties:
-        termination_reason:
-          type: string
-          description: Valid values are based on what is retrieved from meta resource.
-        termination_date:
-          type: string
-          description: YYYY-MM-DD date format.
-        volunatary:
-          type: boolean
-    body_4:
-      title: body
-      type: object
-      properties:
-        termination_reason:
-          type: string
-          description: Valid values are based on what is retrieved from meta resource.
-    404Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
     DependentModel:
       type: object
       properties:
@@ -4389,7 +4196,99 @@ components:
         cannot_terminate_dependents:
           type: array
           items: {}
-    401Error:
+    body_3:
+      title: body
+      type: object
+      properties:
+        ssn:
+          type: string
+        first_name:
+          type: string
+        middle_name:
+          type: string
+        last_name:
+          type: string
+        name_suffix:
+          type: string
+        hide_dependent_on_termination:
+          type: boolean
+        qmcso_benefits:
+          type: string
+        termination_reason_id:
+          type: string
+        medicare_effective_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        medicare_plan:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        medicare_reason:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        medicare_termination_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        birthdate:
+          type: string
+          description: YYYY-MM-DD date format.
+        gender:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        relationship_code:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        qmcso:
+          type: string
+        lives_at_home:
+          type: boolean
+        address_1:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        zip_code:
+          type: string
+        country:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        is_smoker:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        verified:
+          type: boolean
+        verification_expires_on:
+          type: string
+          description: YYYY-MM-DD date format.
+        termination_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        udef_1:
+          type: string
+        udef_2:
+          type: string
+        udef_3:
+          type: string
+        udef_4:
+          type: string
+        udef_5:
+          type: string
+        udef_6:
+          type: string
+        udef_7:
+          type: string
+        udef_8:
+          type: string
+        udef_9:
+          type: string
+        udef_10:
+          type: string
+        anthem_member_code:
+          type: string
+    403Error:
       title: Error
       type: object
       properties:
@@ -4409,6 +4308,91 @@ components:
         data:
           type: array
           items: {}
+    BeneficiaryModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: string
+        data:
+          type: array
+          items: {}
+        organization:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        subscriber:
+          type: array
+          items: {}
+        beneficiaries:
+          type: array
+          items: {}
+        id:
+          type: integer
+        coverage_line_id:
+          type: integer
+        name:
+          type: string
+        relationship:
+          type: string
+        allocation:
+          type: string
+        primary_beneficiary:
+          type: boolean
+        address_1:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        zip_code:
+          type: string
+        udef_1:
+          type: string
+        udef_2:
+          type: string
+        udef_3:
+          type: string
+        udef_4:
+          type: string
+        udef_5:
+          type: string
+        udef_6:
+          type: string
+        udef_7:
+          type: string
+        udef_8:
+          type: string
+        udef_9:
+          type: string
+        udef_10:
+          type: string
+        original_effective_date:
+          type: string
+        change_effective_date:
+          type: string
+        termination_date:
+          type: string
+        test_employee:
+          type: boolean
+    body_4:
+      title: body
+      type: object
+      properties:
+        termination_reason:
+          type: string
+          description: Valid values are based on what is retrieved from meta resource.
     BeneficiarySubscriberIDModel:
       type: object
       properties:
@@ -4483,20 +4467,14 @@ components:
           type: string
         termination_date:
           type: string
-    BeneficiaryMetaModel:
+    body_7:
+      title: body
       type: object
       properties:
-        status:
+        id:
           type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        termination_reason:
-          type: array
-          items: {}
+        rehire_date:
+          description: YYYY-MM-DD date format.
     400Error:
       title: Error
       type: object
@@ -4517,14 +4495,20 @@ components:
         data:
           type: array
           items: {}
-    body_7:
-      title: body
+    BeneficiaryMetaModel:
       type: object
       properties:
-        id:
+        status:
           type: string
-        rehire_date:
-          description: YYYY-MM-DD date format.
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        termination_reason:
+          type: array
+          items: {}
     DependentMetaModel:
       type: object
       properties:
@@ -4555,6 +4539,143 @@ components:
           type: array
           items: {}
         termination_reason:
+          type: array
+          items: {}
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    body_1:
+      title: body
+      type: object
+      properties:
+        rehire_date:
+          type: string
+          description: YYYY-MM-DD date format.
+    body:
+      title: body
+      type: object
+      properties:
+        termination_reason:
+          type: string
+          description: Valid values are based on what is retrieved from meta resource.
+        termination_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        volunatary:
+          type: boolean
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    MetaModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        payroll_schedules:
+          type: array
+          items: {}
+        id:
+          type: integer
+        name:
+          type: string
+        lookup_code:
+          type: string
+        is_smoker:
+          type: array
+          items: {}
+        update:
+          type: boolean
+        required:
+          type: boolean
+        caption:
+          type: string
+        data_type:
+          type: string
+        validation_data:
+          type: array
+          items: {}
+        employment_level:
+          type: array
+          items: {}
+        state:
+          type: array
+          items: {}
+        country:
+          type: array
+          items: {}
+        gender:
+          type: array
+          items: {}
+        marital_status:
+          type: array
+          items: {}
+        org_payroll_id:
+          type: array
+          items: {}
+        termination_reason:
+          type: array
+          items: {}
+        description:
+          type: string
+    401Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
           type: array
           items: {}
     body_5:
@@ -4823,50 +4944,38 @@ components:
           type: string
         preferred_locale:
           type: string
-    body_2:
-      title: body
+    BeneficiaryCoverageIDModel:
       type: object
       properties:
-        ssn:
+        status:
           type: string
-        first_name:
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        beneficiaries:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+        href:
           type: string
-        middle_name:
+        rel:
           type: string
-        last_name:
+        id:
+          type: integer
+        coverage_line_id:
+          type: integer
+        name:
           type: string
-        name_suffix:
+        relationship:
           type: string
-        hide_dependent_on_termination:
-          type: boolean
-        qmcso_benefits:
+        allocation:
           type: string
-        termination_reason_id:
-          type: string
-        medicare_effective_date:
-          type: string
-          description: YYYY-MM-DD date format.
-        medicare_plan:
-          type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        medicare_reason:
-          type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        medicare_termination_date:
-          type: string
-          description: YYYY-MM-DD date format.
-        birthdate:
-          type: string
-          description: YYYY-MM-DD date format.
-        gender:
-          type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        relationship_code:
-          type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        qmcso:
-          type: string
-        lives_at_home:
+        primary_beneficiary:
           type: boolean
         address_1:
           type: string
@@ -4876,23 +4985,10 @@ components:
           type: string
         state:
           type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        zip_code:
-          type: string
         country:
           type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        is_smoker:
+        zip_code:
           type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        verified:
-          type: boolean
-        verification_expires_on:
-          type: string
-          description: YYYY-MM-DD date format.
-        termination_date:
-          type: string
-          description: YYYY-MM-DD date format.
         udef_1:
           type: string
         udef_2:
@@ -4913,59 +5009,13 @@ components:
           type: string
         udef_10:
           type: string
-        anthem_member_code:
+        original_effective_date:
+          type: string
+        change_effective_date:
+          type: string
+        termination_date:
           type: string
   requestBodies:
-    Body2:
-      content:
-        application/json:
-          schema:
-            title: body
-            type: object
-            properties:
-              coverage_line_id:
-                type: integer
-              name:
-                type: string
-              relationship:
-                type: string
-              allocation:
-                type: string
-              primary_beneficiary:
-                type: boolean
-              address_1:
-                type: string
-              address_2:
-                type: string
-              city:
-                type: string
-              state:
-                type: string
-              country:
-                type: string
-              zip_code:
-                type: string
-              udef_1:
-                type: string
-              udef_2:
-                type: string
-              udef_3:
-                type: string
-              udef_4:
-                type: string
-              udef_5:
-                type: string
-              udef_6:
-                type: string
-              udef_7:
-                type: string
-              udef_8:
-                type: string
-              udef_9:
-                type: string
-              udef_10:
-                type: string
-      required: true
     Body:
       content:
         application/json:
@@ -5232,6 +5282,56 @@ components:
               disabled_on:
                 type: string
               preferred_locale:
+                type: string
+      required: true
+    Body2:
+      content:
+        application/json:
+          schema:
+            title: body
+            type: object
+            properties:
+              coverage_line_id:
+                type: integer
+              name:
+                type: string
+              relationship:
+                type: string
+              allocation:
+                type: string
+              primary_beneficiary:
+                type: boolean
+              address_1:
+                type: string
+              address_2:
+                type: string
+              city:
+                type: string
+              state:
+                type: string
+              country:
+                type: string
+              zip_code:
+                type: string
+              udef_1:
+                type: string
+              udef_2:
+                type: string
+              udef_3:
+                type: string
+              udef_4:
+                type: string
+              udef_5:
+                type: string
+              udef_6:
+                type: string
+              udef_7:
+                type: string
+              udef_8:
+                type: string
+              udef_9:
+                type: string
+              udef_10:
                 type: string
       required: true
   securitySchemes:

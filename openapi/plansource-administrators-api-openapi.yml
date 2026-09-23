@@ -119,6 +119,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Create administrator
+      x-summary-source: derived
+      operationId: postAdministrator
+      x-operation-id-source: derived
   /administrator/{id}:
     get:
       tags:
@@ -246,6 +250,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get administrator by id
+      x-summary-source: derived
+      operationId: getAdministratorById
+      x-operation-id-source: derived
     put:
       tags:
       - Administrators
@@ -353,6 +361,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace administrator by id
+      x-summary-source: derived
+      operationId: putAdministratorById
+      x-operation-id-source: derived
   /administrator/{id}/disable:
     put:
       tags:
@@ -457,6 +469,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace administrator by id disable
+      x-summary-source: derived
+      operationId: putAdministratorByIdDisable
+      x-operation-id-source: derived
   /administrators:
     get:
       tags:
@@ -597,14 +613,14 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get administrators
+      x-summary-source: derived
+      operationId: getAdministrators
+      x-operation-id-source: derived
 components:
   schemas:
-    NoLinks500Error:
+    400Error:
       title: Error
-      required:
-      - error_code
-      - http_status
-      - message
       type: object
       properties:
         status:
@@ -623,6 +639,53 @@ components:
         data:
           type: array
           items: {}
+    403Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    AdministratorModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        id:
+          type: integer
+          format: int64
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
     body_10:
       title: body
       required:
@@ -648,7 +711,7 @@ components:
           enum:
           - org_admin
           - master_admin
-    403Error:
+    401Error:
       title: Error
       type: object
       properties:
@@ -668,6 +731,30 @@ components:
         data:
           type: array
           items: {}
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    administratoriddisable_user:
+      required:
+      - user_name
+      type: object
+      properties:
+        user_name:
+          type: string
     AdministratorDisable:
       type: object
       properties:
@@ -756,97 +843,30 @@ components:
           type: string
         disabled_on:
           type: string
-    404Error:
+    NoLinks500Error:
       title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-    401Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    400Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    AdministratorModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        links:
-          type: array
-          items: {}
-        href:
-          type: string
-        rel:
-          type: string
-        id:
-          type: integer
-          format: int64
-        first_name:
-          type: string
-        last_name:
-          type: string
-        email:
-          type: string
-    administratoriddisable_user:
       required:
-      - user_name
+      - error_code
+      - http_status
+      - message
       type: object
       properties:
-        user_name:
+        status:
           type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
   requestBodies:
     Body3:
       content:

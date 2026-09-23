@@ -23,7 +23,6 @@ paths:
     post:
       tags:
       - Coverage
-      description: Create coverage
       parameters:
       - name: plan_year
         in: query
@@ -153,6 +152,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Create coverage
+      x-summary-source: derived
+      operationId: postCoverage
+      x-operation-id-source: derived
   /coverage/meta:
     get:
       tags:
@@ -252,6 +255,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get coverage meta
+      x-summary-source: derived
+      operationId: getCoverageMeta
+      x-operation-id-source: derived
   /coverage/{coverage_id}:
     get:
       tags:
@@ -441,6 +448,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get coverage by coverage id
+      x-summary-source: derived
+      operationId: getCoverageByCoverageId
+      x-operation-id-source: derived
     put:
       tags:
       - Coverage
@@ -581,6 +592,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverage by coverage id
+      x-summary-source: derived
+      operationId: putCoverageByCoverageId
+      x-operation-id-source: derived
   /coverage/subscriber/{subscriber_id}:
     get:
       tags:
@@ -784,6 +799,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get coverage subscriber by subscriber id
+      x-summary-source: derived
+      operationId: getCoverageSubscriberBySubscriberId
+      x-operation-id-source: derived
   /coverage/subscriber/{subscriber_id}/terminate:
     put:
       tags:
@@ -898,6 +917,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverage subscriber by subscriber id terminate
+      x-summary-source: derived
+      operationId: putCoverageSubscriberBySubscriberIdTerminate
+      x-operation-id-source: derived
   /coverage/{coverage_id}/terminate:
     put:
       tags:
@@ -1023,6 +1046,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverage by coverage id terminate
+      x-summary-source: derived
+      operationId: putCoverageByCoverageIdTerminate
+      x-operation-id-source: derived
   /coverage/{coverage_id}/line:
     post:
       tags:
@@ -1172,6 +1199,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Create coverage by coverage id line
+      x-summary-source: derived
+      operationId: postCoverageByCoverageIdLine
+      x-operation-id-source: derived
   /coverage/line/{coverage_line_id}:
     get:
       tags:
@@ -1311,6 +1342,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get coverage line by coverage line id
+      x-summary-source: derived
+      operationId: getCoverageLineByCoverageLineId
+      x-operation-id-source: derived
     put:
       tags:
       - Coverage
@@ -1451,6 +1486,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverage line by coverage line id
+      x-summary-source: derived
+      operationId: putCoverageLineByCoverageLineId
+      x-operation-id-source: derived
   /coverage/{coverage_id}/lines:
     get:
       tags:
@@ -1604,6 +1643,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get coverage by coverage id lines
+      x-summary-source: derived
+      operationId: getCoverageByCoverageIdLines
+      x-operation-id-source: derived
   /coverage/line/{coverage_line_id}/terminate:
     put:
       tags:
@@ -1716,6 +1759,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverage line by coverage line id terminate
+      x-summary-source: derived
+      operationId: putCoverageLineByCoverageLineIdTerminate
+      x-operation-id-source: derived
   /coverage/dependent/{dependent_coverage_id}:
     get:
       tags:
@@ -1846,6 +1893,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get coverage dependent by dependent coverage id
+      x-summary-source: derived
+      operationId: getCoverageDependentByDependentCoverageId
+      x-operation-id-source: derived
     put:
       tags:
       - Coverage
@@ -1961,6 +2012,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverage dependent by dependent coverage id
+      x-summary-source: derived
+      operationId: putCoverageDependentByDependentCoverageId
+      x-operation-id-source: derived
   /coverage/{coverage_id}/dependent:
     post:
       tags:
@@ -2077,6 +2132,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Create coverage by coverage id dependent
+      x-summary-source: derived
+      operationId: postCoverageByCoverageIdDependent
+      x-operation-id-source: derived
   /coverage/{coverage_id}/dependents:
     get:
       tags:
@@ -2221,6 +2280,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get coverage by coverage id dependents
+      x-summary-source: derived
+      operationId: getCoverageByCoverageIdDependents
+      x-operation-id-source: derived
   /coverage/dependent/{dependent_coverage_id}/terminate:
     put:
       tags:
@@ -2333,6 +2396,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverage dependent by dependent coverage id terminate
+      x-summary-source: derived
+      operationId: putCoverageDependentByDependentCoverageIdTerminate
+      x-operation-id-source: derived
   /coverages:
     get:
       tags:
@@ -2548,6 +2615,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get coverages
+      x-summary-source: derived
+      operationId: getCoverages
+      x-operation-id-source: derived
     put:
       tags:
       - Coverage
@@ -2683,10 +2754,13 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverages
+      x-summary-source: derived
+      operationId: putCoverages
+      x-operation-id-source: derived
     post:
       tags:
       - Coverage
-      description: Create coverages
       parameters:
       - name: plan_year
         in: query
@@ -2818,6 +2892,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Create coverages
+      x-summary-source: derived
+      operationId: postCoverages
+      x-operation-id-source: derived
   /coverages/terminate:
     put:
       tags:
@@ -2923,6 +3001,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverages terminate
+      x-summary-source: derived
+      operationId: putCoveragesTerminate
+      x-operation-id-source: derived
   /coverages/lines:
     get:
       tags:
@@ -3088,6 +3170,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get coverages lines
+      x-summary-source: derived
+      operationId: getCoveragesLines
+      x-operation-id-source: derived
     put:
       tags:
       - Coverage
@@ -3223,6 +3309,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverages lines
+      x-summary-source: derived
+      operationId: putCoveragesLines
+      x-operation-id-source: derived
     post:
       tags:
       - Coverage
@@ -3358,6 +3448,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Create coverages lines
+      x-summary-source: derived
+      operationId: postCoveragesLines
+      x-operation-id-source: derived
   /coverages/lines/terminate:
     put:
       tags:
@@ -3463,6 +3557,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverages lines terminate
+      x-summary-source: derived
+      operationId: putCoveragesLinesTerminate
+      x-operation-id-source: derived
   /coverages/dependents:
     get:
       tags:
@@ -3619,6 +3717,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get coverages dependents
+      x-summary-source: derived
+      operationId: getCoveragesDependents
+      x-operation-id-source: derived
     put:
       tags:
       - Coverage
@@ -3729,6 +3831,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverages dependents
+      x-summary-source: derived
+      operationId: putCoveragesDependents
+      x-operation-id-source: derived
     post:
       tags:
       - Coverage
@@ -3839,6 +3945,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Create coverages dependents
+      x-summary-source: derived
+      operationId: postCoveragesDependents
+      x-operation-id-source: derived
   /coverages/dependents/terminate:
     put:
       tags:
@@ -3944,6 +4054,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace coverages dependents terminate
+      x-summary-source: derived
+      operationId: putCoveragesDependentsTerminate
+      x-operation-id-source: derived
   /coverage/{coverage_id}/composite:
     get:
       tags:
@@ -4199,6 +4313,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get coverage by coverage id composite
+      x-summary-source: derived
+      operationId: getCoverageByCoverageIdComposite
+      x-operation-id-source: derived
   /coverage/subscriber/{subscriber_id}/composite:
     get:
       tags:
@@ -4454,6 +4572,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get coverage subscriber by subscriber id composite
+      x-summary-source: derived
+      operationId: getCoverageSubscriberBySubscriberIdComposite
+      x-operation-id-source: derived
   /coverage/composites:
     get:
       tags:
@@ -4722,453 +4844,12 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
-  /aca/offers:
-    get:
-      tags:
-      - Coverage
-      description: Retrieve new, changed and deleted offers. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion.
-      parameters:
-      - name: changes_since
-        in: query
-        description: Number of minutes since now to find new, changed and deleted offers
-        required: false
-        schema:
-          type: string
-          format: integer
-      - name: include_deletes
-        in: query
-        description: Should deleted offers be included?
-        required: false
-        schema:
-          type: string
-          format: boolean
-          default: 'false'
-      - name: page
-        in: query
-        description: Page number
-        required: false
-        schema:
-          type: integer
-          default: 1
-      - name: per_page
-        in: query
-        description: Override the maximum of records returned in a response.
-        required: false
-        schema:
-          type: integer
-          default: 500
-      responses:
-        '200':
-          description: Offers data
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Response'
-            status:
-              examples:
-                response:
-                  value: success
-            data:
-              examples:
-                response:
-                  value:
-                  - id: 10
-                    subscriber_id: 1
-                    offer_starts_on: 2018/01/01
-                    offer_ends_on: 2018/12/31
-                    offer_origin_code: NEW_HIRE
-                    max_possible_tier_code: ALL
-                    is_minimum_value: true
-                    subscriber_premium_monthly: '100.0'
-                    org_plan_id: 100
-                    origin_plan_year_id: 1000
-                    origin_hire_date: 2017/12/13
-                    is_manual: false
-                    calc_date: 2017/12/31
-                    approval_code: MANUALLY_ACCEPTED
-                    is_eligible: true
-                    is_mec: true
-                    is_deleted: false
-                    updated_at: '2018-05-29T19:59:55.000Z'
-        '403':
-          description: Access Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Response_1'
-        '404':
-          description: Resource not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Response_2'
-        '500':
-          description: InternalServerError
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NoLinks500Error'
-  /aca/offers/subscriber/{subscriber_id}:
-    get:
-      tags:
-      - Coverage
-      description: Retrieve new, changed and deleted offers for individual subscriber. If including deleted offers, they are appended after existing offers. Deleted offers are designated by is_deleted = true. Deleted offers are shown in the state they were upon deletion.
-      parameters:
-      - name: subscriber_id
-        in: path
-        description: The ID of the subscriber
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: changes_since
-        in: query
-        description: Number of minutes since now to find new, changed and deleted offers
-        required: false
-        schema:
-          type: string
-          format: integer
-      - name: include_deletes
-        in: query
-        description: Should deleted offers be included?
-        required: false
-        schema:
-          type: string
-          format: boolean
-          default: 'false'
-      - name: page
-        in: query
-        description: Page number
-        required: false
-        schema:
-          type: integer
-          default: 1
-      - name: per_page
-        in: query
-        description: Override the maximum of records returned in a response.
-        required: false
-        schema:
-          type: integer
-          default: 500
-      responses:
-        '200':
-          description: Offers data
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Response'
-            status:
-              examples:
-                response:
-                  value: success
-            data:
-              examples:
-                response:
-                  value:
-                  - id: 10
-                    subscriber_id: 1
-                    offer_starts_on: 2018/01/01
-                    offer_ends_on: 2018/12/31
-                    offer_origin_code: NEW_HIRE
-                    max_possible_tier_code: ALL
-                    is_minimum_value: true
-                    subscriber_premium_monthly: '100.0'
-                    org_plan_id: 100
-                    origin_plan_year_id: 1000
-                    origin_hire_date: 2017/12/13
-                    is_manual: false
-                    calc_date: 2017/12/31
-                    approval_code: MANUALLY_ACCEPTED
-                    is_eligible: true
-                    is_mec: true
-                    is_deleted: false
-                    updated_at: '2018-05-29T19:59:55.000Z'
-        '403':
-          description: Access Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Response_1'
-        '404':
-          description: Resource not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Response_2'
-        '500':
-          description: InternalServerError
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NoLinks500Error'
-  /aca/enrollees:
-    get:
-      tags:
-      - Coverage
-      description: Retrieve new, changed and deleted enrollees. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion.
-      parameters:
-      - name: changes_since
-        in: query
-        description: Number of minutes since now to find new, changed and deleted enrollees
-        required: false
-        schema:
-          type: string
-          format: integer
-      - name: include_deletes
-        in: query
-        description: Should deleted enrollees be included?
-        required: false
-        schema:
-          type: string
-          format: boolean
-          default: 'false'
-      - name: page
-        in: query
-        description: Page number
-        required: false
-        schema:
-          type: integer
-          default: 1
-      - name: per_page
-        in: query
-        description: Override the maximum of records returned in a response.
-        required: false
-        schema:
-          type: integer
-          default: 500
-      responses:
-        '200':
-          description: Enrollee data
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Response_3'
-            status:
-              examples:
-                response:
-                  value: success
-            data:
-              examples:
-                response:
-                  value:
-                  - subscriber_id: 123123123
-                    dependent_id: 123124
-                    first_name: John
-                    middle_name: William
-                    last_name: Smith
-                    ssn: 999999999
-                    birthdate: 1981/07/23
-                    start_date: 2018/01/15
-                    end_date: 2018/05/31
-                    is_deleted: false
-                    updated_at: '2018-05-29T19:59:55.000Z'
-        '403':
-          description: Access Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Response_1'
-        '404':
-          description: Resource not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Response_2'
-        '500':
-          description: InternalServerError
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NoLinks500Error'
-  /aca/enrollees/subscriber/{subscriber_id}:
-    get:
-      tags:
-      - Coverage
-      description: Retrieve new, changed and deleted enrollees for an individual subscriber. If including deleted enrollees, they are appended after existing enrollees. Deleted enrollees are designated by is_deleted = true. Deleted enrollees are shown in the state they were upon deletion.
-      parameters:
-      - name: subscriber_id
-        in: path
-        description: The ID of the subscriber
-        required: true
-        schema:
-          type: integer
-          format: int64
-      - name: changes_since
-        in: query
-        description: Number of minutes since now to find new, changed and deleted enrollees
-        required: false
-        schema:
-          type: string
-          format: integer
-      - name: include_deletes
-        in: query
-        description: Should deleted enrollees be included?
-        required: false
-        schema:
-          type: string
-          format: boolean
-          default: 'false'
-      - name: page
-        in: query
-        description: Page number
-        required: false
-        schema:
-          type: integer
-          default: 1
-      - name: per_page
-        in: query
-        description: Override the maximum of records returned in a response.
-        required: false
-        schema:
-          type: integer
-          default: 500
-      responses:
-        '200':
-          description: Enrollee data
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Response_3'
-            status:
-              examples:
-                response:
-                  value: success
-            data:
-              examples:
-                response:
-                  value:
-                  - subscriber_id: 123123123
-                    dependent_id: 123124
-                    first_name: John
-                    middle_name: William
-                    last_name: Smith
-                    ssn: 999999999
-                    birthdate: 1981/07/23
-                    start_date: 2018/01/15
-                    end_date: 2018/05/31
-                    is_deleted: false
-                    updated_at: '2018-05-29T19:59:55.000Z'
-        '403':
-          description: Access Error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Response_1'
-        '404':
-          description: Resource not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Response_2'
-        '500':
-          description: InternalServerError
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/NoLinks500Error'
+      summary: Get coverage composites
+      x-summary-source: derived
+      operationId: getCoverageComposites
+      x-operation-id-source: derived
 components:
   schemas:
-    NoLinks500Error:
-      title: Error
-      required:
-      - error_code
-      - http_status
-      - message
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    CreateDependentCoverageModel:
-      required:
-      - benefit_lookup_code
-      - coverage_level_id
-      - dependent_id
-      - org_benefit_id
-      - org_plan_id
-      type: object
-      properties:
-        coverage_id:
-          type: integer
-        dependent_id:
-          type: integer
-        first_name:
-          type: string
-        last_name:
-          type: string
-        org_benefit_id:
-          type: integer
-        org_benefit_name:
-          type: string
-        benefit_lookup_code:
-          type: string
-        coverage_level_id:
-          type: integer
-        coverage_level_name:
-          type: string
-        org_plan_id:
-          type: integer
-        org_plan_name:
-          type: string
-        plan_year_starts_on:
-          type: string
-          format: date-time
-        plan_year_ends_on:
-          type: string
-          format: date-time
-        original_effective_date:
-          type: string
-          format: date-time
-        change_effective_date:
-          type: string
-          format: date-time
-        termination_reason_id:
-          type: integer
-        termination_date:
-          type: string
-          format: date-time
-        organization_id:
-          type: integer
-        pcp_code1:
-          type: string
-        pcp_name1:
-          type: string
-        org_carrier_id:
-          type: integer
-        pcp_existing_patient1:
-          type: string
-        election_effective_date:
-          type: string
-          format: date-time
-        carrier_effective_date:
-          type: string
-          format: date-time
-        demographic_effective_date:
-          type: string
-          format: date-time
-      example:
-        coverage_id: 32180225
-        dependent_id: 564743
-        org_benefit_id: 974849
-        org_benefit_name: Medical
-        benefit_lookup_code: medical
-        coverage_level_id: 9
-        org_plan_id: 2109441
-        original_effective_date: '2017-01-01T00:00:00.000Z'
-        change_effective_date: '2017-01-01T00:00:00.000Z'
     DependentCoveragesResponseOK_data:
       required:
       - failed_count
@@ -5187,70 +4868,6 @@ components:
           description: Failed records
           items:
             $ref: '#/components/schemas/DependentCoverageModel'
-    body_8:
-      title: body
-      required:
-      - termination_date
-      - termination_reason_id
-      type: object
-      properties:
-        termination_date:
-          type: string
-          description: YYYY-MM-DD date format.
-        termination_reason_id:
-          type: integer
-          description: Valid values are based on what is retrieved from meta resource.
-    EnrolleeModel:
-      required:
-      - end_date
-      - first_name
-      - last_name
-      - middle_name
-      - start_date
-      - subscriber_id
-      type: object
-      properties:
-        id:
-          type: integer
-        subscriber_id:
-          type: integer
-        dependent_id:
-          type: integer
-        first_name:
-          type: string
-        middle_name:
-          type: string
-        last_name:
-          type: string
-        ssn:
-          type: string
-        birthdate:
-          type: string
-          format: date
-        start_date:
-          type: string
-          format: date
-        end_date:
-          type: string
-          format: date
-        is_deleted:
-          type: boolean
-        updated_at:
-          type: string
-          format: date
-    body_9:
-      title: body
-      required:
-      - termination_date
-      - termination_reason_id
-      type: object
-      properties:
-        termination_date:
-          type: string
-          description: YYYY-MM-DD date format.
-        termination_reason_id:
-          type: integer
-          description: Valid values are based on what is retrieved from meta resource.
     CoverageWithPlanStructureModel:
       type: object
       properties:
@@ -5262,282 +4879,6 @@ components:
         data:
           type: array
           items: {}
-    CoveragesResponseOK_data:
-      required:
-      - failed_count
-      - failed_rows
-      - valid_count
-      type: object
-      properties:
-        valid_count:
-          type: number
-          description: Count of successfully processed records
-        failed_count:
-          type: number
-          description: Count of failed records
-        failed_rows:
-          type: array
-          description: Failed records
-          items:
-            $ref: '#/components/schemas/CoverageModel'
-    403Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    CoverageModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        coverages:
-          type: array
-          items: {}
-        id:
-          type: integer
-        org_benefit_id:
-          type: integer
-        coverage_level_id:
-          type: integer
-        termination_reason_id:
-          type: integer
-        original_effective_date:
-          type: string
-        change_effective_date:
-          type: string
-        payment_change_effective_date:
-          type: string
-        termination_date:
-          type: string
-        pcpcode1:
-          type: string
-        pcpcode2:
-          type: string
-        org_plan_id:
-          type: integer
-        subscriber_id:
-          type: integer
-        subscriber_premium:
-          type: string
-        org_premium:
-          type: string
-        volume:
-          type: string
-        org_fsa_amount:
-          type: string
-        subscriber_fsa_amount:
-          type: string
-        increments:
-          type: integer
-        billing_premium:
-          type: string
-        billing_fee:
-          type: string
-        billing_fee2:
-          type: string
-        pcp_name1:
-          type: string
-        had_prior_coverage:
-          type: boolean
-        pcp_existing_patient1:
-          type: string
-        imputed_income:
-          type: string
-        req_volume:
-          type: string
-        req_increments:
-          type: string
-        req_subscriber_premium:
-          type: string
-        req_org_premium:
-          type: string
-        req_billing_premium:
-          type: string
-        req_billing_fee:
-          type: string
-        req_billing_fee2:
-          type: string
-        gi_volume:
-          type: string
-        gi_increments:
-          type: string
-        waiting_for_eoi:
-          type: boolean
-        req_imputed_income:
-          type: string
-        dp_sub_imputed_income:
-          type: string
-        dp_org_imputed_income:
-          type: string
-        req_dp_sub_imputed_income:
-          type: string
-        req_dp_org_imputed_income:
-          type: string
-        election_effective_date:
-          type: string
-        udef_1:
-          type: string
-        subscriber_election_amount:
-          type: string
-        subscriber_pretax_premium:
-          type: string
-        subscriber_posttax_premium:
-          type: string
-        carrier_effective_date:
-          type: string
-        demographic_effective_date:
-          type: string
-        signature_date:
-          type: string
-        req_org_plan_id:
-          type: integer
-        req_coverage_level_id:
-          type: integer
-        req_dependent_ids:
-          type: array
-          items: {}
-        req_subscriber_election_amount:
-          type: string
-        req_subscriber_fsa_amount:
-          type: string
-        req_org_fsa_amount:
-          type: string
-        gi_org_plan_id:
-          type: integer
-        gi_coverage_level_id:
-          type: integer
-        gi_dependent_ids:
-          type: array
-          items: {}
-        gi_subscriber_election_amount:
-          type: string
-        esigned_at:
-          type: string
-        esigned_by:
-          type: string
-        waive_plan_policyholder:
-          type: string
-        waive_plan_insurer:
-          type: string
-        waive_plan_insurer_phone:
-          type: string
-        waive_plan_effective_date:
-          type: string
-        waive_plan_termination_date:
-          type: string
-        beneficiary_esign_at:
-          type: string
-        beneficiary_esign_by:
-          type: string
-        subscriber_ytd:
-          type: string
-        org_ytd:
-          type: string
-        subscriber_ytd_effective_date:
-          type: string
-        org_ytd_effective_date:
-          type: string
-        deny_pend_permanently_amount:
-          type: string
-        waiting_for_doc_requests:
-          type: boolean
-        hsa_contribution_end_date:
-          type: string
-        req_hsa_contribution_end_date:
-          type: string
-        bookkeeping_values:
-          type: array
-          items: {}
-        cost_org_base_amount:
-          type: integer
-        cost_org_match_amount:
-          type: integer
-        org_annual_base_amount:
-          type: integer
-        org_annual_match_amount:
-          type: integer
-        org_benefit_name:
-          type: string
-        benefit_lookup_code:
-          type: string
-        coverage_level_name:
-          type: string
-        plan_year_starts_on:
-          type: string
-        plan_year_ends_on:
-          type: string
-        coverage_type_name:
-          type: string
-        benefit_class:
-          type: string
-        beneficiary_required:
-          type: string
-        beneficiary_optional_admin:
-          type: boolean
-        org_plan_name:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        req_org_plan_name:
-          type: string
-        req_coverage_level_name:
-          type: string
-        survey_data:
-          type: array
-          items: {}
-        coverage_id:
-          type: integer
-        survey_benefit_name:
-          type: string
-        question_response_data:
-          type: array
-          items: {}
-        plan_id:
-          type: string
-        question_text:
-          type: string
-        subscriber_ssn:
-          type: string
-        dependent_ssn:
-          type: string
-        dependent_id:
-          type: integer
-        question_response:
-          type: array
-          items: {}
-        response_text:
-          type: string
-        value:
-          type: string
-        time_answered:
-          type: string
-        question_targeted_at:
-          type: string
-        carrier_question_type:
-          type: string
     CoverageLineModel:
       type: object
       properties:
@@ -5623,22 +4964,7 @@ components:
           type: string
         last_name:
           type: string
-    Response:
-      title: Response
-      required:
-      - data
-      - status
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-          - failure
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OfferModel'
-    404Error:
+    403Error:
       title: Error
       type: object
       properties:
@@ -5655,24 +4981,9 @@ components:
           type: string
         error_code:
           type: string
-    TerminateModel:
-      required:
-      - id
-      - termination_date
-      - termination_reason_id
-      type: object
-      properties:
-        id:
-          type: integer
-        termination_date:
-          type: string
-          format: date-time
-        termination_reason_id:
-          type: integer
-      example:
-        id: 999
-        termination_date: '2017-01-01T00:00:00.000Z'
-        termination_reason_id: 6
+        data:
+          type: array
+          items: {}
     TerminateResponseOK:
       type: object
       properties:
@@ -5690,287 +5001,6 @@ components:
         failed_rows:
           type: array
           items: {}
-    401Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    CreateCoverageLineModel:
-      required:
-      - benefit_lookup_code
-      - coverage_level_id
-      - org_benefit_id
-      - org_plan_id
-      type: object
-      properties:
-        coverage_id:
-          type: integer
-        coverage_line_id:
-          type: integer
-        org_benefit_id:
-          type: integer
-        org_benefit_name:
-          type: string
-        benefit_lookup_code:
-          type: string
-        coverage_level_id:
-          type: integer
-        coverage_level_name:
-          type: string
-        termination_reason_id:
-          type: integer
-        plan_year_starts_on:
-          type: string
-          format: date-time
-        plan_year_ends_on:
-          type: string
-          format: date-time
-        original_effective_date:
-          type: string
-          format: date-time
-        change_effective_date:
-          type: string
-          format: date-time
-        payment_change_effective_date:
-          type: string
-          format: date-time
-        termination_date:
-          type: string
-          format: date-time
-        org_plan_id:
-          type: integer
-        org_plan_name:
-          type: string
-        subscriber_id:
-          type: integer
-        first_name:
-          type: string
-        last_name:
-          type: string
-        subscriber_premium:
-          type: number
-          format: double
-        org_premium:
-          type: number
-          format: double
-        volume:
-          type: number
-          format: double
-        increments:
-          type: number
-          format: double
-        billing_premium:
-          type: number
-          format: double
-        billing_fee:
-          type: number
-          format: double
-        billing_fee2:
-          type: number
-          format: double
-        imputed_income:
-          type: number
-          format: double
-        req_volume:
-          type: number
-          format: double
-        req_increments:
-          type: number
-          format: double
-        req_subscriber_premium:
-          type: number
-          format: double
-        req_org_premium:
-          type: number
-          format: double
-        req_billing_premium:
-          type: number
-          format: double
-        req_billing_fee:
-          type: number
-          format: double
-        req_billing_fee2:
-          type: number
-          format: double
-        policy:
-          type: string
-        pretax:
-          type: string
-      example:
-        coverage_id: 25255937
-        org_benefit_id: 983041
-        benefit_lookup_code: subscriber_life
-        coverage_level_id: 18
-        original_effective_date: '2017-01-01T00:00:00.000Z'
-        change_effective_date: '2017-01-01T00:00:00.000Z'
-        payment_change_effective_date: '2017-01-01T00:00:00.000Z'
-        org_plan_id: 2138113
-        subscriber_id: 26376193
-        subscriber_premium: '100.0'
-        org_premium: '0.0'
-        volume: '10000.0'
-        increments: 1
-        billing_premium: '0.0'
-        billing_fee: '0.0'
-        billing_fee2: '0.0'
-        imputed_income: '0.0'
-        req_volume: '10000.0'
-        req_increments: 1
-        req_subscriber_premium: '100.0'
-        req_org_premium: '0.0'
-        req_billing_premium: '0.0'
-        req_billing_fee: '0.0'
-        req_billing_fee2: '0.0'
-    Response_1:
-      title: Response
-      required:
-      - errors
-      - status
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - failure
-          - success
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/403Error'
-    CoverageLinesResponseOK:
-      title: Response
-      required:
-      - data
-      - status
-      properties:
-        status:
-          $ref: '#/components/schemas/ResponseStatus'
-        data:
-          $ref: '#/components/schemas/CoverageLinesResponseOK_data'
-      example:
-        status: success
-        data:
-          valid_count: 1
-          failed_count: 0
-          failed_rows: []
-    DependentCoverageModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        id:
-          type: integer
-        coverage_id:
-          type: integer
-        dependent_id:
-          type: integer
-        original_effective_date:
-          type: string
-        change_effective_date:
-          type: string
-        termination_reason_id:
-          type: integer
-        termination_date:
-          type: string
-        organization_id:
-          type: integer
-        pcp_code1:
-          type: string
-        pcp_name1:
-          type: string
-        org_carrier_id:
-          type: integer
-        pcp_existing_patient1:
-          type: string
-        election_effective_date:
-          type: string
-        carrier_effective_date:
-          type: string
-        demographic_effective_date:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        org_benefit_id:
-          type: integer
-        org_benefit_name:
-          type: string
-        benefit_lookup_code:
-          type: string
-        coverage_level_id:
-          type: integer
-        coverage_level_name:
-          type: string
-        org_plan_id:
-          type: integer
-        org_plan_name:
-          type: string
-        plan_year_starts_on:
-          type: string
-        plan_year_ends_on:
-          type: string
-    400Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    CoverageMetaModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        termination_reasons:
-          type: array
-          items: {}
-        id:
-          type: integer
-        name:
-          type: string
-        lookup_code:
-          type: string
     CoveragesCompositeModel:
       type: object
       properties:
@@ -6341,105 +5371,39 @@ components:
           type: string
         lines.last_name:
           type: string
-    OfferModel:
+    body_8:
+      title: body
       required:
-      - id
-      - offer_ends_on
-      - offer_origin_code
-      - offer_starts_on
-      - subscriber_id
+      - termination_date
+      - termination_reason_id
       type: object
       properties:
-        id:
+        termination_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        termination_reason_id:
           type: integer
-        subscriber_id:
-          type: integer
-        offer_starts_on:
-          type: string
-          format: date
-        offer_ends_on:
-          type: string
-          format: date
-        offer_origin_code:
-          type: string
-        enrollment_starts_on:
-          type: string
-          format: date
-        enrollment_ends_on:
-          type: string
-          format: date
-        max_possible_tier_code:
-          type: string
-        is_minimum_value:
-          type: boolean
-        subscriber_premium_monthly:
-          type: number
-          format: double
-        org_plan_id:
-          type: integer
-        coverage_id:
-          type: integer
-        origin_subscriber_life_event_id:
-          type: integer
-        origin_plan_year_id:
-          type: integer
-        origin_hire_date:
-          type: string
-          format: date
-        is_manual:
-          type: boolean
-        enrollment_tier_code:
-          type: string
-        calc_date:
-          type: string
-          format: date
-        approval_date:
-          type: string
-          format: date-time
-        approval_code:
-          type: string
-        is_eligible:
-          type: boolean
-        is_mec:
-          type: boolean
-        is_deleted:
-          type: boolean
-        updated_at:
-          type: string
-          format: date
-    Response_3:
-      title: Response
-      required:
-      - data
-      - status
+          description: Valid values are based on what is retrieved from meta resource.
+    400Error:
+      title: Error
+      type: object
       properties:
         status:
           type: string
-          enum:
-          - success
-          - failure
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
         data:
           type: array
-          items:
-            $ref: '#/components/schemas/EnrolleeModel'
-    CoverageLinesResponseOK_data:
-      required:
-      - failed_count
-      - failed_rows
-      - valid_count
-      type: object
-      properties:
-        valid_count:
-          type: number
-          description: Count of successfully processed records
-        failed_count:
-          type: number
-          description: Count of failed records
-        failed_rows:
-          type: array
-          description: Failed records
-          items:
-            $ref: '#/components/schemas/CoverageLineModel'
+          items: {}
     DependentCoveragesResponseOK:
       title: Response
       required:
@@ -6456,43 +5420,279 @@ components:
           valid_count: 1
           failed_count: 0
           failed_rows: []
-    ResponseStatus:
-      type: string
-      enum:
-      - success
-      - failure
-    Response_2:
-      title: Response
-      required:
-      - errors
-      - status
+    404Error:
+      title: Error
       type: object
       properties:
         status:
           type: string
-          enum:
-          - failure
-          - success
         errors:
           type: array
-          items:
-            $ref: '#/components/schemas/404Error'
-    CoveragesResponseOK:
-      title: Response
-      required:
-      - data
-      - status
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    CoverageModel:
+      type: object
       properties:
         status:
-          $ref: '#/components/schemas/ResponseStatus'
+          type: string
+        errors:
+          type: array
+          items: {}
         data:
-          $ref: '#/components/schemas/CoveragesResponseOK_data'
+          type: array
+          items: {}
+        coverages:
+          type: array
+          items: {}
+        id:
+          type: integer
+        org_benefit_id:
+          type: integer
+        coverage_level_id:
+          type: integer
+        termination_reason_id:
+          type: integer
+        original_effective_date:
+          type: string
+        change_effective_date:
+          type: string
+        payment_change_effective_date:
+          type: string
+        termination_date:
+          type: string
+        pcpcode1:
+          type: string
+        pcpcode2:
+          type: string
+        org_plan_id:
+          type: integer
+        subscriber_id:
+          type: integer
+        subscriber_premium:
+          type: string
+        org_premium:
+          type: string
+        volume:
+          type: string
+        org_fsa_amount:
+          type: string
+        subscriber_fsa_amount:
+          type: string
+        increments:
+          type: integer
+        billing_premium:
+          type: string
+        billing_fee:
+          type: string
+        billing_fee2:
+          type: string
+        pcp_name1:
+          type: string
+        had_prior_coverage:
+          type: boolean
+        pcp_existing_patient1:
+          type: string
+        imputed_income:
+          type: string
+        req_volume:
+          type: string
+        req_increments:
+          type: string
+        req_subscriber_premium:
+          type: string
+        req_org_premium:
+          type: string
+        req_billing_premium:
+          type: string
+        req_billing_fee:
+          type: string
+        req_billing_fee2:
+          type: string
+        gi_volume:
+          type: string
+        gi_increments:
+          type: string
+        waiting_for_eoi:
+          type: boolean
+        req_imputed_income:
+          type: string
+        dp_sub_imputed_income:
+          type: string
+        dp_org_imputed_income:
+          type: string
+        req_dp_sub_imputed_income:
+          type: string
+        req_dp_org_imputed_income:
+          type: string
+        election_effective_date:
+          type: string
+        udef_1:
+          type: string
+        subscriber_election_amount:
+          type: string
+        subscriber_pretax_premium:
+          type: string
+        subscriber_posttax_premium:
+          type: string
+        carrier_effective_date:
+          type: string
+        demographic_effective_date:
+          type: string
+        signature_date:
+          type: string
+        req_org_plan_id:
+          type: integer
+        req_coverage_level_id:
+          type: integer
+        req_dependent_ids:
+          type: array
+          items: {}
+        req_subscriber_election_amount:
+          type: string
+        req_subscriber_fsa_amount:
+          type: string
+        req_org_fsa_amount:
+          type: string
+        gi_org_plan_id:
+          type: integer
+        gi_coverage_level_id:
+          type: integer
+        gi_dependent_ids:
+          type: array
+          items: {}
+        gi_subscriber_election_amount:
+          type: string
+        esigned_at:
+          type: string
+        esigned_by:
+          type: string
+        waive_plan_policyholder:
+          type: string
+        waive_plan_insurer:
+          type: string
+        waive_plan_insurer_phone:
+          type: string
+        waive_plan_effective_date:
+          type: string
+        waive_plan_termination_date:
+          type: string
+        beneficiary_esign_at:
+          type: string
+        beneficiary_esign_by:
+          type: string
+        subscriber_ytd:
+          type: string
+        org_ytd:
+          type: string
+        subscriber_ytd_effective_date:
+          type: string
+        org_ytd_effective_date:
+          type: string
+        deny_pend_permanently_amount:
+          type: string
+        waiting_for_doc_requests:
+          type: boolean
+        hsa_contribution_end_date:
+          type: string
+        req_hsa_contribution_end_date:
+          type: string
+        bookkeeping_values:
+          type: array
+          items: {}
+        cost_org_base_amount:
+          type: integer
+        cost_org_match_amount:
+          type: integer
+        org_annual_base_amount:
+          type: integer
+        org_annual_match_amount:
+          type: integer
+        org_benefit_name:
+          type: string
+        benefit_lookup_code:
+          type: string
+        coverage_level_name:
+          type: string
+        plan_year_starts_on:
+          type: string
+        plan_year_ends_on:
+          type: string
+        coverage_type_name:
+          type: string
+        benefit_class:
+          type: string
+        beneficiary_required:
+          type: string
+        beneficiary_optional_admin:
+          type: boolean
+        org_plan_name:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        req_org_plan_name:
+          type: string
+        req_coverage_level_name:
+          type: string
+        survey_data:
+          type: array
+          items: {}
+        coverage_id:
+          type: integer
+        survey_benefit_name:
+          type: string
+        question_response_data:
+          type: array
+          items: {}
+        plan_id:
+          type: string
+        question_text:
+          type: string
+        subscriber_ssn:
+          type: string
+        dependent_ssn:
+          type: string
+        dependent_id:
+          type: integer
+        question_response:
+          type: array
+          items: {}
+        response_text:
+          type: string
+        value:
+          type: string
+        time_answered:
+          type: string
+        question_targeted_at:
+          type: string
+        carrier_question_type:
+          type: string
+    TerminateModel:
+      required:
+      - id
+      - termination_date
+      - termination_reason_id
+      type: object
+      properties:
+        id:
+          type: integer
+        termination_date:
+          type: string
+          format: date-time
+        termination_reason_id:
+          type: integer
       example:
-        status: success
-        data:
-          valid_count: 1
-          failed_count: 0
-          failed_rows: []
+        id: 999
+        termination_date: '2017-01-01T00:00:00.000Z'
+        termination_reason_id: 6
     CreateCoverageModel:
       required:
       - benefit_lookup_code
@@ -6762,6 +5962,422 @@ components:
         signature_date: '2017-01-01T00:00:00.000Z'
         req_org_plan_id: 2109441
         req_coverage_level_id: 9
+    CoverageLinesResponseOK:
+      title: Response
+      required:
+      - data
+      - status
+      properties:
+        status:
+          $ref: '#/components/schemas/ResponseStatus'
+        data:
+          $ref: '#/components/schemas/CoverageLinesResponseOK_data'
+      example:
+        status: success
+        data:
+          valid_count: 1
+          failed_count: 0
+          failed_rows: []
+    CoverageLinesResponseOK_data:
+      required:
+      - failed_count
+      - failed_rows
+      - valid_count
+      type: object
+      properties:
+        valid_count:
+          type: number
+          description: Count of successfully processed records
+        failed_count:
+          type: number
+          description: Count of failed records
+        failed_rows:
+          type: array
+          description: Failed records
+          items:
+            $ref: '#/components/schemas/CoverageLineModel'
+    DependentCoverageModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        id:
+          type: integer
+        coverage_id:
+          type: integer
+        dependent_id:
+          type: integer
+        original_effective_date:
+          type: string
+        change_effective_date:
+          type: string
+        termination_reason_id:
+          type: integer
+        termination_date:
+          type: string
+        organization_id:
+          type: integer
+        pcp_code1:
+          type: string
+        pcp_name1:
+          type: string
+        org_carrier_id:
+          type: integer
+        pcp_existing_patient1:
+          type: string
+        election_effective_date:
+          type: string
+        carrier_effective_date:
+          type: string
+        demographic_effective_date:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        org_benefit_id:
+          type: integer
+        org_benefit_name:
+          type: string
+        benefit_lookup_code:
+          type: string
+        coverage_level_id:
+          type: integer
+        coverage_level_name:
+          type: string
+        org_plan_id:
+          type: integer
+        org_plan_name:
+          type: string
+        plan_year_starts_on:
+          type: string
+        plan_year_ends_on:
+          type: string
+    CreateCoverageLineModel:
+      required:
+      - benefit_lookup_code
+      - coverage_level_id
+      - org_benefit_id
+      - org_plan_id
+      type: object
+      properties:
+        coverage_id:
+          type: integer
+        coverage_line_id:
+          type: integer
+        org_benefit_id:
+          type: integer
+        org_benefit_name:
+          type: string
+        benefit_lookup_code:
+          type: string
+        coverage_level_id:
+          type: integer
+        coverage_level_name:
+          type: string
+        termination_reason_id:
+          type: integer
+        plan_year_starts_on:
+          type: string
+          format: date-time
+        plan_year_ends_on:
+          type: string
+          format: date-time
+        original_effective_date:
+          type: string
+          format: date-time
+        change_effective_date:
+          type: string
+          format: date-time
+        payment_change_effective_date:
+          type: string
+          format: date-time
+        termination_date:
+          type: string
+          format: date-time
+        org_plan_id:
+          type: integer
+        org_plan_name:
+          type: string
+        subscriber_id:
+          type: integer
+        first_name:
+          type: string
+        last_name:
+          type: string
+        subscriber_premium:
+          type: number
+          format: double
+        org_premium:
+          type: number
+          format: double
+        volume:
+          type: number
+          format: double
+        increments:
+          type: number
+          format: double
+        billing_premium:
+          type: number
+          format: double
+        billing_fee:
+          type: number
+          format: double
+        billing_fee2:
+          type: number
+          format: double
+        imputed_income:
+          type: number
+          format: double
+        req_volume:
+          type: number
+          format: double
+        req_increments:
+          type: number
+          format: double
+        req_subscriber_premium:
+          type: number
+          format: double
+        req_org_premium:
+          type: number
+          format: double
+        req_billing_premium:
+          type: number
+          format: double
+        req_billing_fee:
+          type: number
+          format: double
+        req_billing_fee2:
+          type: number
+          format: double
+        policy:
+          type: string
+        pretax:
+          type: string
+      example:
+        coverage_id: 25255937
+        org_benefit_id: 983041
+        benefit_lookup_code: subscriber_life
+        coverage_level_id: 18
+        original_effective_date: '2017-01-01T00:00:00.000Z'
+        change_effective_date: '2017-01-01T00:00:00.000Z'
+        payment_change_effective_date: '2017-01-01T00:00:00.000Z'
+        org_plan_id: 2138113
+        subscriber_id: 26376193
+        subscriber_premium: '100.0'
+        org_premium: '0.0'
+        volume: '10000.0'
+        increments: 1
+        billing_premium: '0.0'
+        billing_fee: '0.0'
+        billing_fee2: '0.0'
+        imputed_income: '0.0'
+        req_volume: '10000.0'
+        req_increments: 1
+        req_subscriber_premium: '100.0'
+        req_org_premium: '0.0'
+        req_billing_premium: '0.0'
+        req_billing_fee: '0.0'
+        req_billing_fee2: '0.0'
+    CoverageMetaModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        termination_reasons:
+          type: array
+          items: {}
+        id:
+          type: integer
+        name:
+          type: string
+        lookup_code:
+          type: string
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    ResponseStatus:
+      type: string
+      enum:
+      - success
+      - failure
+    CreateDependentCoverageModel:
+      required:
+      - benefit_lookup_code
+      - coverage_level_id
+      - dependent_id
+      - org_benefit_id
+      - org_plan_id
+      type: object
+      properties:
+        coverage_id:
+          type: integer
+        dependent_id:
+          type: integer
+        first_name:
+          type: string
+        last_name:
+          type: string
+        org_benefit_id:
+          type: integer
+        org_benefit_name:
+          type: string
+        benefit_lookup_code:
+          type: string
+        coverage_level_id:
+          type: integer
+        coverage_level_name:
+          type: string
+        org_plan_id:
+          type: integer
+        org_plan_name:
+          type: string
+        plan_year_starts_on:
+          type: string
+          format: date-time
+        plan_year_ends_on:
+          type: string
+          format: date-time
+        original_effective_date:
+          type: string
+          format: date-time
+        change_effective_date:
+          type: string
+          format: date-time
+        termination_reason_id:
+          type: integer
+        termination_date:
+          type: string
+          format: date-time
+        organization_id:
+          type: integer
+        pcp_code1:
+          type: string
+        pcp_name1:
+          type: string
+        org_carrier_id:
+          type: integer
+        pcp_existing_patient1:
+          type: string
+        election_effective_date:
+          type: string
+          format: date-time
+        carrier_effective_date:
+          type: string
+          format: date-time
+        demographic_effective_date:
+          type: string
+          format: date-time
+      example:
+        coverage_id: 32180225
+        dependent_id: 564743
+        org_benefit_id: 974849
+        org_benefit_name: Medical
+        benefit_lookup_code: medical
+        coverage_level_id: 9
+        org_plan_id: 2109441
+        original_effective_date: '2017-01-01T00:00:00.000Z'
+        change_effective_date: '2017-01-01T00:00:00.000Z'
+    401Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    CoveragesResponseOK:
+      title: Response
+      required:
+      - data
+      - status
+      properties:
+        status:
+          $ref: '#/components/schemas/ResponseStatus'
+        data:
+          $ref: '#/components/schemas/CoveragesResponseOK_data'
+      example:
+        status: success
+        data:
+          valid_count: 1
+          failed_count: 0
+          failed_rows: []
+    body_9:
+      title: body
+      required:
+      - termination_date
+      - termination_reason_id
+      type: object
+      properties:
+        termination_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        termination_reason_id:
+          type: integer
+          description: Valid values are based on what is retrieved from meta resource.
+    CoveragesResponseOK_data:
+      required:
+      - failed_count
+      - failed_rows
+      - valid_count
+      type: object
+      properties:
+        valid_count:
+          type: number
+          description: Count of successfully processed records
+        failed_count:
+          type: number
+          description: Count of failed records
+        failed_rows:
+          type: array
+          description: Failed records
+          items:
+            $ref: '#/components/schemas/CoverageModel'
   requestBodies:
     TerminateModel:
       content:

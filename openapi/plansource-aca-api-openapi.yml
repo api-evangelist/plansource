@@ -105,6 +105,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NoLinks500Error'
+      summary: Get aca offers
+      x-summary-source: derived
+      operationId: getAcaOffers
+      x-operation-id-source: derived
   /aca/offers/subscriber/{subscriber_id}:
     get:
       tags:
@@ -198,6 +202,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NoLinks500Error'
+      summary: Get aca offers subscriber by subscriber id
+      x-summary-source: derived
+      operationId: getAcaOffersSubscriberBySubscriberId
+      x-operation-id-source: derived
   /aca/enrollees:
     get:
       tags:
@@ -277,6 +285,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NoLinks500Error'
+      summary: Get aca enrollees
+      x-summary-source: derived
+      operationId: getAcaEnrollees
+      x-operation-id-source: derived
   /aca/enrollees/subscriber/{subscriber_id}:
     get:
       tags:
@@ -363,32 +375,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NoLinks500Error'
+      summary: Get aca enrollees subscriber by subscriber id
+      x-summary-source: derived
+      operationId: getAcaEnrolleesSubscriberBySubscriberId
+      x-operation-id-source: derived
 components:
   schemas:
-    NoLinks500Error:
-      title: Error
-      required:
-      - error_code
-      - http_status
-      - message
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
     403Error:
       title: Error
       type: object
@@ -409,6 +401,92 @@ components:
         data:
           type: array
           items: {}
+    Response_2:
+      title: Response
+      required:
+      - errors
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - failure
+          - success
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/404Error'
+    EnrolleeModel:
+      required:
+      - end_date
+      - first_name
+      - last_name
+      - middle_name
+      - start_date
+      - subscriber_id
+      type: object
+      properties:
+        id:
+          type: integer
+        subscriber_id:
+          type: integer
+        dependent_id:
+          type: integer
+        first_name:
+          type: string
+        middle_name:
+          type: string
+        last_name:
+          type: string
+        ssn:
+          type: string
+        birthdate:
+          type: string
+          format: date
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        is_deleted:
+          type: boolean
+        updated_at:
+          type: string
+          format: date
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    Response_3:
+      title: Response
+      required:
+      - data
+      - status
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - failure
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnrolleeModel'
     OfferModel:
       required:
       - id
@@ -475,7 +553,7 @@ components:
         updated_at:
           type: string
           format: date
-    Response_3:
+    Response:
       title: Response
       required:
       - data
@@ -489,7 +567,7 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/EnrolleeModel'
+            $ref: '#/components/schemas/OfferModel'
     Response_1:
       title: Response
       required:
@@ -506,23 +584,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/403Error'
-    Response:
-      title: Response
-      required:
-      - data
-      - status
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-          - failure
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OfferModel'
-    404Error:
+    NoLinks500Error:
       title: Error
+      required:
+      - error_code
+      - http_status
+      - message
       type: object
       properties:
         status:
@@ -538,60 +605,9 @@ components:
           type: string
         error_code:
           type: string
-    Response_2:
-      title: Response
-      required:
-      - errors
-      - status
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - failure
-          - success
-        errors:
+        data:
           type: array
-          items:
-            $ref: '#/components/schemas/404Error'
-    EnrolleeModel:
-      required:
-      - end_date
-      - first_name
-      - last_name
-      - middle_name
-      - start_date
-      - subscriber_id
-      type: object
-      properties:
-        id:
-          type: integer
-        subscriber_id:
-          type: integer
-        dependent_id:
-          type: integer
-        first_name:
-          type: string
-        middle_name:
-          type: string
-        last_name:
-          type: string
-        ssn:
-          type: string
-        birthdate:
-          type: string
-          format: date
-        start_date:
-          type: string
-          format: date
-        end_date:
-          type: string
-          format: date
-        is_deleted:
-          type: boolean
-        updated_at:
-          type: string
-          format: date
+          items: {}
   securitySchemes:
     clientSecretJwt:
       type: oauth2

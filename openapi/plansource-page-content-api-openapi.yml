@@ -357,6 +357,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get page content
+      x-summary-source: derived
+      operationId: getPageContent
+      x-operation-id-source: derived
     put:
       tags:
       - Page Content
@@ -500,6 +504,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace page content
+      x-summary-source: derived
+      operationId: putPageContent
+      x-operation-id-source: derived
   /content_blocks:
     get:
       tags:
@@ -663,6 +671,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get content blocks
+      x-summary-source: derived
+      operationId: getContentBlocks
+      x-operation-id-source: derived
   /content_block:
     put:
       tags:
@@ -826,14 +838,14 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Replace content block
+      x-summary-source: derived
+      operationId: putContentBlock
+      x-operation-id-source: derived
 components:
   schemas:
-    NoLinks500Error:
+    400Error:
       title: Error
-      required:
-      - error_code
-      - http_status
-      - message
       type: object
       properties:
         status:
@@ -852,45 +864,52 @@ components:
         data:
           type: array
           items: {}
-    PageContentData:
-      title: PageContentData
+    ResponseStatus:
+      type: string
+      enum:
+      - success
+      - failure
+    MarketplaceBenefit:
+      title: Benefit
+      required:
+      - available_plans_txt
+      - cobra_eligible
+      - fsa_eligible
+      - has_125_plan
+      - hsa_eligible
+      - icon_class
+      - id
+      - name
+      - type
       type: object
       properties:
         id:
-          type: integer
-          description: Page content ID.
-          format: int32
-        page_title:
           type: string
-          description: Page title.
-        page_subtitle:
+          description: ID used to identify this benefit container.
+        name:
           type: string
-          description: Page subtitle.
-        page_text:
+          description: Name of benefit.
+        type:
           type: string
-          description: Page body text.
-        view:
+          description: Benefit lookup code for this benefit.
+        icon_class:
           type: string
-          description: Page view.
-        org_plan_year_id:
-          type: integer
-          description: Assigned plan year ID.
-          format: int32
-        org_population_id:
-          type: integer
-          description: Assigned population ID.
-          format: int32
-        benefit:
+          description: CSS class used to denote this benefits icon.
+        available_plans_txt:
           type: string
-          description: Benefit name.
-        locale:
-          type: string
-          description: Assigned localization.
-        content_blocks:
-          type: array
-          description: Array of content block objects.
-          items:
-            $ref: '#/components/schemas/ContentBlock'
+          description: Generated text explaining plans available for this benefit.
+        hsa_eligible:
+          type: boolean
+          description: Are there any HSA eligible plans for this benefit?
+        fsa_eligible:
+          type: boolean
+          description: Are there any FSA eligible plans for this benefit?
+        cobra_eligible:
+          type: boolean
+          description: Are there any COBRA eligible plans for this benefit?
+        has_125_plan:
+          type: boolean
+          description: Are there any 125 plans for this benefit?
     403Error:
       title: Error
       type: object
@@ -961,56 +980,6 @@ components:
           type: integer
           description: Id of content block.
           format: int32
-    ContentBlock:
-      title: ContentBlock
-      type: object
-      properties:
-        id:
-          type: integer
-          description: P!ontent block ID.
-          format: int32
-        slot_num:
-          type: integer
-          description: Display order of content blocks.
-          format: int32
-        block_type:
-          type: string
-          description: 'Type of content block. Options: content | rotating | marketplace | documents'
-        label:
-          type: string
-          description: Content block label.
-        label_action:
-          type: string
-          description: 'Action to be taken when label is clicked (If set.) Options: popup_content | navigate | new_window | popup_url'
-        css_class:
-          type: string
-          description: CSS class to use for content block container.
-        url:
-          type: string
-          description: URL to navigate to or open in popup when label is clicked.
-        icon_img:
-          type: string
-          description: Base64 encoded image to use as a background icon in this block.
-        popup:
-          $ref: '#/components/schemas/Popup'
-        html_content:
-          type: string
-          description: HTML-formatted content block.
-        content:
-          type: string
-          description: Non-HTML-formatted content used for this block.
-        rotating_content:
-          type: array
-          description: List of rotating content blocks. Only available when block type is rotating.
-          items:
-            type: object
-        marketplace:
-          $ref: '#/components/schemas/Marketplace'
-        documents:
-          type: array
-          description: List of documents. Only available when block type is documents.
-          items:
-            $ref: '#/components/schemas/Document156'
     Popup:
       title: Popup
       type: object
@@ -1026,41 +995,50 @@ components:
         content:
           type: string
           description: HTML content for popup when label action is popup_content.
-    ResponseStatus:
-      type: string
-      enum:
-      - success
-      - failure
-    PageContentResponse:
-      title: Page Content response
+    content_block_body:
       type: object
       properties:
-        status:
-          $ref: '#/components/schemas/ResponseStatus'
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/PageContentData'
-    404Error:
-      title: Error
+        content_block:
+          $ref: '#/components/schemas/ContentBlockWithId'
+    PageContentData:
+      title: PageContentData
       type: object
       properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
+        id:
           type: integer
-        message:
+          description: Page content ID.
+          format: int32
+        page_title:
           type: string
-        details:
+          description: Page title.
+        page_subtitle:
           type: string
-        error_code:
+          description: Page subtitle.
+        page_text:
           type: string
+          description: Page body text.
+        view:
+          type: string
+          description: Page view.
+        org_plan_year_id:
+          type: integer
+          description: Assigned plan year ID.
+          format: int32
+        org_population_id:
+          type: integer
+          description: Assigned population ID.
+          format: int32
+        benefit:
+          type: string
+          description: Benefit name.
+        locale:
+          type: string
+          description: Assigned localization.
+        content_blocks:
+          type: array
+          description: Array of content block objects.
+          items:
+            $ref: '#/components/schemas/ContentBlock'
     ContentBlocksResponse:
       type: object
       properties:
@@ -1136,7 +1114,7 @@ components:
           type: integer
         total_records:
           type: integer
-    400Error:
+    404Error:
       title: Error
       type: object
       properties:
@@ -1153,14 +1131,6 @@ components:
           type: string
         error_code:
           type: string
-        data:
-          type: array
-          items: {}
-    content_block_body:
-      type: object
-      properties:
-        content_block:
-          $ref: '#/components/schemas/ContentBlockWithId'
     401Error:
       title: Error
       type: object
@@ -1181,69 +1151,69 @@ components:
         data:
           type: array
           items: {}
-    MarketplaceBenefit:
-      title: Benefit
-      required:
-      - available_plans_txt
-      - cobra_eligible
-      - fsa_eligible
-      - has_125_plan
-      - hsa_eligible
-      - icon_class
-      - id
-      - name
-      - type
+    ContentBlock:
+      title: ContentBlock
       type: object
       properties:
         id:
+          type: integer
+          description: P!ontent block ID.
+          format: int32
+        slot_num:
+          type: integer
+          description: Display order of content blocks.
+          format: int32
+        block_type:
           type: string
-          description: ID used to identify this benefit container.
-        name:
-          type: string
-          description: Name of benefit.
-        type:
-          type: string
-          description: Benefit lookup code for this benefit.
-        icon_class:
-          type: string
-          description: CSS class used to denote this benefits icon.
-        available_plans_txt:
-          type: string
-          description: Generated text explaining plans available for this benefit.
-        hsa_eligible:
-          type: boolean
-          description: Are there any HSA eligible plans for this benefit?
-        fsa_eligible:
-          type: boolean
-          description: Are there any FSA eligible plans for this benefit?
-        cobra_eligible:
-          type: boolean
-          description: Are there any COBRA eligible plans for this benefit?
-        has_125_plan:
-          type: boolean
-          description: Are there any 125 plans for this benefit?
-    Document156:
-      title: Document156
-      type: object
-      properties:
+          description: 'Type of content block. Options: content | rotating | marketplace | documents'
         label:
           type: string
-          description: Label used for document link.
-        description:
+          description: Content block label.
+        label_action:
           type: string
-          description: Optional document description.
-        required:
-          type: boolean
-          description: Document required.
-        eoi_required:
-          type: boolean
-          description: EOI required.
-        admin_required:
-          type: boolean
-          description: Admin required.
-        document_url:
+          description: 'Action to be taken when label is clicked (If set.) Options: popup_content | navigate | new_window | popup_url'
+        css_class:
           type: string
-          description: URL to document.
+          description: CSS class to use for content block container.
+        url:
+          type: string
+          description: URL to navigate to or open in popup when label is clicked.
+        icon_img:
+          type: string
+          description: Base64 encoded image to use as a background icon in this block.
+        popup:
+          $ref: '#/components/schemas/Popup'
+        html_content:
+          type: string
+          description: HTML-formatted content block.
+        content:
+          type: string
+          description: Non-HTML-formatted content used for this block.
+        rotating_content:
+          type: array
+          description: List of rotating content blocks. Only available when block type is rotating.
+          items:
+            type: object
+        marketplace:
+          $ref: '#/components/schemas/Marketplace'
+        documents:
+          type: array
+          description: List of documents. Only available when block type is documents.
+          items:
+            $ref: '#/components/schemas/Document156'
+    PageContentResponse:
+      title: Page Content response
+      type: object
+      properties:
+        status:
+          $ref: '#/components/schemas/ResponseStatus'
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/PageContentData'
     Marketplace:
       title: Marketplace
       required:
@@ -1271,6 +1241,52 @@ components:
           description: List of benefits to be included in marketplace preview.
           items:
             $ref: '#/components/schemas/MarketplaceBenefit'
+    Document156:
+      title: Document156
+      type: object
+      properties:
+        label:
+          type: string
+          description: Label used for document link.
+        description:
+          type: string
+          description: Optional document description.
+        required:
+          type: boolean
+          description: Document required.
+        eoi_required:
+          type: boolean
+          description: EOI required.
+        admin_required:
+          type: boolean
+          description: Admin required.
+        document_url:
+          type: string
+          description: URL to document.
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
   securitySchemes:
     clientSecretJwt:
       type: oauth2

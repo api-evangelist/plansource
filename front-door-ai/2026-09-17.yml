@@ -1,0 +1,26 @@
+# Front Door AI Index — plansource — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: plansource
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: plansource.com
+  final_host: plansource.com
+  ownership: own
+  owner: plansource
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 2
+  host_score: 2
+  density: 4.42
+  words: 452
+  tiers:
+    agentic: 0
+    core: 2
+    model: 0
+  ambiguous: 3
+  top_terms:
+    smart: 3
+    AI: 2

@@ -1,53 +1,37 @@
 {
   "provider": "plansource",
   "sources": [
-    "plansource-aca-api-openapi.yml",
-    "plansource-administrators-api-openapi.yml",
-    "plansource-all-api-openapi.yml",
-    "plansource-collections-api-openapi.yml",
-    "plansource-composites-api-openapi.yml",
-    "plansource-coverage-api-openapi.yml",
-    "plansource-demographic-api-openapi.yml",
-    "plansource-eoi-api-openapi.yml",
-    "plansource-page-content-api-openapi.yml",
-    "plansource-payroll-api-openapi.yml",
-    "plansource-processing-api-openapi.yml",
-    "plansource-resources-api-openapi.yml",
-    "plansource-security-api-openapi.yml"
+    "_original/plansource-admin-api-openapi-original.json"
   ],
   "outputs": [
     "plansource-aca-api-openapi.yml",
     "plansource-administrators-api-openapi.yml",
-    "plansource-all-api-openapi.yml",
     "plansource-collections-api-openapi.yml",
-    "plansource-composites-api-openapi.yml",
     "plansource-coverage-api-openapi.yml",
     "plansource-demographic-api-openapi.yml",
     "plansource-eoi-api-openapi.yml",
     "plansource-page-content-api-openapi.yml",
     "plansource-payroll-api-openapi.yml",
-    "plansource-processing-api-openapi.yml",
-    "plansource-resources-api-openapi.yml",
     "plansource-security-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
-    "plansource-aca-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "plansource-administrators-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "plansource-all-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "plansource-collections-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "plansource-composites-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "plansource-coverage-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "plansource-demographic-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "plansource-eoi-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "plansource-page-content-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "plansource-payroll-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "plansource-processing-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "plansource-resources-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
-    "plansource-security-api-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "plansource-admin-api-openapi-original.json: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "plansource-admin-api-openapi-original.json: multi-axis tagging (13 tags, 9 first tags, 2.96x duplication over 80 operations) \u2014 split on first tag, 80 operations narrowed",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "plansource-aca-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "plansource-administrators-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "plansource-collections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "plansource-coverage-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "plansource-demographic-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "plansource-eoi-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "plansource-page-content-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "plansource-payroll-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "plansource-security-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

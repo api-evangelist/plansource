@@ -71,14 +71,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/NoLinks500Error'
+      summary: Delete user sessions
+      x-summary-source: derived
+      operationId: deleteUserSessions
+      x-operation-id-source: derived
 components:
   schemas:
-    NoLinks500Error:
+    400Error:
       title: Error
-      required:
-      - error_code
-      - http_status
-      - message
       type: object
       properties:
         status:
@@ -109,24 +109,7 @@ components:
           - success
       example:
         status: success
-    404Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-    400Error:
+    401Error:
       title: Error
       type: object
       properties:
@@ -146,8 +129,29 @@ components:
         data:
           type: array
           items: {}
-    401Error:
+    404Error:
       title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
       type: object
       properties:
         status:

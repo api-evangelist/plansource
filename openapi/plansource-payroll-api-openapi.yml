@@ -183,6 +183,10 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get payroll coverages subscriber by id
+      x-summary-source: derived
+      operationId: getPayrollCoveragesSubscriberById
+      x-operation-id-source: derived
   /payroll_coverages_subscribers:
     get:
       tags:
@@ -367,14 +371,14 @@ paths:
                       http_status: 500
                       message: Internal error
                     data: []
+      summary: Get payroll coverages subscribers
+      x-summary-source: derived
+      operationId: getPayrollCoveragesSubscribers
+      x-operation-id-source: derived
 components:
   schemas:
-    NoLinks500Error:
+    400Error:
       title: Error
-      required:
-      - error_code
-      - http_status
-      - message
       type: object
       properties:
         status:
@@ -413,6 +417,43 @@ components:
         data:
           type: array
           items: {}
+    401Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
     PayrollCoveragesSubscriberModel:
       type: object
       properties:
@@ -505,45 +546,12 @@ components:
         changed_fields:
           type: array
           items: {}
-    404Error:
+    NoLinks500Error:
       title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-    400Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    401Error:
-      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
       type: object
       properties:
         status:
