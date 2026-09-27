@@ -619,151 +619,12 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    400Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    403Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    AdministratorModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        links:
-          type: array
-          items: {}
-        href:
-          type: string
-        rel:
-          type: string
-        id:
-          type: integer
-          format: int64
-        first_name:
-          type: string
-        last_name:
-          type: string
-        email:
-          type: string
-    body_10:
-      title: body
-      required:
-      - organization_codes
-      - roles
-      type: object
-      properties:
-        user:
-          $ref: '#/components/schemas/administratoriddisable_user'
-        roles:
-          type: array
-          description: List of role lookup_codes available to the logged_in API user.
-          items:
-            type: string
-        organization_codes:
-          type: array
-          description: List of one or more organization codes the administrator has access or belongs to.
-          items:
-            type: string
-        user_type:
-          type: string
-          description: The administrator user type - organization administrator or master administrator.
-          enum:
-          - org_admin
-          - master_admin
-    401Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    404Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
     administratoriddisable_user:
       required:
       - user_name
       type: object
       properties:
         user_name:
-          type: string
-    AdministratorDisable:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
           type: string
     AdminExtendedModel:
       type: object
@@ -849,6 +710,145 @@ components:
       - error_code
       - http_status
       - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    401Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    AdministratorDisable:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: string
+    400Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    AdministratorModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        id:
+          type: integer
+          format: int64
+        first_name:
+          type: string
+        last_name:
+          type: string
+        email:
+          type: string
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    body_10:
+      title: body
+      required:
+      - organization_codes
+      - roles
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/administratoriddisable_user'
+        roles:
+          type: array
+          description: List of role lookup_codes available to the logged_in API user.
+          items:
+            type: string
+        organization_codes:
+          type: array
+          description: List of one or more organization codes the administrator has access or belongs to.
+          items:
+            type: string
+        user_type:
+          type: string
+          description: The administrator user type - organization administrator or master administrator.
+          enum:
+          - org_admin
+          - master_admin
+    403Error:
+      title: Error
       type: object
       properties:
         status:
