@@ -758,37 +758,6 @@ paths:
       x-operation-id-source: derived
 components:
   requestBodies:
-    FormCompletions:
-      description: Subscriber EOI form completions.
-      content:
-        application/json:
-          schema:
-            title: body
-            type: object
-            properties:
-              decisions:
-                required:
-                - benefits
-                - completed
-                - ssn
-                type: object
-                properties:
-                  ssn:
-                    type: string
-                  benefits:
-                    type: string
-                  completed:
-                    type: string
-                    description: Completed or not completed.
-                    enum:
-                    - 'true'
-                    - 'false'
-                  expiration_date:
-                    type: string
-                    description: YYYY-MM-DD date format.
-                  reference_number:
-                    type: string
-      required: true
     Decisions:
       description: Subscriber EOI decision.
       content:
@@ -827,6 +796,37 @@ components:
                   original_effective_date:
                     type: string
                     description: YYYY-MM-DD date format.
+      required: true
+    FormCompletions:
+      description: Subscriber EOI form completions.
+      content:
+        application/json:
+          schema:
+            title: body
+            type: object
+            properties:
+              decisions:
+                required:
+                - benefits
+                - completed
+                - ssn
+                type: object
+                properties:
+                  ssn:
+                    type: string
+                  benefits:
+                    type: string
+                  completed:
+                    type: string
+                    description: Completed or not completed.
+                    enum:
+                    - 'true'
+                    - 'false'
+                  expiration_date:
+                    type: string
+                    description: YYYY-MM-DD date format.
+                  reference_number:
+                    type: string
       required: true
   schemas:
     NoLinks500Error:
@@ -873,7 +873,7 @@ components:
         data:
           type: array
           items: {}
-    400Error:
+    403Error:
       title: Error
       type: object
       properties:
@@ -893,32 +893,6 @@ components:
         data:
           type: array
           items: {}
-    EoiFormResponseOK:
-      type: object
-      properties:
-        status:
-          type: string
-        data:
-          type: object
-        valid_count:
-          type: number
-        failed_count:
-          type: number
-        failed_rows:
-          type: array
-          items: {}
-        ssn:
-          type: string
-        benefits:
-          type: string
-        completed:
-          type: string
-        expiration_date:
-          type: string
-        reference_number:
-          type: string
-        errors:
-          type: string
     EoiSubscriberModel:
       type: object
       properties:
@@ -973,6 +947,52 @@ components:
         dependents:
           type: array
           items: {}
+    400Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    EoiFormResponseOK:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: object
+        valid_count:
+          type: number
+        failed_count:
+          type: number
+        failed_rows:
+          type: array
+          items: {}
+        ssn:
+          type: string
+        benefits:
+          type: string
+        completed:
+          type: string
+        expiration_date:
+          type: string
+        reference_number:
+          type: string
+        errors:
+          type: string
     422Error:
       title: Error
       type: object
@@ -1035,26 +1055,6 @@ components:
           type: string
         error_code:
           type: string
-    403Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
   securitySchemes:
     clientSecretJwt:
       type: oauth2

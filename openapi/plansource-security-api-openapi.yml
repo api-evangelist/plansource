@@ -77,6 +77,18 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Success:
+      title: Success
+      required:
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+      example:
+        status: success
     NoLinks500Error:
       title: Error
       required:
@@ -141,18 +153,6 @@ components:
         data:
           type: array
           items: {}
-    Success:
-      title: Success
-      required:
-      - status
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-      example:
-        status: success
     404Error:
       title: Error
       type: object

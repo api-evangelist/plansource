@@ -381,21 +381,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Response:
-      title: Response
-      required:
-      - data
-      - status
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-          - failure
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OfferModel'
     Response_3:
       title: Response
       required:
@@ -435,6 +420,22 @@ components:
         data:
           type: array
           items: {}
+    Response_2:
+      title: Response
+      required:
+      - errors
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - failure
+          - success
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/404Error'
     OfferModel:
       required:
       - id
@@ -517,7 +518,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/403Error'
-    404Error:
+    403Error:
       title: Error
       type: object
       properties:
@@ -534,6 +535,9 @@ components:
           type: string
         error_code:
           type: string
+        data:
+          type: array
+          items: {}
     EnrolleeModel:
       required:
       - end_date
@@ -572,7 +576,22 @@ components:
         updated_at:
           type: string
           format: date
-    403Error:
+    Response:
+      title: Response
+      required:
+      - data
+      - status
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - failure
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OfferModel'
+    404Error:
       title: Error
       type: object
       properties:
@@ -589,25 +608,6 @@ components:
           type: string
         error_code:
           type: string
-        data:
-          type: array
-          items: {}
-    Response_2:
-      title: Response
-      required:
-      - errors
-      - status
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - failure
-          - success
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/404Error'
   securitySchemes:
     clientSecretJwt:
       type: oauth2

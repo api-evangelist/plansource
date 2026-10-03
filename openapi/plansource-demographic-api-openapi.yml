@@ -3718,323 +3718,7 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SubscriberModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        links:
-          type: array
-          items: {}
-        href:
-          type: string
-        rel:
-          type: string
-        id:
-          type: integer
-        subscriber_code:
-          type: string
-        first_name:
-          type: string
-        last_name:
-          type: string
-        middle_name:
-          type: string
-        address_1:
-          type: string
-        address_2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip_code:
-          type: string
-        country:
-          type: string
-        home_phone:
-          type: string
-        work_phone:
-          type: string
-        cell_phone:
-          type: string
-        gender:
-          type: string
-        hire_date:
-          type: string
-        birthdate:
-          type: string
-        ssn:
-          type: string
-        original_effective_date:
-          type: string
-        change_effective_date:
-          type: string
-        termination_date:
-          type: string
-        union_code:
-          type: string
-        employment_level:
-          type: string
-        pay_rate:
-          type: string
-        pay_type:
-          type: string
-        org_payroll_id:
-          type: integer
-        employee_number:
-          type: string
-        public_id:
-          type: integer
-        marital_status:
-          type: string
-        division:
-          type: string
-        location:
-          type: string
-        org_class:
-          type: string
-        business_title:
-          type: string
-        udef_1:
-          type: string
-        udef_2:
-          type: string
-        udef_3:
-          type: string
-        udef_4:
-          type: string
-        udef_5:
-          type: string
-        udef_6:
-          type: string
-        udef_7:
-          type: string
-        udef_8:
-          type: string
-        udef_9:
-          type: string
-        udef_10:
-          type: string
-        udef_11:
-          type: string
-        udef_12:
-          type: string
-        udef_13:
-          type: string
-        udef_14:
-          type: string
-        udef_15:
-          type: string
-        udef_16:
-          type: string
-        udef_17:
-          type: string
-        udef_18:
-          type: string
-        udef_19:
-          type: string
-        udef_20:
-          type: string
-        ee_code:
-          type: string
-        benefit_company:
-          type: string
-        original_hire_date:
-          type: string
-        seniority_date:
-          type: string
-        employment_status:
-          type: string
-        employment_status_starts_on:
-          type: string
-        employment_status_ends_on:
-          type: string
-        employee_type:
-          type: string
-        current_salary_effective_on:
-          type: string
-        current_salary:
-          type: string
-        benefit_deduction_group:
-          type: string
-        highly_compensated:
-          type: string
-        vip:
-          type: string
-        fmla:
-          type: string
-        name_suffix:
-          type: string
-        subscriber_status_id:
-          type: string
-        status_changed_at:
-          type: string
-        status_starts_on:
-          type: string
-        status_ends_on:
-          type: string
-        benefits_start_date:
-          type: string
-        benefits_end_date:
-          type: string
-        parent_dependent_id:
-          type: string
-        status_ends_on_expected:
-          type: string
-        subscriber_status_subtype_id:
-          type: string
-        org_admin_enroll_reason_id:
-          type: string
-        test_employee:
-          type: boolean
-        is_voluntary_termination:
-          type: string
-        hide_from_payroll:
-          type: string
-        termination_reason_id:
-          type: string
-        bank_account_type:
-          type: string
-        ssn_exported:
-          type: boolean
-        eligible_org_population_ids:
-          type: string
-        shareholder:
-          type: string
-        owner:
-          type: string
-        anthem_hcid:
-          type: string
-        anthem_member_code:
-          type: string
-        written_language:
-          type: string
-        spoken_language:
-          type: string
-        exclude_from_batch_import:
-          type: string
-        anthem_sub_id:
-          type: string
-        hours_per_week:
-          type: string
-        medicare_reason:
-          type: string
-        medicare_plan:
-          type: string
-        medicare_effective_date:
-          type: string
-        medicare_termination_date:
-          type: string
-        is_smoker:
-          type: string
-        anthem_emp_dept_code:
-          type: string
-        county:
-          type: string
-        udef_21:
-          type: string
-        udef_22:
-          type: string
-        udef_23:
-          type: string
-        udef_24:
-          type: string
-        udef_25:
-          type: string
-        udef_26:
-          type: string
-        udef_27:
-          type: string
-        udef_28:
-          type: string
-        udef_29:
-          type: string
-        udef_30:
-          type: string
-        is_aca_full_time_for_enrollment:
-          type: string
-        email:
-          type: string
-        user_name:
-          type: string
-        email2:
-          type: string
-        locked_at:
-          type: string
-        attemtped_logon_count:
-          type: integer
-        disabled_on:
-          type: string
-        preferred_locale:
-          type: string
-        benefit_salaries:
-          type: array
-          items: {}
-    BeneficiaryMetaModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        termination_reason:
-          type: array
-          items: {}
-    body:
-      title: body
-      type: object
-      properties:
-        termination_reason:
-          type: string
-          description: Valid values are based on what is retrieved from meta resource.
-        termination_date:
-          type: string
-          description: YYYY-MM-DD date format.
-        volunatary:
-          type: boolean
-    NoLinks500Error:
-      title: Error
-      required:
-      - error_code
-      - http_status
-      - message
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    body_1:
-      title: body
-      type: object
-      properties:
-        rehire_date:
-          type: string
-          description: YYYY-MM-DD date format.
-    400Error:
+    401Error:
       title: Error
       type: object
       properties:
@@ -4125,6 +3809,20 @@ components:
           type: string
         termination_date:
           type: string
+    body_6:
+      title: body
+      type: object
+      properties:
+        id:
+          type: string
+        termination_reason:
+          type: string
+          description: Valid values are based on what is retrieved from meta resource.
+        termination_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        volunatary:
+          type: boolean
     403Error:
       title: Error
       type: object
@@ -4145,14 +3843,6 @@ components:
         data:
           type: array
           items: {}
-    body_7:
-      title: body
-      type: object
-      properties:
-        id:
-          type: string
-        rehire_date:
-          description: YYYY-MM-DD date format.
     DependentMetaModel:
       type: object
       properties:
@@ -4185,7 +3875,7 @@ components:
         termination_reason:
           type: array
           items: {}
-    BeneficiarySubscriberIDModel:
+    MetaModel:
       type: object
       properties:
         status:
@@ -4196,89 +3886,52 @@ components:
         data:
           type: array
           items: {}
-        subscriber:
-          type: array
-          items: {}
-        links:
-          type: array
-          items: {}
-        href:
-          type: string
-        rel:
-          type: string
-        beneficiaries:
+        payroll_schedules:
           type: array
           items: {}
         id:
           type: integer
-        coverage_line_id:
-          type: integer
         name:
           type: string
-        relationship:
+        lookup_code:
           type: string
-        allocation:
-          type: string
-        primary_beneficiary:
+        is_smoker:
+          type: array
+          items: {}
+        update:
           type: boolean
-        address_1:
+        required:
+          type: boolean
+        caption:
           type: string
-        address_2:
+        data_type:
           type: string
-        city:
-          type: string
+        validation_data:
+          type: array
+          items: {}
+        employment_level:
+          type: array
+          items: {}
         state:
-          type: string
+          type: array
+          items: {}
         country:
-          type: string
-        zip_code:
-          type: string
-        udef_1:
-          type: string
-        udef_2:
-          type: string
-        udef_3:
-          type: string
-        udef_4:
-          type: string
-        udef_5:
-          type: string
-        udef_6:
-          type: string
-        udef_7:
-          type: string
-        udef_8:
-          type: string
-        udef_9:
-          type: string
-        udef_10:
-          type: string
-        original_effective_date:
-          type: string
-        change_effective_date:
-          type: string
-        termination_date:
-          type: string
-    401Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
           type: array
           items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
+        gender:
           type: array
           items: {}
+        marital_status:
+          type: array
+          items: {}
+        org_payroll_id:
+          type: array
+          items: {}
+        termination_reason:
+          type: array
+          items: {}
+        description:
+          type: string
     BeneficiaryModel:
       type: object
       properties:
@@ -4356,37 +4009,6 @@ components:
         termination_date:
           type: string
         test_employee:
-          type: boolean
-    404Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-    body_6:
-      title: body
-      type: object
-      properties:
-        id:
-          type: string
-        termination_reason:
-          type: string
-          description: Valid values are based on what is retrieved from meta resource.
-        termination_date:
-          type: string
-          description: YYYY-MM-DD date format.
-        volunatary:
           type: boolean
     body_5:
       title: body
@@ -4654,7 +4276,51 @@ components:
           type: string
         preferred_locale:
           type: string
-    MetaModel:
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    body_7:
+      title: body
+      type: object
+      properties:
+        id:
+          type: string
+        rehire_date:
+          description: YYYY-MM-DD date format.
+    body:
+      title: body
+      type: object
+      properties:
+        termination_reason:
+          type: string
+          description: Valid values are based on what is retrieved from meta resource.
+        termination_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        volunatary:
+          type: boolean
+    BeneficiaryMetaModel:
       type: object
       properties:
         status:
@@ -4665,52 +4331,9 @@ components:
         data:
           type: array
           items: {}
-        payroll_schedules:
-          type: array
-          items: {}
-        id:
-          type: integer
-        name:
-          type: string
-        lookup_code:
-          type: string
-        is_smoker:
-          type: array
-          items: {}
-        update:
-          type: boolean
-        required:
-          type: boolean
-        caption:
-          type: string
-        data_type:
-          type: string
-        validation_data:
-          type: array
-          items: {}
-        employment_level:
-          type: array
-          items: {}
-        state:
-          type: array
-          items: {}
-        country:
-          type: array
-          items: {}
-        gender:
-          type: array
-          items: {}
-        marital_status:
-          type: array
-          items: {}
-        org_payroll_id:
-          type: array
-          items: {}
         termination_reason:
           type: array
           items: {}
-        description:
-          type: string
     body_4:
       title: body
       type: object
@@ -4718,7 +4341,266 @@ components:
         termination_reason:
           type: string
           description: Valid values are based on what is retrieved from meta resource.
-    body_2:
+    SubscriberModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        id:
+          type: integer
+        subscriber_code:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        middle_name:
+          type: string
+        address_1:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country:
+          type: string
+        home_phone:
+          type: string
+        work_phone:
+          type: string
+        cell_phone:
+          type: string
+        gender:
+          type: string
+        hire_date:
+          type: string
+        birthdate:
+          type: string
+        ssn:
+          type: string
+        original_effective_date:
+          type: string
+        change_effective_date:
+          type: string
+        termination_date:
+          type: string
+        union_code:
+          type: string
+        employment_level:
+          type: string
+        pay_rate:
+          type: string
+        pay_type:
+          type: string
+        org_payroll_id:
+          type: integer
+        employee_number:
+          type: string
+        public_id:
+          type: integer
+        marital_status:
+          type: string
+        division:
+          type: string
+        location:
+          type: string
+        org_class:
+          type: string
+        business_title:
+          type: string
+        udef_1:
+          type: string
+        udef_2:
+          type: string
+        udef_3:
+          type: string
+        udef_4:
+          type: string
+        udef_5:
+          type: string
+        udef_6:
+          type: string
+        udef_7:
+          type: string
+        udef_8:
+          type: string
+        udef_9:
+          type: string
+        udef_10:
+          type: string
+        udef_11:
+          type: string
+        udef_12:
+          type: string
+        udef_13:
+          type: string
+        udef_14:
+          type: string
+        udef_15:
+          type: string
+        udef_16:
+          type: string
+        udef_17:
+          type: string
+        udef_18:
+          type: string
+        udef_19:
+          type: string
+        udef_20:
+          type: string
+        ee_code:
+          type: string
+        benefit_company:
+          type: string
+        original_hire_date:
+          type: string
+        seniority_date:
+          type: string
+        employment_status:
+          type: string
+        employment_status_starts_on:
+          type: string
+        employment_status_ends_on:
+          type: string
+        employee_type:
+          type: string
+        current_salary_effective_on:
+          type: string
+        current_salary:
+          type: string
+        benefit_deduction_group:
+          type: string
+        highly_compensated:
+          type: string
+        vip:
+          type: string
+        fmla:
+          type: string
+        name_suffix:
+          type: string
+        subscriber_status_id:
+          type: string
+        status_changed_at:
+          type: string
+        status_starts_on:
+          type: string
+        status_ends_on:
+          type: string
+        benefits_start_date:
+          type: string
+        benefits_end_date:
+          type: string
+        parent_dependent_id:
+          type: string
+        status_ends_on_expected:
+          type: string
+        subscriber_status_subtype_id:
+          type: string
+        org_admin_enroll_reason_id:
+          type: string
+        test_employee:
+          type: boolean
+        is_voluntary_termination:
+          type: string
+        hide_from_payroll:
+          type: string
+        termination_reason_id:
+          type: string
+        bank_account_type:
+          type: string
+        ssn_exported:
+          type: boolean
+        eligible_org_population_ids:
+          type: string
+        shareholder:
+          type: string
+        owner:
+          type: string
+        anthem_hcid:
+          type: string
+        anthem_member_code:
+          type: string
+        written_language:
+          type: string
+        spoken_language:
+          type: string
+        exclude_from_batch_import:
+          type: string
+        anthem_sub_id:
+          type: string
+        hours_per_week:
+          type: string
+        medicare_reason:
+          type: string
+        medicare_plan:
+          type: string
+        medicare_effective_date:
+          type: string
+        medicare_termination_date:
+          type: string
+        is_smoker:
+          type: string
+        anthem_emp_dept_code:
+          type: string
+        county:
+          type: string
+        udef_21:
+          type: string
+        udef_22:
+          type: string
+        udef_23:
+          type: string
+        udef_24:
+          type: string
+        udef_25:
+          type: string
+        udef_26:
+          type: string
+        udef_27:
+          type: string
+        udef_28:
+          type: string
+        udef_29:
+          type: string
+        udef_30:
+          type: string
+        is_aca_full_time_for_enrollment:
+          type: string
+        email:
+          type: string
+        user_name:
+          type: string
+        email2:
+          type: string
+        locked_at:
+          type: string
+        attemtped_logon_count:
+          type: integer
+        disabled_on:
+          type: string
+        preferred_locale:
+          type: string
+        benefit_salaries:
+          type: array
+          items: {}
+    body_3:
       title: body
       type: object
       properties:
@@ -4810,6 +4692,107 @@ components:
           type: string
         anthem_member_code:
           type: string
+    BeneficiarySubscriberIDModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        subscriber:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        beneficiaries:
+          type: array
+          items: {}
+        id:
+          type: integer
+        coverage_line_id:
+          type: integer
+        name:
+          type: string
+        relationship:
+          type: string
+        allocation:
+          type: string
+        primary_beneficiary:
+          type: boolean
+        address_1:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        zip_code:
+          type: string
+        udef_1:
+          type: string
+        udef_2:
+          type: string
+        udef_3:
+          type: string
+        udef_4:
+          type: string
+        udef_5:
+          type: string
+        udef_6:
+          type: string
+        udef_7:
+          type: string
+        udef_8:
+          type: string
+        udef_9:
+          type: string
+        udef_10:
+          type: string
+        original_effective_date:
+          type: string
+        change_effective_date:
+          type: string
+        termination_date:
+          type: string
+    body_1:
+      title: body
+      type: object
+      properties:
+        rehire_date:
+          type: string
+          description: YYYY-MM-DD date format.
+    400Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
     DependentModel:
       type: object
       properties:
@@ -4923,7 +4906,7 @@ components:
         cannot_terminate_dependents:
           type: array
           items: {}
-    body_3:
+    body_2:
       title: body
       type: object
       properties:
@@ -5014,6 +4997,23 @@ components:
         udef_10:
           type: string
         anthem_member_code:
+          type: string
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
           type: string
   requestBodies:
     Body2:
