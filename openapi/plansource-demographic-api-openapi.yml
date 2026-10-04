@@ -3718,163 +3718,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    401Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    BeneficiaryCoverageIDModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        beneficiaries:
-          type: array
-          items: {}
-        links:
-          type: array
-          items: {}
-        href:
-          type: string
-        rel:
-          type: string
-        id:
-          type: integer
-        coverage_line_id:
-          type: integer
-        name:
-          type: string
-        relationship:
-          type: string
-        allocation:
-          type: string
-        primary_beneficiary:
-          type: boolean
-        address_1:
-          type: string
-        address_2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        country:
-          type: string
-        zip_code:
-          type: string
-        udef_1:
-          type: string
-        udef_2:
-          type: string
-        udef_3:
-          type: string
-        udef_4:
-          type: string
-        udef_5:
-          type: string
-        udef_6:
-          type: string
-        udef_7:
-          type: string
-        udef_8:
-          type: string
-        udef_9:
-          type: string
-        udef_10:
-          type: string
-        original_effective_date:
-          type: string
-        change_effective_date:
-          type: string
-        termination_date:
-          type: string
-    body_6:
-      title: body
-      type: object
-      properties:
-        id:
-          type: string
-        termination_reason:
-          type: string
-          description: Valid values are based on what is retrieved from meta resource.
-        termination_date:
-          type: string
-          description: YYYY-MM-DD date format.
-        volunatary:
-          type: boolean
-    403Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    DependentMetaModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        hide_dependent_on_termination:
-          type: array
-          items: {}
-        gender:
-          type: array
-          items: {}
-        relationship_code:
-          type: array
-          items: {}
-        state:
-          type: array
-          items: {}
-        country:
-          type: array
-          items: {}
-        is_smoker:
-          type: array
-          items: {}
-        termination_reason:
-          type: array
-          items: {}
     MetaModel:
       type: object
       properties:
@@ -4010,6 +3853,227 @@ components:
           type: string
         test_employee:
           type: boolean
+    BeneficiaryMetaModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        termination_reason:
+          type: array
+          items: {}
+    BeneficiaryCoverageIDModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        beneficiaries:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        id:
+          type: integer
+        coverage_line_id:
+          type: integer
+        name:
+          type: string
+        relationship:
+          type: string
+        allocation:
+          type: string
+        primary_beneficiary:
+          type: boolean
+        address_1:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        zip_code:
+          type: string
+        udef_1:
+          type: string
+        udef_2:
+          type: string
+        udef_3:
+          type: string
+        udef_4:
+          type: string
+        udef_5:
+          type: string
+        udef_6:
+          type: string
+        udef_7:
+          type: string
+        udef_8:
+          type: string
+        udef_9:
+          type: string
+        udef_10:
+          type: string
+        original_effective_date:
+          type: string
+        change_effective_date:
+          type: string
+        termination_date:
+          type: string
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    401Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    body_3:
+      title: body
+      type: object
+      properties:
+        ssn:
+          type: string
+        first_name:
+          type: string
+        middle_name:
+          type: string
+        last_name:
+          type: string
+        name_suffix:
+          type: string
+        hide_dependent_on_termination:
+          type: boolean
+        qmcso_benefits:
+          type: string
+        termination_reason_id:
+          type: string
+        medicare_effective_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        medicare_plan:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        medicare_reason:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        medicare_termination_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        birthdate:
+          type: string
+          description: YYYY-MM-DD date format.
+        gender:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        relationship_code:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        qmcso:
+          type: string
+        lives_at_home:
+          type: boolean
+        address_1:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        zip_code:
+          type: string
+        country:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        is_smoker:
+          type: string
+          description: Valid values are based on what is retrieved from meta resources.
+        verified:
+          type: boolean
+        verification_expires_on:
+          type: string
+          description: YYYY-MM-DD date format.
+        termination_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        udef_1:
+          type: string
+        udef_2:
+          type: string
+        udef_3:
+          type: string
+        udef_4:
+          type: string
+        udef_5:
+          type: string
+        udef_6:
+          type: string
+        udef_7:
+          type: string
+        udef_8:
+          type: string
+        udef_9:
+          type: string
+        udef_10:
+          type: string
+        anthem_member_code:
+          type: string
     body_5:
       title: body
       type: object
@@ -4276,12 +4340,128 @@ components:
           type: string
         preferred_locale:
           type: string
-    NoLinks500Error:
+    body_1:
+      title: body
+      type: object
+      properties:
+        rehire_date:
+          type: string
+          description: YYYY-MM-DD date format.
+    DependentModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        dependents:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        id:
+          type: integer
+        public_id:
+          type: integer
+        ssn:
+          type: string
+        first_name:
+          type: string
+        middle_name:
+          type: string
+        last_name:
+          type: string
+        name_suffix:
+          type: string
+        hide_dependent_on_termination:
+          type: boolean
+        org_relationship_id:
+          type: integer
+        qmcso_benefits:
+          type: string
+        termination_reason_id:
+          type: string
+        medicare_effective_date:
+          type: string
+        medicare_plan:
+          type: string
+        medicare_reason:
+          type: string
+        medicare_termination_date:
+          type: string
+        birthdate:
+          type: string
+        gender:
+          type: string
+        relationship_code:
+          type: string
+        qmcso:
+          type: string
+        lives_at_home:
+          type: boolean
+        address_1:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        zip_code:
+          type: string
+        country:
+          type: string
+        is_smoker:
+          type: string
+        enroll_in_medicare:
+          type: boolean
+        verified:
+          type: boolean
+        verification_expires_on:
+          type: string
+        termination_date:
+          type: string
+        udef_1:
+          type: string
+        udef_2:
+          type: string
+        udef_3:
+          type: string
+        udef_4:
+          type: string
+        udef_5:
+          type: string
+        udef_6:
+          type: string
+        udef_7:
+          type: string
+        udef_8:
+          type: string
+        udef_9:
+          type: string
+        udef_10:
+          type: string
+        has_worksite_coverage:
+          type: boolean
+        anthem_member_code:
+          type: string
+        inactive_dependents:
+          type: array
+          items: {}
+        cannot_terminate_dependents:
+          type: array
+          items: {}
+    403Error:
       title: Error
-      required:
-      - error_code
-      - http_status
-      - message
       type: object
       properties:
         status:
@@ -4300,27 +4480,14 @@ components:
         data:
           type: array
           items: {}
-    body_7:
-      title: body
-      type: object
-      properties:
-        id:
-          type: string
-        rehire_date:
-          description: YYYY-MM-DD date format.
-    body:
+    body_4:
       title: body
       type: object
       properties:
         termination_reason:
           type: string
           description: Valid values are based on what is retrieved from meta resource.
-        termination_date:
-          type: string
-          description: YYYY-MM-DD date format.
-        volunatary:
-          type: boolean
-    BeneficiaryMetaModel:
+    DependentMetaModel:
       type: object
       properties:
         status:
@@ -4331,16 +4498,27 @@ components:
         data:
           type: array
           items: {}
+        hide_dependent_on_termination:
+          type: array
+          items: {}
+        gender:
+          type: array
+          items: {}
+        relationship_code:
+          type: array
+          items: {}
+        state:
+          type: array
+          items: {}
+        country:
+          type: array
+          items: {}
+        is_smoker:
+          type: array
+          items: {}
         termination_reason:
           type: array
           items: {}
-    body_4:
-      title: body
-      type: object
-      properties:
-        termination_reason:
-          type: string
-          description: Valid values are based on what is retrieved from meta resource.
     SubscriberModel:
       type: object
       properties:
@@ -4600,312 +4778,6 @@ components:
         benefit_salaries:
           type: array
           items: {}
-    body_3:
-      title: body
-      type: object
-      properties:
-        ssn:
-          type: string
-        first_name:
-          type: string
-        middle_name:
-          type: string
-        last_name:
-          type: string
-        name_suffix:
-          type: string
-        hide_dependent_on_termination:
-          type: boolean
-        qmcso_benefits:
-          type: string
-        termination_reason_id:
-          type: string
-        medicare_effective_date:
-          type: string
-          description: YYYY-MM-DD date format.
-        medicare_plan:
-          type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        medicare_reason:
-          type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        medicare_termination_date:
-          type: string
-          description: YYYY-MM-DD date format.
-        birthdate:
-          type: string
-          description: YYYY-MM-DD date format.
-        gender:
-          type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        relationship_code:
-          type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        qmcso:
-          type: string
-        lives_at_home:
-          type: boolean
-        address_1:
-          type: string
-        address_2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        zip_code:
-          type: string
-        country:
-          type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        is_smoker:
-          type: string
-          description: Valid values are based on what is retrieved from meta resources.
-        verified:
-          type: boolean
-        verification_expires_on:
-          type: string
-          description: YYYY-MM-DD date format.
-        termination_date:
-          type: string
-          description: YYYY-MM-DD date format.
-        udef_1:
-          type: string
-        udef_2:
-          type: string
-        udef_3:
-          type: string
-        udef_4:
-          type: string
-        udef_5:
-          type: string
-        udef_6:
-          type: string
-        udef_7:
-          type: string
-        udef_8:
-          type: string
-        udef_9:
-          type: string
-        udef_10:
-          type: string
-        anthem_member_code:
-          type: string
-    BeneficiarySubscriberIDModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        subscriber:
-          type: array
-          items: {}
-        links:
-          type: array
-          items: {}
-        href:
-          type: string
-        rel:
-          type: string
-        beneficiaries:
-          type: array
-          items: {}
-        id:
-          type: integer
-        coverage_line_id:
-          type: integer
-        name:
-          type: string
-        relationship:
-          type: string
-        allocation:
-          type: string
-        primary_beneficiary:
-          type: boolean
-        address_1:
-          type: string
-        address_2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        country:
-          type: string
-        zip_code:
-          type: string
-        udef_1:
-          type: string
-        udef_2:
-          type: string
-        udef_3:
-          type: string
-        udef_4:
-          type: string
-        udef_5:
-          type: string
-        udef_6:
-          type: string
-        udef_7:
-          type: string
-        udef_8:
-          type: string
-        udef_9:
-          type: string
-        udef_10:
-          type: string
-        original_effective_date:
-          type: string
-        change_effective_date:
-          type: string
-        termination_date:
-          type: string
-    body_1:
-      title: body
-      type: object
-      properties:
-        rehire_date:
-          type: string
-          description: YYYY-MM-DD date format.
-    400Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    DependentModel:
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        data:
-          type: array
-          items: {}
-        dependents:
-          type: array
-          items: {}
-        links:
-          type: array
-          items: {}
-        href:
-          type: string
-        rel:
-          type: string
-        id:
-          type: integer
-        public_id:
-          type: integer
-        ssn:
-          type: string
-        first_name:
-          type: string
-        middle_name:
-          type: string
-        last_name:
-          type: string
-        name_suffix:
-          type: string
-        hide_dependent_on_termination:
-          type: boolean
-        org_relationship_id:
-          type: integer
-        qmcso_benefits:
-          type: string
-        termination_reason_id:
-          type: string
-        medicare_effective_date:
-          type: string
-        medicare_plan:
-          type: string
-        medicare_reason:
-          type: string
-        medicare_termination_date:
-          type: string
-        birthdate:
-          type: string
-        gender:
-          type: string
-        relationship_code:
-          type: string
-        qmcso:
-          type: string
-        lives_at_home:
-          type: boolean
-        address_1:
-          type: string
-        address_2:
-          type: string
-        city:
-          type: string
-        state:
-          type: string
-        zip_code:
-          type: string
-        country:
-          type: string
-        is_smoker:
-          type: string
-        enroll_in_medicare:
-          type: boolean
-        verified:
-          type: boolean
-        verification_expires_on:
-          type: string
-        termination_date:
-          type: string
-        udef_1:
-          type: string
-        udef_2:
-          type: string
-        udef_3:
-          type: string
-        udef_4:
-          type: string
-        udef_5:
-          type: string
-        udef_6:
-          type: string
-        udef_7:
-          type: string
-        udef_8:
-          type: string
-        udef_9:
-          type: string
-        udef_10:
-          type: string
-        has_worksite_coverage:
-          type: boolean
-        anthem_member_code:
-          type: string
-        inactive_dependents:
-          type: array
-          items: {}
-        cannot_terminate_dependents:
-          type: array
-          items: {}
     body_2:
       title: body
       type: object
@@ -4998,6 +4870,20 @@ components:
           type: string
         anthem_member_code:
           type: string
+    body_6:
+      title: body
+      type: object
+      properties:
+        id:
+          type: string
+        termination_reason:
+          type: string
+          description: Valid values are based on what is retrieved from meta resource.
+        termination_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        volunatary:
+          type: boolean
     404Error:
       title: Error
       type: object
@@ -5015,57 +4901,121 @@ components:
           type: string
         error_code:
           type: string
+    400Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    body_7:
+      title: body
+      type: object
+      properties:
+        id:
+          type: string
+        rehire_date:
+          description: YYYY-MM-DD date format.
+    body:
+      title: body
+      type: object
+      properties:
+        termination_reason:
+          type: string
+          description: Valid values are based on what is retrieved from meta resource.
+        termination_date:
+          type: string
+          description: YYYY-MM-DD date format.
+        volunatary:
+          type: boolean
+    BeneficiarySubscriberIDModel:
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        data:
+          type: array
+          items: {}
+        subscriber:
+          type: array
+          items: {}
+        links:
+          type: array
+          items: {}
+        href:
+          type: string
+        rel:
+          type: string
+        beneficiaries:
+          type: array
+          items: {}
+        id:
+          type: integer
+        coverage_line_id:
+          type: integer
+        name:
+          type: string
+        relationship:
+          type: string
+        allocation:
+          type: string
+        primary_beneficiary:
+          type: boolean
+        address_1:
+          type: string
+        address_2:
+          type: string
+        city:
+          type: string
+        state:
+          type: string
+        country:
+          type: string
+        zip_code:
+          type: string
+        udef_1:
+          type: string
+        udef_2:
+          type: string
+        udef_3:
+          type: string
+        udef_4:
+          type: string
+        udef_5:
+          type: string
+        udef_6:
+          type: string
+        udef_7:
+          type: string
+        udef_8:
+          type: string
+        udef_9:
+          type: string
+        udef_10:
+          type: string
+        original_effective_date:
+          type: string
+        change_effective_date:
+          type: string
+        termination_date:
+          type: string
   requestBodies:
-    Body2:
-      content:
-        application/json:
-          schema:
-            title: body
-            type: object
-            properties:
-              coverage_line_id:
-                type: integer
-              name:
-                type: string
-              relationship:
-                type: string
-              allocation:
-                type: string
-              primary_beneficiary:
-                type: boolean
-              address_1:
-                type: string
-              address_2:
-                type: string
-              city:
-                type: string
-              state:
-                type: string
-              country:
-                type: string
-              zip_code:
-                type: string
-              udef_1:
-                type: string
-              udef_2:
-                type: string
-              udef_3:
-                type: string
-              udef_4:
-                type: string
-              udef_5:
-                type: string
-              udef_6:
-                type: string
-              udef_7:
-                type: string
-              udef_8:
-                type: string
-              udef_9:
-                type: string
-              udef_10:
-                type: string
-      required: true
     Body:
       content:
         application/json:
@@ -5332,6 +5282,56 @@ components:
               disabled_on:
                 type: string
               preferred_locale:
+                type: string
+      required: true
+    Body2:
+      content:
+        application/json:
+          schema:
+            title: body
+            type: object
+            properties:
+              coverage_line_id:
+                type: integer
+              name:
+                type: string
+              relationship:
+                type: string
+              allocation:
+                type: string
+              primary_beneficiary:
+                type: boolean
+              address_1:
+                type: string
+              address_2:
+                type: string
+              city:
+                type: string
+              state:
+                type: string
+              country:
+                type: string
+              zip_code:
+                type: string
+              udef_1:
+                type: string
+              udef_2:
+                type: string
+              udef_3:
+                type: string
+              udef_4:
+                type: string
+              udef_5:
+                type: string
+              udef_6:
+                type: string
+              udef_7:
+                type: string
+              udef_8:
+                type: string
+              udef_9:
+                type: string
+              udef_10:
                 type: string
       required: true
   securitySchemes:

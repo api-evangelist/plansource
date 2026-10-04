@@ -117,12 +117,25 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    NoLinks500Error:
+    404Error:
       title: Error
-      required:
-      - error_code
-      - http_status
-      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    400Error:
+      title: Error
       type: object
       properties:
         status:
@@ -161,20 +174,6 @@ components:
         data:
           type: array
           items: {}
-    OrganizationsModel:
-      type: object
-      properties:
-        status:
-          type: string
-        data:
-          type: array
-          items: {}
-        id:
-          type: integer
-        name:
-          type: string
-        organization_code:
-          type: string
     403Error:
       title: Error
       type: object
@@ -195,8 +194,26 @@ components:
         data:
           type: array
           items: {}
-    400Error:
+    OrganizationsModel:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: array
+          items: {}
+        id:
+          type: integer
+        name:
+          type: string
+        organization_code:
+          type: string
+    NoLinks500Error:
       title: Error
+      required:
+      - error_code
+      - http_status
+      - message
       type: object
       properties:
         status:
@@ -215,23 +232,6 @@ components:
         data:
           type: array
           items: {}
-    404Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
   securitySchemes:
     clientSecretJwt:
       type: oauth2

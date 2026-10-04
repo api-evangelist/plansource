@@ -757,84 +757,54 @@ paths:
       operationId: putEoiFormCompletions
       x-operation-id-source: derived
 components:
-  requestBodies:
-    Decisions:
-      description: Subscriber EOI decision.
-      content:
-        application/json:
-          schema:
-            title: body
-            type: object
-            properties:
-              decisions:
-                required:
-                - action
-                - benefit_lookup_code
-                - effective_date
-                - ssn
-                type: object
-                properties:
-                  ssn:
-                    type: string
-                  benefit_lookup_code:
-                    type: string
-                  action:
-                    type: string
-                    description: Action for processing pending EOI.
-                    enum:
-                    - approve_all
-                    - approve_part
-                    - pend_remaining
-                    - deny_permanently
-                    - expire_all
-                    - deny_all
-                  approved_volume:
-                    type: string
-                  effective_date:
-                    type: string
-                    description: YYYY-MM-DD date format.
-                  original_effective_date:
-                    type: string
-                    description: YYYY-MM-DD date format.
-      required: true
-    FormCompletions:
-      description: Subscriber EOI form completions.
-      content:
-        application/json:
-          schema:
-            title: body
-            type: object
-            properties:
-              decisions:
-                required:
-                - benefits
-                - completed
-                - ssn
-                type: object
-                properties:
-                  ssn:
-                    type: string
-                  benefits:
-                    type: string
-                  completed:
-                    type: string
-                    description: Completed or not completed.
-                    enum:
-                    - 'true'
-                    - 'false'
-                  expiration_date:
-                    type: string
-                    description: YYYY-MM-DD date format.
-                  reference_number:
-                    type: string
-      required: true
   schemas:
-    NoLinks500Error:
+    422Error:
       title: Error
-      required:
-      - error_code
-      - http_status
-      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    EoiDecisionResponseOK:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: object
+        valid_count:
+          type: number
+        failed_count:
+          type: number
+        failed_rows:
+          type: array
+          items: {}
+        ssn:
+          type: string
+        benefit_lookup_code:
+          type: string
+        action:
+          type: string
+        approved_volume:
+          type: string
+        effective_date:
+          type: string
+        original_effective_date:
+          type: string
+        errors:
+          type: string
+    400Error:
+      title: Error
       type: object
       properties:
         status:
@@ -873,7 +843,7 @@ components:
         data:
           type: array
           items: {}
-    403Error:
+    404Error:
       title: Error
       type: object
       properties:
@@ -890,9 +860,6 @@ components:
           type: string
         error_code:
           type: string
-        data:
-          type: array
-          items: {}
     EoiSubscriberModel:
       type: object
       properties:
@@ -947,7 +914,7 @@ components:
         dependents:
           type: array
           items: {}
-    400Error:
+    403Error:
       title: Error
       type: object
       properties:
@@ -993,8 +960,12 @@ components:
           type: string
         errors:
           type: string
-    422Error:
+    NoLinks500Error:
       title: Error
+      required:
+      - error_code
+      - http_status
+      - message
       type: object
       properties:
         status:
@@ -1009,52 +980,81 @@ components:
         details:
           type: string
         error_code:
-          type: string
-    EoiDecisionResponseOK:
-      type: object
-      properties:
-        status:
           type: string
         data:
-          type: object
-        valid_count:
-          type: number
-        failed_count:
-          type: number
-        failed_rows:
           type: array
           items: {}
-        ssn:
-          type: string
-        benefit_lookup_code:
-          type: string
-        action:
-          type: string
-        approved_volume:
-          type: string
-        effective_date:
-          type: string
-        original_effective_date:
-          type: string
-        errors:
-          type: string
-    404Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
+  requestBodies:
+    FormCompletions:
+      description: Subscriber EOI form completions.
+      content:
+        application/json:
+          schema:
+            title: body
+            type: object
+            properties:
+              decisions:
+                required:
+                - benefits
+                - completed
+                - ssn
+                type: object
+                properties:
+                  ssn:
+                    type: string
+                  benefits:
+                    type: string
+                  completed:
+                    type: string
+                    description: Completed or not completed.
+                    enum:
+                    - 'true'
+                    - 'false'
+                  expiration_date:
+                    type: string
+                    description: YYYY-MM-DD date format.
+                  reference_number:
+                    type: string
+      required: true
+    Decisions:
+      description: Subscriber EOI decision.
+      content:
+        application/json:
+          schema:
+            title: body
+            type: object
+            properties:
+              decisions:
+                required:
+                - action
+                - benefit_lookup_code
+                - effective_date
+                - ssn
+                type: object
+                properties:
+                  ssn:
+                    type: string
+                  benefit_lookup_code:
+                    type: string
+                  action:
+                    type: string
+                    description: Action for processing pending EOI.
+                    enum:
+                    - approve_all
+                    - approve_part
+                    - pend_remaining
+                    - deny_permanently
+                    - expire_all
+                    - deny_all
+                  approved_volume:
+                    type: string
+                  effective_date:
+                    type: string
+                    description: YYYY-MM-DD date format.
+                  original_effective_date:
+                    type: string
+                    description: YYYY-MM-DD date format.
+      required: true
   securitySchemes:
     clientSecretJwt:
       type: oauth2

@@ -77,24 +77,25 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Success:
-      title: Success
-      required:
-      - status
+    404Error:
+      title: Error
       type: object
       properties:
         status:
           type: string
-          enum:
-          - success
-      example:
-        status: success
-    NoLinks500Error:
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    400Error:
       title: Error
-      required:
-      - error_code
-      - http_status
-      - message
       type: object
       properties:
         status:
@@ -133,8 +134,24 @@ components:
         data:
           type: array
           items: {}
-    400Error:
+    Success:
+      title: Success
+      required:
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+      example:
+        status: success
+    NoLinks500Error:
       title: Error
+      required:
+      - error_code
+      - http_status
+      - message
       type: object
       properties:
         status:
@@ -153,23 +170,6 @@ components:
         data:
           type: array
           items: {}
-    404Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
   securitySchemes:
     clientSecretJwt:
       type: oauth2
