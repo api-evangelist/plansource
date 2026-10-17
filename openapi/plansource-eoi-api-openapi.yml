@@ -758,108 +758,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    422Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-    EoiDecisionResponseOK:
-      type: object
-      properties:
-        status:
-          type: string
-        data:
-          type: object
-        valid_count:
-          type: number
-        failed_count:
-          type: number
-        failed_rows:
-          type: array
-          items: {}
-        ssn:
-          type: string
-        benefit_lookup_code:
-          type: string
-        action:
-          type: string
-        approved_volume:
-          type: string
-        effective_date:
-          type: string
-        original_effective_date:
-          type: string
-        errors:
-          type: string
-    400Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    401Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
-    404Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
     EoiSubscriberModel:
       type: object
       properties:
@@ -914,26 +812,6 @@ components:
         dependents:
           type: array
           items: {}
-    403Error:
-      title: Error
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
     EoiFormResponseOK:
       type: object
       properties:
@@ -960,6 +838,80 @@ components:
           type: string
         errors:
           type: string
+    422Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    404Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+    401Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    403Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
     NoLinks500Error:
       title: Error
       required:
@@ -984,6 +936,54 @@ components:
         data:
           type: array
           items: {}
+    400Error:
+      title: Error
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
+    EoiDecisionResponseOK:
+      type: object
+      properties:
+        status:
+          type: string
+        data:
+          type: object
+        valid_count:
+          type: number
+        failed_count:
+          type: number
+        failed_rows:
+          type: array
+          items: {}
+        ssn:
+          type: string
+        benefit_lookup_code:
+          type: string
+        action:
+          type: string
+        approved_volume:
+          type: string
+        effective_date:
+          type: string
+        original_effective_date:
+          type: string
+        errors:
+          type: string
   requestBodies:
     FormCompletions:
       description: Subscriber EOI form completions.

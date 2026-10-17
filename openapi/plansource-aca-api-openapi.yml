@@ -381,6 +381,21 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    Response_3:
+      title: Response
+      required:
+      - data
+      - status
+      properties:
+        status:
+          type: string
+          enum:
+          - success
+          - failure
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/EnrolleeModel'
     404Error:
       title: Error
       type: object
@@ -398,21 +413,6 @@ components:
           type: string
         error_code:
           type: string
-    Response:
-      title: Response
-      required:
-      - data
-      - status
-      properties:
-        status:
-          type: string
-          enum:
-          - success
-          - failure
-        data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OfferModel'
     Response_1:
       title: Response
       required:
@@ -429,7 +429,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/403Error'
-    Response_3:
+    Response:
       title: Response
       required:
       - data
@@ -443,7 +443,31 @@ components:
         data:
           type: array
           items:
-            $ref: '#/components/schemas/EnrolleeModel'
+            $ref: '#/components/schemas/OfferModel'
+    NoLinks500Error:
+      title: Error
+      required:
+      - error_code
+      - http_status
+      - message
+      type: object
+      properties:
+        status:
+          type: string
+        errors:
+          type: array
+          items: {}
+        http_status:
+          type: integer
+        message:
+          type: string
+        details:
+          type: string
+        error_code:
+          type: string
+        data:
+          type: array
+          items: {}
     403Error:
       title: Error
       type: object
@@ -502,6 +526,22 @@ components:
         updated_at:
           type: string
           format: date
+    Response_2:
+      title: Response
+      required:
+      - errors
+      - status
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - failure
+          - success
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/404Error'
     OfferModel:
       required:
       - id
@@ -568,46 +608,6 @@ components:
         updated_at:
           type: string
           format: date
-    Response_2:
-      title: Response
-      required:
-      - errors
-      - status
-      type: object
-      properties:
-        status:
-          type: string
-          enum:
-          - failure
-          - success
-        errors:
-          type: array
-          items:
-            $ref: '#/components/schemas/404Error'
-    NoLinks500Error:
-      title: Error
-      required:
-      - error_code
-      - http_status
-      - message
-      type: object
-      properties:
-        status:
-          type: string
-        errors:
-          type: array
-          items: {}
-        http_status:
-          type: integer
-        message:
-          type: string
-        details:
-          type: string
-        error_code:
-          type: string
-        data:
-          type: array
-          items: {}
   securitySchemes:
     clientSecretJwt:
       type: oauth2
